@@ -1,8 +1,22 @@
 # WEBWORLD
 
-Ride a painterly, Helsinki-inspired station district as a student on an electric scooter. Collect compute packets, deliver them to the Rautatientori terminal, and use **SYNC REALITY** to turn a headline into a new mission and change the city's atmosphere, robots, drones, billboards, courier traffic, and dialogue.
+Ride through oil-painted Helsinki under animated northern lights as a student on an electric scooter. Collect compute packets, deliver them to the Rautatientori terminal, and use **SYNC REALITY** to turn a headline into a new mission and change the city's atmosphere, robots, drones, billboards, courier traffic, and dialogue.
 
 The current application lives at the **root of this Junction repository**. `starry-study/reproduction/` contains the earlier local reference version.
+
+## Oil-paint night edition
+
+The city, student, scooter, NPCs, mission props and menus share an oil-paint treatment
+adapted from [Patch’s oil-paint](https://patch.gg/blendi/oil-paint). The original
+reference’s three animated aurora curtains, stars and moon now run inside WEBWORLD’s
+renderer. Warm windows and the scooter headlight illuminate the blue-green city.
+The title frames that same live night scene and flies into it when you start.
+Reduced motion freezes the aurora and skips the long entrance/return flights.
+
+The reference is remixed at https://patch.gg/nam-pham/oil-paint. Only its rendering
+code is reused; no reference movement, physics or demo world replaces this game.
+Source, modifications and MIT notice: `public/engine/oil-paint/NOTICE.md`.
+All graphics are local; Patch sign-in is not needed to play.
 
 ## Start
 
@@ -48,7 +62,7 @@ Express retrieves a sourced article, asks Gemini for structured mission data, an
 
 **Verification status:** this workspace had no provider keys configured during implementation. The missing-configuration path was exercised against the real local backend. Successful and malformed API responses were tested using explicit browser fixtures. A real Context.dev → Gemini request still requires credentials and a model accessible to the account.
 
-The gallery now shows a live painted view of the playable city; the approved Helsinki illustration is retained as artwork. The daytime sky, student/scooter and streetscape are rendered in 3D using the existing engine. Runtime image generation, generated voices, and video broadcasts are later extensions. The original synthesized game sounds remain active. Original village greetings are disabled so nearby robots and drones show the current scenario dialogue.
+The gallery now shows a live painted view of the playable city; the approved Helsinki illustration is retained as artwork. The aurora sky, student/scooter and streetscape are rendered in 3D using the existing engine. Runtime image generation, generated voices, and video broadcasts are later extensions. The original synthesized game sounds remain active. Original village greetings are disabled so nearby robots and drones show the current scenario dialogue.
 
 ## Copy into another repository
 
@@ -88,7 +102,7 @@ The browser checks use an installed Google Chrome through Playwright. `WEBWORLD_
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `public/engine/game.js`            | Readably formatted authorized derivative of the captured game. Original movement, camera, rendering, geometry and posing. Changes include the character palette/head, destination names, panorama, portal layout, and adapter hook. |
 | `public/engine/webworld.js`        | Signs, mission markers, robots, drones, courier carts, scenario atmosphere, and the controlled game interface.                                                                                                                      |
-| `public/engine/helsinki.js`        | Daylight palette and sky, original painted material integration, architectural details, birches, tram and tower clock.                                                                                                              |
+| `public/engine/helsinki.js`        | Night palette, aurora installation, shared oil-paint materials and geometry helpers.                                                                                                              |
 | `public/engine/portal.js`          | Shared engine-clock timeline for the gallery frame, painting zoom/dissolve and return transition.                                                                                                                                   |
 | `public/engine/student-scooter.js` | Student/scooter skin attached to the original rider rig; original steering, parking, spins, flips and flight wings.                                                                                                                 |
 | `src/webworld/main.ts`             | Mission progression, HUD, source display, Demo/Live flow, and input for terminal interactions.                                                                                                                                      |
@@ -97,9 +111,9 @@ The browser checks use an installed Google Chrome through Playwright. `WEBWORLD_
 | `src/shared/schema.ts`             | Permitted mission actions, locations, world changes, and validation rules.                                                                                                                                                          |
 | `server/director.ts`               | Gemini instructions and structured output parsing.                                                                                                                                                                                  |
 
-The Helsinki art pass uses the existing street layout, building geometry, world curvature and collision system. It is an artistic interpretation, not an accurate Helsinki street map. Pale plaster, copper roofs, painterly clouds, birches, flower boxes, a parked tram and clock details replace the night palette. The generated painting is a 2D portal asset; the playable scene uses procedural 3D geometry.
+The active map retains the sourced OSM footprint, street and shoreline geometry. Roof colours, windows, trees and brushwork are stylized; this is not a surveyed 3D reconstruction. The generated Helsinki illustration remains a reference asset; the entrance and gameplay render the actual 3D city.
 
-Riding, walking, sprinting, jumping, flight, tricks, chase camera, orbit/zoom, scoring and mission rules retain their existing implementations. The student/scooter is a visual skin on the original rig. Added scenery and actors have no new traffic collision or combat system. SYNC REALITY still changes missions, actors and atmosphere; its three colour treatments now all remain daylight.
+Riding, walking, sprinting, jumping, flight, tricks, chase camera, orbit/zoom, scoring and mission rules retain their existing implementations. The student/scooter is a visual skin on the original rig. Added scenery and actors have no new traffic collision or combat system. SYNC REALITY still changes missions, actors and atmosphere; its three colour treatments now all remain moonlit beneath the aurora.
 
 The gallery frame reads the painting’s actual aspect ratio. The original camera dive remains, with a continuous live scene behind the expanding frame. The return runs this visual timeline in reverse. Green HUD panels retain the news mode selector, source attribution and mission controls.
 
@@ -113,7 +127,7 @@ The previously approved built-in image-generation artwork is now copied into thi
 - `docs/art-direction/helsinki-environment-kit.png` — approved environment reference sheet.
 - `docs/art-direction/helsinki-prompts.md` — the original generation prompts and visual direction.
 
-No new image generation or provider call is required to play. The former night panorama and sky files are retained for reference; the active sky uses a lightweight procedural daylight shader with the original projection and painted postprocessing.
+No new image generation or provider call is required to play. The former night panorama and sky files are retained for reference; the active sky uses the imported procedural aurora, stars and painted sky wash with the original projection and postprocessing.
 
 Browser checks also verify the artwork aspect ratio, rendering without shader errors, and orbit/zoom while braking. Screenshots in `output/webworld/` include the portal, riding, student/scooter side view, walking, flight, scenario colour treatments and mobile layout. Live provider success remains tested through explicit fixtures unless real keys are configured.
 

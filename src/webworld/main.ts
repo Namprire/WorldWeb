@@ -1,5 +1,6 @@
 import "./local-services";
 import "./webworld.css";
+import "./oil-paint.css";
 import { getDemoEvent } from "../shared/demo";
 import { syncResultSchema, type SyncResult } from "../shared/schema";
 

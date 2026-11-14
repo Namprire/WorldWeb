@@ -5,7 +5,8 @@ import {
   collisionBuildings,
   districtBounds,
 } from "./helsinki-geography.js";
-export function installHelsinkiMap(engine, helpers) {
+import { createFoliagePainter } from "./oil-paint/foliage.js";
+export function installHelsinkiMap(engine, helpers, brushAtlas) {
   const { builder, mesh, ellipsoid, line, colors: c } = helpers;
   engine.legacyWorld.group.visible = false;
   engine.legacyWorld.retarget =
@@ -47,8 +48,8 @@ export function installHelsinkiMap(engine, helpers) {
       e[1],
     );
   }
-  function polygon(b, feature, y, color, kind) {
-    b.color(color).data(kind, 0.43, 1, 0);
+  function polygon(b, feature, y, color, kind, seed = 0.43) {
+    b.color(color).data(kind, seed, 1, 0);
     const points = feature.rings.flat();
     for (const t of feature.triangles)
       tri(b, points[t[0]], points[t[1]], points[t[2]], y);
@@ -175,7 +176,7 @@ export function installHelsinkiMap(engine, helpers) {
             : engine.kinds.WALL,
           seed,
           Math.max(1, (top - bottom) / 3.2),
-          0,
+          .16 + seed * .42,
         );
         b.quad(
           b.pl(d[0], bottom, d[1]),
@@ -227,33 +228,42 @@ export function installHelsinkiMap(engine, helpers) {
           );
         }
       }
-    } else polygon(b, building, building.h, c.copper, engine.kinds.ROOF);
+    } else polygon(b, building, building.h, c.copper, engine.kinds.ROOF, seed);
     finish(b, building.bounds);
   }
   const trees = new Map();
+  const foliage = createFoliagePainter(engine, brushAtlas);
   for (let i = 0; i < mapData.trees.length; i++) {
     const [x, z] = mapData.trees[i],
       key = `${Math.floor(x / 100)},${Math.floor(z / 100)}`;
     if (!trees.has(key))
       trees.set(key, {
         b: builder(),
+        paint: foliage.batch(),
         bounds: [x - 100, z - 100, x + 100, z + 100],
       });
-    const b = trees.get(key).b;
+    const tile = trees.get(key);
+    const b = tile.b;
+    foliage.tree(tile.paint, x, z, i);
     line(b, [x, 0, z], [x, 5, z], 0.18, c.bark);
     ellipsoid(
       b,
       x,
       5.5,
       z,
-      2,
-      2.5,
-      2,
+      1.65,
+      2.1,
+      1.65,
       i % 3 ? c.leaf : c.green,
       engine.kinds.LEAF,
     );
   }
-  for (const t of trees.values()) finish(t.b, t.bounds, 220);
+  for (const t of trees.values()) {
+    finish(t.b, t.bounds, 220);
+    const m = foliage.mesh(t.paint);
+    root.add(m);
+    groups.push({ m, bounds: t.bounds, range: 220 });
+  }
   engine.setMapProbe(districtProbe, (ctx) => {
     const P = engine.player,
       visible = (bb) =>
@@ -285,7 +295,8 @@ export function installHelsinkiMap(engine, helpers) {
     }
     for (const f of districtBuildings) fill(f, "#846c58");
   });
-  engine.setEntrance(30, 230, 95, -0.36);
+  // Give the actual northern sky room in the title's live painting.
+  engine.setEntrance(30, 230, 65, -0.06);
   return {
     name: "Central Helsinki · OpenStreetMap",
     buildings: districtBuildings,

@@ -36,7 +36,7 @@ try {
     await page.evaluate(
       () =>
         window.__webworldEngine.getSnapshot().presentation ===
-        "helsinki-daylight",
+        "helsinki-aurora",
     ),
   );
   check(

@@ -1,13 +1,17 @@
-/* Daylight materials and shared geometry helpers. District layout lives in helsinki-map.js. */
+/* Moonlit Helsinki materials; the geographic layout stays in helsinki-real-map.js. */
+import { installAurora } from "./oil-paint/aurora.js";
 export const helsinkiSurfacePalette = `
   // Helsinki plaster, oxidised copper and pale granite, under the original paint strokes.
   if (gIndoor < 0.5) {
     if (kind == 1.0) {
       vec3 plaster = seed < .30 ? vec3(.78,.61,.34) : seed < .60 ? vec3(.70,.43,.34) : vec3(.80,.74,.57);
       base = mix(base, plaster, .88);
-    } else if (kind == 2.0) base = mix(base,vec3(.13,.28,.23),.83);
-    else if (kind == 3.0 || kind == 7.0) base = mix(base,vec3(.45,.46,.40),.88);
-    else if (kind == 4.0) base = mix(base,vec3(.52,.24,.15),.80);
+    } else if (kind == 2.0) {
+      vec3 roof = seed < .24 ? vec3(.18,.23,.26) : seed < .43 ? vec3(.32,.20,.14) : vec3(.12,.28,.25);
+      base = mix(base,roof,.88);
+    }
+    else if (kind == 3.0 || kind == 7.0) base = mix(base,vec3(.40,.39,.35),.88);
+    else if (kind == 4.0) base = mix(base,vec3(.23,.27,.29),.80);
     else if (kind == 5.0 || kind == 13.0) base = mix(base,vec3(.25,.37,.10),.72);
     else if (kind == 8.0 || kind == 9.0) base = mix(base,vec3(.34,.43,.10),.65);
     else if (kind == 11.0) base = mix(base,vec3(.66,.60,.46),.70);
@@ -15,7 +19,7 @@ export const helsinkiSurfacePalette = `
   }
 `;
 
-export function installHelsinki(engine) {
+export function installHelsinki(engine, oilPaint) {
   const { shared, sky, hills, post, Builder, Mesh, Group, kinds, ball, rod } =
     engine;
   const paint = engine.paintMaterial();
@@ -67,27 +71,7 @@ export function installHelsinki(engine) {
     ];
   }
 
-  // Keep the original projected sky and painterly postprocessing; replace only sky colour/content.
-  sky.material.fragmentShader = `precision highp float;
-    varying vec3 vDir; uniform float uTime; uniform vec3 uDayTint;
-    ${engine.shaderNoise}
-    void main(){
-      vec3 dir=normalize(vDir); float altitude=max(dir.y,0.0);
-      vec2 p=dir.xz/max(.24,dir.y+.28); p.x+=uTime*.003;
-      vec2 flow=p+vec2(sin(p.y*1.4)*.17,sin(p.x*.8)*.13);
-      float n=vnoise(flow*1.45)*.63+vnoise(flow*3.8)*.27+vnoise(flow*9.0)*.10;
-      vec2 strokes=vec2(flow.x*29.+sin(flow.y*11.)*2.,flow.y*90.);
-      float dab=vnoise(strokes)*.6+vnoise(strokes*2.4)*.4;
-      float cloud=smoothstep(.55,.78,n+(.5-dab)*.065)*smoothstep(-.07,.25,dir.y);
-      vec3 blue=mix(vec3(.55,.72,.77),vec3(.15,.43,.67),pow(altitude,.45));
-      vec3 white=mix(vec3(.69,.75,.72),vec3(1.,.94,.77),smoothstep(.49,.8,n));
-      vec3 c=mix(blue,white,cloud); c*=.96+.08*dab;
-      float sun=pow(max(dot(dir,normalize(vec3(-.45,.72,.38))),0.),220.);
-      c+=vec3(1.,.82,.49)*sun*.40;
-      gl_FragColor=vec4(c*uDayTint,1.);
-    }`;
-  sky.material.uniforms.uDayTint = { value: new engine.Color(1, 1, 1) };
-  sky.material.needsUpdate = true;
+  const aurora = installAurora(engine, oilPaint.atlas);
   // Preserve the original hills' strokes and reveal animation, with a distant sage palette.
   for (const layer of hills.layers) {
     // Lower the reference's mountain silhouette into a distant, gentle treeline.
@@ -115,33 +99,35 @@ export function installHelsinki(engine) {
       );
     mat.needsUpdate = true;
   }
-  shared.uMoonDir.value.set(-0.45, 0.72, 0.38).normalize();
-  shared.uAmbSky.value.setRGB(0.36, 0.46, 0.51);
-  shared.uAmbGround.value.setRGB(0.21, 0.23, 0.16);
-  shared.uGlow.value = 0.3;
-  shared.uStrokeDist.value = 10;
-  post.composite.uniforms.uExposure.value = 0.96;
-  post.composite.uniforms.uOutline.value = 0.38;
-  post.composite.uniforms.uVignette.value = 0.12;
-  post.composite.uniforms.uContrast.value = 0.13;
+
+  shared.uAmbSky.value.setRGB(0.075, 0.13, 0.20);
+  shared.uAmbGround.value.setRGB(0.025, 0.045, 0.065);
+  shared.uGlow.value = 0.7;
+  shared.uStrokeDist.value = 48;
+  post.composite.uniforms.uExposure.value = 0.72;
+  post.composite.uniforms.uOutline.value = 0.16;
+  post.composite.uniforms.uVignette.value = 0.21;
+  post.composite.uniforms.uContrast.value = 0.09;
+  post.composite.uniforms.uSaturation.value = 1.08;
+  post.composite.uniforms.uBloom.value = 0.18;
   post.prefilter.uniforms.uThreshold.value = 1.5;
 
   const themeTints = {
     breakthrough: {
-      fog: [0.56, 0.69, 0.69],
-      sun: [0.78, 0.74, 0.62],
+      fog: [0.018, 0.055, 0.075],
+      sun: [0.17, 0.26, 0.35],
       warm: [1, 0.66, 0.28],
       sky: [1, 1, 1],
     },
     emergency: {
-      fog: [0.63, 0.54, 0.49],
-      sun: [1, 0.61, 0.4],
+      fog: [0.045, 0.035, 0.065],
+      sun: [0.24, 0.19, 0.29],
       warm: [1, 0.3, 0.18],
       sky: [1.04, 0.89, 0.82],
     },
     market: {
-      fog: [0.51, 0.62, 0.69],
-      sun: [0.74, 0.76, 0.68],
+      fog: [0.018, 0.035, 0.072],
+      sun: [0.15, 0.22, 0.36],
       warm: [0.89, 0.61, 0.31],
       sky: [0.88, 0.96, 1.04],
     },
@@ -151,7 +137,7 @@ export function installHelsinki(engine) {
     shared.uFogColor.value.setRGB(...t.fog);
     shared.uMoonCol.value.setRGB(...t.sun);
     shared.uWarmCol.value.setRGB(...t.warm);
-    sky.material.uniforms.uDayTint.value.setRGB(...t.sky);
+    aurora.setMood(mode);
   }
   atmosphere("breakthrough");
   const helpers = { builder, localBox, ellipsoid, line, mesh, paint, colors };
@@ -159,7 +145,9 @@ export function installHelsinki(engine) {
     atmosphere,
     helpers,
     update() {
-      shared.uHeadPower.value = 0;
+      shared.uHeadPower.value = engine.state.state === "ride" ? 1.6 : 0;
+      shared.uGlow.value = .7;
+      aurora.update();
     },
   };
 }

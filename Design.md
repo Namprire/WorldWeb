@@ -30,7 +30,7 @@ The active geographic renderer is `public/engine/helsinki-real-map.js`. It uses 
 
 The original village chunk group is hidden and its streaming stopped. The original controller and camera retain steering, acceleration, jumps, walking, flight, posing and smoothing. Horizontal coordinate warping and vertical world curvature are disabled for geographic fidelity; flat terrain is an explicit remaining approximation. Old village collectibles are hidden so the geographic world does not display invented village landmarks.
 
-`helsinki.js` retains the original painted surface shader, lighting and postprocessing. `student-scooter.js` retains the custom student model on the original rider rig. `portal.js` still frames the actual live scene and transitions into the same world. The GTA-inspired menu styling is unchanged.
+`helsinki.js` installs the night palette and Patch aurora; the existing surface shader and postprocessing receive the oil-paint adaptation. `student-scooter.js` retains the custom student model on the original rider rig. `portal.js` still frames the actual live scene and transitions into the same world. The GTA-inspired menu styling is unchanged.
 
 See [the map research and accuracy report](docs/research/helsinki-map.md) for source selection, pipeline, data counts and limitations. The earlier `helsinki-map.js`, `helsinki-landmarks.js` and `helsinki-neighbourhoods.js` are inactive prototype references.
 
@@ -59,3 +59,27 @@ The district collision regression check runs with `node scripts/test-helsinki-ma
 ## Geographic verification
 
 `node scripts/test-helsinki-map.mjs` checks source landmark coordinates, named roads, land/sea classification, building collision, courtyard triangulation, the introductory delivery corridor and all imported citizen routes. Source height provenance remains in the shipped data. Browser tests verify the mission and controls after activating metre coordinates.
+
+## Oil-paint rendering boundary
+
+`public/engine/oil-paint/surface.js` wraps the engine's material factory before scene
+construction. The eight-mark brush atlas comes from Patch; UV-anchored pigment and
+height-based relief cover the existing meshes. Billboards keep a separate readable
+text material. `foliage.js` batches world-pinned brush cards by geographic tile.
+
+`aurora.js` installs the reference sky into the same scene, renderer, camera and
+frame loop. The adapted sources in `oil-paint/reference/` retain the original
+curtain motion, stars, layered rays and noise. `three.js` maps imports to existing
+engine types; dab geometry is expanded into vertex buffers because this engine's
+public module does not expose instancing types. The sky shell is reduced to 1,200
+metres to fit the existing camera far plane; angular placement is preserved. Night
+wash intensity is compensated for the game's existing filmic/sRGB finish.
+
+Reduced motion holds the aurora's clock at a fixed time. Demo mood changes alter
+night lighting and aurora strength without switching back to daytime. Physics,
+ride/walk/flight transforms, camera smoothing, geographic coordinates and provider
+services are unchanged. The title camera alone is reframed to show the aurora.
+
+`src/webworld/oil-paint.css` owns the dark linen menu treatment. The existing GTA-like
+lettering and portal timing stay in place. See the shipped MIT notice and provenance
+in `public/engine/oil-paint/NOTICE.md`.

@@ -3,10 +3,12 @@ import { installCitizens } from "./helsinki-citizens.js";
 import { installHelsinki } from "./helsinki.js";
 import { installHelsinkiMap } from "./helsinki-real-map.js";
 import { installStudent } from "./student-scooter.js";
+import { installOilPaint } from "./oil-paint/surface.js";
 
 export function installWebworld(engine) {
-  const visuals = installHelsinki(engine);
-  const district = installHelsinkiMap(engine, visuals.helpers);
+  const oilPaint = installOilPaint(engine);
+  const visuals = installHelsinki(engine, oilPaint);
+  const district = installHelsinkiMap(engine, visuals.helpers, oilPaint.atlas);
   const citizens = installCitizens(engine, visuals.helpers);
   const updateStudent = installStudent(engine, visuals.helpers);
   const { Group, Mesh, Geometry, Attribute, Material, Texture, scene, shared } =
@@ -34,6 +36,7 @@ export function installWebworld(engine) {
       gl_Position=projectionMatrix*viewMatrix*world;
     }`;
   function material(texture = null) {
+    if (!texture) return engine.paintMaterial();
     return new Material({
       uniforms: {
         uBend: shared.uBend,
@@ -135,6 +138,14 @@ export function installWebworld(engine) {
     ]) {
       result.setAttribute(name, new Attribute(new Float32Array(data), size));
     }
+    // Actors use the same surface paint as the city and student. Keep billboard
+    // text on its own readable material; only its casing and supports are painted.
+    const count = points.length / 3;
+    const data = new Float32Array(count * 4);
+    for (let i = 0; i < count; i++) data.set([engine.kinds.FIGURE, .43, 1.4, 0], i * 4);
+    result.setAttribute("aData", new Attribute(data, 4));
+    result.setAttribute("aLamp", new Attribute(new Float32Array(count * 4), 4));
+    result.setAttribute("aLamp2", new Attribute(new Float32Array(count * 4), 4));
     result.computeBoundingSphere();
     return result;
   }
@@ -281,7 +292,7 @@ export function installWebworld(engine) {
     const p = engine.player;
     return {
       state: engine.state.state,
-      presentation: "helsinki-daylight",
+      presentation: "helsinki-aurora",
       district: district.name,
       buildings: district.buildings.length,
       pedestrians: citizens.count,
@@ -320,6 +331,7 @@ export function installWebworld(engine) {
     };
   }
   const api = {
+    getGraphics: oilPaint.getStats,
     locations: positions,
     getSnapshot: snapshot,
     subscribe(callback) {

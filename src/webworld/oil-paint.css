@@ -1,0 +1,61 @@
+/* A midnight linen mount and pigment colours around the live painting.
+   Layout and portal transforms remain owned by the existing entrance timeline. */
+:root {
+  --ww-mint: #9de5c3;
+  --ww-muted: #acbbca;
+}
+#gallery #wall {
+  background-color: #0a1420;
+  background-image:
+    repeating-linear-gradient(0deg, #8cb6b504 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, #b2d0cd04 0 1px, transparent 1px 3px);
+}
+#gallery #frame {
+  background: #263b42;
+  border-color: #263b42 !important;
+  box-shadow: 0 1px 0 #71948a55, 0 9px 30px #0006 !important;
+}
+#gallery #frame-lip { box-shadow: inset 0 0 0 1px #8fc8b340 !important; }
+#gallery #plaque h1 {
+  color: #f7f0df;
+  -webkit-text-stroke-color: #243c3e;
+  text-shadow: 3px 4px 0 #243c3e;
+}
+#gallery #plaque .ww-eyebrow { color: #9de5c3; letter-spacing: .12em; }
+#gallery #plaque .sub, #gallery #handle { color: #b1c1ca; }
+#gallery #enter {
+  color: #102626 !important;
+  background: #9de5c3 !important;
+  border-color: #9de5c3 !important;
+  box-shadow: 3px 3px 0 #325553 !important;
+}
+#gallery #enter:hover { background: #c3f4d7 !important; }
+#gallery #open-board { color: #d2dfdc !important; }
+#gallery #enter:focus-visible, #gallery #open-board:focus-visible {
+  outline: 3px solid #ad633c;
+  outline-offset: 5px;
+}
+.ww-mission, .ww-feed, #ww-interact, #ww-npc-bubble {
+  background: #0c1c29f2;
+  border-color: #85bda9;
+  box-shadow: 3px 4px 0 #102e292b;
+}
+.ww-mission h2, .ww-brand strong, #board h2, #p-result h2 { color: #fbf1d9; }
+.ww-mission p, .ww-dialogue span { color: #dedbca; }
+.ww-feed #ww-sync, #board-again, #board-post, #p-play, #p-again {
+  background: #a1dac3 !important;
+  color: #102626 !important;
+}
+.ww-feed select, #board-form { background: #1c3440; border-color: #52716d; }
+.ww-steps span.current { background: #bb8148; }
+.ww-steps span.done { background: #9de5c3; }
+#board { background: #081421e8; }
+#board .card, #p-result .card {
+  background: #102531;
+  border-top-color: #85bda9;
+}
+#ww-world-target small, #toast, #p-note { background: #243c37ed; color: #fff2d2; }
+#map { filter: saturate(.75) sepia(.13); }
+@media (prefers-reduced-motion: reduce) {
+  #gallery #enter { transition: none; }
+}
