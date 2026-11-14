@@ -71,27 +71,27 @@ try {
   s = await state(page);
   check("navigation follows mapped streets", s.route && s.route.metres > 50);
   check("a route bar shows where the route goes", (await page.textContent(".sc-route-bar")).includes("Route to"));
-  check("the route is drawn on the ground in 3D", await page.evaluate(() => !!window.__startupCity.scene.routeMesh));
+  check("the route is handed to the minimap", await page.evaluate(() => window.__startupCity.scene.routes.length === 1));
   await page.click(".sc-route-bar >> text=Clear");
-  check("Clear removes the route", (await state(page)).route === null && await page.evaluate(() => !window.__startupCity.scene.routeMesh));
+  check("Clear removes the route", (await state(page)).route === null && await page.evaluate(() => window.__startupCity.scene.routes.length === 0));
   await page.keyboard.press("Escape");
   check("Escape closes the profile", (await state(page)).selectedId === null);
 
   check("the Gemini question bar is hidden for now", await page.locator("#sc-query").count() === 0);
   await page.evaluate(() => window.__startupCity.scene.flyTo({ tx: 1000, tz: 1100, dist: 150 }, 0.01));
   await page.waitForTimeout(400);
-  await page.click(".sc-filters >> text=AI & Data");
+  await page.click(".sc-side-list >> text=Categories");
+  await page.click(".sc-side-sub >> text=AI & Data");
   s = await state(page);
   check("a category filter narrows the map", s.filters.industries.join() === "ai");
   await page.waitForTimeout(1800);
   check("choosing a filter flies out to show every match", await page.evaluate(() => window.__startupCity.scene.goal.dist > 400));
   check("non-matching buildings dim, matches highlight", await page.locator('.sc-marker[data-state="match"]').count() >= 3 && await page.locator('.sc-marker[data-state="dim"]').count() >= 5);
-  await page.click(".sc-result >> text=Route between them");
+  await page.click(".sc-side-hint >> text=Route between them");
   check("a route links the results", "tour" in (await state(page)).route);
-  await page.click(".sc-filters >> text=AI & Data");
-  await page.click(".sc-filters >> text=Junction 2026 partners");
+  await page.click(".sc-side-list >> text=Junction 2026 partners");
   check("the partner filter keeps only Junction partners lit", await page.locator('.sc-marker.partner[data-state="match"]').count() >= 4);
-  await page.click(".sc-filters >> text=Junction 2026 partners");
+  await page.click(".sc-side-list >> text=All startups");
   check("partners on the map get their own marker", await page.locator(".sc-marker.partner").count() >= 4);
 
   // Web-map zoom: the ground under the cursor stays put
@@ -110,19 +110,21 @@ try {
   await page.waitForSelector(".sc-refresh-status.error");
   check("an unavailable Context.dev is reported and the cached snapshot is named", (await page.textContent(".sc-refresh-status.error")).includes("cached snapshot") && (await state(page)).refresh.status === "error");
 
-  await page.click(".sc-tools >> text=Connections");
+  await page.click(".sc-side-switch");
   check("connections separate sourced links from AI suggestions", (await page.textContent(".sc-legend-card")).includes("not verified facts"));
   await page.click('button[aria-label="Hide connections"]');
 
-  await page.click(".sc-tabs-nav >> text=Live from Helsinki");
+  await page.click(".sc-side-nav >> text=Live from Helsinki");
   await page.waitForSelector(".sc-feed li");
-  check("the feed lists sourced headlines with a map link", await page.locator(".sc-feed li").count() > 0 && (await page.textContent(".sc-drawer")).includes("Only published headlines"));
-  await page.click(".sc-tabs-nav >> text=Directory");
-  check("companies outside the district are listed separately", await page.waitForSelector('.sc-drawer:has-text("Outside the 3D district")', { timeout: 5000 }).then(() => true, () => false));
+  check("the feed lists sourced headlines with a map link", await page.locator(".sc-feed li").count() > 0 && (await page.textContent(".sc-side-view")).includes("Only published headlines"));
+  await page.click(".sc-back");
+  await page.click(".sc-side-nav >> text=Directory");
+  check("companies outside the district are listed separately", await page.waitForSelector('.sc-side-view:has-text("Outside the 3D district")', { timeout: 5000 }).then(() => true, () => false));
   await page.keyboard.press("Shift+Slash");
   check("? opens the shortcuts sheet", await page.locator(".sc-modal").count() === 1);
   await page.keyboard.press("Escape");
-  await page.click(".sc-tabs-nav >> text=Missions");
+  await page.click(".sc-back");
+  await page.click(".sc-side-nav >> text=Missions");
   await page.waitForSelector(".sc-missions");
   check("three missions with progress are shown", await page.locator(".sc-missions li").count() === 3);
   await page.keyboard.press("Escape");
@@ -180,7 +182,10 @@ try {
   check("Tab returns to the City Explorer", (await state(page)).mode === "explorer");
 
   // Guided demo with presenter controls
-  await page.click(".sc-help >> text=Start demo");
+  await page.evaluate(() => { try { localStorage.removeItem("startup-city-howto") } catch {} });
+  await page.evaluate(() => window.__startupCity.store.setState({ shortcuts: true }));
+  await page.keyboard.press("Escape");
+  await page.click(".sc-howto >> text=Take the 90 second tour");
   await page.waitForSelector(".sc-demo");
   check("the demo starts on step 1 of 9", (await page.textContent(".sc-demo")).includes("1 of 9"));
   await page.click('button[aria-label="Next step"]'); await page.click('button[aria-label="Next step"]');
@@ -203,7 +208,8 @@ try {
   s = await state(page);
   check("without the API the bundled snapshot loads", s.startups >= 30 && /bundled snapshot/.test(s.loadError));
   await enter(page);
-  await page.click(".sc-filters >> text=Climate");
+  await page.click(".sc-side-list >> text=Categories");
+  await page.click(".sc-side-sub >> text=Climate");
   s = await state(page);
   check("filters work without the API", s.filters.industries.includes("climate") && await page.locator('.sc-marker[data-state="match"]').count() > 0);
   await page.context().close();

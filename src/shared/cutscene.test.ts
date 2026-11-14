@@ -18,6 +18,6 @@ test('saved cutscenes contain no em or en dashes in narration', async () => {
   if (!existsSync('data/cutscenes')) return
   for (const file of readdirSync('data/cutscenes').filter((f) => f.endsWith('.json'))) {
     const scene = cutsceneSchema.parse(JSON.parse(readFileSync(`data/cutscenes/${file}`, 'utf8')))
-    for (const shot of scene.shots) assert.doesNotMatch(shot.line, /[–—]/, file)
+    for (const shot of scene.shots) assert.doesNotMatch(shot.line, /[\u2013\u2014]/, file)
   }
 })

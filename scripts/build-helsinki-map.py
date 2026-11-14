@@ -6,7 +6,7 @@ from shapely.geometry import Polygon,LineString,Point,box
 from shapely.geometry.polygon import orient
 from shapely.ops import unary_union,polygonize,linemerge
 from shapely import make_valid
-D=json.load(open('public/data/helsinki/source.osm.json')); E=D['elements']
+D=json.load(open('data/map/source.osm.json')); E=D['elements']
 origin=[24.9437,60.1712]; R=6371008.8; k=math.pi/180*R; c=math.cos(origin[1]*math.pi/180)
 def xy(p):return ((p['lon']-origin[0])*k*c,(origin[1]-p['lat'])*k)
 w,s,e,n=D['bbox'];a=xy({'lon':w,'lat':n});b=xy({'lon':e,'lat':s});clip=box(a[0],a[1],b[0],b[1]); bounds={'west':a[0],'north':a[1],'east':b[0],'south':b[1]}
@@ -131,7 +131,7 @@ for parent in landmarks:
 
 # City of Helsinki building register: floors, completion year and facade material for each footprint.
 import os,random
-REGISTER='public/data/helsinki/register.json'
+REGISTER='data/map/register.json'
 FACADE={'1':'concrete','2':'brick','3':'metal','4':'stone','5':'wood','6':'glass','7':'render'}
 def hexrgb(h):
  h=h.lstrip('#');return [round(int(h[i:i+2],16)/255,3) for i in (0,2,4)]

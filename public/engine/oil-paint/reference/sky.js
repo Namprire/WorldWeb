@@ -109,7 +109,7 @@ export function createSky(shared) {
       dirs.set([Math.cos(a) * r, y, Math.sin(a) * r, rand() * 1000], i * 4);
     }
     group.add(dabMesh(dabGeometry(count, { aDir: [dirs, 4] }), dabMaterial(shared, {
-      head: NIGHT + /* glsl */ `in vec4 aDir;`,
+      head: NIGHT + /* glsl */ `in vec4 aDir; uniform vec3 uFogColor;`,
       body: /* glsl */ `
         void makeDab(inout Dab d) {
           vec4 r = hash4(aDir.w);
@@ -119,7 +119,8 @@ export function createSky(shared) {
           vec3 level = normalize(cross(vec3(0.0, 1.0, 0.0), v));
           d.dir = normalize(level + vec3(0.0, (r.x - 0.5) * 0.7, 0.0));
           d.size = vec2(46.0 + 40.0 * r.y, 150.0 + 130.0 * r.z);
-          vec3 c = nightSky(v);
+          // Startup City: low strokes take the colour of the haze over the city, so sky and ground meet softly.
+          vec3 c = mix(nightSky(v), uFogColor, smoothstep(0.2, 0.02, v.y));
           d.c1 = jitter(c, r.yzw, 0.13);
           d.c2 = jitter(c * 1.06 + vec3(0.0, 0.00072, 0.0009), r.wxy, 0.18);
           d.seed = aDir.w;

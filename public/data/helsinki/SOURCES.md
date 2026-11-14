@@ -5,7 +5,7 @@ Open Database License 1.0 (ODbL): https://opendatacommons.org/licenses/odbl/1-0/
 Attribution: https://www.openstreetmap.org/copyright
 
 Files:
-- source.osm.json: merged data from 18 bounded https://api.openstreetmap.org/api/0.6/map requests (24.898 to 24.966° E, 60.151 to 60.179° N). Retrieval time and geographic bounds are recorded inside the file.
+- data/map/source.osm.json: merged data from 18 bounded https://api.openstreetmap.org/api/0.6/map requests (24.898 to 24.966° E, 60.151 to 60.179° N). Retrieval time and geographic bounds are recorded inside the file.
 - map.json: clipped, projected and triangulated derived database, including source IDs, height provenance and estimate policy.
 
 Rebuild from the repository root:
@@ -25,7 +25,7 @@ see docs/research/helsinki-map.md in the repository.
 
 ## City of Helsinki building register
 
-register.json: building footprints with floor count, completion year, facade material and use, from the
+data/map/register.json: building footprints with floor count, completion year, facade material and use, from the
 City of Helsinki open data WFS (layer avoindata:Rakennukset_alue_rekisteritiedot), licensed CC BY 4.0.
 Fetch with `node scripts/fetch-helsinki-register.mjs`. The map build matches each OpenStreetMap
 footprint to the register footprint it overlaps most and uses its floors for height, its year and

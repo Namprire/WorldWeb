@@ -210,11 +210,9 @@ export class CityScene {
     this.visited = true
     this.cam = { ...HOME }
     this.goal = { ...HOME }
-    // Three keyframes: the aurora alone, then the whole lit city under it, then down to the district.
+    // Start high over the harbour with the northern lights above the whole city, then glide down.
     const keys = [
-      { at: 0, pos: [HOME.tx, 950, HOME.tz + 2700], look: [HOME.tx - 80, 2100, HOME.tz - 3400] },
-      { at: 0.16, pos: [HOME.tx, 1000, HOME.tz + 2650], look: [HOME.tx - 80, 2000, HOME.tz - 3400] },
-      { at: 0.52, pos: [HOME.tx + 60, 1150, HOME.tz + 2050], look: [HOME.tx, 120, HOME.tz - 3600] },
+      { at: 0, pos: [HOME.tx + 40, 900, HOME.tz + 2300], look: [HOME.tx, 420, HOME.tz - 3800] },
     ]
     document.body.classList.add('sc-opening')
     let finished = false
@@ -229,7 +227,7 @@ export class CityScene {
     const skip = () => { if (this.opening) this.opening.t = Math.max(this.opening.t, 0.97) }
     window.addEventListener('pointerdown', skip, true)
     window.addEventListener('keydown', skip, true)
-    this.opening = { t: this.reduced() ? 1 : 0, duration: 13, keys, done: finish }
+    this.opening = { t: this.reduced() ? 1 : 0, duration: 6.5, keys, done: finish }
     e.state.free = { x: keys[0].pos[0], y: keys[0].pos[1], z: keys[0].pos[2], yaw: 0, pitch: 0, fov: EXPLORER_FOV, bend: 0 }
     e.state.state = 'free'
     e.player.speed = 0
@@ -583,10 +581,6 @@ export class CityScene {
       glow.uniforms.uTime.value = time
       glow.mesh.visible = c.power > 0.01
     }
-    if (this.routeMesh) {
-      this.routeMesh.material.uniforms.uTime.value = time
-      if (this.routeWidthMode !== this.mode) this.buildRouteMesh()
-    }
     const visible = this.entered && state !== 'dive'
     this.markerLayer.style.display = visible ? '' : 'none'
     this.overlay.style.display = visible ? '' : 'none'
@@ -714,6 +708,11 @@ export class CityScene {
   // Glow
 
   /** A dark apron under the horizon so the district never floats in empty space. */
+  /**
+   * Ground beyond the mapped district. Helsinki does not stop at the map's edge, so the ground keeps
+   * going as a painted suggestion of city blocks (lit windows at night) to the north, east and west,
+   * and sea to the south, all fading into the same haze as distant buildings. No hard square edge.
+   */
   private addApron() {
     const e = this.e, B = this.map.bounds, s = 9000
     const geometry = new e.Geometry()
@@ -723,9 +722,39 @@ export class CityScene {
       cx - s, -0.4, cz - s, cx + s, -0.4, cz + s, cx + s, -0.4, cz - s,
     ]), 3))
     const mesh = new e.Mesh(geometry, new e.Material({
-      uniforms: { uFogColor: e.shared.uFogColor },
-      vertexShader: 'void main(){ gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0); }',
-      fragmentShader: 'uniform vec3 uFogColor; void main(){ gl_FragColor = vec4(uFogColor, 1.0); }',
+      uniforms: {
+        uFogColor: e.shared.uFogColor, uFogRange: e.shared.uFogRange, uAmb: e.shared.uAmbSky, uGlow: e.shared.uGlow,
+        uBounds: { value: [B.west, B.north, B.east, B.south] }, uTime: e.shared.uTime,
+      },
+      vertexShader: 'varying vec3 vWorld; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vWorld = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }',
+      fragmentShader: `uniform vec3 uFogColor, uAmb; uniform vec2 uFogRange; uniform float uGlow, uTime; uniform float uBounds[4]; varying vec3 vWorld;
+        float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+        void main(){
+          vec2 p = vWorld.xz;
+          float light = clamp(uAmb.b * 2.4, 0.08, 1.0);
+          vec3 col;
+          if (p.y > uBounds[3] + 40.0) {
+            // The harbour and the sea beyond it.
+            float wave = 0.5 + 0.5 * sin(p.x * 0.02 + uTime * 0.3) * sin(p.y * 0.017 - uTime * 0.2);
+            col = mix(vec3(0.05, 0.13, 0.17), vec3(0.24, 0.34, 0.4), light) * (0.92 + 0.12 * wave);
+          } else {
+            // City blocks with streets between them; blocks get a warm scatter of windows after dark.
+            vec2 cell = floor(p / 70.0), f = fract(p / 70.0);
+            float h = hash(cell);
+            float street = step(0.14, f.x) * step(f.x, 0.9) * step(0.14, f.y) * step(f.y, 0.9);
+            vec3 roof = mix(vec3(0.23, 0.24, 0.25), vec3(0.42, 0.36, 0.3), h);
+            vec3 road = vec3(0.16, 0.17, 0.18);
+            col = mix(road, roof, street) * (0.35 + 0.75 * light);
+            float window = step(0.86, hash(floor(p / 7.0))) * street * step(0.25, h);
+            col += vec3(1.0, 0.66, 0.32) * window * uGlow * 0.55;
+            if (h > 0.9) col = mix(col, vec3(0.12, 0.2, 0.12) * (0.4 + light), street);
+          }
+          // Fade with distance from the camera, and softly with distance from the mapped district.
+          float dx = max(max(uBounds[0] - p.x, p.x - uBounds[2]), 0.0), dz = max(max(uBounds[1] - p.y, p.y - uBounds[3]), 0.0);
+          float edge = smoothstep(0.0, 1400.0, length(vec2(dx, dz)));
+          float fog = smoothstep(uFogRange.x * 0.6, uFogRange.y, distance(cameraPosition, vWorld));
+          gl_FragColor = vec4(mix(col, uFogColor, clamp(max(fog, edge * 0.85), 0.0, 1.0)), 1.0);
+        }`,
     }))
     mesh.frustumCulled = false
     mesh.renderOrder = -5
@@ -933,68 +962,10 @@ export class CityScene {
   setLinks(links: Link[]) { this.links = links }
   setRoutes(routes: { points: number[][]; color: string }[]) {
     this.routes = routes
+    // Routes are shown on the street-level minimap only; on the 3D streets they looked heavy.
     this.bridge.district.setMinimapOverlay({ routes })
-    this.buildRouteMesh()
   }
 
-  /**
-   * Routes are drawn on the street surface in 3D, so buildings hide them like they hide the street.
-   * The ribbon is wider from above than at street level; chevrons drift towards the destination.
-   */
-  private routeMesh: any = null
-  private routeWidthMode: Mode | null = null
-  private buildRouteMesh() {
-    const e = this.e
-    if (this.routeMesh) { this.glowGroup.remove(this.routeMesh); this.routeMesh.geometry.dispose(); this.routeMesh = null }
-    this.routeWidthMode = this.mode
-    if (!this.routes.length) return
-    const half = this.mode === 'explorer' ? 4.5 : 1.6
-    const positions: number[] = [], along: number[] = [], side: number[] = []
-    for (const route of this.routes) {
-      let distance = 0
-      for (let i = 1; i < route.points.length; i++) {
-        const [ax, az] = route.points[i - 1], [bx, bz] = route.points[i]
-        const length = Math.hypot(bx - ax, bz - az)
-        if (length < 0.01) continue
-        const nx = (-(bz - az) / length) * half, nz = ((bx - ax) / length) * half
-        // Extend each segment slightly so corners join without gaps.
-        const ex = ((bx - ax) / length) * half * 0.6, ez = ((bz - az) / length) * half * 0.6
-        const A = [ax - ex, az - ez], B = [bx + ex, bz + ez]
-        const quad = [[A[0] + nx, A[1] + nz, distance, 1], [B[0] + nx, B[1] + nz, distance + length, 1], [B[0] - nx, B[1] - nz, distance + length, -1],
-          [A[0] + nx, A[1] + nz, distance, 1], [B[0] - nx, B[1] - nz, distance + length, -1], [A[0] - nx, A[1] - nz, distance, -1]]
-        for (const [x, z, d, sd] of quad) { positions.push(x, 0.25, z); along.push(d); side.push(sd) }
-        distance += length
-      }
-    }
-    const geometry = new e.Geometry()
-    geometry.setAttribute('position', new e.Attribute(new Float32Array(positions), 3))
-    geometry.setAttribute('aAlong', new e.Attribute(new Float32Array(along), 1))
-    geometry.setAttribute('aSide', new e.Attribute(new Float32Array(side), 1))
-    const material = new e.Material({
-      uniforms: { uTime: { value: 0 }, uScale: { value: this.mode === 'explorer' ? 22 : 7 } },
-      vertexShader: `attribute float aAlong; attribute float aSide; varying float vAlong; varying float vSide;
-        void main(){ vAlong = aAlong; vSide = aSide; gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0); }`,
-      fragmentShader: `uniform float uTime, uScale; varying float vAlong; varying float vSide;
-        void main(){
-          float edge = smoothstep(1.0, 0.75, abs(vSide));
-          // Chevrons pointing along the route, moving forward.
-          float f = fract(vAlong / uScale - uTime * 0.8 - abs(vSide) * 0.35);
-          float chevron = smoothstep(0.0, 0.08, f) * smoothstep(0.42, 0.3, f);
-          vec3 base = vec3(0.13, 0.83, 0.93);
-          vec3 col = mix(base * 0.55, vec3(0.92, 1.0, 1.0), chevron);
-          gl_FragColor = vec4(col, 0.85 * edge);
-        }`,
-      transparent: true,
-      depthWrite: false,
-      polygonOffset: true,
-      polygonOffsetFactor: -4,
-      polygonOffsetUnits: -4,
-    })
-    this.routeMesh = new e.Mesh(geometry, material)
-    this.routeMesh.frustumCulled = false
-    this.routeMesh.renderOrder = 3
-    this.glowGroup.add(this.routeMesh)
-  }
 
   private drawOverlay(time: number) {
     const canvas = this.overlay, ctx = this.ctx

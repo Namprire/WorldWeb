@@ -18,15 +18,24 @@ export function installAurora(engine, atlas) {
   engine.shared.uMoonDir.value.copy(shared.uSunDir.value);
   // Preserve the engine's fullscreen projection and camera updates.
   Object.assign(engine.sky.material.uniforms, shared);
+  engine.sky.material.uniforms.uFogColor = engine.shared.uFogColor;
+  // Near the horizon the sky fades into the same haze as distant ground and buildings, so there is no band.
   engine.sky.material.fragmentShader = `
     ${COMMON}
     ${NIGHT}
+    uniform vec3 uFogColor;
     varying vec3 vDir;
-    void main() { gl_FragColor = vec4(nightSky(normalize(vDir)),1.); }
+    void main() {
+      vec3 d = normalize(vDir);
+      vec3 sky = nightSky(d);
+      gl_FragColor = vec4(mix(sky, uFogColor, smoothstep(0.16, -0.02, d.y)), 1.);
+    }
   `;
   engine.sky.material.depthTest = false;
   engine.sky.mesh.renderOrder = -100;
   engine.sky.material.needsUpdate = true;
+  // The painted wash fades into the city haze near the horizon (see sky.js).
+  shared.uFogColor = engine.shared.uFogColor;
   const sky = createSky(shared);
   sky.group.name = "Patch / original painted northern lights";
   engine.scene.add(sky.group);

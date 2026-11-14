@@ -1,23 +1,24 @@
 {
-  "name": "startup-city-helsinki",
-  "version": "0.1.0",
+  "name": "startup-city",
+  "version": "1.0.0",
   "private": true,
+  "description": "Helsinki's startup scene as a living 3D city. Built at Junction 2026.",
   "type": "module",
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "concurrently -k -n api,web \"node --watch --import tsx server/index.ts\" \"vite --strictPort\"",
+    "dev:phone": "concurrently -k -n api,web \"node --watch --import tsx server/index.ts\" \"vite --strictPort --host 0.0.0.0\"",
+    "build": "npm run check && vite build",
     "start": "node --import tsx server/index.ts",
     "check": "tsc --noEmit",
-    "build": "npm run check && vite build",
     "test": "node --import tsx --test 'src/**/*.test.ts' 'server/**/*.test.ts'",
     "test:browser": "node scripts/test-startup-city.mjs",
     "research": "node --import tsx scripts/research-startups.ts",
     "research:refresh": "node --import tsx scripts/research-startups.ts --refresh",
     "films": "node --import tsx scripts/generate-films.ts",
-    "map:register": "node scripts/fetch-helsinki-register.mjs",
-    "dev:phone": "concurrently -k -n api,web \"node --watch --import tsx server/index.ts\" \"vite --strictPort --host 0.0.0.0\""
+    "map:register": "node scripts/fetch-helsinki-register.mjs"
   },
   "dependencies": {
     "@fontsource-variable/google-sans-flex": "^5.3.2",

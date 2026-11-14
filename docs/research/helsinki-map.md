@@ -27,13 +27,13 @@ Selected option 2, with local, reproducible data and no live map dependency at g
 - Local equirectangular coordinates in metres, east-positive X and south-positive Z. The original village's horizontal warp and vertical curvature are disabled for this geographic map.
 - Polygon collision shared with visual footprints, including inner courtyards. Spatial indexing limits per-frame collision queries.
 - Ambient pedestrians on 90 mapped public-path segments validated against buildings and water.
-- Original intro mission retained on a clear corridor in Rautatientori. Other fictional mission terminals are snapped to mapped public paths near real destinations. No imported POI is presented as a verified food offer or commercial integration.
+- Startup buildings are matched by registered street address, never placed by guesswork. See [DATA.md](../DATA.md).
 - OSM attribution on screen; source and derived databases ship with the project under ODbL.
 
 ## Accuracy limits
 
 This is **geographically grounded, stylized 3D**, not a surveyed digital twin. The import retains horizontal geometry to approximately centimetre rounding within the local projection. It inherits OSM completeness and mapping errors. One metre of game X/Z corresponds to approximately one real metre; the projection itself is an approximation over this small area.
 
-67 building outlines have explicit OSM height tags. 2,427 take their floor count from the City of Helsinki building register (floors × 3.5 m + 1.2 m). 66 use OSM floor counts × 3.2 m, and 176 use a clearly identified 16 m fallback. Roofs of buildings completed before 1932 are drawn as hipped, which matches most of the old stone blocks but not every building. Landmark parts retain their own explicit height/level provenance. Ordinary roofs are flat, and supported landmark roof profiles are simplified interpretations of mapped shape tags. Facade materials, windows and colours are artistic. Terrain is level; stairs, bridges and elevation differences are not physically reconstructed. Road widths use mapped widths when present and type-based defaults otherwise. NPC behaviour and mission props are fictional.
+67 building outlines have explicit OSM height tags. 2,427 take their floor count from the City of Helsinki building register (floors × 3.5 m + 1.2 m). 66 use OSM floor counts × 3.2 m, and 176 use a clearly identified 16 m fallback. Roofs of buildings completed before 1932 are drawn as hipped, which matches most of the old stone blocks but not every building. Landmark parts retain their own explicit height/level provenance. Ordinary roofs are flat, and supported landmark roof profiles are simplified interpretations of mapped shape tags. Facade materials, windows and colours are artistic. Terrain is level; stairs, bridges and elevation differences are not physically reconstructed. Road widths use mapped widths when present and type-based defaults otherwise. Pedestrian behaviour is illustrative.
 
 The next accuracy step is official terrain plus CityGML LoD2 roofs, especially around slopes, stairs and landmark facades. It must preserve the current georeferencing instead of moving landmarks to suit gameplay.

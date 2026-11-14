@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import {
-  Award, Check, Gauge, House, Keyboard, Link2, Maximize, Minus, Navigation2, Plus, Settings, Tag, Volume2, ChevronLeft, ChevronRight, Clapperboard, Compass, Footprints, List, Loader2, MapPin, Network, Newspaper, Pause, Play,
+  Award, Briefcase, Check, ChevronDown, ChevronLeft as Back, Coins, Gauge, House, Keyboard, LayoutGrid, Link2, Maximize, Minus, Navigation2, Plus, Settings, Sparkle, Tag, Volume2, ChevronLeft, ChevronRight, Clapperboard, Compass, Footprints, List, Loader2, MapPin, Network, Newspaper, Pause, Play,
   RefreshCw, RotateCcw, Route as RouteIcon, Sparkles, Target, X,
 } from 'lucide-react'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import {
-  INDUSTRIES, filtersActive, industryIds, isHiring, matchesFilters, recentFunding, recentNews,
-  type IndustryId, type Startup,
+  INDUSTRIES, emptyFilters, filtersActive, industryIds, isHiring, matchesFilters, recentFunding, recentNews,
+  type IndustryId, type SearchFilters, type Startup,
 } from '../shared/startup-schema'
 import {
   CONNECTION_KINDS, MISSION_GOAL, badges, buildConnections, formatDate, initials, missionProgress, relativeDate, score,
@@ -128,6 +128,7 @@ function SettingsButton() {
           <button type="button" className="sc-text-btn" onClick={() => document.getElementById('btn-sound')?.click()}><Volume2 size={15} /> Sound on or off</button>
           <button type="button" className="sc-text-btn" onClick={() => { if (document.fullscreenElement) void document.exitFullscreen(); else void document.documentElement.requestFullscreen?.() }}><Maximize size={15} /> Full screen</button>
           <button type="button" className="sc-text-btn" onClick={() => { setOpen(false); useCity.setState({ shortcuts: true }) }}><Keyboard size={15} /> Keyboard shortcuts</button>
+          <button type="button" className="sc-text-btn" onClick={() => { setOpen(false); useCity.getState().playCutscene({ kind: 'intro' }) }}><Clapperboard size={15} /> Play the intro film</button>
         </div>
       )}
       <button type="button" className="sc-glass" aria-label="Settings" aria-expanded={open} title="Settings" onClick={() => setOpen(!open)}><Settings size={18} /></button>
@@ -217,57 +218,6 @@ function SearchBar() {
       {(query || active) && <button type="button" className="sc-icon" onClick={clearSearch} aria-label="Clear search"><X size={16} /></button>}
       <button type="submit" className="sc-go" disabled={!query.trim() || search.status === 'loading'}>Ask</button>
     </form>
-  )
-}
-
-function SearchResult() {
-  const search = useCity((s) => s.search)
-  const filters = useCity((s) => s.filters)
-  const startups = useCity((s) => s.startups)
-  const route = useCity((s) => s.route)
-  const { tourResults } = useCity.getState()
-  const active = filtersActive(filters)
-  const matches = useMemo(() => startups.filter((s) => s.industry !== 'hub' && matchesFilters(s, filters)), [startups, filters])
-  const onMap = matches.filter((s) => s.location).length
-  if (!active) return null
-  const others = matches.length - onMap
-  return (
-    <div className="sc-result sc-glass" role="status">
-      <p>
-        <b>{matches.length} {matches.length === 1 ? 'company' : 'companies'}</b>, {onMap} on the map{others > 0 && `, ${others} in the directory`}.
-        {search.status === 'done' && (
-          <span className="sc-muted"> {search.mode === 'gemini' ? `Read by ${search.model}.` : 'Gemini was unavailable, so keywords were used.'} Only sourced records are matched.</span>
-        )}
-      </p>
-      <button type="button" className="sc-text-btn" onClick={() => useCity.getState().clearSearch()}><X size={15} /> Clear filters</button>
-      {onMap > 1 && (
-        <button type="button" className="sc-text-btn" onClick={tourResults}>
-          <RouteIcon size={15} /> {route && 'tour' in route ? 'Route shown' : 'Route between them'}
-        </button>
-      )}
-    </div>
-  )
-}
-
-function Filters() {
-  const filters = useCity((s) => s.filters)
-  const startups = useCity((s) => s.startups)
-  const { toggleIndustry, toggleFlag } = useCity.getState()
-  const used = industryIds.filter((id) => id !== 'hub' && id !== 'partner' && startups.some((s) => s.industry === id && s.location))
-  return (
-    <div className="sc-filters" role="group" aria-label="Filters">
-      <button type="button" className="sc-partner-filter" aria-pressed={Boolean(filters.partners)} onClick={() => useCity.getState().setFilters({ ...filters, partners: !filters.partners })}><i />Junction 2026 partners</button>
-      <span className="sc-sep" aria-hidden="true" />
-      {used.map((id) => (
-        <button key={id} type="button" title={INDUSTRIES[id].label} aria-pressed={filters.industries.includes(id)} style={{ ['--c' as string]: INDUSTRIES[id].color }} onClick={() => toggleIndustry(id as IndustryId)}>
-          <i />{INDUSTRIES[id].short}
-        </button>
-      ))}
-      <span className="sc-sep" aria-hidden="true" />
-      <button type="button" aria-pressed={filters.hiring} style={{ ['--c' as string]: 'var(--sc-hiring)' }} onClick={() => toggleFlag('hiring')}><i />Hiring</button>
-      <button type="button" aria-pressed={filters.recentlyFunded} style={{ ['--c' as string]: 'var(--sc-funded)' }} onClick={() => toggleFlag('recentlyFunded')}><i />Recently funded</button>
-      <button type="button" aria-pressed={filters.hasNews} style={{ ['--c' as string]: 'var(--sc-news)' }} onClick={() => toggleFlag('hasNews')}><i />In the news</button>
-    </div>
   )
 }
 
@@ -644,6 +594,136 @@ function DemoBar() {
   )
 }
 
+// Sidebar: one calm card for everything that used to be spread across the screen.
+
+type FilterRow = { id: string; label: string; hint: string; filters: SearchFilters; dot?: string; icon?: ReactNode }
+
+function Sidebar() {
+  const startups = useCity((s) => s.startups)
+  const filters = useCity((s) => s.filters)
+  const panel = useCity((s) => s.panel)
+  const discovered = useCity((s) => s.discovered)
+  const connectionsOn = useCity((s) => s.connectionsOn)
+  const route = useCity((s) => s.route)
+  const dataMode = useCity((s) => s.dataMode)
+  const meta = useCity((s) => s.meta)
+  const [collapsed, setCollapsed] = useState(() => matchMedia('(max-width: 720px)').matches)
+  const [categoriesOpen, setCategoriesOpen] = useState(false)
+  const mode = useCity((s) => s.mode)
+  // At street level the minimap (bottom left) shows the route, so the menu folds away; it returns from above.
+  const openBeforeStreet = useRef(true)
+  useEffect(() => {
+    if (mode === 'street') { openBeforeStreet.current = !collapsed; setCollapsed(true) }
+    else if (openBeforeStreet.current && !matchMedia('(max-width: 720px)').matches) setCollapsed(false)
+  }, [mode])
+  const { setFilters, clearSearch, toggleConnections, tourResults } = useCity.getState()
+  const placed = useMemo(() => startups.filter((s) => s.location && s.industry !== 'hub'), [startups])
+  const onMap = (f: SearchFilters) => placed.filter((s) => matchesFilters(s, f)).length
+  const only = (patch: Partial<SearchFilters>): SearchFilters => ({ ...emptyFilters, ...patch })
+  const same = (a: SearchFilters, b: SearchFilters) => JSON.stringify({ ...emptyFilters, ...a }) === JSON.stringify({ ...emptyFilters, ...b })
+  const categories = industryIds.filter((id) => id !== 'hub' && id !== 'partner' && placed.some((s) => s.industry === id))
+  const rows: FilterRow[] = [
+    { id: 'partners', label: 'Junction 2026 partners', hint: 'Partners of Europe\'s biggest hackathon with offices in this part of Helsinki.', filters: only({ partners: true }), icon: <Sparkle size={16} /> },
+    { id: 'hiring', label: 'Hiring now', hint: 'Companies whose own careers page lists open roles.', filters: only({ hiring: true }), icon: <Briefcase size={16} /> },
+    { id: 'funded', label: 'Recently funded', hint: 'A dated, sourced funding round in the last 18 months.', filters: only({ recentlyFunded: true }), icon: <Coins size={16} /> },
+    { id: 'news', label: 'In the news', hint: 'Published headlines from the last four months.', filters: only({ hasNews: true }), icon: <Newspaper size={16} /> },
+  ]
+  const active = filtersActive(filters)
+  const activeCategory = filters.industries.length === 1 && same(filters, only({ industries: filters.industries })) ? filters.industries[0] : null
+  const pick = (f: SearchFilters) => (same(filters, f) ? clearSearch() : setFilters(f, ''))
+  const routeLink = (count: number) => count > 1 && (
+    <button type="button" className="sc-text-btn" onClick={tourResults}><RouteIcon size={14} /> {route && 'tour' in route ? 'Route shown' : 'Route between them'}</button>
+  )
+  const views = { feed: 'Live from Helsinki', missions: 'Discovery missions', directory: 'Startup directory' } as const
+  return (
+    <section className={`sc-sidebar sc-glass${collapsed ? ' collapsed' : ''}`} aria-label="Startup City">
+      <header className="sc-side-head">
+        <MapPin size={26} className="sc-side-pin" />
+        <div>
+          <h1>Startup City</h1>
+          <p className="sc-muted">{placed.length} startups on the map, Helsinki</p>
+        </div>
+        <button type="button" className="sc-icon sc-collapse" aria-label={collapsed ? 'Open menu' : 'Close menu'} aria-expanded={!collapsed} onClick={() => setCollapsed(!collapsed)}><ChevronDown size={18} /></button>
+      </header>
+      {!collapsed && (panel ? (
+        <div className="sc-side-view">
+          <button type="button" className="sc-back" onClick={() => useCity.setState({ panel: null })}><Back size={16} /> {views[panel]}</button>
+          <div className="sc-side-scroll">{panel === 'feed' ? <Feed /> : panel === 'missions' ? <Missions /> : <Directory />}</div>
+        </div>
+      ) : (
+        <div className="sc-side-scroll">
+          <ul className="sc-side-list" role="list">
+            <li>
+              <button type="button" aria-current={!active} onClick={clearSearch}><LayoutGrid size={16} /><span>All startups</span><em>{placed.length}</em></button>
+            </li>
+            {rows.map((row) => {
+              const isActive = same(filters, row.filters)
+              const count = onMap(row.filters)
+              return (
+                <li key={row.id} className={row.id === 'partners' ? 'partner' : ''}>
+                  <button type="button" aria-current={isActive} onClick={() => pick(row.filters)}>{row.icon}<span>{row.label}</span><em>{count}</em></button>
+                  {isActive && <div className="sc-side-hint"><p>{row.hint}</p>{routeLink(count)}</div>}
+                </li>
+              )
+            })}
+            <li>
+              <button type="button" aria-expanded={categoriesOpen || Boolean(activeCategory)} onClick={() => setCategoriesOpen(!categoriesOpen)}><Tag size={16} /><span>Categories</span><ChevronDown size={16} className="sc-chev" /></button>
+              {(categoriesOpen || activeCategory) && (
+                <ul className="sc-side-sub" role="list">
+                  {categories.map((id) => {
+                    const f = only({ industries: [id] })
+                    const count = onMap(f)
+                    return (
+                      <li key={id}>
+                        <button type="button" aria-current={activeCategory === id} onClick={() => pick(f)}><i style={{ background: INDUSTRIES[id].color }} /><span>{INDUSTRIES[id].label}</span><em>{count}</em></button>
+                        {activeCategory === id && <div className="sc-side-hint">{routeLink(count)}</div>}
+                      </li>
+                    )
+                  })}
+                </ul>
+              )}
+            </li>
+          </ul>
+          <ul className="sc-side-list sc-side-nav" role="list">
+            <li><button type="button" onClick={() => useCity.setState({ panel: 'feed' })}><Newspaper size={16} /><span>Live from Helsinki</span><em>{startups.reduce((n, s) => n + s.news.length, 0)}</em></button></li>
+            <li><button type="button" onClick={() => useCity.setState({ panel: 'missions' })}><Target size={16} /><span>Missions</span><em>{missionProgress(startups, discovered).filter((m) => m.done).length} of 3</em></button></li>
+            <li><button type="button" onClick={() => useCity.setState({ panel: 'directory' })}><List size={16} /><span>Directory</span><em>{startups.filter((s) => s.industry !== 'hub' && s.industry !== 'partner').length}</em></button></li>
+            <li>
+              <label className="sc-side-switch"><Network size={16} /><span>Connections</span><input type="checkbox" role="switch" checked={connectionsOn} onChange={() => toggleConnections()} /></label>
+            </li>
+          </ul>
+        </div>
+      ))}
+      {!collapsed && (
+        <footer className="sc-side-foot">
+          <Clock />
+          <p className="sc-muted">{dataMode === 'live' ? `Live data, read ${relativeDate(meta?.lastLiveAt ?? null)}` : `Data from ${formatDate(meta?.snapshotAt)}`}. Map: OpenStreetMap, City of Helsinki.</p>
+        </footer>
+      )}
+    </section>
+  )
+}
+
+function HowTo() {
+  const mode = useCity((s) => s.mode)
+  const demo = useCity((s) => s.demo)
+  const [hidden, setHidden] = useState(() => { try { return localStorage.getItem('startup-city-howto') === 'done' } catch { return false } })
+  const shortcuts = useCity((s) => s.shortcuts)
+  useEffect(() => { if (shortcuts) setHidden(false) }, [shortcuts])
+  if (hidden || demo.active || mode === 'street') return null
+  const close = () => { setHidden(true); try { localStorage.setItem('startup-city-howto', 'done') } catch { /* shown again next visit */ } }
+  const rows: [ReactNode, string][] = mode === 'explorer'
+    ? [[<kbd key="d">Drag</kbd>, 'Move around the city'], [<kbd key="s">Scroll</kbd>, 'Zoom in and out'], [<kbd key="c">Click</kbd>, 'Open a glowing building'], [<kbd key="t">Tab</kbd>, 'Ride the streets']]
+    : [[<><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></>, 'Ride'], [<kbd key="e">E</kbd>, 'Visit the startup in front of you'], [<kbd key="f">F</kbd>, 'Walk or ride'], [<kbd key="t">Tab</kbd>, 'Back to the city view']]
+  return (
+    <section className="sc-howto sc-glass" aria-label="How to explore">
+      <header><h2>How to explore</h2><button type="button" className="sc-icon" aria-label="Hide" onClick={close}><X size={16} /></button></header>
+      <dl>{rows.map(([key, what]) => <div key={what}><dt>{key}</dt><dd>{what}</dd></div>)}</dl>
+      <button type="button" className="sc-primary" onClick={() => { close(); void startDemo() }}><Play size={15} /> Take the 90 second tour</button>
+    </section>
+  )
+}
+
 // Shell
 
 export function App() {
@@ -734,30 +814,20 @@ export function App() {
 
   return (
     <div id="sc-root" ref={rootRef} data-mode={mode} data-panel-open={selectedId ? 'true' : 'false'} data-labels={useCity((s) => s.labels) ? 'on' : 'off'}>
-      <header className="sc-top">
-        <div className="sc-brand">
-          <p className="sc-wordmark">Startup City <span>Helsinki</span></p>
-          <p className="sc-muted" title={dataMode === 'live' ? `Read through Context.dev ${formatDate(meta?.lastLiveAt)}` : `Saved copy retrieved through Context.dev on ${formatDate(meta?.snapshotAt)}`}>
-            {dataMode === 'live' ? `Live data, read ${relativeDate(meta?.lastLiveAt ?? null)}` : `Saved data from ${formatDate(meta?.snapshotAt)}`}
-          </p>
+      <nav className="sc-tools" aria-label="View">
+        <div className="sc-segmented sc-glass" role="radiogroup" aria-label="Camera mode">
+          <button type="button" role="radio" aria-checked={mode === 'explorer'} onClick={() => setMode('explorer')} title="See the whole city from above (Tab)"><Compass size={16} /> City</button>
+          <button type="button" role="radio" aria-checked={mode === 'street'} onClick={() => setMode('street')} title="Ride and walk the streets (Tab)"><Footprints size={16} /> Street</button>
         </div>
-        {SEARCH_ENABLED ? <SearchBar /> : <span />}
-        <nav className="sc-tools" aria-label="City tools">
-          <div className="sc-segmented sc-glass" role="radiogroup" aria-label="Camera mode">
-            <button type="button" role="radio" aria-checked={mode === 'explorer'} onClick={() => setMode('explorer')} title="Bird's-eye view (Tab)"><Compass size={16} /> City</button>
-            <button type="button" role="radio" aria-checked={mode === 'street'} onClick={() => setMode('street')} title="Ride and walk the streets (Tab)"><Footprints size={16} /> Street</button>
-          </div>
-          <label className="sc-switch sc-glass" title="Lines between related startups">
-            <input type="checkbox" role="switch" checked={connectionsOn} onChange={() => toggleConnections()} />
-            <Network size={16} /> Connections
-          </label>
-          <button type="button" className="sc-primary" disabled={refresh.status === 'loading'} onClick={() => void refreshSignals()}>
-            {refresh.status === 'loading' ? <Loader2 size={16} className="sc-spin" /> : <RefreshCw size={16} />} Refresh startup signals
-          </button>
-        </nav>
-        <Filters />
-        <SearchResult />
-      </header>
+        <button type="button" className="sc-primary" disabled={refresh.status === 'loading'} onClick={() => void refreshSignals()} title="Read the latest news and open roles through Context.dev">
+          {refresh.status === 'loading' ? <Loader2 size={16} className="sc-spin" /> : <RefreshCw size={16} />} Refresh startup signals
+        </button>
+      </nav>
+      {SEARCH_ENABLED && <SearchBar />}
+      <div className="sc-left">
+        <Sidebar />
+        <HowTo />
+      </div>
 
       <AnimatePresence>
         {refresh.status !== 'idle' && (
@@ -770,28 +840,9 @@ export function App() {
         )}
       </AnimatePresence>
 
-      <aside className="sc-rail" aria-label="City panels">
-        <div className="sc-tabs-nav sc-glass" role="tablist">
-          <button type="button" role="tab" aria-selected={panel === 'feed'} onClick={() => togglePanel('feed')}><Newspaper size={16} /><span>Live from Helsinki</span><span className="sc-muted">{newsCount}</span></button>
-          <button type="button" role="tab" aria-selected={panel === 'missions'} onClick={() => togglePanel('missions')}><Target size={16} /><span>Missions</span><span className="sc-muted">{missionsDone} of 3</span></button>
-          <button type="button" role="tab" aria-selected={panel === 'directory'} onClick={() => togglePanel('directory')}><List size={16} /><span>Directory</span><span className="sc-muted">{startups.filter((s) => s.industry !== 'hub' && s.industry !== 'partner').length}</span></button>
-        </div>
-        <AnimatePresence mode="wait">
-          {panel && (
-            <motion.section key={panel} className="sc-drawer sc-glass" role="tabpanel" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}>
-              <header>
-                <h2>{panel === 'feed' ? 'Live from Helsinki' : panel === 'missions' ? 'Discovery missions' : 'Startup directory'}</h2>
-                <button type="button" className="sc-icon" aria-label="Close" onClick={() => useCity.setState({ panel: null })}><X size={16} /></button>
-              </header>
-              {panel === 'feed' ? <Feed /> : panel === 'missions' ? <Missions /> : <Directory />}
-            </motion.section>
-          )}
-        </AnimatePresence>
-      </aside>
 
       <Panel />
       <ConnectionLegend />
-      <Clock />
       <MapControls />
       <RouteBar />
       <Shortcuts />
@@ -801,15 +852,6 @@ export function App() {
           <motion.button type="button" className="sc-near sc-glass" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }} onClick={() => select(near, null, 'street')}>
             <kbd>E</kbd> Visit {nearCompanies.find((s) => s.industry === 'hub')?.name ?? nearCompanies[0].name}{nearCompanies.length > 1 ? ` and ${nearCompanies.length - 1} more` : ''}
           </motion.button>
-        )}
-        {!demo.active && (
-          <div className="sc-help">
-            {mode === 'explorer'
-              ? <span>Drag to move, right-drag to turn, scroll to zoom. Click a lit building. <kbd>Tab</kbd> for street level.</span>
-              : <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> to ride, <kbd>F</kbd> to walk, <kbd>E</kbd> to visit, <kbd>Tab</kbd> for the city view.</span>}
-            <button type="button" className="sc-text-btn" onClick={() => playCutscene({ kind: 'intro' })}><Clapperboard size={15} /> Intro</button>
-            <button type="button" className="sc-text-btn" onClick={() => void startDemo()}><Play size={15} /> Start demo</button>
-          </div>
         )}
         <DemoBar />
       </div>

@@ -28,5 +28,5 @@ for (t,i),e in items.items():
   elements.append({'type':t,'id':int(i),'tags':ts,'members':mem})
  elif ts:elements.append({'type':t,'id':int(i),'tags':ts,**nodes[int(i)]})
 result={'source':'https://api.openstreetmap.org/api/0.6/map','retrievedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'bbox':[24.898,60.151,24.966,60.179],'elements':elements}
-json.dump(result,open('public/data/helsinki/source.osm.json','w'),separators=(',',':'))
+json.dump(result,open('data/map/source.osm.json','w'),separators=(',',':'))
 print('saved',len(elements),'elements',flush=True)

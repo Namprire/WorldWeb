@@ -21,7 +21,7 @@ for (let start = 0; ; start += 1000) {
   console.log(`fetched ${start + page.features.length} of ${page.numberMatched}`);
   if (page.features.length < 1000) break;
 }
-await writeFile("public/data/helsinki/register.json", JSON.stringify({
+await writeFile("data/map/register.json", JSON.stringify({
   source: "City of Helsinki building register (avoindata:Rakennukset_alue_rekisteritiedot)",
   license: "CC BY 4.0",
   url: "https://kartta.hel.fi/ws/geoserver/avoindata/wfs",

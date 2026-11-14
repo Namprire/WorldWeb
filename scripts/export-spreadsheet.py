@@ -12,7 +12,7 @@ from datetime import date, datetime
 
 import pandas as pd
 
-SOURCE = "Helsinki Startups Map_ Database.ods"
+SOURCE = "data/helsinki-startups.ods"
 
 
 def clean(value):

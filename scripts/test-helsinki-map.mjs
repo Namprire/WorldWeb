@@ -9,7 +9,7 @@ import {
   collisionBuildings,
 } from "../public/engine/helsinki-geography.js";
 const source = JSON.parse(
-  await readFile("public/data/helsinki/source.osm.json", "utf8"),
+  await readFile("data/map/source.osm.json", "utf8"),
 );
 assert.deepEqual(project(...mapData.meta.origin), [0, 0]);
 assert.ok(mapData.buildings.length > 1000);

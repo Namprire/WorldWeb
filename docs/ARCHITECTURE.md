@@ -1,129 +1,78 @@
-# Startup City: how it fits together
+# Architecture
 
-Startup City adds a data layer, a second camera and cutscenes to the oil-painted Helsinki of the earlier WEBWORLD project. The renderer, aurora, map, rider and movement are unchanged. The delivery game that used to sit on top (missions, robots, drones, billboards and its news endpoint) has been removed.
+Startup City is a single page app on top of a WebGL renderer, with a small Express server that holds the API keys.
 
 ```mermaid
 flowchart LR
-  Sheet[Company database .ods] --> Export[export-spreadsheet.py]
-  Export --> Research[research-startups.ts]
-  Research --> Context[Context.dev: profile, research, news, careers]
+  Sheet[Curated company list] --> Research[scripts/research-startups.ts]
+  Research --> Context[Context.dev]
   Context --> Check[Address matched to OSM or the Helsinki register]
   Check --> Store[(data/startups.json)]
   Store --> API[Express /api]
   API --> UI[React interface]
-  UI -->|refresh| API
-  UI -->|question| Gemini[Gemini: filters, answers, suggestions]
-  UI -->|cutscene| Script[Gemini script and voice]
   UI --> Scene[src/startup/scene.ts]
-  Scene --> Engine[Oil-paint renderer and frame loop]
+  Scene --> Engine[public/engine renderer and frame loop]
+  UI -->|refresh, ask, cutscene| API
+  API --> Gemini[Gemini]
+  API --> Context
 ```
+
+## Renderer
+
+`public/engine/` holds the city renderer. `game.js` owns the camera, frame loop, rider and street-level movement. The other modules add the Helsinki map (`helsinki-real-map.js`, `helsinki-geography.js`), lighting and the painted day sky (`helsinki.js`), the northern lights and oil-paint surfaces (`oil-paint/`), and pedestrians. `webworld.js` hands the engine, the map and a per-frame hook to the interface.
+
+The city is one scene and one frame loop. Buildings are batched into one mesh per 150 m tile, and geometry is uploaded to the GPU a few tiles per frame while the title screen shows, so opening the city view never freezes.
 
 ## Scene layer
 
-`public/engine/webworld.js` hands the engine, the map and a per-frame hook to `src/startup/scene.ts`.
+`src/startup/scene.ts` turns the engine into a map:
 
-- The city view uses the engine's existing free camera and poses it every frame from an orbit (target, distance, yaw, pitch). The projection centre sits low so the northern lights stay in frame. Fog, far plane and draw distance widen while it is active.
-- Switching views blends position and look-at between the orbit and the rider's chase camera, then hands control back to the engine. Reduced motion makes this instant.
-- Cutscenes switch the scene to cinematic mode: input is ignored and each shot is a scripted move from the orbit plus a slow drift.
-- Each startup building gets one additive mesh (walls, roof, a light beam). Its colour and strength follow the company's state. It fades near the camera so street level is not flooded.
-- Markers, connection arcs and routes are HTML and a 2D canvas, positioned by projecting world points each frame.
-- Picking walks the pointer ray through a grid of building footprints. Routing is A* over the mapped streets and paths.
-- Buildings are batched into one mesh per 150 m tile. Trees are drawn only around the point being looked at.
+- **City view.** An orbit camera (target, distance, heading, tilt) on the engine's free camera. Zoom keeps the point under the cursor fixed, dragging grabs the ground and glides on release, two fingers turn and tilt.
+- **Street level.** Hands control back to the rider beside the chosen building; the camera blends between the two.
+- **Opening flight.** Keyframes from high over the harbour, with the northern lights above the city, down to the city view.
+- **Cutscenes.** A cinematic mode that ignores input and plays scripted camera moves (establish, aurora, flyover, orbit, close, rise).
+- **Markers, glow and links.** Each startup building gets an additive glow mesh and a light beam; Junction partners get an aurora gradient, a halo and a taller beam. Markers are HTML positioned by projection, skipped when the camera has not moved. Connection arcs are drawn on a 2D canvas.
+- **Routes.** A* over the mapped streets and paths. Shown on the street-level minimap.
+- **Picking.** The pointer ray is marched through a grid of building footprints.
+- **Graphics levels.** Auto, Smooth, Balanced and Detailed set render resolution, draw distance from above and tree density. Auto lowers resolution when frames are slow and drops a level if that is not enough.
 
-## Data rules
+## Day and night
 
-The contract is `src/shared/startup-schema.ts`. Each fact is `{ value, sourceUrl, sourceName, retrievedAt, status }`. A company has a `location` only when its address matched a building. Search filters, mission targets, connections and cutscene scripts are all built from these records, so they cannot show anything the records do not contain.
-
-Gemini sees only the records. Its output is limited to a filter schema, checked suggestion pairs, short answers, or a cutscene script whose camera moves and company ids are validated before playback.
+`src/startup/sun.ts` computes the sun's position over Helsinki for any date and time. The engine blends sun colour, sky light, fog, window glow and a painted day sky over the night look by sun elevation. The northern lights only show when the sky is dark enough. By default the city follows the real Helsinki clock; the clock in the sidebar picks a part of the day, any time, a time-lapse or midsummer.
 
 ## Interface
 
-The interface follows Google's gemini-frontend-design guidance: one typeface (Google Sans Flex), three body sizes, sentence-case labels, no decorative chips or fake live indicators, brisk transitions on named properties, and reduced motion respected. Colours come from the scene: harbour ink for surfaces and aurora green as the single accent. Hiring, funding and news colours mark real state only. The blue-violet gradient marks content Gemini produced.
+React with a small Zustand store (`src/startup/store.ts`). The sidebar holds filters, categories, the live feed, missions, the directory and the clock; the company profile opens on the right. The design uses one typeface (Google Sans Flex), three text sizes, sentence-case labels and one accent colour taken from the aurora. Gemini's output is marked with a blue to violet gradient.
 
----
+## Server
 
-# Earlier WEBWORLD notes (base engine)
+`server/index.ts` serves the API and, in production, the built site. `server/startups/` contains:
 
-The root application uses the authorized Starry Nightrider client derivative for rendering, movement, camera, terrain, and character animation. Its new scene adapter and TypeScript interface connect that world to the existing WEBWORLD backend.
+| File | Role |
+| --- | --- |
+| `context.ts` | Context.dev: company profiles, news, careers pages, research, monitors, address matching |
+| `gemini.ts` | Gemini: question to filters, answers from a record, connection suggestions |
+| `cutscenes.ts` | Cutscene scripts (Gemini), narration (Gemini TTS), cache by content hash |
+| `routes.ts` | API routes, refresh batching and caching, per-visitor rate limits |
 
-```mermaid
-flowchart LR
-  Browser[TypeScript HUD and mission progression] --> Sync[POST /api/sync]
-  Sync --> News[Context.dev article retrieval]
-  News --> Director[Gemini structured scenario]
-  Director --> Schema[Backend schema validation]
-  Schema --> Browser
-  Browser --> Validation[Browser schema validation]
-  Validation --> Adapter[Controlled scene adapter]
-  Adapter --> Engine[Original renderer and frame loop]
-  Engine --> Observations[Position, mode and objective distance]
-  Observations --> Browser
-```
+| Route | Purpose |
+| --- | --- |
+| `GET /api/startups` | Company records, suggestions, which services are configured |
+| `POST /api/signals/refresh` | Read news and careers pages again through Context.dev |
+| `POST /api/ask` | A question about one company, answered from its record |
+| `POST /api/search` | A question turned into map filters (the search bar is switched off in the interface for now) |
+| `POST /api/connections/suggest` | Regenerate Gemini's relationship suggestions |
+| `POST /api/cutscene` | Script and narration for a cutscene |
+| `GET`, `POST /api/monitors` | Context.dev page monitors |
 
-## Runtime boundary
+Keys stay on the server. Calls that spend credits are rate limited per visitor. If the API is unreachable the browser loads `public/data/startups-snapshot.json` and says so.
 
-`public/engine/game.js` runs as a browser ES module after the local service adapters and HUD are installed. A module script loads this static engine in both Vite development and the production build. It imports the captured `kit` and voice-table modules from `public/assets/`.
+## Tests
 
-At the end of initialization, `installWebworld` receives concrete engine references. It publishes `window.__webworldEngine`, dispatches `webworld-ready`, and runs its updates through the original `state.director` hook. There is one renderer and one animation loop.
+- `npm test`: data contract, address placement, filters, missions, connections, sun position, cutscene schema.
+- `npm run test:browser`: both camera modes, profiles and provenance labels, filters and routes, cutscenes, the day cycle, the guided tour, the offline fallback and the phone layout. Gemini and Context.dev are replaced with fixtures.
+- `node scripts/test-helsinki-map.mjs`: map geometry, collision, landmarks and pedestrian paths.
 
-The interface supports scenario application, target selection, projected marker positions, gameplay snapshots, collection feedback, and delivery rewards. Model output never executes JavaScript. It selects values from the shared scenario schema.
+## Origin of the renderer
 
-## World
-
-The active geographic renderer is `public/engine/helsinki-real-map.js`. It loads the OpenStreetMap-derived database from `public/data/helsinki/map.json`. `helsinki-geography.js` owns metre projection, polygon tests, a spatial building index and shoreline collision. Visuals, collision and the minimap share source polygons and courtyard holes. `helsinki-citizens.js` uses imported, validated public-path segments for ambient pedestrians.
-
-The original village chunk group is hidden and its streaming stopped. The original controller and camera retain steering, acceleration, jumps, walking, flight, posing and smoothing. Horizontal coordinate warping and vertical world curvature are disabled for geographic fidelity; flat terrain is an explicit remaining approximation. Old village collectibles are hidden so the geographic world does not display invented village landmarks.
-
-`helsinki.js` installs the night palette and Patch aurora; the existing surface shader and postprocessing receive the oil-paint adaptation. `student-scooter.js` retains the custom student model on the original rider rig. `portal.js` still frames the actual live scene and transitions into the same world. The GTA-inspired menu styling is unchanged.
-
-See [the map research and accuracy report](docs/research/helsinki-map.md) for source selection, pipeline, data counts and limitations. The earlier `helsinki-map.js`, `helsinki-landmarks.js` and `helsinki-neighbourhoods.js` are inactive prototype references.
-
-## Missions
-
-The starting Compute Run collects packets at two fixed street positions, then delivers them at a fictional terminal in Rautatientori. All six mission locations are mapped onto accessible streets and plaza positions in `public/engine/webworld.js`. These positions differ from those in the earlier React Three Fiber prototype.
-
-Collection and delivery use a six-unit proximity check while the engine is in ride state. This state supports both scooter riding and walking. Collection increments mission cargo. Delivery requires cargo, completes the mission, and grants a 500-point local reward. Interact steps require R or the touch prompt. Each step advances once. Original trick controls and scoring remain available; the old village collectible meshes are hidden.
-
-Demo sync cycles the existing robot uprising, GPU market crash, and drone breakthrough fixtures. Starting a new scenario replaces the current mission and cargo. Live sync disables the mode control until the request finishes, validates the response, and applies it only on success. A failure leaves mission and scene state intact.
-
-## Providers
-
-Express owns Context.dev and Gemini credentials. The existing server retains bounded requests, cache behavior, shared concurrent syncs, error mapping, and validation. The local service adapter forwards `/api/status` and `/api/sync`, and keeps original multiplayer and original telemetry disconnected.
-
-The browser shows the retrieved article's source and time separately from its fictional mission. Live source URLs must use HTTP or HTTPS. The current implementation uses local generated artwork and original ambient audio. Runtime media generation remains an extension.
-
-## Verification
-
-The 13 unit checks exercise provider parsing and scenario rules. A before/after source comparison verified identical movement/chase-camera, input/scoring and rider-transform implementations. The subsequent portal pass changes entry/return presentation and reduced-motion handling, while the riding movement and chase/orbit camera remain unchanged. `scripts/test-webworld.mjs` exercises the current game through its normal UI and keyboard, including a complete delivery, original movement modes, braking with orbit/zoom, the painting aspect ratio, all three scenario changes, Live errors, validated and invalid API fixtures, shader errors and touch layout. Successful live provider calls require configured credentials and were not verified in this workspace.
-
-`npm run test:portal` verifies frame expansion, live-scene presentation without a photo overlay, HUD timing, full viewport coverage, return/focus restoration, second entry and reduced motion. Optional recording uses `PORTAL_VIDEO=1`.
-
-The district collision regression check runs with `node scripts/test-helsinki-map.mjs`. It covers building interiors, rooftop landing, camera clearance, the first delivery corridor, shop/park access and perimeter walls.
-
-## Geographic verification
-
-`node scripts/test-helsinki-map.mjs` checks source landmark coordinates, named roads, land/sea classification, building collision, courtyard triangulation, the introductory delivery corridor and all imported citizen routes. Source height provenance remains in the shipped data. Browser tests verify the mission and controls after activating metre coordinates.
-
-## Oil-paint rendering boundary
-
-`public/engine/oil-paint/surface.js` wraps the engine's material factory before scene
-construction. The eight-mark brush atlas comes from Patch; UV-anchored pigment and
-height-based relief cover the existing meshes. Billboards keep a separate readable
-text material. `foliage.js` batches world-pinned brush cards by geographic tile.
-
-`aurora.js` installs the reference sky into the same scene, renderer, camera and
-frame loop. The adapted sources in `oil-paint/reference/` retain the original
-curtain motion, stars, layered rays and noise. `three.js` maps imports to existing
-engine types; dab geometry is expanded into vertex buffers because this engine's
-public module does not expose instancing types. The sky shell is reduced to 1,200
-metres to fit the existing camera far plane; angular placement is preserved. Night
-wash intensity is compensated for the game's existing filmic/sRGB finish.
-
-Reduced motion holds the aurora's clock at a fixed time. Demo mood changes alter
-night lighting and aurora strength without switching back to daytime. Physics,
-ride/walk/flight transforms, camera smoothing, geographic coordinates and provider
-services are unchanged. The title camera alone is reframed to show the aurora.
-
-`src/webworld/oil-paint.css` owns the dark linen menu treatment. The existing GTA-like
-lettering and portal timing stay in place. See the shipped MIT notice and provenance
-in `public/engine/oil-paint/NOTICE.md`.
+The renderer started from an authorised derivative of an existing browser game's client, which was reworked into the WEBWORLD project in this repository and then into Startup City. Its movement, camera and rendering code remain; the game layer on top was removed.

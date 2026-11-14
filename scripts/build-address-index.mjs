@@ -2,7 +2,7 @@
 // Used to place startups only at addresses that exist in the bundled OpenStreetMap snapshot.
 import { readFile, writeFile } from "node:fs/promises";
 import { mapData, project, inPolygon } from "../public/engine/helsinki-geography.js";
-const source = JSON.parse(await readFile("public/data/helsinki/source.osm.json", "utf8"));
+const source = JSON.parse(await readFile("data/map/source.osm.json", "utf8"));
 const centre = (points) => {
   const valid = points.filter(Boolean);
   if (!valid.length) return null;
@@ -47,4 +47,4 @@ for (const el of source.elements) {
 }
 await writeFile("data/helsinki-addresses.json", JSON.stringify({ meta: { source: "OpenStreetMap contributors (ODbL)", retrievedAt: source.retrievedAt }, addresses: index }));
 console.log("addresses", Object.keys(index).length, "from", total, "tagged elements");
-for (const k of ["antinkatu|1", "lapinlahdenkatu|16", "elielinaukio|2g", "vuorikatu|20", "porkkalankatu|3", "pohjoinen rautatiekatu|21", "kaivokatu|10a", "postintaival|7"]) console.log(k, index[k] ? `${index[k].building} ${index[k].x},${index[k].z}` : "—");
+for (const k of ["antinkatu|1", "lapinlahdenkatu|16", "elielinaukio|2g", "vuorikatu|20", "porkkalankatu|3", "pohjoinen rautatiekatu|21", "kaivokatu|10a", "postintaival|7"]) console.log(k, index[k] ? `${index[k].building} ${index[k].x},${index[k].z}` : "not found");
