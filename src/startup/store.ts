@@ -3,7 +3,8 @@ import {
   emptyFilters, filtersActive, matchesFilters, parseQueryLocally,
   type NewsItem, type SearchFilters, type Startup, type Suggestion,
 } from '../shared/startup-schema'
-import { tourOrder, type ConnectionKind, type Discovery } from './logic'
+import { missionProgress, tourOrder, type ConnectionKind, type Discovery } from './logic'
+import type { CutsceneRequest } from '../shared/cutscene-schema'
 import type { CityScene, Mode } from './scene'
 
 export type Meta = {
@@ -59,6 +60,8 @@ type State = {
   panel: 'feed' | 'missions' | 'directory' | null
   demo: { active: boolean; step: number; paused: boolean }
   toast: { id: number; text: string; tone: 'info' | 'gold' | 'green' } | null
+  /** The cutscene being played, if any. */
+  cutscene: CutsceneRequest | null
 
   load(): Promise<void>
   setScene(scene: CityScene): void
@@ -75,6 +78,7 @@ type State = {
   navigateTo(startupId: string | null): void
   tourResults(): void
   notify(text: string, tone?: 'info' | 'gold' | 'green'): void
+  playCutscene(request: CutsceneRequest): void
   set(partial: Partial<State>): void
 }
 
@@ -131,6 +135,12 @@ export const useCity = create<State>((set, get) => ({
   panel: null,
   demo: { active: false, step: 0, paused: false },
   toast: null,
+  cutscene: null,
+
+  playCutscene(request) {
+    if (!get().scene?.entered) return
+    set({ cutscene: request })
+  },
 
   set: (partial) => set(partial),
 
@@ -172,7 +182,13 @@ export const useCity = create<State>((set, get) => ({
       if (!previous || (visit === 'street' && !previous.street)) {
         next[chosen.id] = { at: previous?.at ?? new Date().toISOString(), street: visit === 'street' || Boolean(previous?.street) }
         try { localStorage.setItem(STORAGE, JSON.stringify(next)) } catch { /* Progress then lasts for this visit only. */ }
-        if (!previous) get().notify(`Discovered ${chosen.name} · +${visit === 'street' ? 150 : 100} points`, 'green')
+        if (!previous) {
+          get().notify(`Discovered ${chosen.name}, +${visit === 'street' ? 150 : 100} points`, 'green')
+          const before = missionProgress(startups, discovered)
+          const finished = missionProgress(startups, next).find((m, i) => m.done && !before[i].done)
+          // A finished mission gets a short narrated recap of the companies that completed it.
+          if (finished && !get().demo.active) setTimeout(() => get().playCutscene({ kind: 'mission', id: finished.id, companies: finished.found.slice(0, 3).map((s) => s.id) }), 900)
+        }
       }
     }
     set({ selectedBuilding: chosen.location?.buildingId ?? null, selectedId: chosen.id, discovered: next, panel: get().panel === 'directory' ? null : get().panel })
@@ -237,8 +253,8 @@ export const useCity = create<State>((set, get) => ({
       }
       const read = (data.results as { status: string }[]).filter((r) => r.status !== 'failed').length
       const message = read
-        ? `${read} ${read === 1 ? 'company' : 'companies'} re-read · ${headlines ? `${headlines} new headline${headlines === 1 ? '' : 's'}` : 'no new headlines'}${data.remaining ? ` · ${data.remaining} more queued` : ''}`
-        : `Already up to date · read ${ids?.length === 1 ? 'within the last minute' : 'within the last 10 minutes'}`
+        ? `${read} ${read === 1 ? 'company' : 'companies'} re-read, ${headlines ? `${headlines} new headline${headlines === 1 ? '' : 's'}` : 'no new headlines'}${data.remaining ? `, ${data.remaining} more queued` : ''}`
+        : `Already up to date, read ${ids?.length === 1 ? 'within the last minute' : 'within the last 10 minutes'}`
       set({
         startups: get().startups.map((s) => byId.get(s.id) ?? s),
         freshNews, flash,

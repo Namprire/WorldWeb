@@ -1,18 +1,17 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import {
-  BadgeCheck, Briefcase, Building2, ExternalLink, Eye, Linkedin, Loader2, MapPin, Navigation, Network,
-  Newspaper, RefreshCw, Send, Sparkles, X,
+  ArrowUpRight, BadgeCheck, Briefcase, Clapperboard, Eye, Loader2, Navigation, Network, RefreshCw, Send, Sparkles, X,
 } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { INDUSTRIES, isHiring, recentFunding, type FactStatus, type Startup } from '../shared/startup-schema'
 import { CONNECTION_KINDS, buildConnections, formatDate, initials, relativeDate } from './logic'
 import { useCity } from './store'
 
-const STATUS: Record<FactStatus, { label: string; title: string; className: string }> = {
-  verified: { label: 'Verified', title: 'Read directly from the source', className: 'sc-prov verified' },
-  sourced: { label: 'Sourced', title: 'Extracted from the cited page by the Context.dev research agent', className: 'sc-prov sourced' },
-  'ai-summary': { label: 'AI summary', title: 'Written by Gemini from the sourced record', className: 'sc-prov ai' },
-  'ai-inferred': { label: 'AI suggestion', title: 'Inferred by Gemini. Not a verified fact', className: 'sc-prov ai' },
+const STATUS: Record<FactStatus, { label: string; title: string; tone: string }> = {
+  verified: { label: 'Verified', title: 'Read directly from the source', tone: 'verified' },
+  sourced: { label: 'Sourced', title: 'Taken from the cited page', tone: 'sourced' },
+  'ai-summary': { label: 'Written by Gemini', title: 'Written by Gemini from the sourced record', tone: 'ai' },
+  'ai-inferred': { label: 'Suggested by Gemini', title: 'Inferred by Gemini, not a verified fact', tone: 'ai' },
 }
 
 type Provenance = { sourceUrl: string | null; sourceName: string; retrievedAt: string; status: FactStatus }
@@ -21,9 +20,9 @@ function Source({ fact }: { fact: Provenance }) {
   const status = STATUS[fact.status]
   return (
     <span className="sc-source">
-      <span className={status.className} title={status.title}>{fact.status === 'verified' && <BadgeCheck size={11} />}{status.label}</span>
+      <span className={`sc-prov ${status.tone}`} title={status.title}>{fact.status === 'verified' && <BadgeCheck size={14} />}{status.label}</span>
       {fact.sourceUrl
-        ? <a href={fact.sourceUrl} target="_blank" rel="noopener noreferrer" title={`Retrieved ${formatDate(fact.retrievedAt)}`}>{fact.sourceName}<ExternalLink size={10} /></a>
+        ? <a href={fact.sourceUrl} target="_blank" rel="noopener noreferrer" title={`Retrieved ${formatDate(fact.retrievedAt)}`}>{fact.sourceName}</a>
         : <span>{fact.sourceName}</span>}
     </span>
   )
@@ -33,9 +32,7 @@ function Row({ label, fact, children }: { label: string; fact: Provenance | null
   return (
     <div className="sc-row">
       <dt>{label}</dt>
-      <dd>
-        {fact && children ? <>{children}<Source fact={fact} /></> : <span className="sc-missing">Not publicly verified</span>}
-      </dd>
+      <dd>{fact && children ? <>{children}<Source fact={fact} /></> : <span className="sc-missing">Not published</span>}</dd>
     </div>
   )
 }
@@ -49,7 +46,7 @@ export function Logo({ startup, size = 44 }: { startup: Pick<Startup, 'logo' | '
 }
 
 const NONE: string[] = []
-const QUESTIONS = ['What does this company do?', 'Is it hiring, and for which roles?', 'What is the latest news?']
+const QUESTIONS = ['What does this company do?', 'Is it hiring?', 'What is the latest news?']
 
 function AskGemini({ startup }: { startup: Startup }) {
   const available = useCity((s) => s.meta?.geminiAvailable)
@@ -76,22 +73,24 @@ function AskGemini({ startup }: { startup: Startup }) {
   }
 
   return (
-    <section className="sc-section" id="sc-ask">
-      <h3><Sparkles size={13} /> Ask Gemini</h3>
-      {!available ? <p className="sc-note">Gemini is not configured on the server. The verified profile is unaffected.</p> : <>
+    <section className="sc-section sc-ask-section" id="sc-ask">
+      <h3 className="sc-ai-text"><Sparkles size={16} /> Ask Gemini</h3>
+      {!available ? <p className="sc-muted">Gemini is not set up on the server. The rest of the profile is unaffected.</p> : <>
         <form className="sc-ask" onSubmit={(event) => { event.preventDefault(); void ask(question) }}>
-          <input value={question} onChange={(event) => setQuestion(event.target.value)} maxLength={300} placeholder={`Ask about ${startup.name}…`} aria-label={`Ask Gemini about ${startup.name}`} />
-          <button type="submit" disabled={state.status === 'loading' || !question.trim()} aria-label="Ask">{state.status === 'loading' ? <Loader2 size={14} className="sc-spin" /> : <Send size={14} />}</button>
+          <input value={question} onChange={(event) => setQuestion(event.target.value)} maxLength={300} placeholder={`Ask about ${startup.name}`} aria-label={`Ask Gemini about ${startup.name}`} />
+          <button type="submit" disabled={state.status === 'loading' || !question.trim()} aria-label="Ask">{state.status === 'loading' ? <Loader2 size={16} className="sc-spin" /> : <Send size={16} />}</button>
         </form>
-        <div className="sc-chips small">
+        <div className="sc-suggestions">
           {QUESTIONS.map((q) => <button key={q} type="button" onClick={() => { setQuestion(q); void ask(q) }}>{q}</button>)}
-          <label className="sc-check" title={`Uses ${models?.deep ?? 'the deep model'} instead of ${models?.research ?? 'the research model'}`}><input type="checkbox" checked={deep} onChange={(event) => setDeep(event.target.checked)} /> Deeper analysis</label>
         </div>
+        <label className="sc-check" title={`Uses ${models?.deep ?? 'the deeper model'} instead of ${models?.research ?? 'the research model'}`}>
+          <input type="checkbox" role="switch" checked={deep} onChange={(event) => setDeep(event.target.checked)} /> Deeper analysis
+        </label>
         {state.status !== 'idle' && (
           <div className={`sc-answer ${state.status}`} role="status">
-            <small>{state.asked}</small>
-            {state.status === 'loading' ? <p className="sc-dim">Reading the sourced record…</p> : <p>{state.text}</p>}
-            {state.status === 'done' && <span className="sc-source"><span className="sc-prov ai">AI summary</span><span>{state.model} · answers only from the sourced record above</span></span>}
+            <p className="sc-muted">{state.asked}</p>
+            <p>{state.status === 'loading' ? 'Reading the record.' : state.text}</p>
+            {state.status === 'done' && <p className="sc-muted">Written by {state.model} from the record above only.</p>}
           </div>
         )}
       </>}
@@ -110,7 +109,7 @@ export function Panel() {
   const mode = useCity((s) => s.mode)
   const monitored = useCity((s) => s.meta?.monitored) ?? NONE
   const contextAvailable = useCity((s) => s.meta?.contextAvailable)
-  const { select, refreshSignals, navigateTo, toggleConnections, setMode, notify } = useCity.getState()
+  const { select, refreshSignals, navigateTo, toggleConnections, setMode, notify, playCutscene } = useCity.getState()
   const [watching, setWatching] = useState(false)
 
   const startup = startups.find((s) => s.id === selectedId) ?? null
@@ -125,7 +124,7 @@ export function Panel() {
       if (!response.ok) throw new Error(data.error)
       const meta = useCity.getState().meta
       if (meta) useCity.setState({ meta: { ...meta, monitored: [...new Set([...meta.monitored, target.id])] } })
-      notify(`Context.dev now watches ${new URL(data.monitor.url).hostname} daily`, 'green')
+      notify(`Context.dev will check ${new URL(data.monitor.url).hostname} every day`, 'green')
     } catch (error) {
       notify(error instanceof Error && error.message ? error.message : 'Monitoring could not be started.')
     } finally {
@@ -138,16 +137,16 @@ export function Panel() {
       {startup && (
         <motion.aside
           key="panel" className="sc-panel sc-glass" aria-label={`${startup.name} profile`}
-          initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 40, opacity: 0 }} transition={{ type: 'spring', stiffness: 260, damping: 28 }}
+          initial={{ x: 24, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 24, opacity: 0 }} transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
         >
-          <button className="sc-close" type="button" onClick={() => select(null)} aria-label="Close profile"><X size={16} /></button>
+          <button className="sc-close sc-icon" type="button" onClick={() => select(null)} aria-label="Close profile"><X size={18} /></button>
           {neighbours.length > 1 && (
-            <div className="sc-tabs" role="tablist" aria-label="Companies in this building">
-              <span><Building2 size={12} /> {neighbours.length} at this address</span>
+            <div className="sc-neighbours" role="tablist" aria-label={`${neighbours.length} companies at this address`}>
+              <span className="sc-muted">{neighbours.length} here</span>
               <div>
                 {neighbours.map((s) => (
                   <button key={s.id} role="tab" aria-selected={s.id === startup.id} type="button" title={s.name} onClick={() => select(s.location!.buildingId, s.id, mode === 'street' ? 'street' : 'map')}>
-                    <Logo startup={s} size={30} />
+                    <Logo startup={s} size={32} />
                   </button>
                 ))}
               </div>
@@ -158,56 +157,63 @@ export function Panel() {
               <Logo startup={startup} size={56} />
               <div>
                 <h2>{startup.name}</h2>
-                <p>
-                  <span className="sc-industry" style={{ ['--c' as string]: INDUSTRIES[startup.industry].color }}>{INDUSTRIES[startup.industry].label}</span>
-                  {startup.profileIndustry && <span className="sc-dim"> · {startup.profileIndustry}</span>}
+                <p className="sc-muted">
+                  <span className="sc-category" style={{ ['--c' as string]: INDUSTRIES[startup.industry].color }}>{INDUSTRIES[startup.industry].label}</span>
+                  {startup.companyStatus === 'Acquired' && <>, acquired{startup.acquirer ? ` by ${startup.acquirer}` : ''}</>}
                 </p>
-                <div className="sc-badges-row">
-                  {isHiring(startup) && <span className="sc-badge hiring"><Briefcase size={11} /> Hiring · {startup.jobs!.value.length} open</span>}
-                  {recentFunding(startup) && <span className="sc-badge funded">Recently funded</span>}
-                  {startup.news.length > 0 && <span className="sc-badge news"><Newspaper size={11} /> {startup.news.length} in the news</span>}
-                </div>
+                <p className="sc-state">
+                  {isHiring(startup) && <span className="hiring">Hiring, {startup.jobs!.value.length} open {startup.jobs!.value.length === 1 ? 'role' : 'roles'}</span>}
+                  {recentFunding(startup) && <span className="funded">Recently funded</span>}
+                  {startup.news.length > 0 && <span className="news">In the news</span>}
+                </p>
               </div>
             </header>
 
             <div className="sc-actions">
-              <a className="sc-btn primary" href={startup.website} target="_blank" rel="noopener noreferrer"><ExternalLink size={13} /> Visit website</a>
-              {startup.careersUrl
-                ? <a className="sc-btn" href={startup.careersUrl} target="_blank" rel="noopener noreferrer"><Briefcase size={13} /> View jobs</a>
-                : <button className="sc-btn" type="button" disabled title="No careers page in the company profile"><Briefcase size={13} /> View jobs</button>}
-              <button className="sc-btn" type="button" onClick={() => document.getElementById('sc-ask')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}><Sparkles size={13} /> Ask Gemini</button>
-              <button className="sc-btn" type="button" disabled={!startup.location} onClick={() => toggleConnections(startup.id)}><Network size={13} /> Explore connections</button>
-              <button className="sc-btn" type="button" disabled={!startup.location} onClick={() => navigateTo(startup.id)}><Navigation size={13} /> Navigate here</button>
+              {startup.website
+                ? <a className="sc-primary" href={startup.website} target="_blank" rel="noopener noreferrer">Visit website <ArrowUpRight size={16} /></a>
+                : <button className="sc-primary" type="button" disabled title="No website on record">Visit website</button>}
+              <div className="sc-row-actions">
+                {startup.careersUrl
+                  ? <a className="sc-text-btn" href={startup.careersUrl} target="_blank" rel="noopener noreferrer"><Briefcase size={15} /> View jobs</a>
+                  : <button className="sc-text-btn" type="button" disabled title="No careers page on record"><Briefcase size={15} /> View jobs</button>}
+                <button className="sc-text-btn" type="button" onClick={() => document.getElementById('sc-ask')?.scrollIntoView({ behavior: 'smooth', block: 'center' })}><Sparkles size={15} /> Ask Gemini</button>
+                <button className="sc-text-btn" type="button" disabled={!startup.location} onClick={() => toggleConnections(startup.id)}><Network size={15} /> Explore connections</button>
+                <button className="sc-text-btn" type="button" disabled={!startup.location} onClick={() => navigateTo(startup.id)}><Navigation size={15} /> Navigate here</button>
+                <button className="sc-text-btn" type="button" disabled={!startup.location} onClick={() => playCutscene({ kind: 'company', id: startup.id })}><Clapperboard size={15} /> Watch story</button>
+              </div>
             </div>
             {route && 'targetId' in route && route.targetId === startup.id && (
               <p className="sc-route-note">
-                <Navigation size={12} /> {Math.round(route.metres)} m along mapped streets · about {Math.max(1, Math.round(route.metres / 80))} min on foot
-                {mode === 'explorer' && <button type="button" onClick={() => setMode('street')}>Go to street level</button>}
-                <button type="button" onClick={() => navigateTo(null)}>Clear</button>
+                {Math.round(route.metres)} m along mapped streets, about {Math.max(1, Math.round(route.metres / 80))} min on foot.
+                {mode === 'explorer' && <button type="button" className="sc-text-btn" onClick={() => setMode('street')}>Go to street level</button>}
+                <button type="button" className="sc-text-btn" onClick={() => navigateTo(null)}>Clear</button>
               </p>
             )}
 
             {startup.description
-              ? <p className="sc-description">{startup.description.value}<Source fact={startup.description} /></p>
-              : <p className="sc-missing">No description in the company profile.</p>}
+              ? <div className="sc-description"><p>{startup.description.value}</p><Source fact={startup.description} /></div>
+              : <p className="sc-missing">No description has been published.</p>}
 
             <dl className="sc-facts">
               <div className="sc-row">
-                <dt><MapPin size={12} /> Office</dt>
+                <dt>Office</dt>
                 <dd>
                   {startup.location
                     ? <>{startup.location.address}{startup.location.postalCode ? `, ${startup.location.postalCode}` : ''} Helsinki<Source fact={startup.location} /></>
-                    : <><span className="sc-missing">Location not verified{startup.reportedAddress ? ` · profile reports “${startup.reportedAddress}”, which is outside the mapped area or could not be matched to a building` : ''}</span></>}
+                    : startup.outsideDistrict && startup.reportedAddress
+                      ? <>{startup.reportedAddress}, {startup.municipality}<span className="sc-muted sc-block">Confirmed in the address register. This is outside the 3D district, so it is not on the map.</span></>
+                      : <span className="sc-missing">Not confirmed{startup.reportedAddress ? `. Reported as ${startup.reportedAddress}, which could not be matched to a building.` : ''}</span>}
                 </dd>
               </div>
               <Row label="Founded" fact={startup.founded}>{startup.founded?.value}</Row>
               <Row label="Founders" fact={startup.founders}>{startup.founders?.value.join(', ')}</Row>
-              <Row label="Employees" fact={startup.employees}>{startup.employees?.value}</Row>
+              <Row label="People" fact={startup.employees}>{startup.employees?.value}</Row>
               <Row label="Funding" fact={startup.funding}>
                 {startup.funding && <>
-                  {startup.funding.value.total ?? 'Total not reported'}
+                  {startup.funding.value.total ? `${startup.funding.value.total} raised in total` : 'Total not reported'}
                   {startup.funding.value.latestRound && (startup.funding.value.latestRound.type || startup.funding.value.latestRound.amount) && (
-                    <span className="sc-sub">Latest: {[startup.funding.value.latestRound.type, startup.funding.value.latestRound.amount, startup.funding.value.latestRound.date].filter(Boolean).join(' · ')}</span>
+                    <span className="sc-block">Latest: {[startup.funding.value.latestRound.type, startup.funding.value.latestRound.amount, startup.funding.value.latestRound.date && formatDate(startup.funding.value.latestRound.date)].filter(Boolean).join(', ')}</span>
                   )}
                 </>}
               </Row>
@@ -215,49 +221,44 @@ export function Panel() {
               <div className="sc-row">
                 <dt>Links</dt>
                 <dd className="sc-links">
-                  <a href={startup.website} target="_blank" rel="noopener noreferrer">{startup.domain}<ExternalLink size={10} /></a>
-                  {startup.linkedin && <a href={startup.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin size={11} /> LinkedIn</a>}
+                  {startup.website ? <a href={startup.website} target="_blank" rel="noopener noreferrer">{startup.domain}</a> : <span className="sc-missing">No website on record</span>}
+                  {startup.linkedin && <a href={startup.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
                 </dd>
               </div>
             </dl>
 
             <section className="sc-section">
-              <h3><Briefcase size={13} /> Open positions</h3>
+              <h3>Open roles</h3>
               {startup.jobs && startup.jobs.value.length > 0 ? <>
                 <ul className="sc-jobs">
                   {startup.jobs.value.slice(0, 8).map((job) => (
                     <li key={job.title}>
                       {job.url ? <a href={job.url} target="_blank" rel="noopener noreferrer">{job.title}</a> : <span>{job.title}</span>}
-                      {job.location && <small>{job.location}</small>}
+                      {job.location && <span className="sc-muted"> {job.location}</span>}
                     </li>
                   ))}
                 </ul>
                 <Source fact={startup.jobs} />
-              </> : <p className="sc-missing">{startup.jobs ? `No specific openings were listed on the careers page when it was read on ${formatDate(startup.jobs.retrievedAt)}.` : startup.careersUrl ? 'The careers page could not be read. Open it for current positions.' : 'No careers page in the company profile.'}</p>}
+              </> : <p className="sc-missing">{startup.jobs ? `The careers page listed no specific roles on ${formatDate(startup.jobs.retrievedAt)}.` : startup.careersUrl ? 'The careers page could not be read. Open it for current roles.' : 'No careers page on record.'}</p>}
             </section>
 
             <section className="sc-section">
-              <h3><Newspaper size={13} /> Recent news</h3>
+              <h3>Recent news</h3>
               {startup.news.length ? (
                 <ul className="sc-news">
                   {startup.news.map((item) => (
                     <li key={item.id} className={freshNews[item.id] ? 'fresh' : ''}>
                       <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a>
-                      <small>
-                        {item.eventType !== 'other' && <i className={`sc-event ${item.eventType}`}>{item.eventType}</i>}
-                        {item.sourceName} · {relativeDate(item.publishedAt) || 'date not given'}
-                        {freshNews[item.id] && <b> · new</b>}
-                      </small>
+                      <span className="sc-muted sc-block">{item.sourceName}, {relativeDate(item.publishedAt) || 'date not given'}{freshNews[item.id] ? ', new' : ''}</span>
                     </li>
                   ))}
                 </ul>
-              ) : <p className="sc-missing">{startup.newsCheckedAt ? `No confidently matched headlines in the past year (checked ${formatDate(startup.newsCheckedAt)}).` : 'News has not been checked yet.'}</p>}
-              {startup.news.length > 0 && <span className="sc-source"><span className="sc-prov verified"><BadgeCheck size={11} />Verified</span><span>Publisher headlines via Context.dev news · type tags are keyword-based</span></span>}
+              ) : <p className="sc-missing">{startup.newsCheckedAt ? `No headlines matched with confidence in the past year (checked ${formatDate(startup.newsCheckedAt)}).` : startup.domain ? 'News has not been checked yet.' : 'News is matched by website, and none is on record.'}</p>}
             </section>
 
             {connections.length > 0 && (
               <section className="sc-section">
-                <h3><Network size={13} /> Connections</h3>
+                <h3>Connections</h3>
                 <ul className="sc-connections">
                   {connections.slice(0, 10).map((c) => {
                     const other = startups.find((s) => s.id === (c.a === startup.id ? c.b : c.a))!
@@ -265,10 +266,9 @@ export function Panel() {
                     return (
                       <li key={`${c.kind}-${other.id}`}>
                         <button type="button" onClick={() => { select(other.location!.buildingId, other.id); useCity.getState().scene?.focusBuilding(other.location!.buildingId) }}>
-                          <i style={{ background: kind.color }} className={kind.inferred ? 'dashed' : ''} />
-                          <span><b>{other.name}</b> · {kind.label}<small>{c.reason}</small></span>
+                          <i style={{ ['--c' as string]: kind.color }} className={kind.inferred ? 'dashed' : ''} />
+                          <span><b>{other.name}</b>, {kind.label.toLowerCase()}{kind.inferred && <span className="sc-ai-text"> (Gemini suggestion)</span>}<span className="sc-muted sc-block">{c.reason}</span></span>
                         </button>
-                        <span className={`sc-prov ${kind.inferred ? 'ai' : 'verified'}`}>{kind.inferred ? 'AI suggestion' : 'From records'}</span>
                       </li>
                     )
                   })}
@@ -279,19 +279,17 @@ export function Panel() {
             <AskGemini startup={startup} />
 
             <footer className="sc-foot">
-              <p>Last updated {formatDate(startup.updatedAt)} · profile retrieved through Context.dev</p>
-              <div>
-                <button className="sc-btn small" type="button" disabled={refresh.status === 'loading' || !contextAvailable} onClick={() => void refreshSignals([startup.id])}>
-                  {refresh.status === 'loading' ? <Loader2 size={12} className="sc-spin" /> : <RefreshCw size={12} />} Re-read news &amp; jobs
+              <p className="sc-muted">Updated {formatDate(startup.updatedAt)}.{startup.listedIn?.includes('Helsinki Startups Map database') ? ' Listed in the Helsinki Startups Map database.' : ''}</p>
+              <div className="sc-row-actions">
+                <button className="sc-text-btn" type="button" disabled={refresh.status === 'loading' || !contextAvailable || !startup.domain} onClick={() => void refreshSignals([startup.id])}>
+                  {refresh.status === 'loading' ? <Loader2 size={15} className="sc-spin" /> : <RefreshCw size={15} />} Check news and jobs again
                 </button>
-                <button className="sc-btn small" type="button" disabled={watching || !contextAvailable || monitored.includes(startup.id)} onClick={() => void watch(startup)} title="Creates a daily Context.dev monitor on this company's careers page or website">
-                  {watching ? <Loader2 size={12} className="sc-spin" /> : <Eye size={12} />} {monitored.includes(startup.id) ? 'Monitored daily' : 'Monitor for changes'}
+                <button className="sc-text-btn" type="button" disabled={watching || !contextAvailable || !startup.website || monitored.includes(startup.id)} onClick={() => void watch(startup)} title="Context.dev checks the careers page or website once a day">
+                  {watching ? <Loader2 size={15} className="sc-spin" /> : <Eye size={15} />} {monitored.includes(startup.id) ? 'Checked daily' : 'Watch for changes'}
                 </button>
               </div>
-              <p className="sc-legend">
-                <span className="sc-prov verified"><BadgeCheck size={11} />Verified</span> read from the source ·
-                <span className="sc-prov sourced">Sourced</span> extracted from the cited page ·
-                <span className="sc-prov ai">AI</span> generated or inferred
+              <p className="sc-muted">
+                <span className="sc-prov verified">Verified</span> read from the source. <span className="sc-prov sourced">Sourced</span> taken from the cited page. <span className="sc-prov ai">Gemini</span> written or suggested by AI.
               </p>
             </footer>
           </div>

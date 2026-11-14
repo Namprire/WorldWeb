@@ -15,7 +15,7 @@ type Road = { kind: string; points: number[][] }
 
 export type Bridge = {
   engine: Engine
-  district: { setDrawScale(scale: number): void }
+  district: { setDrawScale(scale: number, focus?: { x: number; z: number } | null): void }
   geography: {
     mapData: { buildings: Building[]; parts: Building[]; roads: Road[]; bounds: { west: number; east: number; north: number; south: number } }
     districtProbe(x: number, z: number, y: number, radius?: number): { blocked: boolean }
@@ -39,7 +39,8 @@ export type MarkerInput = {
   funded: boolean
   news: boolean
   launch: boolean
-  state: 'normal' | 'match' | 'dim' | 'selected'
+  /** flash: a building whose company just had news; it pulses briefly. */
+  state: 'normal' | 'match' | 'dim' | 'selected' | 'flash'
 }
 
 export type Link = { a: string; b: string; color: string; dashed: boolean; width: number }
@@ -88,6 +89,8 @@ export class CityScene {
   private input: HTMLDivElement
   private hover: string | null = null
   private streetFog = [240, 850]
+  cinematic = false
+  private drift = { yaw: 0, dist: 0, pitch: 0 }
   private visited = false
 
   constructor(private bridge: Bridge) {
@@ -126,7 +129,7 @@ export class CityScene {
     bridge.onFrame((dt, time) => this.frame(dt, time))
   }
 
-  // ───────────────────────────────────────────── camera
+  // Camera
 
   private orbitPose(c = this.cam) {
     const horizontal = c.dist * Math.cos(c.pitch)
@@ -196,7 +199,6 @@ export class CityScene {
       t: 0,
       duration: this.reduced() ? 0.01 : 1.9,
       done: () => {
-        e.input?.clear?.()
         e.state.rideT = 1
         e.state.state = 'ride'
       },
@@ -219,6 +221,31 @@ export class CityScene {
     this.fly = { from: { ...this.cam }, to, t: 0, duration: this.reduced() ? 0.01 : duration }
     this.goal = { ...to }
     this.clampGoal()
+  }
+
+  /** Start or stop cutscene control of the camera. */
+  setCinematic(on: boolean) {
+    this.cinematic = on
+    this.drift = { yaw: 0, dist: 0, pitch: 0 }
+    this.keys.clear()
+    document.body.classList.toggle('sc-cinema', on)
+  }
+
+  /** One scripted camera move. Returns how long the travel part takes, in seconds. */
+  shoot(move: 'establish' | 'aurora' | 'flyover' | 'orbit' | 'close' | 'rise', focus: { x: number; z: number } | null) {
+    const at = focus ?? { x: this.cam.tx, z: this.cam.tz }
+    const yaw = this.cam.yaw
+    const plans = {
+      establish: { to: { tx: HOME.tx, tz: HOME.tz, dist: 1500, pitch: 0.3, yaw: yaw + 0.25 }, travel: 3.2, drift: { yaw: 0.025, dist: -0.02, pitch: 0 } },
+      aurora: { to: { tx: at.x, tz: at.z + 300, dist: 520, pitch: 0.1, yaw: 0.05 }, travel: 3.4, drift: { yaw: 0.015, dist: 0, pitch: 0.004 } },
+      flyover: { to: { tx: at.x, tz: at.z, dist: 360, pitch: 0.55, yaw: yaw + 0.5 }, travel: 3.6, drift: { yaw: 0.05, dist: -0.015, pitch: 0 } },
+      orbit: { to: { tx: at.x, tz: at.z, dist: 250, pitch: 0.42, yaw: yaw + 0.8 }, travel: 2.8, drift: { yaw: 0.14, dist: 0, pitch: 0 } },
+      close: { to: { tx: at.x, tz: at.z, dist: 120, pitch: 0.2, yaw: yaw + 0.4 }, travel: 2.6, drift: { yaw: 0.06, dist: -0.01, pitch: 0.004 } },
+      rise: { to: { tx: at.x, tz: at.z, dist: 1700, pitch: 1.05, yaw: yaw + 0.3 }, travel: 5, drift: { yaw: 0.02, dist: 0.01, pitch: 0 } },
+    }[move]
+    this.flyTo(plans.to, plans.travel)
+    this.drift = plans.drift
+    return this.reduced() ? 0 : plans.travel
   }
 
   flyHome() {
@@ -250,6 +277,7 @@ export class CityScene {
     let pinch: { distance: number; angle: number } | null = null
     el.addEventListener('contextmenu', (event) => event.preventDefault())
     el.addEventListener('pointerdown', (event) => {
+      if (this.cinematic) return
       el.setPointerCapture(event.pointerId)
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY })
       this.fly = null
@@ -304,6 +332,7 @@ export class CityScene {
     el.addEventListener('pointercancel', release)
     el.addEventListener('wheel', (event) => {
       event.preventDefault()
+      if (this.cinematic) return
       this.fly = null
       this.goal.dist *= Math.exp(clamp(event.deltaY, -240, 240) * 0.0012)
       this.clampGoal()
@@ -326,7 +355,7 @@ export class CityScene {
     this.input.style.cursor = id ? 'pointer' : ''
   }
 
-  // ───────────────────────────────────────────── frame
+  // Frame
 
   private frame(dt: number, time: number) {
     const e = this.e
@@ -372,7 +401,7 @@ export class CityScene {
     // The whole district stays drawn and unfogged from above.
     e.camera.far = 2600 + 5400 * k
     e.shared.uFogRange.value.set(this.streetFog[0] + 1500 * k, this.streetFog[1] + 5200 * k)
-    this.bridge.district.setDrawScale(1 + 9 * k)
+    this.bridge.district.setDrawScale(1 + 9 * k, k > 0.5 ? { x: this.cam.tx, z: this.cam.tz } : null)
     e.camera.updateMatrixWorld()
 
     for (const glow of this.glows.values()) {
@@ -414,6 +443,14 @@ export class CityScene {
       if (this.fly.t >= 1) this.fly = null
       return
     }
+    if (this.cinematic) {
+      // Slow drift between scripted moves; the visitor has no control during a cutscene.
+      this.cam.yaw += this.drift.yaw * dt
+      this.cam.dist *= Math.exp(this.drift.dist * dt)
+      this.cam.pitch = clamp(this.cam.pitch + this.drift.pitch * dt, 0.08, 1.45)
+      this.goal = { ...this.cam }
+      return
+    }
     const pan = this.cam.dist * 0.9 * dt
     const sin = Math.sin(this.cam.yaw), cos = Math.cos(this.cam.yaw)
     const ahead = (this.keys.has('KeyW') || this.keys.has('ArrowUp') ? 1 : 0) - (this.keys.has('KeyS') || this.keys.has('ArrowDown') ? 1 : 0)
@@ -427,7 +464,7 @@ export class CityScene {
     for (const key of ['tx', 'tz', 'dist', 'yaw', 'pitch'] as const) this.cam[key] += (this.goal[key] - this.cam[key]) * rate
   }
 
-  // ───────────────────────────────────────────── glow
+  // Glow
 
   /** A dark apron under the horizon so the district never floats in empty space. */
   private addApron() {
@@ -499,7 +536,7 @@ export class CityScene {
     return { mesh, uniforms, top }
   }
 
-  // ───────────────────────────────────────────── markers
+  // Markers
 
   setMarkers(inputs: MarkerInput[]) {
     const keep = new Set(inputs.map((m) => m.buildingId))
@@ -514,10 +551,11 @@ export class CityScene {
       }
       const glow = this.glows.get(input.buildingId)!
       const gold = input.funded && input.state !== 'dim'
+      // Only fresh news pulses; everything else holds a steady light.
       glow.target = {
-        color: hexToRgb(gold ? '#fbbf24' : input.color),
-        power: input.state === 'dim' ? 0.05 : input.state === 'selected' ? 1.5 : input.state === 'match' ? 1.15 : gold ? 0.75 : 0.42,
-        pulse: input.state === 'selected' || input.state === 'match' ? 0.45 : gold ? 0.6 : 0,
+        color: hexToRgb(gold ? '#f2c14e' : input.color),
+        power: input.state === 'dim' ? 0.05 : input.state === 'selected' ? 1.4 : input.state === 'match' || input.state === 'flash' ? 1.1 : gold ? 0.7 : 0.4,
+        pulse: input.state === 'flash' ? 0.6 : 0,
       }
       let marker = this.markers.get(input.buildingId)
       if (!marker) {
@@ -540,7 +578,7 @@ export class CityScene {
       el.innerHTML = `
         <span class="sc-pin">${input.launch ? '<i class="sc-ping"></i>' : ''}${logos}${input.count > 3 ? `<span class="sc-logo sc-more">+${input.count - 3}</span>` : ''}</span>
         <span class="sc-tag"><b>${escapeHtml(input.title)}</b><small>${escapeHtml(input.subtitle)}</small></span>
-        <span class="sc-badges">${input.hiring ? '<i class="hiring" title="Open positions listed">HIRING</i>' : ''}${input.funded ? '<i class="funded" title="Recent funding reported">FUNDED</i>' : ''}${input.news ? '<i class="news" title="Recent news">NEWS</i>' : ''}</span>
+        <span class="sc-badges">${input.hiring ? '<i class="hiring">Hiring</i>' : ''}${input.funded ? '<i class="funded">Funded</i>' : ''}${input.news ? '<i class="news">News</i>' : ''}</span>
         <span class="sc-stem"></span>`
     }
   }
@@ -585,7 +623,7 @@ export class CityScene {
     }
   }
 
-  // ───────────────────────────────────────────── overlay: links and routes
+  // Overlay: links and routes
 
   setLinks(links: Link[]) { this.links = links }
   setRoutes(routes: { points: number[][]; color: string }[]) { this.routes = routes }
@@ -657,7 +695,7 @@ export class CityScene {
     ctx.globalAlpha = 1
   }
 
-  // ───────────────────────────────────────────── picking and routing
+  // Picking and routing
 
   private buildingAt(x: number, z: number, y: number) {
     for (const b of this.grid.get(`${Math.floor(x / 60)},${Math.floor(z / 60)}`) ?? []) {

@@ -1,5 +1,5 @@
 import subprocess,urllib.request,concurrent.futures,xml.etree.ElementTree as ET,json,datetime
-boxes=[(w,s,e,n) for w,e in [(24.913,24.921),(24.921,24.929),(24.929,24.9475),(24.9475,24.966)] for s,n in [(60.1605,60.16975),(60.16975,60.179)]]
+boxes=[(w,s,e,n) for w,e in [(24.898,24.9055),(24.9055,24.913),(24.913,24.921),(24.921,24.929),(24.929,24.9475),(24.9475,24.966)] for s,n in [(60.151,60.1605),(60.1605,60.16975),(60.16975,60.179)]]
 def fetch(b):
  url='https://api.openstreetmap.org/api/0.6/map?bbox='+','.join(map(str,b))
  req=urllib.request.Request(url,headers={'User-Agent':'WEBWORLD-map-prototype/1.0'})
@@ -27,6 +27,6 @@ for (t,i),e in items.items():
    mem.append(d)
   elements.append({'type':t,'id':int(i),'tags':ts,'members':mem})
  elif ts:elements.append({'type':t,'id':int(i),'tags':ts,**nodes[int(i)]})
-result={'source':'https://api.openstreetmap.org/api/0.6/map','retrievedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'bbox':[24.913,60.1605,24.966,60.179],'elements':elements}
+result={'source':'https://api.openstreetmap.org/api/0.6/map','retrievedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'bbox':[24.898,60.151,24.966,60.179],'elements':elements}
 json.dump(result,open('public/data/helsinki/source.osm.json','w'),separators=(',',':'))
 print('saved',len(elements),'elements',flush=True)

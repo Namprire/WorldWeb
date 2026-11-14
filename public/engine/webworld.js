@@ -1,5 +1,5 @@
 import { installCitizens } from "./helsinki-citizens.js";
-/* STARTUP CITY scene adapter. Uses the original renderer, terrain and frame loop. */
+/* Startup City scene adapter. Uses the original renderer, terrain and frame loop. */
 import { installHelsinki } from "./helsinki.js";
 import { installHelsinkiMap } from "./helsinki-real-map.js";
 import { installStudent } from "./student-scooter.js";

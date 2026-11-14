@@ -10,7 +10,8 @@ const database = databaseSchema.parse(JSON.parse(readFileSync('data/startups.jso
 const placed = database.startups.filter((s) => s.location)
 
 test('the shipped snapshot is valid and every fact carries a source', () => {
-  assert.ok(database.startups.length >= 30 && database.startups.length <= 51)
+  assert.ok(database.startups.length >= 100)
+  assert.equal(new Set(database.startups.map((s) => s.id)).size, database.startups.length, 'ids are unique')
   assert.ok(placed.length >= 20)
   for (const s of database.startups) {
     for (const fact of [s.description, s.founded, s.founders, s.employees, s.funding, s.investors, s.jobs, s.location]) {
@@ -34,6 +35,10 @@ test('placed companies stand on a real map building in Helsinki', async () => {
     assert.ok(inPolygon(x, z, building.rings) || (x > w - 18 && x < e + 18 && z > n - 18 && z < so + 18), `${s.name} sits at its building`)
     assert.equal(s.city, 'Helsinki')
     assert.ok(s.reportedAddress && address.split(' ')[0].toLowerCase() === s.reportedAddress.split(' ')[0].toLowerCase(), `${s.name} keeps its reported street`)
+  }
+  for (const s of database.startups.filter((c) => c.outsideDistrict)) {
+    assert.equal(s.location, null, `${s.name} is outside the district and must not be placed`)
+    assert.ok(s.reportedAddress && s.municipality, `${s.name} keeps its confirmed address`)
   }
 })
 
@@ -93,6 +98,13 @@ test('connections separate records from suggestions', () => {
   assert.equal(links.filter((l) => l.kind === 'opportunity').length, 0)
   for (const link of links.filter((l) => l.kind === 'investor')) assert.match(link.reason, /named as an investor in both/)
   assert.ok(links.every((l) => ids.includes(l.a) && ids.includes(l.b) && l.a !== l.b))
+})
+
+test('every company marked for the map in the database is listed', () => {
+  const sheet = JSON.parse(readFileSync('data/spreadsheet.json', 'utf8')) as { companies: Record<string, unknown>[] }
+  const wanted = sheet.companies.filter((c) => /^yes/i.test(String(c['On map'])) && c.Status !== 'Closed')
+  const plain = (v: string) => v.toLowerCase().replace(/[^a-z0-9]/g, '')
+  for (const row of wanted) assert.ok(database.startups.some((s) => plain(s.name) === plain(String(row.Company))), `${row.Company} is listed`)
 })
 
 test('tours visit the nearest stop next', () => {

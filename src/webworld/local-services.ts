@@ -61,9 +61,7 @@ window.fetch = async (
   if (url.pathname.startsWith("/_vercel/insights/"))
     return new Response(null, { status: 204 });
   if (
-    url.pathname === "/api/sync" ||
-    url.pathname === "/api/status" ||
-    /^\/api\/(startups|signals|search|ask|connections|monitors)(\/|$)/.test(url.pathname)
+    /^\/api\/(startups|signals|search|ask|connections|monitors|cutscene)(\/|$)/.test(url.pathname)
   )
     return originalFetch(input, init);
   if (url.pathname === "/api/presence")

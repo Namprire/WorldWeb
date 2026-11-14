@@ -2,7 +2,7 @@
 import { chromium } from "playwright";
 const base = process.env.STARTUP_CITY_URL || "http://127.0.0.1:5179";
 const steps = process.argv.slice(2);
-const browser = await chromium.launch({ headless: true, args: ["--use-angle=gl-egl", "--ignore-gpu-blocklist", "--enable-gpu"] });
+const browser = await chromium.launch({ headless: true, args: ["--use-angle=gl-egl", "--ignore-gpu-blocklist", "--enable-gpu", "--autoplay-policy=no-user-gesture-required"] });
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
 const errors = [];
 page.on("pageerror", (e) => errors.push("pageerror: " + e.message));

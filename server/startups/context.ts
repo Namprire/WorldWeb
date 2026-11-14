@@ -20,7 +20,7 @@ const MIN_NEWS_CONFIDENCE = 0.95
 /** Match a reported street address to a building in the bundled OpenStreetMap snapshot. */
 export function geocode(street: string | undefined | null) {
   if (!street) return null
-  const match = street.trim().match(/^([\p{L}][\p{L} .'-]*?)\s+(\d+)(?:\s*[-–]\s*\d+)?\s*([A-Za-z])?(?=$|[\s,./])/u)
+  const match = street.trim().match(/^([\p{L}][\p{L} .'-]*?)\s+(\d+)(?:\s*[-\u2013]\s*\d+)?\s*([A-Za-z])?(?=$|[\s,./])/u)
   if (!match) return null
   const name = match[1].toLowerCase().replace(/\s+/g, ' ')
   const number = match[2]
@@ -54,7 +54,7 @@ export function createContext(apiKey: string) {
     usage.remaining = meta.credits_remaining
   }
 
-  /** 1 · Company profile for an official domain: description, address, size, links, logo. */
+  /** Company profile for an official domain: description, address, size, links, logo. */
   async function profile(domain: string) {
     const response = await client.brand.retrieve({ domain, type: 'by_domain' } as never)
     track(response.key_metadata)
@@ -69,7 +69,7 @@ export function createContext(apiKey: string) {
       city: brand.address?.city ?? null,
       postalCode: brand.address?.postal_code ?? null,
       country: brand.address?.country_code ?? null,
-      employees: brand.employees?.range ? brand.employees.range.replace(' to ', '–') : null,
+      employees: brand.employees?.range ? brand.employees.range.replace(' to ', '-') : null,
       profileIndustry: industry ? industry.subindustry : null,
       linkedin: httpUrl(brand.socials?.find((s) => s.type === 'linkedin')?.url),
       careersUrl: httpUrl(brand.links?.careers),
@@ -80,8 +80,10 @@ export function createContext(apiKey: string) {
     }
   }
 
-  /** 2 · Recent news where the company is the primary subject. */
+  /** Recent news where the company is the primary subject. */
   async function news(startup: Pick<Startup, 'id' | 'name' | 'domain'>, others: { id: string; name: string }[], days = 365): Promise<NewsItem[]> {
+    // Name searches pick up same-name brands elsewhere, so news needs the official domain.
+    if (!startup.domain) return []
     const now = Date.now()
     const response = await client.news.search({
       searchBy: { type: 'entity', entity: { type: 'domain', domain: startup.domain } },
@@ -123,7 +125,7 @@ export function createContext(apiKey: string) {
     return items
   }
 
-  /** 3 · Open positions listed on the company's own careers page. */
+  /** Open positions listed on the company's own careers page. */
   async function jobs(careersUrl: string) {
     const response = await client.web.scrape({
       url: careersUrl,
@@ -172,7 +174,7 @@ export function createContext(apiKey: string) {
     }).slice(0, 12)
   }
 
-  /** 4 · Founders, founding year and funding, researched on the public web with cited pages. */
+  /** Founders, founding year and funding, researched on the public web with cited pages. */
   async function facts(name: string, domain: string) {
     const response = await client.web.answers({
       mode: 'fast',
@@ -210,10 +212,10 @@ export function createContext(apiKey: string) {
     }
   }
 
-  /** 5 · Ask Context.dev to watch a page and report semantic changes. */
+  /** Ask Context.dev to watch a page and report semantic changes. */
   async function watch(name: string, url: string) {
     const monitor = await client.monitors.create({
-      name: `STARTUP CITY · ${name}`,
+      name: `Startup City: ${name}`,
       target: { type: 'page', url, instructions: 'Report new company announcements, funding news, product launches and new job openings.' },
       schedule: { type: 'interval', frequency: 1, unit: 'days' },
       tags: ['startup-city'],
@@ -252,7 +254,7 @@ export async function refreshSignals(context: Context, startup: Startup, others:
   } else errors.push('news')
   if (jobs.status === 'fulfilled') {
     if (jobs.value && startup.careersUrl) {
-      next.jobs = { value: jobs.value, sourceUrl: startup.careersUrl, sourceName: sourceName(startup.careersUrl, startup.domain), retrievedAt: now, status: 'sourced' }
+      next.jobs = { value: jobs.value, sourceUrl: startup.careersUrl, sourceName: sourceName(startup.careersUrl, startup.domain ?? startup.name), retrievedAt: now, status: 'sourced' }
     }
   } else errors.push('jobs')
   if (errors.length < 2) next.updatedAt = now

@@ -1,14 +1,20 @@
 /**
- * Builds data/startups.json, the cached snapshot shipped with STARTUP CITY.
+ * Builds data/startups.json, the company snapshot the app ships with.
  *
- *   node --import tsx scripts/research-startups.ts            # research everything missing
- *   node --import tsx scripts/research-startups.ts --refresh  # re-read news and jobs too
+ *   npm run research            research companies that are new or missing data
+ *   npm run research:refresh    also re-read news and careers pages for everyone
  *
- * The candidate list below only names official company domains and an editorial category.
- * Every other fact (address, description, people, funding, jobs, news, logo) is retrieved
- * through Context.dev and stored with its source URL and retrieval time. A company is placed
- * on the map only when its reported Helsinki street address matches a building in the bundled
- * OpenStreetMap snapshot; otherwise it is listed in the directory without a location.
+ * Sources, in order of precedence:
+ *  1. data/spreadsheet.json, exported from the curated company database
+ *     (scripts/export-spreadsheet.py). Rows marked "On map" are included.
+ *  2. The earlier list of official domains below, for companies the database
+ *     does not have yet.
+ * Context.dev then fills in what the database leaves empty (description, logo,
+ * size, links, news, open roles). Database values win where both exist.
+ *
+ * A company is placed only when its street address matches a building in the
+ * bundled OpenStreetMap snapshot. Addresses that exist but lie outside the 3D
+ * district are kept and shown in the directory.
  */
 import 'dotenv/config'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -18,7 +24,7 @@ import { createContext, geocode, refreshSignals, sourceName } from '../server/st
 import { mapData, project, inPolygon } from '../public/engine/helsinki-geography.js'
 import { databaseSchema, type IndustryId, type Startup } from '../src/shared/startup-schema'
 
-const CANDIDATES: [domain: string, industry: IndustryId, name?: string][] = [
+const EARLIER_LIST: [domain: string, industry: IndustryId, name?: string][] = [
   ['maria.io', 'hub', 'Maria 01'],
   ['wolt.com', 'commerce'], ['aiven.io', 'devtools'], ['smartly.io', 'martech'], ['relexsolutions.com', 'ai'],
   ['varjo.com', 'deeptech'], ['supercell.com', 'gaming'], ['swappie.com', 'commerce'], ['yousician.com', 'saas'],
@@ -52,10 +58,10 @@ const CANDIDATES: [domain: string, industry: IndustryId, name?: string][] = [
   ['workfellow.ai', 'ai'], ['flowrite.com', 'ai'], ['speechly.com', 'ai'], ['rensoriginal.com', 'commerce'],
 ]
 
-const MAX_TOTAL = 50
 const root = resolve(import.meta.dirname, '..')
 const dataFile = resolve(root, 'data/startups.json')
 const cacheFile = resolve(root, 'data/research-cache.json')
+const sheetFile = resolve(root, 'data/spreadsheet.json')
 const logoDir = resolve(root, 'public/startup-logos')
 mkdirSync(logoDir, { recursive: true })
 
@@ -64,8 +70,14 @@ const context = createContext(process.env.CONTEXT_DEV_API_KEY)
 const refresh = process.argv.includes('--refresh')
 type Profile = Awaited<ReturnType<typeof context.profile>> & { retrievedAt: string }
 type Facts = Awaited<ReturnType<typeof context.facts>> & { retrievedAt: string }
-const cache: { profiles: Record<string, Profile | { error: string }>; facts: Record<string, Facts>; logos: Record<string, string> } =
-  existsSync(cacheFile) ? JSON.parse(readFileSync(cacheFile, 'utf8')) : { profiles: {}, facts: {}, logos: {} }
+type RegisterHit = { street: string; number: string; lon: number; lat: number; municipality: string }
+const cache: {
+  profiles: Record<string, Profile | { error: string }>
+  facts: Record<string, Facts>
+  logos: Record<string, string>
+  addresses?: Record<string, RegisterHit | null>
+} = existsSync(cacheFile) ? JSON.parse(readFileSync(cacheFile, 'utf8')) : { profiles: {}, facts: {}, logos: {} }
+cache.addresses ??= {}
 const save = () => writeFileSync(cacheFile, JSON.stringify(cache, null, 1))
 
 async function pool<T>(items: T[], size: number, work: (item: T) => Promise<void>) {
@@ -75,60 +87,13 @@ async function pool<T>(items: T[], size: number, work: (item: T) => Promise<void
   }))
 }
 
-// Phase 1 · company profiles
-await pool(CANDIDATES.filter(([d]) => !cache.profiles[d]), 5, async ([domain]) => {
-  try {
-    cache.profiles[domain] = { ...(await context.profile(domain)), retrievedAt: new Date().toISOString() }
-  } catch (error) {
-    cache.profiles[domain] = { error: String((error as Error).message).slice(0, 120) }
-  }
-  save()
-})
-
-type Place = NonNullable<ReturnType<typeof geocode>> & { register: 'OpenStreetMap' | 'City of Helsinki address register' }
-const registerCache: Record<string, Place | null> = ((cache as { register?: Record<string, Place | null> }).register ??= {})
-
-/** Second opinion for addresses OpenStreetMap has no tag for: the City of Helsinki's open address register. */
-async function helsinkiRegister(street: string): Promise<Place | null> {
-  if (street in registerCache) return registerCache[street]
-  const match = street.trim().match(/^([\p{L}][\p{L} .'-]*?)\s+(\d+)(?:\s*[-–\s]\s*\d+)?\s*([A-Za-z])?(?=$|[\s,./])/u)
-  let place: Place | null = null
-  if (match) {
-    try {
-      const url = new URL('https://api.hel.fi/servicemap/v2/search/')
-      url.search = new URLSearchParams({ q: `${match[1]} ${match[2]}`, type: 'address', municipality: 'helsinki', page_size: '5' }).toString()
-      const response = await fetch(url, { signal: AbortSignal.timeout(15_000) })
-      const results: { number: string; street: { name: { fi: string } }; location: { coordinates: [number, number] } }[] = (await response.json()).results ?? []
-      const hit = results.find((r) => r.number === match[2] && r.street.name.fi.toLowerCase() === match[1].toLowerCase())
-      if (hit) {
-        const [lon, lat] = hit.location.coordinates
-        const [x, z] = project(lon, lat) as [number, number]
-        // The register point must sit on, or right beside, a mapped building footprint.
-        let best: { id: string } | null = null, bestDistance = 14
-        for (const b of mapData.buildings as { id: string; rings: number[][][]; bounds: number[] }[]) {
-          if (x < b.bounds[0] - 15 || x > b.bounds[2] + 15 || z < b.bounds[1] - 15 || z > b.bounds[3] + 15) continue
-          if (inPolygon(x, z, b.rings)) { best = b; bestDistance = 0; break }
-          for (const ring of b.rings) for (let i = 0; i < ring.length; i++) {
-            const a = ring[i], c = ring[(i + 1) % ring.length], dx = c[0] - a[0], dz = c[1] - a[1]
-            const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (z - a[1]) * dz) / (dx * dx + dz * dz || 1)))
-            const d = Math.hypot(x - a[0] - t * dx, z - a[1] - t * dz)
-            if (d < bestDistance) { bestDistance = d; best = b }
-          }
-        }
-        if (best) place = {
-          entry: { street: hit.street.name.fi, number: hit.number, x: +x.toFixed(2), z: +z.toFixed(2), lon, lat, building: best.id, osm: 'helsinki-address-register' },
-          address: `${hit.street.name.fi} ${hit.number}${match[3] ? ` ${match[3].toUpperCase()}` : ''}`,
-          register: 'City of Helsinki address register',
-        }
-      }
-    } catch { /* Unplaced companies stay in the directory. */ }
-  }
-  registerCache[street] = place
-  save()
-  return place
-}
+// helpers
 
 const plain = (value: string) => value.toLowerCase().normalize('NFD').replace(/[^a-z0-9]/g, '')
+const domainOf = (website: string | null | undefined) => {
+  const url = website ? URL.parse(/^https?:/.test(website) ? website : `https://${website}`) : null
+  return url ? url.hostname.replace(/^www\./, '').toLowerCase() : null
+}
 /** A profile that resolves to a different brand (an acquirer, a redirect) is not this company. */
 const sameBrand = (name: string, domain: string) => {
   const label = plain(domain.split('.')[0]), brand = plain(name)
@@ -139,42 +104,163 @@ const tidyFunding = (value: string | null) => {
   const short = value.split(/\s*[;(]|\.\s|,\s(?!\d)|\s(?:publicly|in publicly|raised|across|over 20)/)[0].replace(/…$/, '').trim()
   return /\d/.test(short) ? short : null
 }
-
-const idOf = (domain: string) => domain.replace(/\.[a-z.]+$/, '').replace(/[^a-z0-9]+/g, '-')
-type Row = { domain: string; industry: IndustryId; name: string; profile: Profile; place: Place | null }
-const rows: Row[] = []
-for (const [domain, industry, givenName] of CANDIDATES) {
-  const profile = cache.profiles[domain]
-  if (!profile || 'error' in profile) { console.log(`skip ${domain}: ${profile ? profile.error : 'no profile'}`); continue }
-  const inHelsinki = profile.country === 'FI' && /helsinki|helsingfors/i.test(profile.city ?? '')
-  if (!inHelsinki) { console.log(`skip ${domain}: reported in ${profile.city ?? 'unknown city'}, ${profile.country ?? '?'}`); continue }
-  const name = givenName ?? profile.name?.split(/\s[|–—-]\s/)[0].trim() ?? domain
-  if (!givenName && !sameBrand(name, domain)) { console.log(`skip ${domain}: profile resolves to another brand (${name})`); continue }
-  const osm = geocode(profile.street)
-  const place: Place | null = osm ? { ...osm, register: 'OpenStreetMap' } : profile.street ? await helsinkiRegister(profile.street) : null
-  rows.push({ domain, industry, name, profile, place })
+const euros = (value: unknown) => {
+  const n = typeof value === 'number' ? value : NaN
+  if (!Number.isFinite(n) || n <= 0) return null
+  return n >= 1e6 ? `€${(n / 1e6).toFixed(n >= 1e7 ? 0 : 1).replace(/\.0$/, '')} million` : `€${Math.round(n / 1e3)}k`
 }
-// Placed companies first; the directory takes what remains of the budget.
-rows.sort((a, b) => Number(Boolean(b.place)) - Number(Boolean(a.place)))
-const selected = rows.slice(0, MAX_TOTAL)
-console.log(`profiles: ${rows.length} in Helsinki, ${rows.filter((r) => r.place).length} matched to a map building; keeping ${selected.length}`)
+const list = (value: unknown) => typeof value === 'string'
+  ? value.split(/\s*[,;]\s*/).map((v) => v.replace(/\s*\((co-)?founder\)/i, '').trim()).filter((v) => v.length > 1)
+  : []
+const firstLink = (value: unknown) => typeof value === 'string'
+  ? value.split(/\s*;\s*|\s+/).find((v) => /^https?:\/\//.test(v)) ?? null
+  : null
+const slug = (value: string) => plain(value.replace(/\.(com|io|fi|ai|app|co|tech|space|health|global|bio|me)$/i, '')).slice(0, 40)
 
-// Profiles cached before logo contrast was recorded are read again.
-await pool(selected.filter((r) => r.profile.logoOnDark === undefined), 5, async (row) => {
+/** Editorial category from the database sector, tags and description, then the profile. */
+const CATEGORY_RULES: [IndustryId, RegExp][] = [
+  ['gaming', /\b(games?|gaming|esports?)\b/i],
+  ['health', /\b(health\w*|medic\w*|pharma\w*|biotech\w*|therap\w*|diagnos\w*|clinical|patients?|dental|neuro\w*|drugs?)\b/i],
+  ['climate', /\b(climate|clean ?tech|energy|nuclear|battery|batteries|carbon|renewable|sustainab\w*|circular|recycl\w*|waste|emission\w*|hydrogen|heating|solar|wind)\b/i],
+  ['deeptech', /\b(space|satellites?|quantum|defen[cs]e|robot\w*|drones?|photonic\w*|semiconductor\w*|electronic components|instruments|optic\w*|xr|augmented reality|mixed reality|materials|manufactur\w*|hardware|aerospace|spacecraft)\b/i],
+  ['fintech', /\b(fin ?tech|bank\w*|payments?|financial|insur\w*|lending|invoic\w*|accounting|tax|crypto\w*)\b/i],
+  ['ai', /\b(ai|artificial intelligence|machine learning|llms?|computer vision|data science|ai agents?)\b/i],
+  ['devtools', /\b(cloud|developer|devops|open[- ]source|hosting|infrastructure|data processing|databases?|apis?)\b/i],
+  ['martech', /\b(marketing|advertis\w*|ad ?tech|sales|crm|lead generation)\b/i],
+  ['commerce', /\b(e-?commerce|marketplaces?|delivery|food|retail|restaurants?|kitchens?|consumer|grocer\w*|fashion)\b/i],
+  ['proptech', /\b(real estate|property|propert(y|ies)|construction|buildings?|housing|travel|hospitality|mobility|urban planning|workspace)\b/i],
+]
+function category(...texts: (string | null | undefined)[]): IndustryId {
+  for (const text of texts) {
+    if (!text) continue
+    for (const [id, rule] of CATEGORY_RULES) if (rule.test(text)) return id
+  }
+  return 'saas'
+}
+
+// addresses
+
+type Place = { x: number; z: number; lon: number; lat: number; building: string | null; osm: string; address: string; municipality: string; register: string }
+
+function buildingNear(x: number, z: number) {
+  let best: { id: string } | null = null, bestDistance = 14
+  for (const b of mapData.buildings as { id: string; rings: number[][][]; bounds: number[] }[]) {
+    if (x < b.bounds[0] - 15 || x > b.bounds[2] + 15 || z < b.bounds[1] - 15 || z > b.bounds[3] + 15) continue
+    if (inPolygon(x, z, b.rings)) return b.id
+    for (const ring of b.rings) for (let i = 0; i < ring.length; i++) {
+      const a = ring[i], c = ring[(i + 1) % ring.length], dx = c[0] - a[0], dz = c[1] - a[1]
+      const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (z - a[1]) * dz) / (dx * dx + dz * dz || 1)))
+      const d = Math.hypot(x - a[0] - t * dx, z - a[1] - t * dz)
+      if (d < bestDistance) { bestDistance = d; best = b }
+    }
+  }
+  return best?.id ?? null
+}
+
+/** The open address register used by the City of Helsinki service map (covers Helsinki, Espoo and Vantaa). */
+async function register(street: string): Promise<RegisterHit | null> {
+  if (street in cache.addresses!) return cache.addresses![street]
+  const match = street.trim().match(/^([\p{L}][\p{L} .'-]*?)\s+(\d+)/u)
+  let hit: RegisterHit | null = null
+  if (match) {
+    for (const municipality of ['helsinki', 'espoo', 'vantaa']) {
+      try {
+        const url = new URL('https://api.hel.fi/servicemap/v2/search/')
+        url.search = new URLSearchParams({ q: `${match[1]} ${match[2]}`, type: 'address', municipality, page_size: '5' }).toString()
+        const response = await fetch(url, { signal: AbortSignal.timeout(15_000) })
+        const results: { number: string; street: { name: { fi: string } }; location: { coordinates: [number, number] } }[] = (await response.json()).results ?? []
+        const found = results.find((r) => r.number === match[2] && r.street.name.fi.toLowerCase() === match[1].toLowerCase().trim())
+        if (found) {
+          hit = { street: found.street.name.fi, number: found.number, lon: found.location.coordinates[0], lat: found.location.coordinates[1], municipality: municipality[0].toUpperCase() + municipality.slice(1) }
+          break
+        }
+      } catch { /* try the next municipality */ }
+    }
+  }
+  cache.addresses![street] = hit
+  save()
+  return hit
+}
+
+async function locate(street: string | null | undefined): Promise<Place | null> {
+  if (!street) return null
+  const letter = street.match(/^\D+\d+\s*([A-Za-z])\b/)?.[1]
+  const osm = geocode(street)
+  if (osm) return { x: osm.entry.x, z: osm.entry.z, lon: osm.entry.lon, lat: osm.entry.lat, building: osm.entry.building, osm: osm.entry.osm, address: osm.address, municipality: 'Helsinki', register: 'OpenStreetMap' }
+  const hit = await register(street)
+  if (!hit) return null
+  const [x, z] = project(hit.lon, hit.lat) as [number, number]
+  const B = mapData.bounds
+  const inside = x > B.west && x < B.east && z > B.north && z < B.south
+  return {
+    x: +x.toFixed(2), z: +z.toFixed(2), lon: hit.lon, lat: hit.lat,
+    building: inside ? buildingNear(x, z) : null,
+    osm: 'address-register',
+    address: `${hit.street} ${hit.number}${letter ? ` ${letter.toUpperCase()}` : ''}`,
+    municipality: hit.municipality,
+    register: 'City of Helsinki address register',
+  }
+}
+
+// candidate list
+
+type SheetRow = Record<string, string | number | null>
+type Candidate = { name: string; domain: string | null; industry?: IndustryId; sheet?: SheetRow; listedIn: string[] }
+const sheet: { companies: SheetRow[]; fundingRounds: SheetRow[] } = JSON.parse(readFileSync(sheetFile, 'utf8'))
+const candidates: Candidate[] = []
+for (const row of sheet.companies) {
+  if (!/^yes/i.test(String(row['On map'] ?? '')) || row.Status === 'Closed') continue
+  candidates.push({ name: String(row.Company), domain: domainOf(row.Website as string), sheet: row, listedIn: ['Helsinki Startups Map database'] })
+}
+const fromSheet = candidates.length
+for (const [domain, industry, givenName] of EARLIER_LIST) {
+  const existing = candidates.find((c) => c.domain === domain || (givenName && plain(c.name) === plain(givenName)))
+  if (existing) { existing.industry ??= industry; existing.listedIn.push('Earlier research list'); continue }
+  candidates.push({ name: givenName ?? '', domain, industry, listedIn: ['Earlier research list'] })
+}
+console.log(`candidates: ${fromSheet} from the database, ${candidates.length - fromSheet} more from the earlier list`)
+
+// Phase 1, company profiles for every official domain
+await pool(candidates.filter((c) => c.domain && !cache.profiles[c.domain]), 5, async ({ domain }) => {
   try {
-    const next = { ...(await context.profile(row.domain)), retrievedAt: new Date().toISOString() }
-    row.profile.logoOnDark = next.logoOnDark
-    ;(cache.profiles[row.domain] as Profile).logoOnDark = next.logoOnDark
-  } catch { row.profile.logoOnDark = false }
+    cache.profiles[domain!] = { ...(await context.profile(domain!)), retrievedAt: new Date().toISOString() }
+  } catch (error) {
+    cache.profiles[domain!] = { error: String((error as Error).message).slice(0, 120) }
+  }
   save()
 })
 
-// Phase 2 · logos, people and funding
-await pool(selected, 4, async ({ domain, name, profile }) => {
-  const id = idOf(domain)
-  if (profile.logoUrl && !cache.logos[id]) {
+type Row = Candidate & { profile: Profile | null; place: Place | null; street: string | null }
+const rows: Row[] = []
+for (const c of candidates) {
+  let profile = c.domain ? cache.profiles[c.domain] : undefined
+  const usable = profile && !('error' in profile) ? profile as Profile : null
+  const name = c.name || usable?.name?.split(/\s[|\u2013\u2014-]\s/)[0].trim() || c.domain || ''
+  if (usable && c.domain && !sameBrand(name, c.domain) && name !== 'Maria 01') {
+    if (!c.sheet) { console.log(`skip ${c.domain}: profile resolves to another brand (${usable.name})`); continue }
+    profile = undefined
+  }
+  const trusted = profile && !('error' in profile) ? profile as Profile : null
+  // The earlier list only knew domains, so a company can reach this point under two names.
+  const key = plain(name).slice(0, 8)
+  if (!c.sheet && rows.some((r) => r.sheet && (plain(r.name).startsWith(key) || key.startsWith(plain(r.name).slice(0, 8))))) continue
+  if (!c.sheet) {
+    // Earlier-list companies must report a Helsinki address themselves.
+    if (!trusted || trusted.country !== 'FI' || !/helsinki|helsingfors/i.test(trusted.city ?? '')) continue
+  }
+  const street = (c.sheet?.['Street address'] as string | null) ?? trusted?.street ?? null
+  rows.push({ ...c, name, profile: trusted, street, place: await locate(street) })
+}
+const placedCount = rows.filter((r) => r.place?.building).length
+console.log(`${rows.length} companies, ${placedCount} matched to a 3D building, ${rows.filter((r) => r.place && !r.place.building).length} at a known address outside the district`)
+
+// Phase 2, logos, people and funding from Context.dev, only where the database is silent
+const idOf = (row: Row) => row.domain ? slug(row.domain) : slug(row.name)
+await pool(rows, 4, async (row) => {
+  const id = idOf(row)
+  if (row.profile?.logoUrl && !cache.logos[id]) {
     try {
-      const response = await fetch(profile.logoUrl, { signal: AbortSignal.timeout(20_000) })
+      const response = await fetch(row.profile.logoUrl, { signal: AbortSignal.timeout(20_000) })
       const type = response.headers.get('content-type') ?? ''
       const extension = type.includes('svg') ? 'svg' : type.includes('png') ? 'png' : type.includes('webp') ? 'webp' : type.includes('jpeg') ? 'jpg' : null
       if (response.ok && extension) {
@@ -183,49 +269,91 @@ await pool(selected, 4, async ({ domain, name, profile }) => {
       }
     } catch { /* The marker falls back to initials. */ }
   }
-  if (!cache.facts[domain] && domain !== 'maria.io') {
+  const sheetHasFacts = row.sheet && (row.sheet.Founders || row.sheet['Latest round'] || row.sheet['All investors'])
+  if (row.domain && !cache.facts[row.domain] && row.domain !== 'maria.io' && !sheetHasFacts) {
     try {
-      cache.facts[domain] = { ...(await context.facts(name, domain)), retrievedAt: new Date().toISOString() }
+      cache.facts[row.domain] = { ...(await context.facts(row.name, row.domain)), retrievedAt: new Date().toISOString() }
     } catch (error) {
-      console.log(`facts failed for ${domain}: ${String((error as Error).message).slice(0, 100)}`)
+      console.log(`facts failed for ${row.domain}: ${String((error as Error).message).slice(0, 100)}`)
     }
   }
   save()
 })
 
-// Phase 3 · assemble records, then read news and careers pages
+// Phase 3, assemble records
 const previous: Record<string, Startup> = existsSync(dataFile)
   ? Object.fromEntries(databaseSchema.parse(JSON.parse(readFileSync(dataFile, 'utf8'))).startups.map((s) => [s.id, s]))
   : {}
+const DB = 'Helsinki Startups Map database'
 const profileSource = 'Context.dev company profile'
-let startups: Startup[] = selected.map(({ domain, industry, name, profile, place }) => {
-  const id = idOf(domain)
-  const facts = cache.facts[domain]
-  const at = profile.retrievedAt
-  const website = `https://${domain}`
+const used = new Set<string>()
+let startups: Startup[] = rows.map((row) => {
+  let id = idOf(row)
+  if (row.domain === 'maria.io') id = 'maria'
+  while (used.has(id)) id += '-2'
+  used.add(id)
+  const { profile, sheet: s, place } = row
+  const now = new Date().toISOString()
+  const checked = s?.['Last checked'] ? new Date(String(s['Last checked'])).toISOString() : now
+  const dbLink = firstLink(s?.['Source links'])
+  const dbFact = <T,>(value: T, url = dbLink) => ({ value, sourceUrl: url, sourceName: url ? sourceName(url, DB) : DB, retrievedAt: checked, status: 'sourced' as const })
+  const facts = row.domain ? cache.facts[row.domain] : undefined
   if (facts) facts.totalFunding = tidyFunding(facts.totalFunding)
-  const funded = facts && (facts.totalFunding || facts.latestRound?.amount)
+  const website = row.domain ? `https://${row.domain}` : null
+  const at = profile?.retrievedAt ?? now
+
+  // Funding: dated rounds from the database first, then its company row, then web research.
+  const rounds = sheet.fundingRounds.filter((r) => plain(String(r.Company)) === plain(row.name))
+    .sort((a, b) => String(b.Date ?? '').localeCompare(String(a.Date ?? '')))
+  const latest = rounds[0]
+  const sheetRound = latest
+    ? { type: latest.Round && latest.Round !== 'Unknown' ? String(latest.Round) : null, amount: euros(latest['Amount (EUR)']) ?? (latest['Amount (original currency)'] ? `${latest.Currency ?? ''} ${(Number(latest['Amount (original currency)']) / 1e6).toFixed(0)} million`.trim() : null), date: latest.Date ? String(latest.Date) : null }
+    : s?.['Latest round'] ? { type: String(s['Latest round']), amount: euros(s['Latest round amount (EUR)']) ?? (s['Latest round amount (original currency)'] as string | null), date: (s['Latest round date'] as string | null) ?? null } : null
+  const sheetTotal = euros(s?.['Total raised (EUR)'])
+  const funding = sheetRound || sheetTotal
+    ? dbFact({ total: sheetTotal, latestRound: sheetRound }, (latest?.['Source link'] as string | null) ?? dbLink)
+    : facts && (facts.totalFunding || facts.latestRound?.amount)
+      ? { value: { total: facts.totalFunding, latestRound: facts.latestRound }, sourceUrl: facts.fundingSource, sourceName: sourceName(facts.fundingSource, 'Context.dev research'), retrievedAt: facts.retrievedAt, status: 'sourced' as const }
+      : null
+  const sheetInvestors = list(s?.['All investors'])
+  const research = (value: unknown, url: string | null) => ({ value, sourceUrl: url, sourceName: sourceName(url, 'Context.dev research'), retrievedAt: facts!.retrievedAt, status: 'sourced' as const })
+
+  const description = s?.['Description (one line)']
+    ? dbFact(String(s['Description (one line)']))
+    : profile?.description ? { value: profile.description, sourceUrl: website, sourceName: profileSource, retrievedAt: at, status: 'verified' as const } : null
+  const founders = list(s?.Founders)
+  const headcount = typeof s?.Headcount === 'number' ? `${s.Headcount}${s['Headcount as of'] ? ` (${s['Headcount as of']})` : ''}` : null
+
   return {
-    id, name, domain, website, industry,
-    profileIndustry: profile.profileIndustry,
-    logo: cache.logos[id] ?? null,
-    ...(cache.logos[id] && profile.logoOnDark ? { logoOnDark: true } : {}),
-    city: profile.city,
-    reportedAddress: profile.street,
-    location: place ? {
-      address: place.address, postalCode: profile.postalCode,
-      x: place.entry.x, z: place.entry.z, lon: place.entry.lon, lat: place.entry.lat,
-      buildingId: place.entry.building, osmId: place.entry.osm,
-      sourceUrl: profile.contactUrl ?? website, sourceName: `${profileSource} · matched to ${place.register}`, retrievedAt: at, status: 'verified',
+    id, name: row.name, domain: row.domain, website,
+    // Trade-register sector codes are a last resort: they often describe the legal entity, not the product.
+    industry: row.industry ?? category(s?.Tags as string, s?.['Description (one line)'] as string, profile?.profileIndustry, profile?.description, /\bAI\b/.test(row.name) ? 'AI' : null, s?.Sector as string),
+    profileIndustry: profile?.profileIndustry ?? (s?.Sector as string | null) ?? null,
+    logo: cache.logos[idOf(row)] ?? null,
+    ...(cache.logos[idOf(row)] && profile?.logoOnDark ? { logoOnDark: true } : {}),
+    city: place?.municipality ?? profile?.city ?? null,
+    reportedAddress: row.street,
+    municipality: place?.municipality ?? null,
+    outsideDistrict: Boolean(place && !place.building),
+    companyStatus: (s?.Status as string | null) ?? null,
+    acquirer: (s?.Acquirer as string | null) ?? null,
+    listedIn: row.listedIn,
+    location: place?.building ? {
+      address: place.address,
+      postalCode: s?.['Postal code'] ? String(s['Postal code']).padStart(5, '0') : profile?.postalCode ?? null,
+      x: place.x, z: place.z, lon: place.lon, lat: place.lat, buildingId: place.building, osmId: place.osm,
+      sourceUrl: s ? 'https://www.ytj.fi/en/' : profile?.contactUrl ?? website,
+      sourceName: `${s ? 'Trade register address in the database' : profileSource}, matched to ${place.register}`,
+      retrievedAt: s ? checked : at, status: 'verified' as const,
     } : null,
-    description: profile.description ? { value: profile.description, sourceUrl: website, sourceName: profileSource, retrievedAt: at, status: 'verified' } : null,
-    founded: facts?.founded ? { value: facts.founded, sourceUrl: facts.foundingSource, sourceName: sourceName(facts.foundingSource, 'Context.dev research'), retrievedAt: facts.retrievedAt, status: 'sourced' } : null,
-    founders: facts?.founders.length ? { value: facts.founders, sourceUrl: facts.foundingSource, sourceName: sourceName(facts.foundingSource, 'Context.dev research'), retrievedAt: facts.retrievedAt, status: 'sourced' } : null,
-    employees: profile.employees ? { value: profile.employees, sourceUrl: profile.linkedin ?? website, sourceName: profileSource, retrievedAt: at, status: 'verified' } : null,
-    funding: funded ? { value: { total: facts.totalFunding, latestRound: facts.latestRound }, sourceUrl: facts.fundingSource, sourceName: sourceName(facts.fundingSource, 'Context.dev research'), retrievedAt: facts.retrievedAt, status: 'sourced' } : null,
-    investors: facts?.investors.length ? { value: facts.investors, sourceUrl: facts.fundingSource, sourceName: sourceName(facts.fundingSource, 'Context.dev research'), retrievedAt: facts.retrievedAt, status: 'sourced' } : null,
-    linkedin: profile.linkedin,
-    careersUrl: profile.careersUrl,
+    description,
+    founded: typeof s?.Founded === 'number' ? dbFact(s.Founded) : facts?.founded ? research(facts.founded, facts.foundingSource) as Startup['founded'] : null,
+    founders: founders.length ? dbFact(founders) : facts?.founders.length ? research(facts.founders, facts.foundingSource) as Startup['founders'] : null,
+    employees: headcount ? dbFact(headcount) : profile?.employees ? { value: profile.employees.replace(/\u2013/g, '-'), sourceUrl: profile.linkedin ?? website, sourceName: profileSource, retrievedAt: at, status: 'verified' as const } : null,
+    funding,
+    investors: sheetInvestors.length ? dbFact(sheetInvestors, (latest?.['Source link'] as string | null) ?? dbLink) : facts?.investors.length ? research(facts.investors, facts.fundingSource) as Startup['investors'] : null,
+    linkedin: profile?.linkedin ?? null,
+    careersUrl: profile?.careersUrl ?? null,
     jobs: previous[id]?.jobs ?? null,
     news: previous[id]?.news ?? [],
     newsCheckedAt: previous[id]?.newsCheckedAt ?? null,
@@ -234,7 +362,8 @@ let startups: Startup[] = selected.map(({ domain, industry, name, profile, place
 })
 
 const names = startups.map(({ id, name }) => ({ id, name }))
-const pending = startups.filter((s) => s.industry !== 'hub' && (refresh || !s.newsCheckedAt))
+const pending = startups.filter((s) => s.industry !== 'hub' && s.domain && (refresh || !s.newsCheckedAt))
+console.log(`reading news and careers pages for ${pending.length} companies`)
 await pool(pending, 4, async (startup) => {
   const { startup: next, errors } = await refreshSignals(context, startup, names)
   startups = startups.map((s) => (s.id === next.id ? next : s))
@@ -246,7 +375,7 @@ function writeDatabase() {
   const database = databaseSchema.parse({
     meta: {
       generatedAt: new Date().toISOString(),
-      note: 'Snapshot of publicly available company information retrieved through Context.dev. Locations are matched to OpenStreetMap buildings.',
+      note: 'Companies from the Helsinki Startups Map database and earlier research, completed with public information retrieved through Context.dev. Locations are matched to OpenStreetMap buildings.',
     },
     startups,
   })
@@ -256,6 +385,6 @@ function writeDatabase() {
 }
 writeDatabase()
 const placed = startups.filter((s) => s.location)
-console.log(`\nwrote ${startups.length} companies · ${placed.length} on the map · ${startups.length - placed.length} directory only`)
-console.log(`hiring ${startups.filter((s) => s.jobs?.value.length).length} · with news ${startups.filter((s) => s.news.length).length} · funding ${startups.filter((s) => s.funding).length}`)
-console.log(`Context.dev credits used: ${context.usage.credits} · remaining: ${context.usage.remaining}`)
+console.log(`\nwrote ${startups.length} companies, ${placed.length} on the map, ${startups.filter((s) => s.outsideDistrict).length} outside the district, ${startups.length - placed.length - startups.filter((s) => s.outsideDistrict).length} address unknown`)
+console.log(`hiring ${startups.filter((s) => s.jobs?.value.length).length}, with news ${startups.filter((s) => s.news.length).length}, funding ${startups.filter((s) => s.funding).length}`)
+console.log(`Context.dev credits used: ${context.usage.credits}, remaining: ${context.usage.remaining}`)

@@ -27,10 +27,10 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
   root.name = "Helsinki · OpenStreetMap";
   engine.scene.add(root);
   const groups = [];
-  function finish(b, bounds, range = 650) {
+  function finish(b, bounds, range = 650, tree = false) {
     if (!b.nv) return;
     const m = mesh(b, root);
-    groups.push({ m, bounds, range });
+    groups.push({ m, bounds, range, tree });
     return m;
   }
   function tri(b, a, d, e, y) {
@@ -150,8 +150,17 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
     }
   }
   for (const q of batches.values()) finish(q.b, q.bounds);
+  // One mesh per 150 m tile keeps draw calls low when the whole district is in view.
+  const buildingTiles = new Map();
   for (const building of collisionBuildings) {
-    const b = builder(),
+    const tileKey = `${Math.floor((building.bounds[0] + building.bounds[2]) / 300)},${Math.floor((building.bounds[1] + building.bounds[3]) / 300)}`;
+    if (!buildingTiles.has(tileKey)) buildingTiles.set(tileKey, { b: builder(), bounds: [...building.bounds] });
+    const tile = buildingTiles.get(tileKey);
+    tile.bounds[0] = Math.min(tile.bounds[0], building.bounds[0]);
+    tile.bounds[1] = Math.min(tile.bounds[1], building.bounds[1]);
+    tile.bounds[2] = Math.max(tile.bounds[2], building.bounds[2]);
+    tile.bounds[3] = Math.max(tile.bounds[3], building.bounds[3]);
+    const b = tile.b,
       seed = (Number(building.id.split("/")[1]) % 997) / 997;
     const wall =
       building.type === "cathedral"
@@ -229,8 +238,8 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
         }
       }
     } else polygon(b, building, building.h, c.copper, engine.kinds.ROOF, seed);
-    finish(b, building.bounds);
   }
+  for (const tile of buildingTiles.values()) finish(tile.b, tile.bounds);
   const trees = new Map();
   const foliage = createFoliagePainter(engine, brushAtlas);
   for (let i = 0; i < mapData.trees.length; i++) {
@@ -259,10 +268,10 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
     );
   }
   for (const t of trees.values()) {
-    finish(t.b, t.bounds, 220);
+    finish(t.b, t.bounds, 220, true);
     const m = foliage.mesh(t.paint);
     root.add(m);
-    groups.push({ m, bounds: t.bounds, range: 220 });
+    groups.push({ m, bounds: t.bounds, range: 220, tree: true });
   }
   engine.setMapProbe(districtProbe, (ctx) => {
     const P = engine.player,
@@ -297,22 +306,26 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
   });
   // Give the actual northern sky room in the title's live painting.
   engine.setEntrance(30, 230, 65, -0.06);
-  // The bird's-eye City Explorer needs the whole district in view.
-  let drawScale = 1;
+  // The bird's-eye view needs the whole district in view. Trees are only drawn
+  // around the point being looked at, where they can actually be seen.
+  let drawScale = 1, treeCentre = null;
   return {
-    setDrawScale(scale) {
+    setDrawScale(scale, focus = null) {
       drawScale = scale;
+      treeCentre = focus;
     },
     name: "Central Helsinki · OpenStreetMap",
     buildings: districtBuildings,
     locations: mapData.locations,
     routes: mapData.routes,
     update() {
-      for (const { m, bounds: b, range } of groups) {
-        const x = Math.max(b[0], Math.min(b[2], engine.camera.position.x)),
-          z = Math.max(b[1], Math.min(b[3], engine.camera.position.z));
-        m.visible =
-          Math.hypot(x - engine.camera.position.x, z - engine.camera.position.z) < range * drawScale;
+      const cam = engine.camera.position;
+      for (const { m, bounds: b, range, tree } of groups) {
+        const cx = tree && treeCentre ? treeCentre.x : cam.x,
+          cz = tree && treeCentre ? treeCentre.z : cam.z,
+          x = Math.max(b[0], Math.min(b[2], cx)),
+          z = Math.max(b[1], Math.min(b[3], cz));
+        m.visible = Math.hypot(x - cx, z - cz) < (tree && treeCentre ? 520 : range * drawScale);
       }
     },
   };

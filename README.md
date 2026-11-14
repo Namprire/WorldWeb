@@ -1,14 +1,12 @@
-# STARTUP CITY — HELSINKI
+# Startup City, Helsinki
 
-**Explore Helsinki. Discover the startups building the future.**
+Explore Helsinki. Discover the startups building the future.
 
-A playable 3D map of central Helsinki, painted in oils under animated northern lights, where real startups stand at their real addresses. Click a glowing building to read a sourced company profile, ask questions in plain language, pull fresh news and job listings through Context.dev, and watch the city react.
+A 3D map of central Helsinki at night, under the northern lights, with real startups at their registered addresses. Click a building to read the company's profile with a source for every fact, ask Gemini about it, pull fresh news and open roles through Context.dev, and watch short narrated cutscenes that Gemini writes and voices from the records.
 
-Built for Junction 2026, Context.dev challenge: *The Web Is Your Real-Time Database.*
+Built for Junction 2026, Context.dev challenge: The Web Is Your Real-Time Database.
 
-> We transformed Helsinki's startup ecosystem from a static directory into a living, interactive 3D world.
-
-## Start
+## Run it
 
 Node.js 22.12 or later.
 
@@ -18,103 +16,110 @@ cp .env.example .env      # add CONTEXT_DEV_API_KEY and GEMINI_API_KEY
 npm run dev
 ```
 
-Open http://127.0.0.1:5179 and press **Explore the city**, or **Start demo** for the 90-second guided walkthrough. Vite runs on `5179`, the Express API on `8787`. Without keys the app still runs on the bundled snapshot, clearly labelled as cached.
+Open http://127.0.0.1:5179 and press Explore the city, or Start demo for the 90-second guided tour. Vite serves on 5179 and the API on 8787. Without keys the app runs on the saved data and says so; cutscenes then use plain sentences from the records and no voice.
 
-| Mode | Controls |
+| Where | Controls |
 | --- | --- |
-| **City Explorer** (bird's-eye) | Drag to pan · right-drag or Shift-drag to rotate · scroll to zoom · click a glowing building · WASD / arrows / Q / E also move the camera |
-| **Street Explorer** (third person) | W A S D ride · F walk · drag to look · Space jump · **E** visit the nearby startup |
-| Both | **Tab** switch mode · **/** focus search · **Esc** close |
+| City view (from above) | Drag to move, right-drag or Shift-drag to turn, scroll to zoom, click a lit building. W A S D, Q and E also move the camera. |
+| Street level | W A S D to ride, F to walk, drag to look, Space to jump, E to visit the startup in front of you. |
+| Anywhere | Tab switches view, / jumps to search, Esc closes or skips a cutscene. |
 
-## What is in it
+## The companies
 
-- **Real Helsinki in 3D.** 1,851 OpenStreetMap building footprints, streets, tram tracks, parks, trees and shoreline across about 2.9 × 2.1 km, from Ruoholahti and the Maria 01 campus to Senate Square. One metre in the scene is one metre on the ground.
-- **50 real organisations, 31 on the map** (49 companies plus the Maria 01 campus). Each placed company stands on the building at its reported street address. Companies sharing a building (six at Maria 01, plus the campus itself) get a grouped marker. The other 19 are listed in the directory as *location not verified*.
-- **Company profiles** with description, industry, founding year, founders, employee range, funding, investors, open positions, recent news, website and LinkedIn. Every fact shows its source link, retrieval date and status.
-- **Refresh startup signals.** Re-reads news coverage and careers pages through Context.dev, with loading, success and error states, caching and request limits.
-- **Live from Helsinki.** A feed of published headlines with source, date and *View on map*. Funding news turns a building gold; launches pulse blue; hiring shows green.
-- **Gemini search.** "Which startups are hiring developers?" becomes structured filters; matches light up and a route links them along real streets.
-- **Connections.** Shared investors, joint announcements and same-industry links from the records, plus dashed Gemini suggestions labelled as AI-inferred.
-- **Missions.** Find 3 AI startups, 3 that are hiring, 3 recently funded. Points, badges and a startup collection.
-- **Guided demo** with Next, Previous, Pause and Restart. It works with the APIs unavailable.
+The list comes from the curated database in `Helsinki Startups Map_ Database.ods`. Every row marked "On map" is included (95 companies), plus companies from an earlier research list that the database does not have yet. 144 companies in total:
 
-## Where the data comes from
+- 67 stand on their building in the 3D district.
+- 63 have an address confirmed in the Helsinki region address register that lies outside the district (Kallio, Pasila, Viikki, Otaniemi, Vantaa and so on). They are in the directory with their address, not guessed onto the map.
+- 14 have no address that could be matched to a building.
 
-Nothing about a company is typed in by hand except its official domain and an editorial category. Run `npm run research` to rebuild the snapshot:
+Values in the database take precedence. Context.dev fills in what the database leaves empty: description, logo, size, links, news and open roles. When the database changes:
 
-1. **Context.dev company profile** (`brand.retrieve`) for the domain: description, street address, employee range, industry, LinkedIn, careers link, logo. A profile that resolves to another brand (an acquirer or redirect) is dropped.
-2. **Address check.** The reported Helsinki address must match a building in the bundled OpenStreetMap snapshot, or else the City of Helsinki open address register. No match means no marker.
-3. **Context.dev research agent** (`web.answers`) for founding year, founders, funding and investors, each with the page it cited.
-4. **Context.dev news** (`news.search` by company domain). Only English articles where the company is the primary subject, with match confidence of at least 0.95 and the company named in the headline. This filters out same-name brands elsewhere.
-5. **Context.dev scrape** (`web.scrape` with a JSON schema) of the company's own careers page for specific open positions.
-6. **Context.dev monitors** (`monitors.create`) on request: *Monitor for changes* in a profile starts a daily watch on that company's careers page or website.
+```sh
+uv run --with odfpy==1.4.1 --with pandas python scripts/export-spreadsheet.py   # writes data/spreadsheet.json
+npm run research                                                                  # updates data/startups.json
+```
 
-| Label in the interface | Meaning |
-| --- | --- |
-| **Verified** | Read directly from the source: company profile, publisher headline, map register |
-| **Sourced** | Extracted from the cited page by the Context.dev research agent |
-| **AI summary** | Written by Gemini from the sourced record only |
-| **AI suggestion** | Inferred by Gemini; never presented as fact |
-| **Cached** | From the bundled snapshot rather than a live reading in this session |
+Research results are cached in `data/research-cache.json`, so a second run only spends credits on new companies.
 
-Missing facts are shown as *Not publicly verified*. Headline types (funding, launch, partnership, hiring) are assigned by keyword rules, not by a model.
+## Where each fact comes from
 
-**Limits worth knowing.** Sourced figures are what the cited page reports and may be out of date. Careers pages that render listings with scripts, or list only departments, come back empty, so *Hiring* undercounts. Terrain is flat and most building heights are estimated from floor counts; see [map research and limits](docs/research/helsinki-map.md).
+1. The company database: description, founders, founding year, headcount, funding rounds and investors, each with the source link recorded in the sheet.
+2. A Context.dev company profile for the official domain: description, address, size, LinkedIn, careers page and logo. Profiles that resolve to a different brand (an acquirer or a parked domain) are dropped.
+3. The address must match a building in the bundled OpenStreetMap data, or a point in the City of Helsinki's open address register. No match, no marker.
+4. Context.dev research (`web.answers`) for founders and funding, only when the database has neither.
+5. Context.dev news, matched by company domain. Only English articles where the company is the main subject, with match confidence of at least 0.95 and the company named in the headline. This keeps out same-name brands elsewhere.
+6. Context.dev scrape of the company's own careers page for specific open roles.
+7. Context.dev monitors, on request: Watch for changes in a profile starts a daily check of the careers page or website.
 
-## Gemini roles
+The profile labels each fact. Verified means it was read directly from the source. Sourced means it was taken from the cited page. Gemini means it was written or suggested by AI. Missing facts show as "Not published". Headline types (funding, launch, partnership, hiring) come from keyword rules, not a model.
 
-| Role | Model (override in `.env`) | Used for |
+Limits: figures are what the cited page says and may be out of date. Careers pages that load their listings with scripts come back empty, so "Hiring" undercounts. Terrain is flat and most building heights are estimated from floor counts; see [map research and limits](docs/research/helsinki-map.md).
+
+## Gemini
+
+| Role | Model (change in `.env`) | Used for |
 | --- | --- | --- |
-| Fast | `gemini-4-hydrogen` | Question → structured filters |
-| Research | `gemini-4-carbon` | Answering a question about one company from its record |
-| Deep | `gemini-4-argon` | Suggesting relationships across the ecosystem; optional deeper answers |
+| Fast | `gemini-4-hydrogen` | Turning a question into map filters |
+| Research | `gemini-4-carbon` | Answering questions about one company; writing cutscene scripts |
+| Deep | `gemini-4-argon` | Suggesting relationships between companies; optional deeper answers |
+| Voice | `gemini-3.8-flash-tts` | Narrating cutscenes |
 
-Gemini receives only the stored, sourced records. If it is unavailable, search falls back to keyword interpretation and says so.
+Gemini only receives the stored records. If it is unavailable, search falls back to keywords and says so.
+
+### Cutscenes
+
+A cutscene is a short shot list that Gemini writes as JSON. Each shot names one of six camera moves the scene can perform (establish, aurora, flyover, orbit, close, rise), the company it looks at, and one line of narration. The server checks every company id against the records, removes dashes, voices each line with Gemini text-to-speech and caches the result by a hash of the records, so a scene is rebuilt only when its data changes. The browser plays it with letterboxing, subtitles and the scene's own camera; Esc skips.
+
+They appear:
+
+- On first entry, as an intro over the city (skipped when reduced motion is on).
+- From Watch story in a company profile.
+- From Watch next to a headline in Live from Helsinki.
+- When a mission is completed, as a recap of the companies that completed it.
+- In step 7 of the guided demo.
 
 ## API
 
 | Route | Purpose |
 | --- | --- |
-| `GET /api/startups` | Stored records, suggestions, service availability |
-| `POST /api/signals/refresh` | Re-read news and careers pages (6 companies per call; 10-minute cache, 1 minute for a single company) |
-| `POST /api/search` | Question → filters |
+| `GET /api/startups` | Stored records, suggestions and which services are available |
+| `POST /api/signals/refresh` | Read news and careers pages again (6 companies per call, 10 minute cache, 1 minute for a single company) |
+| `POST /api/search` | Question to filters |
 | `POST /api/ask` | Question about one company, answered from its record |
-| `POST /api/connections/suggest` | Regenerate AI-inferred suggestions |
-| `GET` / `POST /api/monitors` | Context.dev page monitors |
+| `POST /api/connections/suggest` | Regenerate Gemini's relationship suggestions |
+| `POST /api/cutscene` | Script and narration for a cutscene |
+| `GET`, `POST /api/monitors` | Context.dev page monitors |
 
-Keys stay on the server. Records are stored as JSON in `data/startups.json`.
+Keys stay on the server. Records live in `data/startups.json`; a copy in `public/data/startups-snapshot.json` is used when the API is down.
 
-## Verify
+## Checks
 
 ```sh
-npm test                 # 24 unit checks: data contract, placement, filters, missions, connections
+npm test                 # unit checks: data, placement, filters, missions, connections, cutscenes
 npm run build            # type check and production bundle
 npm run dev              # then, in another terminal:
-npm run test:browser     # 47 browser checks; screenshots in output/startup-city/
+npm run test:browser     # browser checks; screenshots in output/startup-city/
 node scripts/test-helsinki-map.mjs   # map geometry, collision and landmarks
 npm start                # production app and API together on port 8787
 ```
 
-The browser checks replace provider calls with fixtures, so they spend no credits. They cover both camera modes, profiles and provenance labels, search and routing, the refresh error path, connections, feed, directory, missions, the demo's presenter controls, the offline snapshot fallback and the phone layout.
+The browser checks replace Gemini and Context.dev with fixtures, so they spend no credits.
 
-## Code map
+## Code
 
-| Path | Responsibility |
+| Path | What it does |
 | --- | --- |
-| `src/startup/scene.ts` | City Explorer camera, mode transitions, building glow, markers, connection arcs, picking, street routing |
-| `src/startup/App.tsx`, `Panel.tsx` | Interface: search, filters, feed, missions, directory, profile, connections, demo |
+| `src/startup/scene.ts` | City camera, view changes, cutscene camera moves, building glow, markers, connection lines, picking, street routing |
+| `src/startup/App.tsx`, `Panel.tsx`, `Cutscene.tsx` | Interface |
 | `src/startup/store.ts`, `logic.ts` | State, API calls, connections, missions and scoring |
-| `src/shared/startup-schema.ts` | Data contract, provenance, filters, keyword rules |
-| `server/startups/context.ts` | Context.dev: profile, news, jobs, research, monitors, address matching |
-| `server/startups/gemini.ts` | Gemini: filters, grounded answers, suggestions |
-| `server/startups/routes.ts` | API, caching, request limits, JSON store |
-| `scripts/research-startups.ts` | Builds the snapshot and downloads logos |
-| `scripts/build-address-index.mjs` | OpenStreetMap address → building index |
-| `public/engine/` | Oil-paint renderer, aurora, map, rider. `webworld.js` is the adapter the scene layer plugs into |
+| `src/shared/startup-schema.ts`, `cutscene-schema.ts` | Data contracts and rules |
+| `server/startups/` | Context.dev, Gemini, cutscenes, API routes |
+| `scripts/export-spreadsheet.py`, `research-startups.ts` | Database export and research pipeline |
+| `public/engine/` | Oil-paint renderer, aurora, map and rider |
 | `public/data/helsinki/` | OpenStreetMap source and derived map, ODbL |
 
-## Base map and credits
+## Credits
 
-STARTUP CITY is built on this repository's earlier WEBWORLD project and keeps its look: the oil-paint treatment adapted from [Patch's oil-paint](https://patch.gg/blendi/oil-paint) (MIT; notice in `public/engine/oil-paint/NOTICE.md`), the animated aurora, the student on a scooter, and the movement, camera and renderer of the authorized game client in `public/engine/game.js`. The delivery missions, robots, drones and billboards of that project were removed; its `/api/sync` endpoint remains but is unused.
+The renderer, aurora, rider and movement come from this repository's earlier WEBWORLD project and keep its look: an oil-paint treatment adapted from [Patch's oil-paint](https://patch.gg/blendi/oil-paint) (MIT, notice in `public/engine/oil-paint/NOTICE.md`), on the authorized game client in `public/engine/game.js`.
 
-Map data © OpenStreetMap contributors, ODbL; details in `public/data/helsinki/SOURCES.md`. Address fallback: City of Helsinki open address register. Company logos and names belong to their owners and are shown for identification.
+Interface type is Google Sans Flex (SIL Open Font License), bundled locally. Map data © OpenStreetMap contributors, ODbL; see `public/data/helsinki/SOURCES.md`. Address fallback: City of Helsinki open address register. Company names and logos belong to their owners and are shown to identify them.

@@ -48,7 +48,7 @@ using the exact ids provided. Return JSON only.
 const plain = (value: string, limit: number) => value.replace(/[\u0000-\u001f\u007f]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, limit)
 
 /** The slice of a record Gemini may see: values with their provenance, no internal fields. */
-function recordFor(s: Startup) {
+export function recordFor(s: Startup) {
   const funded = recentFunding(s)
   return {
     name: s.name,

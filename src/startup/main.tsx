@@ -1,6 +1,7 @@
 import '../webworld/local-services'
 import '../webworld/webworld.css'
 import '../webworld/oil-paint.css'
+import '@fontsource-variable/google-sans-flex'
 import './startup.css'
 import { createRoot } from 'react-dom/client'
 import { App } from './App'
@@ -38,7 +39,16 @@ window.addEventListener('webworld-ready', () => {
     if (snapshot.state === 'title') opened = false
     if (snapshot.state === 'ride' && !opened) {
       opened = true
-      if (!new URLSearchParams(location.search).has('street')) scene.enterExplorer(undefined, 2.6)
+      const params = new URLSearchParams(location.search)
+      if (!params.has('street')) scene.enterExplorer(undefined, 2.6)
+      // First visit opens with the narrated intro, unless motion is reduced or it was seen before.
+      let seen = true
+      try { seen = localStorage.getItem('startup-city-intro-seen') === '1' } catch { /* storage unavailable */ }
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (!seen && !reduced && !params.has('nointro') && !useCity.getState().demo.active) {
+        try { localStorage.setItem('startup-city-intro-seen', '1') } catch { /* storage unavailable */ }
+        setTimeout(() => useCity.getState().playCutscene({ kind: 'intro' }), 2800)
+      }
     }
     if (useCity.getState().entered !== scene.entered) useCity.setState({ entered: scene.entered })
   })

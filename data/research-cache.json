@@ -1946,6 +1946,992 @@
    "blogUrl": null,
    "logoUrl": "https://media.brand.dev/5ba6a995-21b5-46e3-9ba2-629ec5e494d5.svg",
    "retrievedAt": "2026-11-14T16:36:32.715Z"
+  },
+  "verda.com": {
+   "name": "Verda",
+   "description": "Verda is a Europe‑based, SOC 2 Type II compliant full‑stack AI cloud platform that delivers end‑to‑end infrastructure for the entire AI lifecycle. It offers on‑demand GPU instances—including the latest NVIDIA Hopper, Blackwell, and H100 models—via instant self‑service clusters, serverless auto‑scaling containers, and high‑speed NVMe block storage. Verda manages the full stack from data‑center ownership and renewable energy sourcing to networking with InfiniBand and NVLink, providing predictable cost, performance, and 99.9%+ uptime. The platform also includes a container registry, OCI‑complian…",
+   "street": "Töölönlahdenkatu 2",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "201–500",
+   "profileIndustry": "Cloud Infrastructure & DevOps",
+   "linkedin": "https://linkedin.com/company/verda-cloud",
+   "careersUrl": "https://verda.com/careers",
+   "contactUrl": "https://verda.com/contact",
+   "blogUrl": "https://verda.com/blog",
+   "logoUrl": "https://media.brand.dev/f70727ea-3c05-4fb5-a3aa-6b53268e9afb.svg",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:36.581Z"
+  },
+  "kasvutx.com": {
+   "name": "Kasvu Therapeutics",
+   "description": "Kasvu Therapeutics develops first‑in‑class small‑molecule positive allosteric modulators of the TrkB receptor to harness neuroplasticity for treating neuropsychiatric and neurodegenerative disorders. Their lead candidate, KTX‑0141, is a potent, selective TrkB PAM that produces rapid, long‑lasting antidepressant effects without hallucinogenic activity, and is being prepared for clinical trials in depression, Alzheimer’s, Parkinson’s and related conditions. Built on pioneering research from the University of Helsinki, Kasvu’s proprietary 3‑D TrkB dimer model enables discovery of neuroplastogen…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Pharmaceuticals & Drug Development",
+   "linkedin": "https://linkedin.com/company/kasvutx",
+   "careersUrl": null,
+   "contactUrl": "https://www.kasvutx.com/contact",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/a23d649e-e07a-4b68-9117-bcfbc7fa0e03.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:36.588Z"
+  },
+  "curifylabs.com": {
+   "name": "Curify Labs",
+   "description": "CurifyLabs is a pharmacy‑focused technology company that automates non‑sterile compounding. Their end‑to‑end platform combines validated GMP‑grade excipient bases, robotic hardware, real‑time quality‑control sensors and compliant digital batch records into a single workflow. Pharmacists can select ready‑made formulations from the CurifyLabs Formulation Library or create custom recipes with CurifyLabs Create, delivering patient‑specific medicines up to nine times faster while ensuring traceability and audit readiness. The system is USP <795>‑aligned, standardizes execution, and unlocks capacit…",
+   "street": "13475 Atlantic Blvd Unit 8 Suite 888",
+   "city": "Jacksonville",
+   "postalCode": "00180",
+   "country": "US",
+   "employees": null,
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://linkedin.com/company/curify-labs",
+   "careersUrl": null,
+   "contactUrl": "https://curifylabs.com/en/contact",
+   "blogUrl": "https://news.curifylabs.com/",
+   "logoUrl": "https://media.brand.dev/2e78702b-40f7-4ec9-9da7-e25e9a5ef916.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:36.648Z"
+  },
+  "aibidia.com": {
+   "name": "Aibidia",
+   "description": "Aibidia provides an AI-powered transfer pricing platform for multinational companies and tax teams. It connects transfer pricing policies, intercompany agreements, and financial data in one central model, helping organizations manage compliance, analyze operations, reconcile documentation with actual results, and make decisions supported by traceable evidence. Its tools also support tasks such as preparing local files, segmenting profit and loss statements, aggregating data, benchmarking, and Pillar Two readiness.",
+   "street": "Kalevankatu 30",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/aibidia",
+   "careersUrl": "https://careers.aibidia.com/",
+   "contactUrl": null,
+   "blogUrl": "https://www.aibidia.com/blog",
+   "logoUrl": "https://media.brand.dev/3ef7bb7e-4c1d-45bb-9cf4-7154bd760eff.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:36.757Z"
+  },
+  "altumtechnologies.com": {
+   "name": "Altum Technologies",
+   "description": "Altum Technologies provides intelligent, software‑guided ultrasound solutions that continuously prevent fouling and scaling in industrial processes. By applying non‑invasive sound externally to equipment such as evaporators, pipes, pumps and valves, Altum eliminates unplanned cleaning shutdowns, cuts operating costs, reduces water and chemical use, and lowers emissions. Their continuous flow‑control technology integrates data‑driven analytics, enabling plants in pulp & paper, mining, energy, oil & gas, food & beverage, water, and chemicals to keep operations running smoothly, improve separati…",
+   "street": "4132 S Rainbow Blvd #227",
+   "city": "Las Vegas",
+   "postalCode": "00130",
+   "country": "US",
+   "employees": "11–50",
+   "profileIndustry": "Industrial IoT & Monitoring Systems",
+   "linkedin": "https://linkedin.com/company/altum-technologies",
+   "careersUrl": "https://altumtechnologies.com/company/careers/",
+   "contactUrl": "https://altumtechnologies.com/contact-us/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/b18b0224-37e6-42bc-ae79-dd4ba38209f9.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:36.809Z"
+  },
+  "ambiomaterials.com": {
+   "name": "Ambio",
+   "description": "Ambio is a European platform that connects buyers and sellers of high‑quality recycled plastics. By aggregating thousands of verified recycled polymer grades—such as rHDPE, rLDPE, rPP, and rPE—Ambio lets manufacturers instantly source materials for injection molding, extrusion, film blowing, rotomolding, and blow molding through a single trusted partner. The service includes AI‑driven quality assessment, technical documentation, data‑driven pricing, and hassle‑free logistics with flexible financing. Suppliers benefit from a broad network of industrial buyers and recurring contracts, while buy…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Polymers, Plastics & Rubber",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/844274d1-5bc4-4b36-80b7-db3b38b3d764.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:36.877Z"
+  },
+  "bought.app": {
+   "name": "Bought",
+   "description": "Bought is a mobile marketplace that lets users instantly turn past online purchases into second‑hand listings and buy pre‑owned fashion, home goods, electronics, and more. By scanning receipts or email confirmations, the app automatically creates product listings, offers reverse‑image search and virtual try‑on, and handles door‑to‑door delivery via partners like Wolt. Buyers can browse 50,000+ brands, while sellers enjoy fast, hassle‑free posting and shipping. Bought aims to simplify resale, extend the life of items, and promote sustainable shopping.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Online Marketplaces",
+   "linkedin": "https://linkedin.com/company/boughtapp",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://bought.app/en/news",
+   "logoUrl": "https://media.brand.dev/e061e4b3-93d3-416b-9753-1c711ae19486.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:36.922Z"
+  },
+  "confidentialmind.com": {
+   "name": "Confidentialmind",
+   "description": "ConfidentialMind provides a self-hosted AI platform for organizations deploying AI in on-premises environments and private clouds. Its platform helps teams deploy and manage large language models, agents, retrieval-augmented generation (RAG) services, and other AI systems using their own infrastructure and data. Features include GPU and compute management, data connectors, multi-tenant access controls, metrics, and AI observability. Supporting Nvidia and AMD GPUs, ConfidentialMind offers AI services through OpenAI-compatible APIs and helps enterprises, public-sector organizations, universitie…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "linkedin": "https://linkedin.com/company/92833624",
+   "careersUrl": null,
+   "contactUrl": "https://confidentialmind.com/contact",
+   "blogUrl": "https://confidentialmind.com/resources/blog",
+   "logoUrl": "https://media.brand.dev/d0b8cc93-c2c6-4f4e-ab43-639c9e887dcf.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.006Z"
+  },
+  "deepmeasures.health": {
+   "name": "Deep Measures",
+   "description": "DEEP Measures accelerates drug development by co‑creating regulatory‑ready digital measures that matter to patients. Their platform connects clinical teams, regulators, and industry partners to design, validate, and reuse digital endpoints through a structured 7‑step process, AI‑enhanced services, and a comprehensive toolkit. DEEP offers diagnostics, expert consulting, and cross‑industry collaboration missions to streamline measure development, reduce time‑to‑market, cut costs, and improve trial success rates, ultimately delivering trusted, patient‑focused outcomes for pharmaceutical and heal…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Clinical Trials & Research Platforms",
+   "linkedin": "https://linkedin.com/company/98584476",
+   "careersUrl": "https://deepmeasures.health/careers",
+   "contactUrl": "https://deepmeasures.health/contact-us",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/e3484100-c722-4080-8596-82d23380facc.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.324Z"
+  },
+  "dispelix.com": {
+   "name": "Dispelix",
+   "description": "Dispelix is a Finnish‑headquartered technology leader that designs and manufactures transparent waveguide displays for augmented reality (AR) and extended reality (XR) devices. Using proprietary nanophotonic waveguide design software, the company creates see‑through, full‑color combiners that seamlessly blend virtual content with the real world, enabling consumer glasses that look like ordinary eyewear and custom enterprise solutions. Dispelix’s waveguides are engineered for stable, scalable mass production in partnership with global manufacturers, emphasizing strict quality control and innov…",
+   "street": "Metsänneidonkuja 10",
+   "city": "Espoo",
+   "postalCode": "02130",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "XR & Spatial Computing",
+   "linkedin": "https://linkedin.com/company/dispelix",
+   "careersUrl": "https://careers.dispelix.com/",
+   "contactUrl": "https://dispelix.com/company/contact-us/",
+   "blogUrl": "https://dispelix.com/resources/news",
+   "logoUrl": "https://media.brand.dev/2f5f24a4-8782-4247-8ce0-522781975092.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.336Z"
+  },
+  "droppe.com": {
+   "name": "Droppe",
+   "description": "Droppe is an online retailer specializing in workwear and safety gear for professionals. Based in Germany, Droppe offers a curated selection of clothing, shoes, gloves, and protective equipment from top brands such as New Balance, DC Shoes, Reebok, and Blåkläder. The platform focuses on making workdays easier with high‑quality, functional apparel, fast delivery to homes, workplaces or pick‑up stations, and hassle‑free returns within 30 days. Customers can pay via Klarna, PayPal, credit cards, Apple Pay or Google Pay, and receive invoices with VAT for employer reimbursement.",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Direct-to-Consumer (DTC) Brands",
+   "linkedin": "https://linkedin.com/company/droppehq",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/251e75c7-1957-4e07-8bf0-d4f04861e5d8.svg",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:37.345Z"
+  },
+  "digitalworkforce.com": {
+   "name": "Digital Workforce",
+   "description": "Digital Workforce is a business automation company that builds and manages digital workers—software agents that automate and optimize business processes. Leveraging technologies such as Robotic Process Automation (RPA), Intelligent Document Processing (IDP), AI agents, natural language processing, chatbots, and process mining, they help organizations redesign workflows for seamless human‑automation synergy. Their services span value discovery, process redesign, advisory workshops, implementation, talent augmentation, training, and managed automation services across industries like healthcare,…",
+   "street": "1 Chapel Street",
+   "city": "Warwick",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/digital-workforce-nordic-oy",
+   "careersUrl": null,
+   "contactUrl": "https://digitalworkforce.com/contact/",
+   "blogUrl": "https://digitalworkforce.com/rpa-news/",
+   "logoUrl": "https://media.brand.dev/138893f4-2f62-4ce5-8075-092c5d45f186.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:37.364Z"
+  },
+  "indooratlas.com": {
+   "name": "IndoorAtlas",
+   "description": "Indoor Atlas provides a patented indoor positioning platform that enables developers and enterprises to create location‑aware experiences inside buildings. Their cross‑platform SDK combines multi‑layer sensor fusion, geomagnetic mapping, and Wi‑Fi/BLE data to deliver accurate positioning, wayfinding, geofencing, heatmaps, dwell‑time analytics, and augmented‑reality overlays. The platform powers applications for venues such as airports, campuses, retail spaces, exhibitions, and workplaces, helping clients optimize space utilization, personalize interactions, and gain actionable insights. Indoo…",
+   "street": "Elektroniikkatie 8",
+   "city": "Oulu",
+   "postalCode": "90590",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Developer Tools & APIs",
+   "linkedin": "https://linkedin.com/company/indooratlas-ltd",
+   "careersUrl": null,
+   "contactUrl": "https://www.indooratlas.com/contact/",
+   "blogUrl": "https://www.indooratlas.com/blog/indooratlas-sdk-3-8-1-released/",
+   "logoUrl": "https://media.brand.dev/63f4e4bf-9e35-40cb-ab1d-8c5088286b2a.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.557Z"
+  },
+  "in-parallel.com": {
+   "name": "In Parallel",
+   "description": "In Parallel is a SaaS platform that creates a live, permission‑scoped context layer for every team, product, and program within an organization. By listening to meetings, email threads, and collaboration tools, it captures decisions, actions, risks, dependencies, and learnings in real time, turning scattered conversations into an always‑up‑to‑date organizational memory. This memory is exposed via a single MCP endpoint that any AI assistant—Claude, Gemini, ChatGPT, Copilot, etc.—can query, ensuring every tool works from the same current truth while respecting user permissions. In Parallel auto…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/in-parallel-oy",
+   "careersUrl": "https://in-parallel.com/careers",
+   "contactUrl": null,
+   "blogUrl": "https://in-parallel.com/insight",
+   "logoUrl": "https://media.brand.dev/593a6d2e-7760-46ea-adac-5d9f8957ca1f.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.594Z"
+  },
+  "iceye.fi": {
+   "name": "Iceye",
+   "description": "ICEYE is a Finnish space‑technology company that operates the world’s largest synthetic‑aperture‑radar (SAR) satellite constellation. It delivers near‑real‑time, high‑resolution (up to 25 cm) Earth observation data for flood, hurricane, wildfire and other natural‑disaster monitoring, as well as tactical intelligence for defense and intelligence missions. ICEYE’s ISR Cell provides end‑to‑end intelligence‑surveillance‑reconnaissance from a deployable container, compressing collection to actionable insight within minutes. The company offers tailored data services and APIs for insurers, governmen…",
+   "street": null,
+   "city": "Espoo",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "1001–5000",
+   "profileIndustry": "Space & Satellite Technology",
+   "linkedin": "https://linkedin.com/company/iceye",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/ac755f65-d4e1-4b12-b34d-abc628c8c0e2.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.615Z"
+  },
+  "koherent.io": {
+   "name": "Koherent",
+   "description": "Koherent delivers the world’s most accurate radio‑based long‑range positioning solution, enabling real‑time monitoring of buildings, infrastructure, and automated logistics across indoor, outdoor and underground environments. Their technology supports structural health monitoring, construction sites, and machine automation, reducing costs, improving efficiency and enhancing safety 24/7. By providing precise, reliable positioning data, Koherent helps create safer, more sustainable and intelligent operations worldwide.",
+   "street": null,
+   "city": "Vantaa",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Industrial IoT & Monitoring Systems",
+   "linkedin": "https://linkedin.com/company/koherent",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/1c3e3ac3-b310-4dfc-a3e1-1c4a825b87de.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.794Z"
+  },
+  "intergrid.fi": {
+   "name": "Intergrid",
+   "description": "Intergrid is a Finnish technology company that provides an AI‑driven Autopilot platform for industrial energy operations. Their solution automates end‑to‑end daily tasks such as consumption forecasting, power‑market trading, remote system control, and monitoring across sectors like district heating, horticulture, manufacturing, and utilities. By integrating machine‑learning models with existing automation and IT systems, Intergrid creates real‑time situational awareness of energy consumption, system status, and market conditions, enabling 24/7 autonomous control and cost optimisation. The pla…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Industrial IoT & Monitoring Systems",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/b640da3f-50a1-40e8-b832-d0fa5607b3ad.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:37.801Z"
+  },
+  "kovahq.com": {
+   "name": "Kova Labs",
+   "description": "Kova Labs is a military technology company based in Helsinki, Finland, focused on building the foundational autonomy layer for unmanned systems. They engineer advanced, scalable autonomous solutions that enable drones, ground robots, and other unmanned platforms to operate independently in GPS‑denied, contested, and complex environments. By providing the core software and perception capabilities needed for autonomous warfare, Kova Labs supports Europe’s long‑term sovereignty and the defense needs of its allies. The company collaborates with partners across Europe, from Helsinki to Kyiv, and s…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Defense IT & Systems Integration",
+   "linkedin": "https://linkedin.com/company/kova-labs",
+   "careersUrl": "https://kovahq.com/careers",
+   "contactUrl": "https://kovahq.com/contact",
+   "blogUrl": "https://kovahq.com/news",
+   "logoUrl": "https://media.brand.dev/9c3acb3c-3abd-4625-ab92-2d94406aef5f.svg",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.828Z"
+  },
+  "mjuk.fi": {
+   "name": "Mjuk",
+   "description": "Mjuk is an online marketplace that lets users buy and sell second‑hand furniture across the EU. It offers dedicated stores for Finland and Sweden and an English‑language store for the rest of Europe, covering design, vintage and other furniture styles, making resale easy and sustainable.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Online Marketplaces",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/417e3b7c-3404-44a7-8a15-0680115f9ab3.svg",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:37.979Z"
+  },
+  "metroc.ai": {
+   "name": "Metroc",
+   "description": "Metroc is an AI‑driven SaaS platform that delivers real‑time, enriched information on construction projects to help firms identify and win the most promising opportunities. By continuously aggregating and analyzing project data, Metroc enables users to spot new builds as soon as they are published, assess risk, and craft more accurate bids. The solution also provides market intelligence for deeper customer relationships, allowing sales teams to track prospects, understand their needs, and deliver timely, relevant proposals. With tools for lead generation, project tracking, and partnership man…",
+   "street": "Antinkatu 3",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Construction Management Software",
+   "linkedin": "https://fi.linkedin.com/company/metroc",
+   "careersUrl": "http://careers.metroc.ai/",
+   "contactUrl": "https://metroc.ai/en/contact/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/6cc0c5f2-03f9-440a-805e-c005a6924c25.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:37.993Z"
+  },
+  "mobal.io": {
+   "name": "Mobal",
+   "description": "Mobal is a SaaS platform that helps multi‑location businesses keep every storefront visible, accurate, and up‑to‑date across online search, maps, review sites, and their own websites. By centralising listing management, content publishing, menu updates, and review monitoring, Mobal lets users edit information once and push it to Google, Apple Maps, social platforms, and local profiles. The dashboard provides location‑level performance analytics, reputation alerts, and a single inbox for all reviews, enabling faster responses and better brand trust. Mobal also offers simple, automatically sync…",
+   "street": "27-29 Tehtaankatu",
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/34712203https:",
+   "careersUrl": "https://mobal.io/careers",
+   "contactUrl": null,
+   "blogUrl": "https://mobal.io/blog",
+   "logoUrl": "https://media.brand.dev/2ae14e69-41eb-47ab-a468-d1e1160551a4.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:38.040Z"
+  },
+  "moves.fi": {
+   "name": "Moves",
+   "description": "Moves Oy is a family‑owned Finnish company founded in 1985 that supplies industrial power‑transmission solutions. Based in Vantaa, it offers a comprehensive range of electric motors, gearboxes, and frequency converters from manufacturers such as Brook Crompton, Motovario, Invertek Drives, ELK Motor, Rossi, and Yilmaz. Moves provides technical sizing assistance, in‑stock delivery from its Vantaa warehouse, and custom Motovario MAC assemblies assembled in its own installation centre. The firm supports customers with product selection, documentation, and rapid after‑sales service, ensuring the r…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Manufacturing & Industrial Automation",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": "https://moves.fi/yhteystiedot/",
+   "blogUrl": "https://moves.fi/uutiset/",
+   "logoUrl": "https://media.brand.dev/bfaf33ac-76a1-4a6a-b3e1-088db71f07e6.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.165Z"
+  },
+  "nordcraftboats.com": {
+   "name": "Nordcraft Boats",
+   "description": "Nordcraft Boats designs and manufactures premium pontoon boats for leisure and recreation. Offering models from 17' to 25', the company provides spacious, customizable decks with options for upholstery, flooring, bimini, stereo, and more. Each vessel is built on an aluminum hull with a 5‑year structural warranty and powered by reliable Tohatsu engines. Nordcraft emphasizes comfort, versatility, and performance, catering to families, anglers, and water‑sport enthusiasts. Their online platform lets customers configure layouts, accessories, and finishes, while support services include maintenanc…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Manufacturing & Industrial Automation",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://www.nordcraftboats.com/blog/",
+   "logoUrl": "https://media.brand.dev/f7788591-a56f-4874-8989-2d443ac7c389.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:38.212Z"
+  },
+  "originbyocean.com": {
+   "name": "Origin by Ocean",
+   "description": "Origin by Ocean is a sustainability‑focused biotech company that harvests harmful brown algae from oceans and converts it into high‑value, bio‑based ingredients for a wide range of industries. Using a patented, state‑of‑the‑art biorefining process, the firm produces functional products such as OceanThix™ alginate for food and beverages, OceanBoost™ for cosmetics and personal care, and OceanResidue™ for agriculture, textiles, detergents, and biodegradable packaging. By turning invasive seaweed into renewable raw material, Origin by Ocean tackles marine pollution while delivering petrochemical‑…",
+   "street": "Tekniikantie 2",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Specialty Chemicals",
+   "linkedin": "https://linkedin.com/company/origin-by-ocean",
+   "careersUrl": "https://www.originbyocean.com/contact-us/join-us",
+   "contactUrl": "https://www.originbyocean.com/contact-us/media",
+   "blogUrl": "https://www.originbyocean.com/blog",
+   "logoUrl": "https://media.brand.dev/58ed7c84-c4e4-4ada-8ee7-b24b4929ae50.svg",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.238Z"
+  },
+  "p2x.fi": {
+   "name": "P2X",
+   "description": "P2X Solutions is a Finnish pioneer in green hydrogen and Power‑to‑X technologies. The company produces and distributes green hydrogen and synthetic fuels such as e‑methane, e‑methanol, and e‑ammonia, operating Finland’s first industrial‑scale green hydrogen plant in Harjavalta and planning additional facilities in Joensuu and Oulu. P2X Solutions delivers turnkey hydrogen plant projects, supports the hydrogen value chain, and aims to reach 1 GW of production capacity within the next decade. It also partners with industry players—e.g., supplying green hydrogen to Finavia and signing e‑methane o…",
+   "street": "Tekniikantie 12",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Renewable Energy & Cleantech",
+   "linkedin": "https://linkedin.com/company/p2x-solutions",
+   "careersUrl": null,
+   "contactUrl": "https://p2x.fi/en/contact-us/",
+   "blogUrl": "https://p2x.fi/en/category/news/",
+   "logoUrl": "https://media.brand.dev/2bd19172-2751-49ac-aa9c-9330c839e55d.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:38.355Z"
+  },
+  "proteins1.com": {
+   "name": "Proteins",
+   "description": "Proteins.1 is a Helsinki‑based biotech company that has created an enzyme‑free, physics‑based multi‑omics platform for ultra‑sensitive detection of DNA, RNA, and proteins. By eliminating enzymes, its technology can reveal invisible protein signals, enabling earlier disease diagnosis, faster biomarker research, and accelerated drug discovery. The platform works simultaneously across nucleic acids and proteins, redefining the limits of molecular detection and opening a new layer of biological insight for liquid biopsy and next‑generation diagnostics.",
+   "street": null,
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://fi.linkedin.com/company/proteins1",
+   "careersUrl": null,
+   "contactUrl": "https://proteins1.com/contact",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/557c0673-89c4-404d-90ed-b6e8c704fc30.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.395Z"
+  },
+  "seaber.io": {
+   "name": "Seaber",
+   "description": "Seaber is an independent Finnish maritime SaaS company that provides an AI‑powered platform for freight scheduling, chartering and fleet optimization. Leveraging predictive analytics, real‑time data integration and automated scenario planning, Seaber helps commercial shipowners, industrial charterers and commodity traders maximize vessel utilization, cut costs (3‑8% savings) and reduce emissions. The solution syncs with existing voyage management systems and ERPs, delivering market insights, automated data retrieval, and visualized performance metrics to support smarter, faster decision‑makin…",
+   "street": "Keilaranta 1",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": null,
+   "careersUrl": "https://www.seaber.io/jobs",
+   "contactUrl": "https://www.seaber.io/contact-us",
+   "blogUrl": "https://www.seaber.io/blog/seaber-and-sedna-expand-partnership-to-connect-ai-powered-fleet-scheduling-with-voyage-management",
+   "logoUrl": "https://media.brand.dev/09027b07-032c-466c-98cb-af3e31c1e025.jpg",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.428Z"
+  },
+  "sensofusion.com": {
+   "name": "Sensofusion",
+   "description": "Sensofusion provides advanced counter‑unmanned‑air‑system (C‑UAS) solutions, including its flagship Airfence platform, a passive drone detection and response system that delivers real‑time location of drones and pilots. The technology is deployed by military, law‑enforcement and governmental customers across Europe, North America, the Middle East and Asia to protect personnel, critical infrastructure and airspace. Airfence offers a suite of counter‑measures for modern drone threats, with a dedicated Military Edition and extensible modules. Founded in 2016 and based in Vantaa, Finland, Sensofu…",
+   "street": "Hakamäenkuja 1",
+   "city": "Vantaa",
+   "postalCode": "01510",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Defense Systems & Military Hardware",
+   "linkedin": "https://linkedin.com/company/sensofusion",
+   "careersUrl": "https://careers.sensofusion.com/",
+   "contactUrl": "https://sensofusion.com/contact/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/fd7ca9d7-c6e3-4edd-a5e4-d9bfabc8bc65.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.618Z"
+  },
+  "solarfoods.fi": {
+   "name": "Solar Foods",
+   "description": "Solar Foods is a Finnish biotech company pioneering sustainable food production by turning air, electricity and water into protein. Using a proprietary microbial fermentation process, they grow the microorganism Solein®—a versatile, nutritionally rich protein—without land or traditional agriculture. Their commercial‑scale Facility 01 began operations in 2024, and the upcoming Facility 02 will boost annual output from 160 tons to 6,400 tons, with plans for a global network of factories. By decoupling food from farming, Solar Foods aims to dramatically reduce water and land use, lower greenhous…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": "00000",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Food & Beverage CPG",
+   "linkedin": "https://linkedin.com/company/solarfoods",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/22cd0325-e197-4567-9b8f-b12eab5c74ff.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.621Z"
+  },
+  "soomamedical.com": {
+   "name": "Sooma",
+   "description": "Sooma is a medical technology company that develops and supplies the EU‑MDR‑approved Sooma tDCS™ system, a non‑invasive, drug‑free brain stimulation platform for treating depression and chronic pain. The portable transcranial direct current stimulation (tDCS) device can be used in‑clinic or at home under remote supervision via the Sooma Portal, enabling scalable, data‑driven care, shorter patient queues, and remote monitoring. Sooma’s solution is backed by peer‑reviewed research, with over 30,000 patients treated in more than 35 countries, 500,000+ sessions, and adoption by 300+ hospitals and…",
+   "street": "Atomitie 5 C ",
+   "city": "Milford",
+   "postalCode": "00370",
+   "country": "US",
+   "employees": null,
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://linkedin.com/company/sooma-oy",
+   "careersUrl": "https://career.soomamedical.com/",
+   "contactUrl": "https://soomamedical.com/contact-us/",
+   "blogUrl": "https://soomamedical.com/category/news/",
+   "logoUrl": "https://media.brand.dev/7135f1a1-e6cd-410c-a396-afcc59916a81.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:38.627Z"
+  },
+  "spacent.com": {
+   "name": "Spacent",
+   "description": "Spacent is a SaaS platform that serves as the operating system for hybrid workplaces, unifying workspace access, office spend management, and hybrid work tools on a single contract and vendor. The solution aggregates over 1,300 curated workspaces across 26 European countries—including coworking desks, meeting rooms, and private offices—allowing companies to open, scale, or close locations in days. It provides centralized budgeting, policy enforcement, security compliance (SSO, GDPR), and detailed usage analytics for cost, ESG, and space optimization. Enterprises can set booking rules, allocat…",
+   "street": "Pohjoisesplanadi 19",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Real Estate Marketplaces",
+   "linkedin": "https://linkedin.com/company/spacent",
+   "careersUrl": null,
+   "contactUrl": "https://www.spacent.com/contact-us",
+   "blogUrl": "https://www.spacent.com/news",
+   "logoUrl": "https://media.brand.dev/bc193250-118d-45d2-ada9-98ea62560a7f.webp",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.796Z"
+  },
+  "synoste.com": {
+   "name": "Globus Medical",
+   "description": "Globus Medical is a global medical technology company that develops, manufactures, and markets innovative surgical solutions for musculoskeletal disorders. Their portfolio spans spine, orthopedic trauma, joint reconstruction, and limb reconstruction, offering integrated systems such as the Excelsius™ robotic navigation platform, power tools, regenerative biologics, and implant technologies. The company combines advanced hardware with enabling software, education, and research services to improve operating‑room safety, surgical precision, and patient outcomes. Through a comprehensive ecosystem…",
+   "street": "Valley Forge Business Center",
+   "city": "Audubon",
+   "postalCode": "19403",
+   "country": "US",
+   "employees": null,
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://linkedin.com/company/globus-medical",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/f602f60d-b319-44e7-9e17-e34ca7142f50.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.803Z"
+  },
+  "tiltbio.com": {
+   "name": "TILT Biotherapeutics",
+   "description": "TILT Biotherapeutics is a clinical‑stage biotechnology company focused on developing next‑generation immunotherapies for solid tumors. Leveraging its patented TILT® platform, the firm engineers oncolytic adenoviruses that are administered intravenously and armed with immune‑stimulating cytokines such as TNF‑α and IL‑2. These viruses home to cancer cells, converting immunologically “cold” tumors into “hot” ones and enhancing T‑cell mediated attack. The lead candidate, TILT‑123 (igrelimogene litadenorepvec), is a cytokine‑armed oncolytic virus ready for Phase II trials. TILT collaborates with p…",
+   "street": "Tukholmankatu 8B",
+   "city": "Helsinki",
+   "postalCode": "00290",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Pharmaceuticals & Drug Development",
+   "linkedin": "https://linkedin.com/company/tilt-biotherapeutics-ltd",
+   "careersUrl": "https://tiltbio.com/work-with-us/",
+   "contactUrl": "https://tiltbio.com/contact/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/3308ec1b-57ad-4ad0-adce-6ad9c115b948.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.905Z"
+  },
+  "trademarknow.com": {
+   "name": "Corsearch",
+   "description": "TrademarkNow, a division of Corsearch, is a technology‑driven company that helps brands safeguard their intellectual property and reputation. Leveraging proprietary AI algorithms and a team of experts, TrademarkNow offers smart trademark search and screening, AI‑native brand‑threat detection (Zeal 2.0), and automated content‑protection services. Their platform gives instant visibility into potential infringements, streamlines manual review, and enables rapid enforcement of hundreds of threats at once. By combining data analytics, expert oversight, and scalable automation, TrademarkNow support…",
+   "street": "Vuorikatu 14A (4th floor)",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "IP & Trademark Management",
+   "linkedin": "https://linkedin.com/company/corsearchinc",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/e382462a-54d2-48d8-b265-cfbf65b1af34.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:38.970Z"
+  },
+  "vensum.com": {
+   "name": "Vensum",
+   "description": "Vensum Power (Vensum Power Oy) develops and manufactures software‑defined power converters (SDPC) that dramatically improve DC‑DC conversion efficiency and power density. Their patented technology combines Zero Voltage Switching and Zero Current Switching with high‑frequency operation, delivering up to three times more power in the same footprint while minimizing energy waste and heat. The converters are adaptable, remotely configurable, and support a wide range of applications such as solar, electric vehicles, wind turbines, and smart grids. Vensum’s solutions also feature low‑maintenance de…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Hardware & Semiconductors",
+   "linkedin": null,
+   "careersUrl": "https://www.vensum.com/join-us/",
+   "contactUrl": "https://www.vensum.com/contact-us/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/67429186-90f1-4652-8c59-7117a3dcb49e.webp",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:38.987Z"
+  },
+  "agatesensors.com": {
+   "name": "Agate Sensors",
+   "description": "Agate Sensors is a Finnish technology company that has created the world’s first software‑defined hyperspectral intelligence platform. By integrating lab‑grade hyperspectral precision onto a single chip, its solid‑state sensors are ultra‑miniaturized, mass‑manufacturable, and free of moving parts, making them suitable for harsh environments. The programmable chipset can be reconfigured via AI‑driven software for a wide range of applications, from defence threat detection and autonomous systems to advanced imaging, automotive, medical wearables, and industrial robotics. Agate Sensors provides…",
+   "street": "Tietäjäntie 2",
+   "city": "Espoo",
+   "postalCode": "02130",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Hardware & Semiconductors",
+   "linkedin": "https://linkedin.com/company/agate-sensors",
+   "careersUrl": null,
+   "contactUrl": "https://www.agatesensors.com/company",
+   "blogUrl": "https://www.agatesensors.com/blog",
+   "logoUrl": "https://media.brand.dev/390df33a-c347-4f81-86b2-d882025b5044.svg",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.112Z"
+  },
+  "avenuebiosciences.com": {
+   "name": "Avenue Biosciences",
+   "description": "Avenue Biosciences is a biotech company that engineers the secretory pathway to boost yield and quality of therapeutic proteins. Using a high‑throughput platform that blends synthetic biology, machine learning, and wet‑lab chemistry, they design and test thousands of N‑terminal signal peptide variants to identify optimal combinations for each target. Their service accelerates development of antibodies, fusion proteins, cell‑ and gene‑therapy vectors, mRNA therapeutics, enzymes, and AI‑designed proteins by reducing manufacturing bottlenecks, cutting time‑to‑market, and lowering production cost…",
+   "street": "2627 Hanover St",
+   "city": "Palo Alto",
+   "postalCode": "94304",
+   "country": "US",
+   "employees": "11–50",
+   "profileIndustry": "Biotechnology & Genomics",
+   "linkedin": "https://linkedin.com/company/avenue-biosciences",
+   "careersUrl": null,
+   "contactUrl": "https://www.avenuebiosciences.com/contact",
+   "blogUrl": "https://www.avenuebiosciences.com/blog",
+   "logoUrl": "https://media.brand.dev/4440a289-11cc-403c-b134-76422282f1bb.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.148Z"
+  },
+  "desentum.fi": {
+   "name": "Desentum",
+   "description": "Desentum is a clinical‑stage biopharmaceutical company based in Espoo, Finland, focused on developing novel allergen immunotherapy (AIT) products. Using a proprietary platform of recombinant allergens that are engineered to suppress histamine release, Desentum aims to create faster, safer, and more patient‑friendly treatments for common allergies such as birch pollen, peanut, and cat. The company’s mission is to expand worldwide use of AIT by delivering well‑documented, regulatory‑approved therapies that reduce adverse effects and treatment duration. Current programs are in investigational st…",
+   "street": "Tekniikantie 14",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Pharmaceuticals & Drug Development",
+   "linkedin": "https://linkedin.com/company/desentum-oy",
+   "careersUrl": null,
+   "contactUrl": "https://desentum.fi/contact/",
+   "blogUrl": "https://desentum.fi/news/",
+   "logoUrl": "https://media.brand.dev/a5d474c7-3e18-4141-96e5-0e26b34cd4a9.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.168Z"
+  },
+  "elfys.fi": {
+   "name": "ElFys",
+   "description": "ElFys designs, develops, and manufactures high‑performance photodetectors, offering both standard product lines (quadrant photodiodes, photodiodes, and surface‑mount devices) and fully custom solutions. Their devices deliver superior photosensitivity across UV, visible, and near‑IR wavelengths, with low dark current, fast response, and robust packaging for applications such as laser beam tracking, space and defence optics, health‑monitoring wearables, and analytical instrumentation. ElFys also provides technology licensing, custom design, and processing services, leveraging research expertise…",
+   "street": "Tekniikantie 12",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Hardware & Semiconductors",
+   "linkedin": "https://linkedin.com/company/elfys",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://www.elfys.fi/",
+   "logoUrl": "https://media.brand.dev/b55262cd-95dd-4b1d-a199-8bb10d72cc84.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.293Z"
+  },
+  "eniferbio.fi": {
+   "name": "EniferBio",
+   "description": "Eniferbio is a Finnish biotechnology company that develops and commercialises innovative enzyme‑based solutions for sustainable industrial processes. Leveraging advanced protein engineering and bio‑informatics, Eniferbio creates custom biocatalysts that improve efficiency, reduce waste, and lower the environmental impact of sectors such as food, feed, pharmaceuticals, and bio‑materials. The company partners with research institutions and industry leaders to translate cutting‑edge science into scalable, market‑ready products, offering enzyme libraries, licensing agreements, and tailored develo…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Biotechnology & Genomics",
+   "linkedin": "https://linkedin.com/company/enifer-bio",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/1bd64bc4-17d4-4b27-9c4f-10d57ebd7d08.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.328Z"
+  },
+  "geyserbatteries.com": {
+   "name": "Geyser Batteries",
+   "description": "Geyser Batteries is a Finnish clean‑tech company that creates water‑based, non‑flammable high‑power batteries engineered for sub‑10 ms response and 100,000+ cycles. Their electrolyte‑free, bipolar design eliminates lithium, cobalt, nickel and other critical raw materials, delivering safe, scalable energy storage for AI data centers, grid‑stabilization, hydropower augmentation and power‑to‑X applications. The batteries provide rapid charge‑discharge buffering, grid‑forming capability, and long‑duration storage support without the supply‑chain constraints of conventional lithium‑ion solutions.",
+   "street": "Maria 01, Lapinlahdenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Energy Storage & Battery Technology",
+   "linkedin": "https://linkedin.com/company/geyser-batteries",
+   "careersUrl": "https://geyserbatteries.com/careers",
+   "contactUrl": "https://geyserbatteries.com/contact",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/db951856-ca52-405a-92cb-d016f190655e.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:39.371Z"
+  },
+  "gostalabs.com": {
+   "name": "Gosta Labs",
+   "description": "Gosta Labs (gostalabs.com) provides an AI‑powered operating system designed for specialty and oncology care. Their platform automates the entire clinical workflow: it aggregates and structures patient data before visits, generates real‑time documentation, coding, and referral letters during consultations, and seamlessly updates electronic health records afterward. Built on proprietary, sovereign‑hosted language models, Gosta’s AI medical scribe and pre‑visit intelligence reduce manual documentation, improve coding accuracy, and streamline follow‑up tasks while ensuring data security and compl…",
+   "street": "Puumiehenkuja",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Healthcare IT & EHR Systems",
+   "linkedin": "https://fi.linkedin.com/company/gostalabs",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://www.gostalabs.com/news",
+   "logoUrl": "https://media.brand.dev/c0c63104-8c84-4f28-a899-d1d277ea80b6.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.491Z"
+  },
+  "infinitedfiber.com": {
+   "name": "Infinited Fiber",
+   "description": "Infinited Fiber Company develops and commercialises a patented technology that transforms post‑consumer textile waste into Infinna™, a high‑quality, 100% recycled fiber with the look, feel and performance of cotton. By converting discarded garments that would otherwise be landfilled or incinerated into soft, durable yarn, the company enables fully circular apparel and home‑textile products, reducing reliance on virgin raw materials. Infinna™ can be used alone for completely circular garments or blended with other fibers, and is already adopted by leading brands seeking sustainable material so…",
+   "street": "Ruukinkuja 2",
+   "city": "Espoo",
+   "postalCode": "02330",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Advanced Materials & Composites",
+   "linkedin": "https://linkedin.com/company/infinited-fiber-company",
+   "careersUrl": "https://infinitedfiber.com/careers/",
+   "contactUrl": "https://infinitedfiber.com/contact/",
+   "blogUrl": "https://infinitedfiber.com/news/",
+   "logoUrl": "https://media.brand.dev/068334fa-8df1-4ec4-b966-4df3ca8d3041.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.506Z"
+  },
+  "kuvaspace.com": {
+   "name": "Kuva Space",
+   "description": "Kuva Space is a planetary intelligence company that combines satellite-based hyperspectral imaging with artificial intelligence to deliver near-real-time insights about Earth. Through its Kuva Sense™ platform, the company turns satellite data into actionable forecasts, alerts, and monitoring tools for agriculture, aquaculture, environmental and carbon management, and safety and security. Its services include crop identification and yield forecasting, water quality and algal bloom monitoring, carbon sequestration tracking, deforestation detection, and vessel monitoring. Kuva Space’s automated…",
+   "street": "Otakaari 5",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Space & Satellite Technology",
+   "linkedin": "https://linkedin.com/company/kuva-space",
+   "careersUrl": "https://kuvaspace.com/en/careers",
+   "contactUrl": "https://kuvaspace.com/en/contact",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/000db6b0-4b7b-4cb7-b68e-e6013c978166.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.563Z"
+  },
+  "paptic.com": {
+   "name": "Paptic",
+   "description": "Paptic is a sustainability‑focused materials company that creates bio‑based, wood‑fiber packaging solutions as a renewable alternative to conventional plastics. Their patented Paptic® family—including Sterna®, Perdix® and Tringa®—combines strength, lightweight, moisture resistance, and recyclability, allowing brands to produce carrier bags, supermarket bags, hygiene and feminine‑care packs, product packaging, e‑commerce mailers, and more using existing converting lines. By leveraging renewable raw materials and a circular‑economy approach, Paptic helps retailers and manufacturers reduce envir…",
+   "street": "Tekniikantie 4c",
+   "city": "Espoo",
+   "postalCode": "02110",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Sustainable CPG & Packaging",
+   "linkedin": "https://linkedin.com/company/paptic-ltd",
+   "careersUrl": "https://paptic.com/company/careers",
+   "contactUrl": "https://paptic.com/contact/",
+   "blogUrl": "https://paptic.com/category/news/",
+   "logoUrl": "https://media.brand.dev/2146dc25-fa03-413f-b50b-3909b7f0b0c6.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.696Z"
+  },
+  "nadmed.com": {
+   "name": "Nadmed",
+   "description": "NADMED is a biotech company specializing in the measurement of NAD and glutathione redox metabolites. It offers CE‑marked, microplate‑based enzymatic assay kits that quantify all four forms of NAD and both glutathione species from blood, tissue, or cell samples with accuracy comparable to mass spectrometry. The kits deliver results within a few hours, providing laboratories with rapid, scalable, and cost‑effective solutions for both research and clinical diagnostics. In addition to the kits, NADMED provides laboratory services for REDOX metabolite analysis and supplement purity testing, suppo…",
+   "street": "Tukholmankatu 8",
+   "city": "Helsinki",
+   "postalCode": "00290",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://fi.linkedin.com/company/nadmed",
+   "careersUrl": null,
+   "contactUrl": "https://www.nadmed.com/contact/",
+   "blogUrl": "https://www.nadmed.com/news/",
+   "logoUrl": "https://media.brand.dev/ee2ab663-2496-4f4d-ad87-a8607b455d63.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:39.698Z"
+  },
+  "quantrolox.com": {
+   "name": "QuantrolOx",
+   "description": "QuantrolOx Ltd is a multinational technology firm that develops machine‑learning‑driven software for the control and optimization of superconducting quantum computers. Their flagship platform, Quantum EDGE, automates qubit bring‑up, characterization, tuning and benchmarking, reducing experiment cycles from days to seconds and enabling a single expert to manage many qubits. The company also offers the Quantum EDGE Academy for training, a suite of resources, publications and consulting services to accelerate quantum hardware development. With offices in Finland, the UK, the Netherlands and Indi…",
+   "street": "46 Woodstock Road",
+   "city": "Oxford",
+   "postalCode": null,
+   "country": "GB",
+   "employees": null,
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "linkedin": "https://linkedin.com/company/quantrolox",
+   "careersUrl": "https://quantrolox.com/careers/",
+   "contactUrl": "https://quantrolox.com/contact-us/",
+   "blogUrl": "https://quantrolox.com/resources/",
+   "logoUrl": "https://media.brand.dev/3dd54889-336e-4388-9e4a-1eb00d6bfee1.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.765Z"
+  },
+  "quanturi.com": {
+   "name": "Quanturi",
+   "description": "Quanturi is a technology company that delivers wireless temperature monitoring and data‑analysis solutions for combustible and fermentable bulk materials such as hay, compost, grain, woodchips, potatoes, cotton seeds, peat, sawdust, pistachios and even laundry. Its robust, battery‑powered probes transmit real‑time temperature data to a cloud platform, generating alerts, compliance reports and quality‑control insights. By providing continuous, traceable monitoring, Quanturi helps customers prevent fires, meet regulatory requirements, lower labor and handling costs, and improve the overall qual…",
+   "street": "Töölöntorinkatu",
+   "city": "Helsinki",
+   "postalCode": "00260",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Industrial IoT & Monitoring Systems",
+   "linkedin": "https://linkedin.com/company/quanturi-oy",
+   "careersUrl": null,
+   "contactUrl": "https://quanturi.com/pages/contact-us",
+   "blogUrl": "https://quanturi.com/blogs/news/an-eye-on-your-woodchips-24-7",
+   "logoUrl": "https://media.brand.dev/a7ff8e7d-1ea9-440e-8813-f4d029ee7b46.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.882Z"
+  },
+  "reduciner.com": {
+   "name": "Reduciner",
+   "description": "Reduciner is a climate‑tech startup that converts hard‑to‑abate industrial CO₂ emissions into carbon‑rich syngas and activated carbon using a patented, electricity‑driven process. The CO‑rich syngas serves as a low‑cost, fossil‑free fuel or a Power‑to‑X feedstock, reducing hydrogen and energy demand and cutting CAPEX/OPEX by 20‑30%. By integrating directly into existing plants, the technology lowers fossil fuel dependence, creates new revenue streams, and accelerates decarbonisation without major retrofits. Reduciner’s dual‑revenue model delivers immediate economic benefits while providing a…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Renewable Energy & Cleantech",
+   "linkedin": "https://linkedin.com/company/reduciner",
+   "careersUrl": "https://www.reduciner.com/careers",
+   "contactUrl": null,
+   "blogUrl": "https://www.reduciner.com/news",
+   "logoUrl": "https://media.brand.dev/86089fa7-02e8-4ddc-916e-656b6364f52c.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:39.904Z"
+  },
+  "skyfora.com": {
+   "name": "Skyfora",
+   "description": "Skyfora transforms existing GNSS infrastructure and 5G telecom towers into a global, real‑time weather‑sensing network. By leveraging the GPS/GNSS receivers already built into mobile towers and deploying dense GNSS micronets, Skyfora delivers hyper‑local, sub‑kilometer atmospheric data and 3‑D tomography at minute‑scale latency. This high‑resolution, continuous data feed powers AI‑driven forecasts, nowcasting, and risk‑management tools for critical sectors such as telecom, utilities, data centers, energy, aviation, defense, and finance. Customers gain early storm warnings, predictive maintena…",
+   "street": "Itälahdenkatu 22",
+   "city": "Helsinki",
+   "postalCode": "00210",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Data Infrastructure & Analytics",
+   "linkedin": "https://linkedin.com/company/skyfora",
+   "careersUrl": "https://www.skyfora.com/careers",
+   "contactUrl": "https://www.skyfora.com/contact",
+   "blogUrl": "https://www.skyfora.com/news",
+   "logoUrl": "https://media.brand.dev/d43f1f28-a6dc-40d5-bdb5-cd03150e227b.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:39.951Z"
+  },
+  "sofifiltration.com": {
+   "name": "Sofi Filtration",
+   "description": "Sofi Filtration is a technology company that develops advanced self‑cleaning microfiltration solutions for industrial water management. Their products—Sofi Scan, Sofi Prima, and Sofi Alchemist—enable mining, metals, and power generation sectors to reuse water, capture ultra‑fine solids, and recover valuable minerals from process streams. By turning waste water into a resource, Sofi helps clients reduce environmental impact, lower operating costs, and meet sustainability targets. The firm’s mission is to reinvent the value of water, delivering clean‑water rights to industries without sacrifici…",
+   "street": "Yliopistonkatu 34",
+   "city": "Lappeenranta",
+   "postalCode": "53850",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Manufacturing & Industrial Automation",
+   "linkedin": "https://linkedin.com/company/sofi-filtration",
+   "careersUrl": null,
+   "contactUrl": "https://www.sofifiltration.com/en/contact",
+   "blogUrl": "https://www.sofifiltration.com/en/news",
+   "logoUrl": "https://media.brand.dev/33b936db-2be0-42db-b830-61b9b7b3841e.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:40.056Z"
+  },
+  "behavix.io": {
+   "name": "Behavix",
+   "description": "Behavix is a purpose‑built data‑as‑a‑service platform that captures consent‑based digital behavior and transforms it into predictive, privacy‑first insights. Leveraging on‑device clickstream, app usage, search, ad exposure and media streaming data, Behavix enriches survey and research datasets, enabling real‑time targeting, fraud detection, panel growth, and deeper consumer profiling for market research, finance, advertising and AI applications. The platform offers out‑of‑the‑box compliance with privacy regulations, analyst‑ready data, and tools for businesses of any size to monetize opt‑ins,…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Data Infrastructure & Analytics",
+   "linkedin": null,
+   "careersUrl": "https://behavix.io/careers",
+   "contactUrl": "https://behavix.io/",
+   "blogUrl": "https://info.behavix.io/",
+   "logoUrl": "https://media.brand.dev/2e95d401-97d1-49a3-aca9-c6e1b74503df.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:40.090Z"
+  },
+  "renow.ai": {
+   "name": "Renow",
+   "description": "Renow is a Nordic‑based recommerce platform that helps retailers, brands, and marketplaces turn product returns, trade‑ins, and overstock into revenue while reducing waste. Using AI‑driven grading, a decentralized network of local hubs, and a fully managed Outlet‑as‑a‑Service, Renow automates inspection, routing, and resale of items within hours, eliminating fixed IT costs and lengthy cash cycles. Their Trade‑in‑as‑a‑Service boosts sales and loyalty, and the B2B Buyback solution purchases bulk excess inventory. The platform delivers faster cash recovery, up to 20% higher recovery value, and E…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "eCommerce & Marketplace Platforms",
+   "linkedin": "https://linkedin.com/company/renow-ltd",
+   "careersUrl": "https://renow.ai/careers/",
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/635a52c1-5833-4bea-9609-d24a715914f1.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:40.157Z"
+  },
+  "emabler.com": {
+   "name": "eMabler",
+   "description": "eMabler is an API‑first EV charging platform for enterprises that centralises the management, monitoring and monetisation of electric vehicle chargers. The solution lets operators control every charger in real time, set flexible tariffs, and access analytics across the network. With open REST APIs and over 300 pre‑built integrations, eMabler plugs into existing CRM, billing, energy and retail systems, enabling white‑label experiences and seamless driver payments. Its AI‑driven engine predicts maintenance issues, optimises load balancing and automates fault resolution to maintain 99.999% uptim…",
+   "street": "Lapinlahdenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Electric Vehicles (EVs) & Charging Infrastructure",
+   "linkedin": "https://linkedin.com/company/emabler",
+   "careersUrl": "https://emabler.com/about/careers",
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/629bd2ea-48f8-4640-8cc3-dc7a2ac9b7fe.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:40.236Z"
+  },
+  "dixu.fi": {
+   "name": "Dixu",
+   "description": "Dixu is a Finnish real‑estate platform that connects property sellers, buyers, and real‑estate agents across Finland. It operates a marketplace where both large and small agencies list homes for sale, offering tools such as downloadable sales brochures, direct offer submission, and personalized search filters. Buyers can register to access detailed listings, receive price information, and make offers within the system. Dixu also provides services for sellers, including pricing guidance, marketing support, and a step‑by‑step selling process. With a focus on transparency and user experience, Di…",
+   "street": "Kalevankatu 30",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Real Estate Marketplaces",
+   "linkedin": "https://linkedin.com/company/dixu",
+   "careersUrl": null,
+   "contactUrl": "https://dixu.fi/ota-yhteytta",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/b802446a-9be9-4c16-aa29-d33e06d926ed.png",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:40.292Z"
+  },
+  "steerpath.com": {
+   "name": "Steerpath",
+   "description": "Steerpath provides an AI‑powered platform that eliminates the chaos of hybrid work. Their solution offers 3D office maps for easy desk and room booking, real‑time team‑status tools, and advanced analytics that reveal how space is actually used. By delivering actionable insights, Steerpath helps organizations optimize office layouts, reduce wasted space, and make data‑driven decisions about hybrid work policies. The platform integrates with existing workplace systems, giving facilities managers and leaders a clear view of occupancy, availability, and employee movement, ultimately improving col…",
+   "street": "Bertel Jungin aukio 3",
+   "city": "Espoo",
+   "postalCode": "02600",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://sg.linkedin.com/company/steerpath",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://steerpath.com/blog",
+   "logoUrl": "https://media.brand.dev/d2eed8d5-af0f-42d3-ab5d-b36ec84692e9.webp",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:40.337Z"
+  },
+  "cortisys.fi": {
+   "name": "Cortisys",
+   "description": "Cortisys is a Finnish neurotechnology company developing non-invasive, drug-free brain stimulation technology for research and personalised care of depression and other neurological and mental health conditions. Its multi-locus transcranial magnetic stimulation (mTMS) platform uses multiple coils to steer stimulation electronically between brain targets, with robotic guidance and brain imaging to support individually tailored protocols. Cortisys aims to advance treatment beyond stimulating a single brain region by enabling stimulation of interconnected brain networks and automating treatment…",
+   "street": "Otakaari 5",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://linkedin.com/company/cortisys",
+   "careersUrl": null,
+   "contactUrl": "https://cortisys.fi/",
+   "blogUrl": "https://cortisys.fi/",
+   "logoUrl": "https://media.brand.dev/36f9caa5-4fe2-40fb-954f-0befb365bcf1.svg",
+   "logoOnDark": true,
+   "retrievedAt": "2026-11-14T17:54:43.829Z"
+  },
+  "hyperionrobotics.com": {
+   "name": "Hyperion Robotics",
+   "description": "Hyperion Robotics is a construction technology company developing lower-carbon foundations for energy and infrastructure projects. It combines computational design, robotic manufacturing, and advanced concrete materials to produce code-compliant foundations with less material, energy use, and embodied carbon than traditional construction. Its products serve projects including renewable energy, EV charging, water infrastructure, and transport. Hyperion says its approach can reduce emissions by up to 70%, material use by 75%, and energy consumption by 67% per structure, while enabling faster de…",
+   "street": "Vitikka 6",
+   "city": "Espoo",
+   "postalCode": "02630",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Building Materials & Procurement",
+   "linkedin": "https://linkedin.com/company/hyperionrobotics",
+   "careersUrl": null,
+   "contactUrl": "https://www.hyperionrobotics.com/contact/",
+   "blogUrl": "https://www.hyperionrobotics.com/news/",
+   "logoUrl": "https://media.brand.dev/176330b3-d429-4062-9f5c-ee9d7bcd6189.png",
+   "logoOnDark": false,
+   "retrievedAt": "2026-11-14T17:54:49.627Z"
   }
  },
  "facts": {
@@ -3146,6 +4132,1481 @@
    ],
    "fundingSource": "https://ir.nasdaq.com/news-releases/news-release-details/puroearth-secures-eu11-m-series-b-financing-led-nasdaq",
    "retrievedAt": "2026-11-14T16:41:26.186Z"
+  },
+  "ambiomaterials.com": {
+   "founded": 2023,
+   "founders": [
+    "Tommi Bergström",
+    "Elmo Pakkanen"
+   ],
+   "foundingSource": "https://www.ambiomaterials.com/en/about-us",
+   "totalFunding": "€5.1 million (publicly reported seed round; cumulative total not established)",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€5.1 million",
+    "date": "2026-10-14"
+   },
+   "investors": [
+    "b2venture",
+    "Montis VC",
+    "Lifeline Ventures"
+   ],
+   "fundingSource": "https://www.ambiomaterials.com/en/ambio-raises-5-1-million-for-recycled-plastics-procurement",
+   "retrievedAt": "2026-11-14T17:55:13.325Z"
+  },
+  "bought.app": {
+   "founded": 2024,
+   "founders": [
+    "Olli Warro",
+    "Anna Müller",
+    "Erik Kymäläinen"
+   ],
+   "foundingSource": "https://en.ain.ua/2025/03/26/bought-raises-15m/",
+   "totalFunding": "€1.4 million",
+   "latestRound": {
+    "type": "Pre-seed",
+    "amount": "€1.4 million",
+    "date": "2025-04-08"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Marianne Vikkula",
+    "Sami Marttinen",
+    "Mikko Silventola",
+    "Niilo Säämänen",
+    "Pii Ketvel",
+    "Annika Sjöberg",
+    "Anniina Sulku"
+   ],
+   "fundingSource": "https://bought.app/en/news/launch-press-release",
+   "retrievedAt": "2026-11-14T17:55:14.243Z"
+  },
+  "altumtechnologies.com": {
+   "founded": 2016,
+   "founders": [
+    "Matias Tainela",
+    "Bo Malmberg",
+    "Edward Haeggström",
+    "Petro Moilanen",
+    "Timo Rauhala"
+   ],
+   "foundingSource": "https://altumtechnologies.com/2025-a-year-of-impact-innovation-and-growth-at-altum-technologies/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Growth funding",
+    "amount": null,
+    "date": "2022-01-12"
+   },
+   "investors": [
+    "LocalTapiola insurance companies",
+    "Tesi (Finnish Industry Investment Ltd)",
+    "Maki.vc"
+   ],
+   "fundingSource": "https://altumtechnologies.com/altum-technologies-and-nippon-steel-engineering-announce-release-of-their-smart-cleaning-service-in-addition-altum-technologies-has-secured-next-stage-growth-funding/",
+   "retrievedAt": "2026-11-14T17:55:14.358Z"
+  },
+  "cortisys.fi": {
+   "founded": 2025,
+   "founders": [
+    "HS",
+    "RJI",
+    "VHS"
+   ],
+   "foundingSource": "https://www.biorxiv.org/content/10.1101/2025.09.24.678288v1",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [],
+   "fundingSource": "https://www.biorxiv.org/content/10.1101/2025.09.24.678288v1",
+   "retrievedAt": "2026-11-14T17:55:15.017Z"
+  },
+  "deepmeasures.health": {
+   "founded": 2024,
+   "founders": [
+    "Kai Langel",
+    "Rauha Tulkki-Wilke",
+    "Lada Leyens",
+    "Chris Jones"
+   ],
+   "foundingSource": "https://deepmeasures.health/about-us",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [],
+   "fundingSource": "https://prospeo.io/c/deep-measures",
+   "retrievedAt": "2026-11-14T17:55:21.929Z"
+  },
+  "digitalworkforce.com": {
+   "founded": 2015,
+   "founders": [
+    "Heikki Länsisyrjä",
+    "Mika Vainio-Mattila",
+    "Jukka Virkkunen"
+   ],
+   "foundingSource": "https://digitalworkforce.com/about-us/our-story/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "funding round",
+    "amount": "€2 million",
+    "date": null
+   },
+   "investors": [
+    "Norvestia Oyj",
+    "Leena Niemistö",
+    "Lifeline Ventures"
+   ],
+   "fundingSource": "https://digitalworkforce.com/rpa-news/rpa-company-digital-workforce-raises-e2-million-to-boost-international-expansion/",
+   "retrievedAt": "2026-11-14T17:55:23.022Z"
+  },
+  "confidentialmind.com": {
+   "founded": 2023,
+   "founders": [
+    "Markku Räsänen",
+    "Severi Tikkala",
+    "Esko Vähämäki"
+   ],
+   "foundingSource": "https://www.vestbee.com/insights/articles/confidential-mind-raises-1-5-m",
+   "totalFunding": "€1.5 million (publicly reported pre-seed funding; includes €1 million equity and €0.5 million Finnish government loan)",
+   "latestRound": {
+    "type": "Pre-seed",
+    "amount": "€1.5 million",
+    "date": "June 2024"
+   },
+   "investors": [
+    "Failup Ventures",
+    "Angel CoFund",
+    "Founder’s Edge",
+    "Ilkka Hiidenheimo",
+    "Jonathan Scudder",
+    "Daniel Fried",
+    "Jan Goetz",
+    "Juha Vartiainen"
+   ],
+   "fundingSource": "https://www.thesaasnews.com/news/confidentialmind-raises-1-5-million-in-pre-seed-round/",
+   "retrievedAt": "2026-11-14T17:55:23.605Z"
+  },
+  "dispelix.com": {
+   "founded": 2015,
+   "founders": [
+    "Antti Sunnari",
+    "Juuso Olkkonen"
+   ],
+   "foundingSource": "https://dispelix.com/company/",
+   "totalFunding": "More than $50 million (publicly reported by Dispelix as of November 2, 2021)",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "$33 million",
+    "date": "2021-11-02"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "VTT Ventures",
+    "Tesi (Finnish Industry Investment)",
+    "3M Ventures",
+    "Undisclosed investor"
+   ],
+   "fundingSource": "https://dispelix.com/resources/news/nanophotonics-maker-dispelix-sees-33-million-in-new-funding/",
+   "retrievedAt": "2026-11-14T17:55:24.202Z"
+  },
+  "iceye.fi": {
+   "founded": 2014,
+   "founders": [
+    "Rafal Modrzewski",
+    "Pekka Laurila"
+   ],
+   "foundingSource": "https://www.iceye.com/persistent-monitoring/the-vision",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Series F",
+    "amount": "€450 million (USD 520 million) primary…",
+    "date": "2026-06-09"
+   },
+   "investors": [
+    "General Atlantic",
+    "Solidium",
+    "Tesi",
+    "Varma",
+    "Ilmarinen",
+    "Lifeline Ventures",
+    "Nokia",
+    "Qatar Investment Authority (QIA)"
+   ],
+   "fundingSource": "https://www.generalatlantic.com/media-article/iceye-leads-a-new-era-of-sovereign-intelligence-from-space-with-e1bn-fundraising-round/",
+   "retrievedAt": "2026-11-14T17:55:33.713Z"
+  },
+  "in-parallel.com": {
+   "founded": 2023,
+   "founders": [
+    "Markku Mäkeläinen",
+    "Kristian Luoma"
+   ],
+   "foundingSource": "https://www.in-parallel.com/about-us/",
+   "totalFunding": "€2.8 million",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€2.8 million",
+    "date": "2024-11-12"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Notion Capital"
+   ],
+   "fundingSource": "https://www.prnewswire.com/news-releases/in-parallel-secures-2-8m-seed-funding-to-revolutionize-corporate-strategy-execution-with-ai-302301632.html",
+   "retrievedAt": "2026-11-14T17:55:37.330Z"
+  },
+  "droppe.com": {
+   "founded": 2020,
+   "founders": [
+    "Johannes Salmisaari",
+    "Henrik Helenius"
+   ],
+   "foundingSource": "https://droppe.com/company/en/team-story-and-values/",
+   "totalFunding": "€6.1 million publicly reported (€2.2 million seed funding in 2022 and €3.9 million in 2024)",
+   "latestRound": {
+    "type": "Funding round (round stage not specifie…",
+    "amount": "€3.9 million",
+    "date": "2024"
+   },
+   "investors": [
+    "OpenOcean",
+    "Illusian Family Office",
+    "Lifeline Ventures"
+   ],
+   "fundingSource": "https://paaomasijoittajat.fi/en/ajankohtaista/news/27402/droppe-secures-39-million-euros-in-funding-to-serve-a-new-generation-of-industrial-buyers/",
+   "retrievedAt": "2026-11-14T17:55:37.473Z"
+  },
+  "hyperionrobotics.com": {
+   "founded": 2020,
+   "founders": [
+    "Fernando De los Rios",
+    "Ashish Mohite",
+    "Henry Unterreiner"
+   ],
+   "foundingSource": "https://www.fairedih.fi/en/2026/07/16/hyperion-robotics-raises-e6-4m-to-bring-ai-powered-manufacturing-to-european-infrastructure/",
+   "totalFunding": "Nearly $20 million, as reported by Hyperion Robotics; Finnish AI Region reports roughly €17.4 million.",
+   "latestRound": {
+    "type": "Growth funding",
+    "amount": "$7.4 million",
+    "date": "2026-07-16"
+   },
+   "investors": [
+    "Course Corrected",
+    "European Innovation Council Fund (EIC Fund)",
+    "RE Ventures",
+    "Lifeline Ventures",
+    "Übermorgen Ventures",
+    "PC Rettig Impact & Co"
+   ],
+   "fundingSource": "https://www.hyperionrobotics.com/hyperion-robotics-raises-7-4-million-to-scale/",
+   "retrievedAt": "2026-11-14T17:55:41.793Z"
+  },
+  "indooratlas.com": {
+   "founded": 2012,
+   "founders": [
+    "Janne Haverinen"
+   ],
+   "foundingSource": "https://www.cbinsights.com/company/indooratlas",
+   "totalFunding": "$22.49M",
+   "latestRound": {
+    "type": "Incubator/Accelerator - II",
+    "amount": null,
+    "date": null
+   },
+   "investors": [
+    "Yahoo! Japan",
+    "Takoa Invest",
+    "Innovestor Ventures"
+   ],
+   "fundingSource": "https://indooratlas.com/2017/08/22/indooratlas-closes-series-b-investment-round-strategic-investment-from-yahoo-japan",
+   "retrievedAt": "2026-11-14T17:55:42.153Z"
+  },
+  "koherent.io": {
+   "founded": 2019,
+   "founders": [
+    "Kari Leppänen",
+    "Oliver Leppänen",
+    "Werneri Leppänen"
+   ],
+   "foundingSource": "https://koherent.io/company/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Seed",
+    "amount": null,
+    "date": "2020-12-13"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Tesi"
+   ],
+   "fundingSource": "https://nordic9.com/news/koherent-raised-seed-capital/",
+   "retrievedAt": "2026-11-14T17:55:47.455Z"
+  },
+  "kovahq.com": {
+   "founded": 2025,
+   "founders": [
+    "Touko Rautiainen",
+    "Luukas Lohilahti"
+   ],
+   "foundingSource": "https://kovahq.com/news/kova-bravetech",
+   "totalFunding": "€1.5 million publicly reported pre-seed round; later €120,000 European Defence Agency award (additional public funding).",
+   "latestRound": {
+    "type": "Pre-seed",
+    "amount": "€1.5 million",
+    "date": "2025-08-04"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Tuomas Rasila"
+   ],
+   "fundingSource": "https://nordic9.com/news/kova-labs-secured-a-pre-seed-funding-round-led-by-lifeline-ventures-and-tuomas-rasila/",
+   "retrievedAt": "2026-11-14T17:55:51.090Z"
+  },
+  "intergrid.fi": {
+   "founded": 2023,
+   "founders": [
+    "Pasi Hakulinen",
+    "Olli Kangas",
+    "Mikko Ilmonen"
+   ],
+   "foundingSource": "https://www.forbes.com/profile/intergrid/",
+   "totalFunding": "$13 million",
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [
+    "True Ventures",
+    "Lifeline Ventures"
+   ],
+   "fundingSource": "https://www.forbes.com/profile/intergrid/",
+   "retrievedAt": "2026-11-14T17:55:51.235Z"
+  },
+  "meruhealth.com": {
+   "founded": 2016,
+   "founders": [
+    "Kristian Ranta",
+    "Riku Lindholm",
+    "Albert Nazander"
+   ],
+   "foundingSource": "https://www.meruhealth.com/our-story",
+   "totalFunding": "$51.3 million publicly reported by September 2021",
+   "latestRound": {
+    "type": "Series B (equity and debt)",
+    "amount": "$38 million",
+    "date": "2021-09-23"
+   },
+   "investors": [
+    "Industry Ventures",
+    "J.P. Morgan",
+    "Bold Capital Partners",
+    "Freestyle VC",
+    "FMZ Ventures",
+    "Leksell Social Ventures"
+   ],
+   "fundingSource": "https://www.globenewswire.com/news-release/2021/09/23/2302304/0/en/meru-health-raises-38m-series-b-financing-to-transform-the-way-mental-health-care-is-provided-make-high-quality-effective-care-available-to-all-online.html",
+   "retrievedAt": "2026-11-14T17:55:51.525Z"
+  },
+  "metroc.ai": {
+   "founded": 2019,
+   "founders": [
+    "Jussi Virnala",
+    "Janne Johansson"
+   ],
+   "foundingSource": "https://metroc.ai/en/resources/construction-startup-metroc-raises-e300000-in-funding/",
+   "totalFunding": "€2.3 million publicly reported (€300,000 angel financing and €2 million seed funding)",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€2 million",
+    "date": "2023-08-25"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Ali Omar",
+    "Henry Nilert",
+    "Fredrik Löfberg",
+    "Jari Paakkarinen"
+   ],
+   "fundingSource": "https://metroc.ai/en/materials/metroc-secures-e2-million-in-new-funding/",
+   "retrievedAt": "2026-11-14T17:55:55.741Z"
+  },
+  "moves.fi": {
+   "founded": 2012,
+   "founders": [
+    "Aapo Kyrola",
+    "Aleksi Aaltonen"
+   ],
+   "foundingSource": "https://tracxn.com/d/companies/moves/__2J8bonSvfuO-yaeEjVBBTQu3F9gMO1sFne-xFOGOlA0",
+   "totalFunding": "$1.6 million",
+   "latestRound": {
+    "type": "Seed",
+    "amount": null,
+    "date": "2013"
+   },
+   "investors": [
+    "PROfounders Capital",
+    "Lifeline Ventures"
+   ],
+   "fundingSource": "https://www.businessinsider.com/hottest-finnish-startups-2013-6",
+   "retrievedAt": "2026-11-14T17:56:00.111Z"
+  },
+  "mjuk.fi": {
+   "founded": 2019,
+   "founders": [
+    "Rickard Zilliacus",
+    "Casper von Pfaler",
+    "Max Heino"
+   ],
+   "foundingSource": "https://nordic9.com/news/mjuk-in-a-42-million-funding-round-backed-by-alliance-venture-and-lifeline-ventures/",
+   "totalFunding": "$8.5 million (reported by Nordic9)",
+   "latestRound": {
+    "type": "Funding round",
+    "amount": "€2.5 million",
+    "date": "2023-09-12"
+   },
+   "investors": [
+    "Trind VC",
+    "Alliance VC",
+    "Superhero Capital",
+    "Lifeline Ventures",
+    "Angel investors",
+    "Finnvera"
+   ],
+   "fundingSource": "https://www.eu-startups.com/2023/09/helsinki-based-furniture-re-commerce-mjuk-raises-e2-5-million-to-ensure-minimal-waste-for-brands/",
+   "retrievedAt": "2026-11-14T17:56:05.197Z"
+  },
+  "norsepower.com": {
+   "founded": 2012,
+   "founders": [
+    "Tuomas Riski"
+   ],
+   "foundingSource": "https://www.norsepower.com/post/norsepowers-growth-story-continues-as-mr-tuomas-riski-steps-down-and-mr-heikki-pontynen-joins-as-new-ceo/",
+   "totalFunding": "More than $24 million (as reported in 2019; subsequent total not publicly established by the retrieved sources)",
+   "latestRound": {
+    "type": "€8 million investment round",
+    "amount": "€8 million",
+    "date": "2019-09-23"
+   },
+   "investors": [
+    "OGCI Climate Investments",
+    "European venture capital funds",
+    "Private investors"
+   ],
+   "fundingSource": "https://www.norsepower.com/post/ogci-climate-investments-leads-meur8-investment-in-norsepower/",
+   "retrievedAt": "2026-11-14T17:56:09.146Z"
+  },
+  "nordcraftboats.com": {
+   "founded": 2022,
+   "founders": [],
+   "foundingSource": "https://pitchbook.com/profiles/company/515316-88",
+   "totalFunding": "$588K",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "$588K",
+    "date": "2022-08-01"
+   },
+   "investors": [
+    "Hersir Ventures",
+    "Inventure",
+    "Lifeline Ventures",
+    "Likeminded.vc"
+   ],
+   "fundingSource": "https://pitchbook.com/profiles/company/515316-88",
+   "retrievedAt": "2026-11-14T17:56:09.532Z"
+  },
+  "originbyocean.com": {
+   "founded": 2019,
+   "founders": [
+    "Mari Granström"
+   ],
+   "foundingSource": "https://www.originbyocean.com/about-us",
+   "totalFunding": "€7.5 million publicly reported (including a €4.5 million Business Finland loan)",
+   "latestRound": {
+    "type": "Seed funding",
+    "amount": "€7.5 million",
+    "date": "2023-04-26"
+   },
+   "investors": [
+    "Voima Ventures",
+    "Lifeline Ventures",
+    "Batofin",
+    "Security Trading",
+    "Business Finland"
+   ],
+   "fundingSource": "https://www.originbyocean.com/blog/origin-by-ocean-receives-7.5-million-in-seed-capital-to-detoxify-the-chemical-industry-with-algae-based-solutions",
+   "retrievedAt": "2026-11-14T17:56:13.572Z"
+  },
+  "mobal.io": {
+   "founded": 2020,
+   "founders": [
+    "Jakob Wikström",
+    "Alexander Silén"
+   ],
+   "foundingSource": "https://arcticstartup.com/helsinki-based-mobal-secures-e2m-seed-funding-round/",
+   "totalFunding": "€2 million",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€2 million",
+    "date": "November 2021"
+   },
+   "investors": [
+    "Lifeline Ventures"
+   ],
+   "fundingSource": "https://www.mobal.io/blog-posts/business-listings-are-replacing-websites",
+   "retrievedAt": "2026-11-14T17:56:16.180Z"
+  },
+  "proteins1.com": {
+   "founded": 2025,
+   "founders": [
+    "Harri Hallila",
+    "Prateek Singh",
+    "Tuan Nguyen"
+   ],
+   "foundingSource": "https://www.aalto.fi/en/news/meet-our-startup-proteins1-aims-for-a-breakthrough-in-early-disease-detection",
+   "totalFunding": "€4.7 million",
+   "latestRound": {
+    "type": "Pre-seed",
+    "amount": "€4.7 million",
+    "date": "2026"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Cloudberry Ventures",
+    "VTT",
+    "Business Finland"
+   ],
+   "fundingSource": "https://european-biotechnology.com/latest-news/proteins-1-launches-with-e4-7m-to-make-protein-detection-as-easy-as-pcr/",
+   "retrievedAt": "2026-11-14T17:56:17.609Z"
+  },
+  "p2x.fi": {
+   "founded": 2020,
+   "founders": [
+    "Herkko Plit"
+   ],
+   "foundingSource": "https://nordic9.com/news/p2x-solutions-announced-raising-2-million-from-lifeline-ventures/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Equity investment round",
+    "amount": "EUR 20 million agreed",
+    "date": "2021-12-08"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Enersense International Oyj"
+   ],
+   "fundingSource": "https://p2x.fi/en/finlands-first-green-hydrogen-producer-p2x-solutions-project-progresses-equity-investments-of-eur-20-million-have-been-agreed/",
+   "retrievedAt": "2026-11-14T17:56:19.742Z"
+  },
+  "seaber.io": {
+   "founded": 2017,
+   "founders": [
+    "Sebastian Sjöberg",
+    "Mikael Sand"
+   ],
+   "foundingSource": "https://www.seaber.io/blog/seaber-io-raises-eu500-000-in-funding-from-lifeline-ventures",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Funding round",
+    "amount": null,
+    "date": "2024-07-08"
+   },
+   "investors": [
+    "GTT Strategic Ventures",
+    "Counterview Capital",
+    "Lifeline Ventures",
+    "Tesi (Finnish Industry Investment)"
+   ],
+   "fundingSource": "https://www.seaber.io/blog/gtt-strategic-ventures-invests-in-seaber-io-specialising-in-the-digitalisation-of-bulk-shipping",
+   "retrievedAt": "2026-11-14T17:56:20.717Z"
+  },
+  "sensofusion.com": {
+   "founded": 2016,
+   "founders": [
+    "Tuomas Rasila"
+   ],
+   "foundingSource": "https://investors.sensofusion.com/en/corporate_governance/leadership_team",
+   "totalFunding": "EUR 45 million in publicly reported funding rounds; excludes IPO proceeds",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "EUR 45 million",
+    "date": "January 2026"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Varma Mutual Pension Insurance Company"
+   ],
+   "fundingSource": "https://www.roschier.com/newsroom/lifeline-ventures-backs-sensofusion-in-a-eur-45-million-series-b-financing-round",
+   "retrievedAt": "2026-11-14T17:56:25.122Z"
+  },
+  "solarfoods.fi": {
+   "founded": 2017,
+   "founders": [
+    "Dr Pasi Vainikka",
+    "Dr Juha-Pekka Pitkänen",
+    "Sami Holmström",
+    "Jari Tuovinen",
+    "Professor Jero Ahola",
+    "Janne Mäkelä"
+   ],
+   "foundingSource": "https://solarfoods.fi/our-",
+   "totalFunding": "Approximately €35 million in equity and €30 million in debt financing and sale-and-leaseback agreements, plus grants, as reported before the Series B round. A comprehensive current total is not publi…",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "€8 million",
+    "date": null
+   },
+   "investors": [
+    "Fazer Group",
+    "Bridford Investments Limited",
+    "Agronomics Limited",
+    "Lifeline Ventures",
+    "CPT Capital",
+    "Happiness Capital",
+    "VTT Ventures",
+    "Springvest"
+   ],
+   "fundingSource": "https://agfundernews.com/protein-from-air-solar-foods-raises-8-8m-series-b-as-it-gears-up-to-open-new-plant",
+   "retrievedAt": "2026-11-14T17:56:27.416Z"
+  },
+  "soomamedical.com": {
+   "founded": 2013,
+   "founders": [
+    "Tuomas Neuvonen"
+   ],
+   "foundingSource": "https://soomamedical.com/sooma-joins-finnish-startup-association/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Funding round",
+    "amount": "€5 million",
+    "date": "2024-03-12"
+   },
+   "investors": [
+    "Voima Ventures",
+    "Verge HealthTech Fund",
+    "Stephen Industries"
+   ],
+   "fundingSource": "https://en.ain.ua/2024/03/12/sooma-secures-5m-by-voima-ventures/",
+   "retrievedAt": "2026-11-14T17:56:29.276Z"
+  },
+  "tiltbio.com": {
+   "founded": 2013,
+   "founders": [
+    "Akseli Hemminki"
+   ],
+   "foundingSource": "https://tiltbio.com/userassets/uploads/2023/02/TILT-EIC-Financing-7-Feb-2023.pdf",
+   "totalFunding": "Over EUR 72 million",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "USD 25.6 million (EUR 22.6 million)",
+    "date": "2025-05-13"
+   },
+   "investors": [
+    "European Innovation Council (EIC) Fund",
+    "Lifeline Ventures",
+    "Finnish Industry Investment (TESI)",
+    "Stephen Industries Inc Oy"
+   ],
+   "fundingSource": "https://tiltbio.com/userassets/uploads/2025/05/TILT-Series-B-press-release-May-2025.pdf",
+   "retrievedAt": "2026-11-14T17:56:36.589Z"
+  },
+  "trademarknow.com": {
+   "founded": 2012,
+   "founders": [
+    "Anna Ronkainen",
+    "Heikki Vesalainen",
+    "Matti Kokkola",
+    "Mikael Kolehmainen"
+   ],
+   "foundingSource": "https://startupintros.com/orgs/trademarknow",
+   "totalFunding": "$7,524,386 (reported funding rounds; includes $400,000, $3,500,000, and $3,524,386)",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "$3,524,386",
+    "date": "2017-10-03"
+   },
+   "investors": [
+    "Balderton Capital",
+    "Lifeline Ventures",
+    "Tekes",
+    "Karma Ventures",
+    "Montiko GmbH"
+   ],
+   "fundingSource": "https://tech.eu/2017/10/03/trademarknow-funding/",
+   "retrievedAt": "2026-11-14T17:56:39.712Z"
+  },
+  "spacent.com": {
+   "founded": 2018,
+   "founders": [
+    "Antti Tuomela",
+    "Anssi Salonen",
+    "Eetu Ristaniemi"
+   ],
+   "foundingSource": "https://www.nordea.com/en/news/start-up-found-solution-for-unused-office-space",
+   "totalFunding": "$2.02 million publicly reported (as of the cited 2020 report; later funding amounts not disclosed in retrieved sources)",
+   "latestRound": {
+    "type": "Funding round (round type not specified)",
+    "amount": null,
+    "date": "2025-07-01"
+   },
+   "investors": [
+    "Gorilla Capital Fund III",
+    "Lifeline Ventures",
+    "Halton Ventures",
+    "Redical Holdings AG",
+    "Morrow Portfolio Oy"
+   ],
+   "fundingSource": "https://arcticstartup.com/spacent-raises-funding/",
+   "retrievedAt": "2026-11-14T17:56:41.732Z"
+  },
+  "synoste.com": {
+   "founded": 2012,
+   "founders": [
+    "Harri Hallila",
+    "Juha Haaja",
+    "Antti Ritvanen"
+   ],
+   "foundingSource": "https://app.dealroom.co/companies/synoste",
+   "totalFunding": "€10 million total equity invested, as publicly reported in October 2018",
+   "latestRound": {
+    "type": "Funding round",
+    "amount": "€5.1 million",
+    "date": "2018-10-18"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "AO Invest",
+    "Evonik Venture Capital",
+    "High-Tech Gründerfonds",
+    "Innovestor Ventures",
+    "Mectalent"
+   ],
+   "fundingSource": "https://news.cision.com/synoste-oy/r/synoste-ltd-raises--5-1-million-to-launch-its-smart-skeletal-deformation-correction-technology,c2647714",
+   "retrievedAt": "2026-11-14T17:56:42.117Z"
+  },
+  "vensum.com": {
+   "founded": 2018,
+   "founders": [
+    "Jyrki Penttonen",
+    "Mika Marjalaakso"
+   ],
+   "foundingSource": "https://techfundingnews.com/vensum-power-9m-series-a-ai-data-centre-power-converters/",
+   "totalFunding": "€15.2 million",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€9 million",
+    "date": "2026-11-06"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Larsen & Toubro Group",
+    "Eviny Ventures",
+    "Grid.vc",
+    "Harjavalta",
+    "Business Finland"
+   ],
+   "fundingSource": "https://techfundingnews.com/vensum-power-9m-series-a-ai-data-centre-power-converters/",
+   "retrievedAt": "2026-11-14T17:56:47.313Z"
+  },
+  "avenuebiosciences.com": {
+   "founded": 2023,
+   "founders": [
+    "Ville Paavilainen",
+    "Tero-Pekka Alastalo",
+    "Juho Kellosalo",
+    "Katja Rosti"
+   ],
+   "foundingSource": "https://www.helsinki.fi/en/helsinki-innovation-services/news-archive/spinout-avenue-biosciences-transforms-development-new-lifesaving-therapies",
+   "totalFunding": "$8.7 million",
+   "latestRound": {
+    "type": "Seed extension",
+    "amount": "$5.7 million",
+    "date": "2026-01-12"
+   },
+   "investors": [
+    "Balnord",
+    "Tesi",
+    "Voima Ventures",
+    "Inventure",
+    "University of Helsinki",
+    "Dimerent"
+   ],
+   "fundingSource": "https://www.avenuebiosciences.com/press-release/funding-announcement-first-platform-modulating-secretory-pathway-for-therapeutic-protein-manufacturing",
+   "retrievedAt": "2026-11-14T17:56:50.200Z"
+  },
+  "agatesensors.com": {
+   "founded": 2024,
+   "founders": [
+    "Tommi Leino",
+    "Andreas Liapis",
+    "Mikael Westerlund"
+   ],
+   "foundingSource": "https://www.agatesensors.com/about",
+   "totalFunding": "€5.6 million",
+   "latestRound": {
+    "type": "Seed round (€4 million), plus €1.6 mill…",
+    "amount": "€5.6 million total (€4 million seed fun…",
+    "date": "2025-09-09"
+   },
+   "investors": [
+    "Voima Ventures",
+    "LIFTT",
+    "Business Finland (grant funding)"
+   ],
+   "fundingSource": "https://www.agatesensors.com/blog/agate-sensors-raises-5.6m",
+   "retrievedAt": "2026-11-14T17:56:50.424Z"
+  },
+  "desentum.fi": {
+   "founded": 2011,
+   "founders": [
+    "Pekka Mattila",
+    "Researchers from the Department of Chemistry at the Univers…"
+   ],
+   "foundingSource": "https://desentum.fi/news/pekka-mattila-conferred-as-honorary-doctor-at-uef/",
+   "totalFunding": "€54 million arranged by Springvest to date (not necessarily total funding raised from all sources)",
+   "latestRound": {
+    "type": "Equity round",
+    "amount": "€28 million",
+    "date": "2026-10-12"
+   },
+   "investors": [
+    "Springvest (major shareholder)"
+   ],
+   "fundingSource": "https://desentum.fi/news/desentum-raises-e28-million-to-develop-safer-more-effective-allergen-immunotherapy/",
+   "retrievedAt": "2026-11-14T17:56:50.931Z"
+  },
+  "elfys.fi": {
+   "founded": 2017,
+   "founders": [
+    "Mikko Juntunen",
+    "Toni Pasanen"
+   ],
+   "foundingSource": "https://app.dealroom.co/companies/elfys",
+   "totalFunding": "€6 million",
+   "latestRound": {
+    "type": "Funding round",
+    "amount": "€3 million",
+    "date": "2022-09-15"
+   },
+   "investors": [
+    "Samsung Venture Investment Corporation",
+    "Voima Ventures",
+    "Founders of Oura Health"
+   ],
+   "fundingSource": "https://www.elfys.fi/samsung-venture-leads-elfys-6m-funding",
+   "retrievedAt": "2026-11-14T17:56:56.587Z"
+  },
+  "geyserbatteries.com": {
+   "founded": 2018,
+   "founders": [
+    "Andrey Shigaev",
+    "Alexei Beliakov"
+   ],
+   "foundingSource": "https://solarimpulse.com/companies/geyser-batteries",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Bridge financing",
+    "amount": "€1.1 million",
+    "date": "June 3, 2021"
+   },
+   "investors": [
+    "Tesi (Finnish Industry Investment Ltd.)",
+    "Voima Ventures",
+    "Butterfly Ventures"
+   ],
+   "fundingSource": "https://www.geyserbatteries.com/bridge-round",
+   "retrievedAt": "2026-11-14T17:57:00.969Z"
+  },
+  "eniferbio.fi": {
+   "founded": null,
+   "founders": [],
+   "foundingSource": "https://techcrunch.com/2024/05/22/meet-the-finnish-biotech-startup-bringing-a-long-lost-mycoprotein-to-your-plate/",
+   "totalFunding": "€36 million funding package (not a documented cumulative lifetime total)",
+   "latestRound": {
+    "type": "Series B equity funding round",
+    "amount": "€15 million equity; €36 million total f…",
+    "date": "May 23, 2024"
+   },
+   "investors": [
+    "Taaleri Bioindustry Fund I",
+    "Nordic Foodtech VC",
+    "Voima Ventures",
+    "Valio",
+    "Finnish Climate Fund",
+    "Finnvera"
+   ],
+   "fundingSource": "https://techcrunch.com/2024/05/22/meet-the-finnish-biotech-startup-bringing-a-long-lost-mycoprotein-to-your-plate/",
+   "retrievedAt": "2026-11-14T17:57:01.569Z"
+  },
+  "gostalabs.com": {
+   "founded": 2023,
+   "founders": [
+    "Lauri Sippola",
+    "Henri Viertolahti"
+   ],
+   "foundingSource": "https://news.cision.com/san-francisco-oy/r/ex-kaiku-health-founders-complete--7-5m-seed-to-scale-its-ai-operating-system-for-oncology-professio,c4273703",
+   "totalFunding": "€10 million",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€7.5 million",
+    "date": "2025-11-27"
+   },
+   "investors": [
+    "Voima Ventures",
+    "COR Group",
+    "Aho family",
+    "Reaktor",
+    "Angel investors"
+   ],
+   "fundingSource": "https://www.gostalabs.com/news/gosta-labs-completes-eur-7-5-million-seed-round-to-scale-its-ai-operating-system-for-oncology-professionals-worldwide",
+   "retrievedAt": "2026-11-14T17:57:02.432Z"
+  },
+  "kuvaspace.com": {
+   "founded": 2016,
+   "founders": [
+    "Janne Kuhno",
+    "Tuomas Tikka"
+   ],
+   "foundingSource": "https://careers.kuvaspace.com/people/1248235-janne-kuhno",
+   "totalFunding": "€22.5 million",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€16.6 million",
+    "date": "2023-11-02"
+   },
+   "investors": [
+    "Morrow Portfolio",
+    "Voima Ventures",
+    "Nordic Foodtech VC",
+    "Earth VC",
+    "VTT Technical Research Centre of Finland",
+    "ESA Philab",
+    "Business Finland"
+   ],
+   "fundingSource": "https://kuvaspace.com/en/resources/kuva-space-raises-e16-6m-funding-round-to-launch-its-microsatellite-constellation-and-observe-the-molecular-composition-of-any-material-on-earth",
+   "retrievedAt": "2026-11-14T17:57:09.407Z"
+  },
+  "infinitedfiber.com": {
+   "founded": 2016,
+   "founders": [
+    "Petri Alava",
+    "Ali Harlin"
+   ],
+   "foundingSource": "https://www.fashionforgood.com/our_news/journey-to-scale-infinited-fiber-company/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Two-part development financing round",
+    "amount": "€40 million",
+    "date": "2024-03-08"
+   },
+   "investors": [
+    "Inditex Group",
+    "TTY Management B.V.",
+    "Youngone (YOH CVC Fund 1 Limited Partnership)",
+    "Goldwin (GOLDWIN Play Earth Fund Investment Limited Partner…",
+    "H&M Group",
+    "adidas",
+    "BESTSELLER",
+    "Zalando"
+   ],
+   "fundingSource": "https://infinitedfiber.com/blog/2024/03/08/infinited-fiber-company-successfully-completes-eur-40-million-development-financing-round/",
+   "retrievedAt": "2026-11-14T17:57:10.287Z"
+  },
+  "nadmed.com": {
+   "founded": 2022,
+   "founders": [
+    "Jari Närhi",
+    "Jana Buzkova"
+   ],
+   "foundingSource": "https://www.nadmed.com/about-us/",
+   "totalFunding": "€3.5 million publicly reported (Series A; no other funding amount confirmed in the gathered sources)",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€3.5 million",
+    "date": "2024-08-22"
+   },
+   "investors": [
+    "Nordic Science Investments (NSI)",
+    "Voima Ventures",
+    "University of Helsinki Funds",
+    "Private European investors",
+    "Business Finland (grant)"
+   ],
+   "fundingSource": "https://www.nadmed.com/nadmed-secures-e3-5m-to-accelerate-international-sales-expansion/",
+   "retrievedAt": "2026-11-14T17:57:11.824Z"
+  },
+  "paptic.com": {
+   "founded": 2015,
+   "founders": [
+    "Esa Torniainen",
+    "Karita Kinnunen-Raudaskoski",
+    "Tuomas Mustonen"
+   ],
+   "foundingSource": "https://paptic.com/about-us",
+   "totalFunding": "€27.5 million in 2023 growth financing (publicly reported; this is not a company-wide lifetime total)",
+   "latestRound": {
+    "type": "Growth financing (second closing of 202…",
+    "amount": "€4.5 million",
+    "date": "2023"
+   },
+   "investors": [
+    "UB Forest Industry Green Growth Fund (UB FIGG)",
+    "Emerald Technology Ventures",
+    "SIG InnoVentures",
+    "EIC Fund"
+   ],
+   "fundingSource": "https://paptic.com/news/paptic-successfully-closed-in-2023-growth-financing-round-eur-27-5-million-was-raised-to-accelerate-global-growth-and-ability-to-serve-global-customers/",
+   "retrievedAt": "2026-11-14T17:57:12.935Z"
+  },
+  "quantrolox.com": {
+   "founded": 2021,
+   "founders": [
+    "Vishal Chatrath",
+    "Andrew Briggs",
+    "Natalia Ares",
+    "Dominic Lennon"
+   ],
+   "foundingSource": "https://www.sesamers.com/funding/quantrolox-raises-12m-series-a-quantum-tuning/",
+   "totalFunding": "~€28 million (~$31 million)",
+   "latestRound": {
+    "type": "Series A2",
+    "amount": "€12 million",
+    "date": "2026-10-26"
+   },
+   "investors": [
+    "IW Capital",
+    "European Innovation Council (EIC) Fund",
+    "Voima Ventures",
+    "Serendipity Capital",
+    "Hoxton Ventures",
+    "Transpose Capital"
+   ],
+   "fundingSource": "https://quantrolox.com/quantrolox-raises-12-million-series-a2/",
+   "retrievedAt": "2026-11-14T17:57:16.924Z"
+  },
+  "quanturi.com": {
+   "founded": 2016,
+   "founders": [
+    "Nadine Pesonen"
+   ],
+   "foundingSource": "https://quanturi.com/pages/about-us",
+   "totalFunding": "$1.5M",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "$1.5M",
+    "date": "2018-01-19"
+   },
+   "investors": [
+    "Demeter",
+    "Voima Ventures",
+    "Runar Backstromin Saatio"
+   ],
+   "fundingSource": "https://tracxn.com/d/companies/quanturi/__jPeqlQx7SUNnoD8VVVvTExSBh1VJbGYT5b4aPc_vVBA/funding-and-investors",
+   "retrievedAt": "2026-11-14T17:57:19.588Z"
+  },
+  "reduciner.com": {
+   "founded": 2025,
+   "founders": [
+    "Johanna Grönroos",
+    "Eemeli Tsupari",
+    "Sampsa Vuori"
+   ],
+   "foundingSource": "https://www.reduciner.com/news/pilot-plant",
+   "totalFunding": "EUR 3.6 million",
+   "latestRound": {
+    "type": "First funding round",
+    "amount": "EUR 3.6 million",
+    "date": "May 5, 2026"
+   },
+   "investors": [
+    "Voima Ventures",
+    "Lifeline Ventures",
+    "Mikko Kodisoja Foundation",
+    "VTT Technical Research Centre of Finland (in-kind technolog…"
+   ],
+   "fundingSource": "https://www.reduciner.com/news/press-release",
+   "retrievedAt": "2026-11-14T17:57:19.666Z"
+  },
+  "skyfora.com": {
+   "founded": 2019,
+   "founders": [
+    "Fredrik Borgström",
+    "Kim Kaisti"
+   ],
+   "foundingSource": "https://techfundingnews.com/skyfora-6-5m-mobile-towers-weather-sensors/",
+   "totalFunding": "About €11 million, including grants and equity rounds",
+   "latestRound": {
+    "type": null,
+    "amount": "€6.5 million",
+    "date": "2026-06-09"
+   },
+   "investors": [
+    "Eviny Ventures",
+    "Ugly Duckling Ventures",
+    "LUMO Labs",
+    "European Innovation Council (EIC) Fund"
+   ],
+   "fundingSource": "https://www.skyfora.com/news/bfb58b55-bc9e-4c80-9c79-9ecc9bf904b4",
+   "retrievedAt": "2026-11-14T17:57:23.008Z"
+  },
+  "sofifiltration.com": {
+   "founded": 2011,
+   "founders": [
+    "Pertti Rantala",
+    "Simo Aho",
+    "Ville Hakala"
+   ],
+   "foundingSource": "https://en.ain.ua/2020/10/22/finnish-startup-sofi-filtration-raises-3-5-million/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Investment",
+    "amount": "€0.9 million",
+    "date": "2025-11-28"
+   },
+   "investors": [
+    "EIT RawMaterials",
+    "Emerald Technology Ventures",
+    "Voima Ventures",
+    "Loudspring"
+   ],
+   "fundingSource": "https://eitrawmaterials.eu/press-releases/eit-rawmaterials-invests-eu09-million-award-winning-circularity-innovator-sofi",
+   "retrievedAt": "2026-11-14T17:57:25.855Z"
+  },
+  "renow.ai": {
+   "founded": 2022,
+   "founders": [
+    "Kalle Koutajoki",
+    "Antti Ijäs",
+    "Hannes Junnila"
+   ],
+   "foundingSource": "https://renow.ai/wolt-and-renow-start-cooperation-in-the-sale-of-used-electronic-products-2nd-cycle-products-now-available-at-wolt/",
+   "totalFunding": "€1.8 million publicly reported",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€1.8 million",
+    "date": "June 17, 2025"
+   },
+   "investors": [
+    "Greencode Ventures",
+    "Superhero Capital",
+    "Street Smart Capital"
+   ],
+   "fundingSource": "https://renow.ai/press-release-renow-raises-e1-8m-to-disrupt-europes-e150b-return-and-second-hand-market-with-ai-powered-recommerce-platform/",
+   "retrievedAt": "2026-11-14T17:57:30.019Z"
+  },
+  "behavix.io": {
+   "founded": 2024,
+   "founders": [
+    "Hannu Verkasalo",
+    "Surath Chatterji"
+   ],
+   "foundingSource": "https://www.research-live.com/article/news/behavioural-data-firm-behavix-founded/id/5130083",
+   "totalFunding": "$2.5 million publicly reported; earlier 2024 pre-seed funding is noted, but its amount is not established by the retrieved sources.",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "$2.5 million",
+    "date": "February 2025"
+   },
+   "investors": [
+    "Vendep Capital",
+    "Superhero Capital",
+    "Several angel investors"
+   ],
+   "fundingSource": "https://superherocapital.com/behavix-secures-2-5m-seed-investment-to-scale-ai-driven-behavioral-data-platform/",
+   "retrievedAt": "2026-11-14T17:57:31.757Z"
+  },
+  "dixu.fi": {
+   "founded": 2018,
+   "founders": [
+    "Miro Eriksson",
+    "Alex Silvennoinen",
+    "Aki Kujala"
+   ],
+   "foundingSource": "https://nordic9.com/news/dixu-raised-capital-investment-news6469624998/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [],
+   "fundingSource": "https://www.linkedin.com/company/dixu/",
+   "retrievedAt": "2026-11-14T17:57:34.937Z"
+  },
+  "emabler.com": {
+   "founded": 2019,
+   "founders": [
+    "Juha Stenberg",
+    "Ville Parviainen"
+   ],
+   "foundingSource": "https://tech.eu/2021/06/01/helsinkis-ev-charging-management-provider-emabler-raises-e630000-aims-to-make-charging-as-simple-as-fueling/",
+   "totalFunding": "€6.13 million publicly reported (including €630,000 seed round and €5.5 million Series A)",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€5.5 million",
+    "date": "2026-06-16"
+   },
+   "investors": [
+    "Greencode Ventures",
+    "Swiss Post Ventures",
+    "Rethink Ventures",
+    "Helkama Kiinteistöt",
+    "Finnvera",
+    "European Investment Fund",
+    "InvestEU",
+    "Business Finland"
+   ],
+   "fundingSource": "https://emabler.com/resource/emabler-secures-series-a",
+   "retrievedAt": "2026-11-14T17:57:35.823Z"
+  },
+  "singa.com": {
+   "founded": 2015,
+   "founders": [
+    "Atte Hujanen",
+    "Tomi Pajunen"
+   ],
+   "foundingSource": "https://singa.com/blog/music-tech-helsinki/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Convertible debt bond",
+    "amount": "€1.64 million anchor investment",
+    "date": "2023"
+   },
+   "investors": [],
+   "fundingSource": "https://singa.com/blog/music-tech-helsinki/",
+   "retrievedAt": "2026-11-14T17:57:38.908Z"
+  },
+  "steerpath.com": {
+   "founded": 2013,
+   "founders": [
+    "Mikko Virkkilä",
+    "Tuomas Ilola",
+    "Sam Pullen"
+   ],
+   "foundingSource": "https://steerpath.com/team",
+   "totalFunding": "$731,000",
+   "latestRound": {
+    "type": "Pre-seed",
+    "amount": "$731,000",
+    "date": "September 10, 2018"
+   },
+   "investors": [
+    "Superhero Capital"
+   ],
+   "fundingSource": "https://www.linkedin.com/company/steerpath",
+   "retrievedAt": "2026-11-14T17:57:39.180Z"
+  },
+  "mightifier.com": {
+   "founded": 2015,
+   "founders": [
+    "Mervi Pänkäläinen"
+   ],
+   "foundingSource": "https://appscrip.com/blog/finland-edtech-startups/",
+   "totalFunding": "$250,000",
+   "latestRound": {
+    "type": "Venture – Series Unknown",
+    "amount": "$250,000",
+    "date": "2016-11-29"
+   },
+   "investors": [
+    "Courage Ventures Management",
+    "xEdu",
+    "Jacob Dalborg",
+    "Hans Dalborg",
+    "Jeany Stein"
+   ],
+   "fundingSource": "https://appscrip.com/blog/finland-edtech-startups/",
+   "retrievedAt": "2026-11-14T17:57:48.152Z"
+  },
+  "skipperi.fi": {
+   "founded": 2017,
+   "founders": [
+    "Anna-Leena Raij",
+    "Kristian Raij"
+   ],
+   "foundingSource": "https://www.eu-startups.com/2023/02/helsinki-based-skipperi-sets-sail-with-e7-million-to-make-boating-more-accessible/",
+   "totalFunding": "€12.6 million",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€7 million",
+    "date": "2023-02-07"
+   },
+   "investors": [
+    "Yamaha Motor",
+    "Baltiska Handels Sverige",
+    "Matu Capital",
+    "HP Capital"
+   ],
+   "fundingSource": "https://www.skipperi.fi/fi-fi/blog/skipperi-raises-7m-funding",
+   "retrievedAt": "2026-11-14T17:57:51.129Z"
+  },
+  "claned.com": {
+   "founded": 2013,
+   "founders": [],
+   "foundingSource": "https://claned.com/our-story/",
+   "totalFunding": "€4 million publicly reported as of March 2016; later Tracxn page reports $11.3 million across five rounds, but its displayed round amounts are corrupted/ambiguous.",
+   "latestRound": {
+    "type": "Series A",
+    "amount": null,
+    "date": "2016-03-31"
+   },
+   "investors": [],
+   "fundingSource": "https://www.eu-startups.com/2016/03/claned-a-new-learning-platform-from-finland-has-raised-e4-million-and-is-still-in-stealth-mode/",
+   "retrievedAt": "2026-11-14T17:57:51.948Z"
+  },
+  "yeply.com": {
+   "founded": 2016,
+   "founders": [
+    "Tommi Särkkinen",
+    "Antti Känsälä"
+   ],
+   "foundingSource": "https://www.yeply.com/our-story/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€2.5 million",
+    "date": "March 2022"
+   },
+   "investors": [
+    "Inventure"
+   ],
+   "fundingSource": "https://arcticstartup.com/inventure-invests-in-yeply/",
+   "retrievedAt": "2026-11-14T17:57:55.659Z"
+  },
+  "talentadore.com": {
+   "founded": 2014,
+   "founders": [
+    "Saku Valkama",
+    "Joni Latvala"
+   ],
+   "foundingSource": "https://www.talentadore.com/about-us",
+   "totalFunding": "€1 million",
+   "latestRound": {
+    "type": null,
+    "amount": "almost €1 million",
+    "date": null
+   },
+   "investors": [
+    "First Fellow Partners",
+    "Gorilla Ventures",
+    "Prodeko Ventures",
+    "Revercon",
+    "Angel investors"
+   ],
+   "fundingSource": "https://nordic9.com/news/talentadore-the-ai-recruiting-assistant-from-finland-gets-eur-1m-in-funding-news9037390039/",
+   "retrievedAt": "2026-11-14T17:57:58.599Z"
+  },
+  "veil.ai": {
+   "founded": 2019,
+   "founders": [
+    "Janna Saarela",
+    "Timo Miettinen",
+    "Tuomo Pentikäinen"
+   ],
+   "foundingSource": "https://www.helsinki.fi/en/helsinki-innovation-services/industry-and-investors/commercialisation-projects/veilai-enables-safe-use-sensitive-health-data",
+   "totalFunding": "€1.3 million publicly documented; this is the disclosed BioInnovation Institute convertible loan, not a verified cumulative total.",
+   "latestRound": {
+    "type": "Convertible loan (debt financing)",
+    "amount": "€1.3 million",
+    "date": "2022"
+   },
+   "investors": [
+    "BioInnovation Institute"
+   ],
+   "fundingSource": "https://arcticstartup.com/veil-ai-receives-convertible-loan-of-e1-3m/",
+   "retrievedAt": "2026-11-14T17:57:59.433Z"
+  },
+  "solarfoods.com": {
+   "founded": 2017,
+   "founders": [
+    "Pasi Vainikka",
+    "Juha-Pekka Pitkänen",
+    "Sami Holmström",
+    "Jari Tuovinen",
+    "Jero Ahola",
+    "Janne Mäkelä"
+   ],
+   "foundingSource": "https://solarfoods.com/business-finland-greenlights-solar-foods-e8-6m-project/",
+   "totalFunding": "€24.8 million (reported by Solar Foods on January 12, 2020; not a current cumulative total)",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€18.5 million total, including €15 mill…",
+    "date": "April 28, 2022"
+   },
+   "investors": [
+    "Fazer Group",
+    "Bridford Investments Limited",
+    "Agronomics Limited",
+    "Lifeline Ventures",
+    "CPT Capital"
+   ],
+   "fundingSource": "https://solarfoods.com/our-news-solar-foods-closes-series-a-financing-for-its-first-commercial-factory/",
+   "retrievedAt": "2026-11-14T17:58:01.921Z"
+  },
+  "framian.fi": {
+   "founded": null,
+   "founders": [],
+   "foundingSource": "https://www.framian.fi/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [],
+   "fundingSource": "https://www.framian.fi/",
+   "retrievedAt": "2026-11-14T17:58:03.213Z"
+  },
+  "tesseract.fi": {
+   "founded": 2017,
+   "founders": [
+    "Yichen Wu"
+   ],
+   "foundingSource": "https://tesseract.fi/news/series-a/",
+   "totalFunding": "USD 25 million",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "USD 25 million",
+    "date": "June 21, 2021"
+   },
+   "investors": [
+    "Augmentum Fintech",
+    "BlackFin Capital Partners",
+    "Concentric",
+    "DN Capital",
+    "Jabre Capital Partners Family Office",
+    "LeadBlock Partners",
+    "Sapphire Ventures",
+    "Coinbase Ventures"
+   ],
+   "fundingSource": "https://tesseract.fi/news/series-a/",
+   "retrievedAt": "2026-11-14T17:58:06.401Z"
+  },
+  "rensoriginal.com": {
+   "founded": 2018,
+   "founders": [
+    "Jesse Tran",
+    "Son Chu"
+   ],
+   "foundingSource": "https://www.theindustry.fashion/the-interview-jessie-tran-and-son-chu-co-founders-of-sustainable-performance-sneaker-brand-rens/",
+   "totalFunding": "Over half a million USD publicly reported from the 2019 Kickstarter campaign; total across all funding sources is not established by the retrieved sources.",
+   "latestRound": {
+    "type": "Angel investment round",
+    "amount": "€1.25 million ($1.5 million)",
+    "date": null
+   },
+   "investors": [
+    "Ilkka Paananen",
+    "Leena Niemistö",
+    "Moaffak Ahmed"
+   ],
+   "fundingSource": "https://nordic9.com/news/rens-originals-secures-125-million-from-angel-investors-from-finland/",
+   "retrievedAt": "2026-11-14T17:58:09.264Z"
   }
  },
  "logos": {
@@ -3202,7 +5663,79 @@
   "kidescience": "/startup-logos/kidescience.svg",
   "getjenny": "/startup-logos/getjenny.png",
   "onego": "/startup-logos/onego.png",
-  "puro": "/startup-logos/puro.svg"
+  "puro": "/startup-logos/puro.svg",
+  "curifylabs": "/startup-logos/curifylabs.png",
+  "steadyenergy": "/startup-logos/steadyenergy.png",
+  "verda": "/startup-logos/verda.svg",
+  "kasvutx": "/startup-logos/kasvutx.png",
+  "aibidia": "/startup-logos/aibidia.png",
+  "cortisys": "/startup-logos/cortisys.svg",
+  "ambiomaterials": "/startup-logos/ambiomaterials.png",
+  "altumtechnologies": "/startup-logos/altumtechnologies.png",
+  "bought": "/startup-logos/bought.png",
+  "confidentialmind": "/startup-logos/confidentialmind.png",
+  "deepmeasures": "/startup-logos/deepmeasures.png",
+  "digitalworkforce": "/startup-logos/digitalworkforce.png",
+  "dispelix": "/startup-logos/dispelix.png",
+  "droppe": "/startup-logos/droppe.svg",
+  "hyperionrobotics": "/startup-logos/hyperionrobotics.png",
+  "iceye": "/startup-logos/iceye.png",
+  "inparallel": "/startup-logos/inparallel.png",
+  "indooratlas": "/startup-logos/indooratlas.png",
+  "intergrid": "/startup-logos/intergrid.png",
+  "koherent": "/startup-logos/koherent.png",
+  "kovahq": "/startup-logos/kovahq.svg",
+  "meruhealth": "/startup-logos/meruhealth.svg",
+  "metroc": "/startup-logos/metroc.png",
+  "mjuk": "/startup-logos/mjuk.svg",
+  "moves": "/startup-logos/moves.png",
+  "mobal": "/startup-logos/mobal.png",
+  "nordcraftboats": "/startup-logos/nordcraftboats.png",
+  "norsepower": "/startup-logos/norsepower.png",
+  "originbyocean": "/startup-logos/originbyocean.svg",
+  "p2x": "/startup-logos/p2x.png",
+  "proteins1": "/startup-logos/proteins1.png",
+  "seaber": "/startup-logos/seaber.jpg",
+  "sensofusion": "/startup-logos/sensofusion.png",
+  "solarfoods": "/startup-logos/solarfoods.png",
+  "soomamedical": "/startup-logos/soomamedical.png",
+  "spacent": "/startup-logos/spacent.webp",
+  "synoste": "/startup-logos/synoste.png",
+  "tiltbio": "/startup-logos/tiltbio.png",
+  "trademarknow": "/startup-logos/trademarknow.png",
+  "vensum": "/startup-logos/vensum.webp",
+  "agatesensors": "/startup-logos/agatesensors.svg",
+  "avenuebiosciences": "/startup-logos/avenuebiosciences.png",
+  "desentum": "/startup-logos/desentum.png",
+  "elfys": "/startup-logos/elfys.png",
+  "eniferbio": "/startup-logos/eniferbio.png",
+  "gostalabs": "/startup-logos/gostalabs.png",
+  "geyserbatteries": "/startup-logos/geyserbatteries.png",
+  "infinitedfiber": "/startup-logos/infinitedfiber.png",
+  "kuvaspace": "/startup-logos/kuvaspace.png",
+  "nadmed": "/startup-logos/nadmed.png",
+  "paptic": "/startup-logos/paptic.png",
+  "quantrolox": "/startup-logos/quantrolox.png",
+  "quanturi": "/startup-logos/quanturi.png",
+  "reduciner": "/startup-logos/reduciner.png",
+  "skyfora": "/startup-logos/skyfora.png",
+  "sofifiltration": "/startup-logos/sofifiltration.png",
+  "behavix": "/startup-logos/behavix.png",
+  "renow": "/startup-logos/renow.png",
+  "emabler": "/startup-logos/emabler.png",
+  "steerpath": "/startup-logos/steerpath.webp",
+  "singa": "/startup-logos/singa.png",
+  "puroearth": "/startup-logos/puroearth.svg",
+  "skipperi": "/startup-logos/skipperi.jpg",
+  "resqclub": "/startup-logos/resqclub.png",
+  "yeply": "/startup-logos/yeply.png",
+  "claned": "/startup-logos/claned.png",
+  "mightifier": "/startup-logos/mightifier.png",
+  "talentadore": "/startup-logos/talentadore.png",
+  "veil": "/startup-logos/veil.jpg",
+  "framian": "/startup-logos/framian.png",
+  "tesseract": "/startup-logos/tesseract.svg",
+  "rensoriginal": "/startup-logos/rensoriginal.png"
  },
  "register": {
   "Postintaival 7": null,
@@ -3239,5 +5772,415 @@
   "Tukholmankatu 8": null,
   "Hämeentie 135": null,
   "Tammasaarenlaituri": null
+ },
+ "addresses": {
+  "Sammonsilta 8": {
+   "street": "Sammonsilta",
+   "number": "8",
+   "lon": 24.8019122,
+   "lat": 60.1745807,
+   "municipality": "Espoo"
+  },
+  "Kuulijantie 28 B": {
+   "street": "Kuulijantie",
+   "number": "28",
+   "lon": 25.0220193,
+   "lat": 60.2605853,
+   "municipality": "Helsinki"
+  },
+  "Otakaari 5": {
+   "street": "Otakaari",
+   "number": "5",
+   "lon": 24.8300324,
+   "lat": 60.189124,
+   "municipality": "Espoo"
+  },
+  "Urho Kekkosen katu 4-6 F": {
+   "street": "Urho Kekkosen katu",
+   "number": "4",
+   "lon": 24.9330104,
+   "lat": 60.1684379,
+   "municipality": "Helsinki"
+  },
+  "Tekniikantie 14": {
+   "street": "Tekniikantie",
+   "number": "14",
+   "lon": 24.8129111,
+   "lat": 60.1856724,
+   "municipality": "Espoo"
+  },
+  "Metsänneidonkuja 10": {
+   "street": "Metsänneidonkuja",
+   "number": "10",
+   "lon": 24.8061406,
+   "lat": 60.187727,
+   "municipality": "Espoo"
+  },
+  "Otakaari 27": {
+   "street": "Otakaari",
+   "number": "27",
+   "lon": 24.8309594,
+   "lat": 60.1841169,
+   "municipality": "Espoo"
+  },
+  "Viikinkaari 4": {
+   "street": "Viikinkaari",
+   "number": "4",
+   "lon": 25.0154461,
+   "lat": 60.2263543,
+   "municipality": "Helsinki"
+  },
+  "Atomitie 5": {
+   "street": "Atomitie",
+   "number": "5",
+   "lon": 24.8708333,
+   "lat": 60.2227201,
+   "municipality": "Helsinki"
+  },
+  "Vitikka 6": {
+   "street": "Vitikka",
+   "number": "6",
+   "lon": 24.7651601,
+   "lat": 60.2072541,
+   "municipality": "Espoo"
+  },
+  "Maarintie 6": {
+   "street": "Maarintie",
+   "number": "6",
+   "lon": 24.8160746,
+   "lat": 60.1871667,
+   "municipality": "Espoo"
+  },
+  "Mannerheimintie 103 B": {
+   "street": "Mannerheimintie",
+   "number": "103",
+   "lon": 24.8998498,
+   "lat": 60.2036276,
+   "municipality": "Helsinki"
+  },
+  "Äyritie 8c": {
+   "street": "Äyritie",
+   "number": "8",
+   "lon": 24.968719,
+   "lat": 60.293433,
+   "municipality": "Vantaa"
+  },
+  "Karhunkierros 5": {
+   "street": "Karhunkierros",
+   "number": "5",
+   "lon": 24.8126207,
+   "lat": 60.2587586,
+   "municipality": "Vantaa"
+  },
+  "Maanmittarintie 1": {
+   "street": "Maanmittarintie",
+   "number": "1",
+   "lon": 24.9564166,
+   "lat": 60.2442897,
+   "municipality": "Helsinki"
+  },
+  "Sienitie 16": {
+   "street": "Sienitie",
+   "number": "16",
+   "lon": 25.074383,
+   "lat": 60.2676478,
+   "municipality": "Helsinki"
+  },
+  "Tietotie 2 A": {
+   "street": "Tietotie",
+   "number": "2",
+   "lon": 24.8220301,
+   "lat": 60.1857208,
+   "municipality": "Espoo"
+  },
+  "Tekniikantie 12": {
+   "street": "Tekniikantie",
+   "number": "12",
+   "lon": 24.8156611,
+   "lat": 60.1837734,
+   "municipality": "Espoo"
+  },
+  "Tietotie 2 B": {
+   "street": "Tietotie",
+   "number": "2",
+   "lon": 24.8220301,
+   "lat": 60.1857208,
+   "municipality": "Espoo"
+  },
+  "Keilaranta 1": {
+   "street": "Keilaranta",
+   "number": "1",
+   "lon": 24.830819,
+   "lat": 60.176362,
+   "municipality": "Espoo"
+  },
+  "Hakamäenkuja 1": {
+   "street": "Hakamäenkuja",
+   "number": "1",
+   "lon": 24.9051941,
+   "lat": 60.2075179,
+   "municipality": "Helsinki"
+  },
+  "Härkälenkki 11": {
+   "street": "Härkälenkki",
+   "number": "11",
+   "lon": 24.8470488,
+   "lat": 60.2933486,
+   "municipality": "Vantaa"
+  },
+  "kalastajankuja 10 A 1": {
+   "street": "Kalastajankuja",
+   "number": "10",
+   "lon": 24.7338522,
+   "lat": 60.1538717,
+   "municipality": "Espoo"
+  },
+  "Atomitie 5 C": {
+   "street": "Atomitie",
+   "number": "5",
+   "lon": 24.8708333,
+   "lat": 60.2227201,
+   "municipality": "Helsinki"
+  },
+  "Hämeentie 19": {
+   "street": "Hämeentie",
+   "number": "19",
+   "lon": 24.9621534,
+   "lat": 60.1855746,
+   "municipality": "Helsinki"
+  },
+  "Metsänneidonkuja 6": {
+   "street": "Metsänneidonkuja",
+   "number": "6",
+   "lon": 24.8059909,
+   "lat": 60.1886692,
+   "municipality": "Espoo"
+  },
+  "Tukholmankatu 8": {
+   "street": "Tukholmankatu",
+   "number": "8",
+   "lon": 24.9040156,
+   "lat": 60.1911728,
+   "municipality": "Helsinki"
+  },
+  "Rakentajanaukio 4": {
+   "street": "Rakentajanaukio",
+   "number": "4",
+   "lon": 24.829987,
+   "lat": 60.1874456,
+   "municipality": "Espoo"
+  },
+  "Haartmaninkatu 4": {
+   "street": "Haartmaninkatu",
+   "number": "4",
+   "lon": 24.9082719,
+   "lat": 60.1903232,
+   "municipality": "Helsinki"
+  },
+  "Tietäjäntie 2": {
+   "street": "Tietäjäntie",
+   "number": "2",
+   "lon": 24.8035923,
+   "lat": 60.188908,
+   "municipality": "Espoo"
+  },
+  "Arabiankatu 12": {
+   "street": "Arabiankatu",
+   "number": "12",
+   "lon": 24.9790251,
+   "lat": 60.2093272,
+   "municipality": "Helsinki"
+  },
+  "Peuraniitty 5 B 25": {
+   "street": "Peuraniitty",
+   "number": "5",
+   "lon": 24.738336,
+   "lat": 60.2036407,
+   "municipality": "Espoo"
+  },
+  "Laippatie 4 B": {
+   "street": "Laippatie",
+   "number": "4",
+   "lon": 25.0530957,
+   "lat": 60.2093721,
+   "municipality": "Helsinki"
+  },
+  "Vaisalantie 2-8": {
+   "street": "Vaisalantie",
+   "number": "2",
+   "lon": 24.8097991,
+   "lat": 60.1877682,
+   "municipality": "Espoo"
+  },
+  "Paciuksenkatu 29": {
+   "street": "Paciuksenkatu",
+   "number": "29",
+   "lon": 24.891005,
+   "lat": 60.1955069,
+   "municipality": "Helsinki"
+  },
+  "Tekniikantie 4 C": {
+   "street": "Tekniikantie",
+   "number": "4",
+   "lon": 24.8207009,
+   "lat": 60.1815903,
+   "municipality": "Espoo"
+  },
+  "Keilaranta 10": {
+   "street": "Keilaranta",
+   "number": "10",
+   "lon": 24.834592,
+   "lat": 60.1784849,
+   "municipality": "Espoo"
+  },
+  "Otakaari 7": {
+   "street": "Otakaari",
+   "number": "7",
+   "lon": 24.8334741,
+   "lat": 60.1893079,
+   "municipality": "Espoo"
+  },
+  "Itälahdenkatu 25": {
+   "street": "Itälahdenkatu",
+   "number": "25",
+   "lon": 24.8810273,
+   "lat": 60.1529726,
+   "municipality": "Helsinki"
+  },
+  "Tillinmäentie 3 B": {
+   "street": "Tillinmäentie",
+   "number": "3",
+   "lon": 24.6304544,
+   "lat": 60.1646906,
+   "municipality": "Espoo"
+  },
+  "Ratavallintie 26 K 72": {
+   "street": "Ratavallintie",
+   "number": "26",
+   "lon": 24.988195,
+   "lat": 60.2370622,
+   "municipality": "Helsinki"
+  },
+  "Kihokkiniitty 7": {
+   "street": "Kihokkiniitty",
+   "number": "7",
+   "lon": 24.7358374,
+   "lat": 60.3013147,
+   "municipality": "Espoo"
+  },
+  "Kielotie 7 B": {
+   "street": "Kielotie",
+   "number": "7",
+   "lon": 25.036304,
+   "lat": 60.2901468,
+   "municipality": "Vantaa"
+  },
+  "Hermannin Rantatie 10": {
+   "street": "Hermannin rantatie",
+   "number": "10",
+   "lon": 24.9784421,
+   "lat": 60.1907929,
+   "municipality": "Helsinki"
+  },
+  "Satamaradankatu 1": {
+   "street": "Satamaradankatu",
+   "number": "1",
+   "lon": 24.9514941,
+   "lat": 60.1911538,
+   "municipality": "Helsinki"
+  },
+  "Penttiläntie 8 A 1": {
+   "street": "Penttiläntie",
+   "number": "8",
+   "lon": 25.0087667,
+   "lat": 60.2827827,
+   "municipality": "Helsinki"
+  },
+  "Kutomotie 6 B": {
+   "street": "Kutomotie",
+   "number": "6",
+   "lon": 24.873915,
+   "lat": 60.2142503,
+   "municipality": "Helsinki"
+  },
+  "Bertel Jungin aukio 3 D": {
+   "street": "Bertel Jungin aukio",
+   "number": "3",
+   "lon": 24.8150268,
+   "lat": 60.2164431,
+   "municipality": "Espoo"
+  },
+  "Postintaival 7": {
+   "street": "Postintaival",
+   "number": "7",
+   "lon": 24.9190811,
+   "lat": 60.2145727,
+   "municipality": "Helsinki"
+  },
+  "Siltasaarenkatu 16": {
+   "street": "Siltasaarenkatu",
+   "number": "16",
+   "lon": 24.9492411,
+   "lat": 60.1794041,
+   "municipality": "Helsinki"
+  },
+  "Mannerheimintie 164A": {
+   "street": "Mannerheimintie",
+   "number": "164",
+   "lon": 24.899753,
+   "lat": 60.1998938,
+   "municipality": "Helsinki"
+  },
+  "Valimotie 21": {
+   "street": "Valimotie",
+   "number": "21",
+   "lon": 24.8791239,
+   "lat": 60.2202597,
+   "municipality": "Helsinki"
+  },
+  "Kasarminkatu 42": null,
+  "Kaikukatu 2 c": {
+   "street": "Kaikukatu",
+   "number": "2",
+   "lon": 24.9596695,
+   "lat": 60.1830069,
+   "municipality": "Helsinki"
+  },
+  "Erottajankatu": null,
+  "Urho Kekkosen katu 4-6": {
+   "street": "Urho Kekkosen katu",
+   "number": "4",
+   "lon": 24.9330104,
+   "lat": 60.1684379,
+   "municipality": "Helsinki"
+  },
+  "Hämeentie 157": {
+   "street": "Hämeentie",
+   "number": "157",
+   "lon": 24.979564,
+   "lat": 60.212729,
+   "municipality": "Helsinki"
+  },
+  "Ristipellontie 21": {
+   "street": "Ristipellontie",
+   "number": "21",
+   "lon": 24.8457561,
+   "lat": 60.2414967,
+   "municipality": "Helsinki"
+  },
+  "Konepajankuja 1": {
+   "street": "Konepajankuja",
+   "number": "1",
+   "lon": 24.9490064,
+   "lat": 60.1912965,
+   "municipality": "Helsinki"
+  },
+  "Hämeentie 135": {
+   "street": "Hämeentie",
+   "number": "135",
+   "lon": 24.9767709,
+   "lat": 60.2089768,
+   "municipality": "Helsinki"
+  }
  }
 }

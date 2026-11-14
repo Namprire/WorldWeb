@@ -1,35 +1,44 @@
-# STARTUP CITY implementation
+# Startup City: how it fits together
 
-STARTUP CITY adds a data layer and a second camera to the existing oil-painted Helsinki. The renderer, aurora, map, rider and movement below are unchanged; the delivery-game layer (missions, robots, drones, billboards, SYNC REALITY panel) was removed.
+Startup City adds a data layer, a second camera and cutscenes to the oil-painted Helsinki of the earlier WEBWORLD project. The renderer, aurora, map, rider and movement are unchanged. The delivery game that used to sit on top (missions, robots, drones, billboards and its news endpoint) has been removed.
 
 ```mermaid
 flowchart LR
-  Research[scripts/research-startups.ts] --> Context[Context.dev: profile, research, news, scrape]
-  Context --> Check[Address matched to OSM or Helsinki register]
+  Sheet[Company database .ods] --> Export[export-spreadsheet.py]
+  Export --> Research[research-startups.ts]
+  Research --> Context[Context.dev: profile, research, news, careers]
+  Context --> Check[Address matched to OSM or the Helsinki register]
   Check --> Store[(data/startups.json)]
   Store --> API[Express /api]
-  API --> UI[React interface + zustand store]
-  UI -->|refresh| API --> Context
-  UI -->|question| Gemini[Gemini: filters, grounded answers, suggestions]
+  API --> UI[React interface]
+  UI -->|refresh| API
+  UI -->|question| Gemini[Gemini: filters, answers, suggestions]
+  UI -->|cutscene| Script[Gemini script and voice]
   UI --> Scene[src/startup/scene.ts]
   Scene --> Engine[Oil-paint renderer and frame loop]
 ```
 
 ## Scene layer
 
-`public/engine/webworld.js` publishes the engine, map and a per-frame hook as `window.__webworldEngine`. `src/startup/scene.ts` builds on that:
+`public/engine/webworld.js` hands the engine, the map and a per-frame hook to `src/startup/scene.ts`.
 
-- **City Explorer** uses the engine's existing `free` camera state and poses the camera each frame from an orbit (target, distance, yaw, pitch). The projection centre is lowered so the northern sky stays in frame. Fog range, far plane and the map's draw distance widen while it is active.
-- **Transitions** blend camera position and look-at between the orbit and the rider's chase camera, then hand control to the engine's `ride` state. Reduced motion makes them instant.
-- **Building glow** is one additive mesh per startup building: walls, roof and a light beam. Colour and strength follow the company's state (category, search match, selection, funding news). It fades near the camera so it never floods a street view.
-- **Markers, arcs and routes** are HTML and a 2D canvas positioned by projecting world points each frame.
-- **Picking** marches the pointer ray through a grid of building footprints. **Routing** is A* over the mapped street and path network.
+- The city view uses the engine's existing free camera and poses it every frame from an orbit (target, distance, yaw, pitch). The projection centre sits low so the northern lights stay in frame. Fog, far plane and draw distance widen while it is active.
+- Switching views blends position and look-at between the orbit and the rider's chase camera, then hands control back to the engine. Reduced motion makes this instant.
+- Cutscenes switch the scene to cinematic mode: input is ignored and each shot is a scripted move from the orbit plus a slow drift.
+- Each startup building gets one additive mesh (walls, roof, a light beam). Its colour and strength follow the company's state. It fades near the camera so street level is not flooded.
+- Markers, connection arcs and routes are HTML and a 2D canvas, positioned by projecting world points each frame.
+- Picking walks the pointer ray through a grid of building footprints. Routing is A* over the mapped streets and paths.
+- Buildings are batched into one mesh per 150 m tile. Trees are drawn only around the point being looked at.
 
 ## Data rules
 
-The contract is `src/shared/startup-schema.ts`. Each fact is `{ value, sourceUrl, sourceName, retrievedAt, status }`. A company has a `location` only when its reported address matched a building; the interface never places a company otherwise. Search filters, mission targets and connections are all computed from these records, so they cannot show anything the records do not contain.
+The contract is `src/shared/startup-schema.ts`. Each fact is `{ value, sourceUrl, sourceName, retrievedAt, status }`. A company has a `location` only when its address matched a building. Search filters, mission targets, connections and cutscene scripts are all built from these records, so they cannot show anything the records do not contain.
 
-Gemini is given only the records. Its output is constrained to a filter schema, validated suggestion pairs, or a short answer labelled as an AI summary.
+Gemini sees only the records. Its output is limited to a filter schema, checked suggestion pairs, short answers, or a cutscene script whose camera moves and company ids are validated before playback.
+
+## Interface
+
+The interface follows Google's gemini-frontend-design guidance: one typeface (Google Sans Flex), three body sizes, sentence-case labels, no decorative chips or fake live indicators, brisk transitions on named properties, and reduced motion respected. Colours come from the scene: harbour ink for surfaces and aurora green as the single accent. Hiring, funding and news colours mark real state only. The blue-violet gradient marks content Gemini produced.
 
 ---
 

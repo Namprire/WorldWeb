@@ -8,6 +8,9 @@ import {
 import { settings } from '../config'
 import { createContext, refreshSignals } from './context'
 import { createGemini } from './gemini'
+import { createCutscenes } from './cutscenes'
+import { cutsceneRequestSchema } from '../../src/shared/cutscene-schema'
+import { MISSIONS } from '../../src/startup/logic'
 
 /**
  * STARTUP CITY API. API keys stay on the server; the browser only sees sourced records.
@@ -47,6 +50,8 @@ export function registerStartupRoutes(app: Express) {
   const byId = new Map(database.startups.map((s) => [s.id, s]))
   const context = settings.contextKey ? createContext(settings.contextKey) : undefined
   const gemini = settings.geminiKey ? createGemini(settings.geminiKey, settings.geminiModels) : undefined
+  const cutscenes = createCutscenes(settings.geminiKey, { writer: settings.geminiModels.research, voice: settings.geminiModels.voice })
+  const missionTitles = Object.fromEntries(MISSIONS.map((m) => [m.id, m.title]))
   const refreshedAt = new Map<string, number>()
   let suggestions = readJson<{ generatedAt: string | null; model: string | null; items: Suggestion[] }>(suggestionsFile, { generatedAt: null, model: null, items: [] })
   const monitors = readJson<Record<string, { monitorId: string; url: string; createdAt: string }>>(monitorsFile, {})
@@ -77,6 +82,7 @@ export function registerStartupRoutes(app: Express) {
         contextAvailable: Boolean(context),
         geminiAvailable: Boolean(gemini),
         models: gemini?.models ?? null,
+        cutscenes: { writer: cutscenes.available ? settings.geminiModels.research : null, voice: cutscenes.available ? settings.geminiModels.voice : null },
         monitored: Object.keys(monitors),
       },
     })
@@ -131,7 +137,7 @@ export function registerStartupRoutes(app: Express) {
       response.status(502).json({ mode: 'cached', error: 'Context.dev could not be reached. Showing the cached snapshot.', results })
       return
     }
-    console.info(`[STARTUP CITY] refreshed ${succeeded.length}/${due.length} · ${context.usage.credits - before} Context.dev credits`)
+    console.info(`[Startup City] refreshed ${succeeded.length}/${due.length}, ${context.usage.credits - before} Context.dev credits`)
     response.json({
       mode: 'live',
       retrievedAt: lastLiveAt,
@@ -150,7 +156,7 @@ export function registerStartupRoutes(app: Express) {
     try {
       response.json({ mode: 'gemini', filters: await gemini.interpret(body.data.query), model: gemini.models.fast })
     } catch (error) {
-      console.warn(`[STARTUP CITY] Gemini search fallback: ${String((error as Error).message).slice(0, 120)}`)
+      console.warn(`[Startup City] Gemini search fallback: ${String((error as Error).message).slice(0, 120)}`)
       response.json({ mode: 'local', filters: local, model: null })
     }
   })
@@ -163,7 +169,7 @@ export function registerStartupRoutes(app: Express) {
     try {
       response.json({ ...(await gemini.ask(startup, body.data.question, Boolean(body.data.deep))), generatedAt: new Date().toISOString() })
     } catch (error) {
-      console.warn(`[STARTUP CITY] Gemini ask failed: ${String((error as Error).message).slice(0, 120)}`)
+      console.warn(`[Startup City] Gemini ask failed: ${String((error as Error).message).slice(0, 120)}`)
       response.status(502).json({ error: 'Gemini could not answer right now. The verified profile above is unaffected.' })
     }
   })
@@ -176,10 +182,33 @@ export function registerStartupRoutes(app: Express) {
       writeJson(suggestionsFile, suggestions)
       response.json({ suggestions })
     } catch (error) {
-      console.warn(`[STARTUP CITY] Gemini suggestions failed: ${String((error as Error).message).slice(0, 120)}`)
+      console.warn(`[Startup City] Gemini suggestions failed: ${String((error as Error).message).slice(0, 120)}`)
       response.status(502).json({ error: 'Gemini could not suggest connections right now.', suggestions })
     }
   })
+
+  app.post('/api/cutscene', sameOrigin, json, async (request, response) => {
+    const body = cutsceneRequestSchema.safeParse(request.body)
+    if (!body.success) { response.status(400).json({ error: 'Invalid cutscene request.' }); return }
+    try {
+      const scene = await cutscenes.get(body.data, [...byId.values()], missionTitles)
+      if (!scene) { response.status(404).json({ error: 'There is nothing on the map to show for this.' }); return }
+      response.json(scene)
+    } catch (error) {
+      console.warn(`[Startup City] cutscene failed: ${String((error as Error).message).slice(0, 160)}`)
+      response.status(502).json({ error: 'The cutscene could not be prepared.' })
+    }
+  })
+
+  app.get('/api/cutscene/audio/:file', (request, response) => {
+    const file = request.params.file
+    if (!/^[a-f0-9]{20}-\d\.mp3$/.test(file)) { response.status(404).end(); return }
+    response.set('Cache-Control', 'public, max-age=31536000, immutable')
+    response.sendFile(resolve(cutscenes.directory, file), (error) => { if (error && !response.headersSent) response.status(404).end() })
+  })
+
+  // Prepare the opening scene in the background so the first visit does not wait for it.
+  if (cutscenes.available) void cutscenes.get({ kind: 'intro' }, [...byId.values()], missionTitles).catch(() => undefined)
 
   app.get('/api/monitors', (_request, response) => {
     response.json({ monitors })
@@ -192,6 +221,7 @@ export function registerStartupRoutes(app: Express) {
     if (monitors[startup.id]) { response.json({ monitor: monitors[startup.id], existing: true }); return }
     if (!context) { response.status(503).json({ error: 'Context.dev is not configured on the server.' }); return }
     const url = startup.careersUrl ?? startup.website
+    if (!url) { response.status(400).json({ error: 'This company has no website to monitor.' }); return }
     try {
       const monitor = await context.watch(startup.name, url)
       monitors[startup.id] = { monitorId: monitor.id, url, createdAt: new Date().toISOString() }
@@ -199,7 +229,7 @@ export function registerStartupRoutes(app: Express) {
       response.json({ monitor: monitors[startup.id], existing: false })
     } catch (error) {
       const status = (error as { status?: number }).status
-      console.warn(`[STARTUP CITY] monitor failed: ${String((error as Error).message).slice(0, 160)}`)
+      console.warn(`[Startup City] monitor failed: ${String((error as Error).message).slice(0, 160)}`)
       response.status(502).json({ error: status === 402 || status === 403 ? 'This Context.dev plan cannot create more monitors.' : 'Context.dev could not start monitoring this page.' })
     }
   })

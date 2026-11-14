@@ -78,8 +78,9 @@ export const locationSchema = z.object({
 export const startupSchema = z.object({
   id: z.string(),
   name: z.string(),
-  domain: z.string(),
-  website: z.string(),
+  /** Null when neither the database nor a company profile gives an official site. */
+  domain: z.string().nullable(),
+  website: z.string().nullable(),
   industry: z.enum(industryIds),
   /** Industry label reported by the Context.dev company profile. */
   profileIndustry: z.string().nullable(),
@@ -89,6 +90,15 @@ export const startupSchema = z.object({
   city: z.string().nullable(),
   /** Reported street address, also kept when it could not be matched to a map building. */
   reportedAddress: z.string().nullable(),
+  /** Municipality of the address when it was confirmed in an address register. */
+  municipality: z.string().nullable().optional(),
+  /** True when the address exists but lies outside the modelled 3D district. */
+  outsideDistrict: z.boolean().optional(),
+  /** Active or Acquired, from the company database. */
+  companyStatus: z.string().nullable().optional(),
+  acquirer: z.string().nullable().optional(),
+  /** Where this company entered the list. */
+  listedIn: z.array(z.string()).optional(),
   location: locationSchema.nullable(),
   description: fact(z.string()).nullable(),
   founded: fact(z.number()).nullable(),
@@ -149,7 +159,7 @@ export function recentFunding(s: Startup, now = Date.now()) {
   const round = s.funding?.value.latestRound
   const date = round?.date ? Date.parse(round.date) : NaN
   if (round && Number.isFinite(date) && now - date < RECENT_FUNDING_DAYS * DAY) {
-    return { label: [round.type, round.amount].filter(Boolean).join(' · ') || 'Funding round', url: s.funding!.sourceUrl, date: round.date }
+    return { label: [round.type, round.amount].filter(Boolean).join(', ') || 'Funding round', url: s.funding!.sourceUrl, date: round.date }
   }
   return null
 }
