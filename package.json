@@ -1,0 +1,26 @@
+{
+  "name": "webworld",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WEBWORLD — AI-Powered 3D Open-World Game Prototype (Junction 2026)",
+  "type": "module",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run build -w @webworld/shared && concurrently -n SERVER,CLIENT -c cyan,magenta \"npm run dev -w @webworld/server\" \"npm run dev -w @webworld/client\"",
+    "dev:server": "npm run build -w @webworld/shared && npm run dev -w @webworld/server",
+    "dev:client": "npm run build -w @webworld/shared && npm run dev -w @webworld/client",
+    "build": "npm run build -w @webworld/shared && npm run build -w @webworld/server && npm run build -w @webworld/client",
+    "typecheck": "npm run build -w @webworld/shared && npm run typecheck -w @webworld/server && npm run typecheck -w @webworld/client",
+    "test": "npm run build -w @webworld/shared && vitest run",
+    "start": "npm run start -w @webworld/server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

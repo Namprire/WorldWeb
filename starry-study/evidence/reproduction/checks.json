@@ -1,0 +1,92 @@
+{
+  "checks": [
+    {
+      "name": "Original gallery title present",
+      "pass": true
+    },
+    {
+      "name": "Original ride transition completed",
+      "pass": true
+    },
+    {
+      "name": "Original orb collection increases score",
+      "pass": true
+    },
+    {
+      "name": "Original walking toggle active",
+      "pass": true
+    },
+    {
+      "name": "Original bicycle mode restored",
+      "pass": true
+    },
+    {
+      "name": "Original flight cue shown",
+      "pass": true
+    },
+    {
+      "name": "Original theater mode active",
+      "pass": true
+    },
+    {
+      "name": "Local leaderboard opens",
+      "pass": true
+    },
+    {
+      "name": "Local scoreboard persists within isolated browser",
+      "pass": true
+    },
+    {
+      "name": "No external HTTP requests",
+      "pass": true
+    },
+    {
+      "name": "No live WebSocket connections",
+      "pass": true
+    },
+    {
+      "name": "No browser errors",
+      "pass": true
+    },
+    {
+      "name": "Small-device images load locally",
+      "pass": true
+    },
+    {
+      "name": "Mobile context also stays local and error-free",
+      "pass": true
+    },
+    {
+      "name": "All 120 public asset hashes match the manifest",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "http://127.0.0.1:5178/",
+    "http://127.0.0.1:5178/assets/kit-DsD4Rc8o.js",
+    "http://127.0.0.1:5178/assets/hails-DeolUH4Z.js",
+    "http://127.0.0.1:5178/assets/index-DHKFK6Tp.css",
+    "http://127.0.0.1:5178/assets/index-Dr0Dd27u.js",
+    "http://127.0.0.1:5178/assets/index-BY2CcXjY.js",
+    "http://127.0.0.1:5178/painting.webp",
+    "http://127.0.0.1:5178/sky.webp",
+    "http://127.0.0.1:5178/flow.png",
+    "http://127.0.0.1:5178/cypress.png",
+    "http://127.0.0.1:5178/fill.png",
+    "http://127.0.0.1:5178/hails/matilda.3.mp3",
+    "http://127.0.0.1:5178/hails/george.11.mp3",
+    "http://127.0.0.1:5178/",
+    "http://127.0.0.1:5178/assets/kit-DsD4Rc8o.js",
+    "http://127.0.0.1:5178/assets/hails-DeolUH4Z.js",
+    "http://127.0.0.1:5178/assets/index-DHKFK6Tp.css",
+    "http://127.0.0.1:5178/assets/index-Dr0Dd27u.js",
+    "http://127.0.0.1:5178/assets/index-BY2CcXjY.js",
+    "http://127.0.0.1:5178/painting-s.webp",
+    "http://127.0.0.1:5178/sky-s.webp",
+    "http://127.0.0.1:5178/flow.png",
+    "http://127.0.0.1:5178/cypress.png",
+    "http://127.0.0.1:5178/fill.png"
+  ],
+  "sockets": []
+}

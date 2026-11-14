@@ -1,0 +1,19 @@
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 39816
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline
+content-type: text/html; charset=utf-8
+date: Sat, 14 Nov 2026 01:42:45 GMT
+etag: "cec75c7b261c163b190bf73547288ab3"
+last-modified: Fri, 13 Nov 2026 14:39:08 GMT
+referrer-policy: strict-origin-when-cross-origin
+server: Vercel
+strict-transport-security: max-age=63072000
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-vercel-cache: HIT
+x-vercel-id: arn1::p6pkc-1794620565044-73c69f58e933
+content-length: 9526
+

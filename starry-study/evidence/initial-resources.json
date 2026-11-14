@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://starrynightrider.com/assets/index-BY2CcXjY.js",
+    "bytes": 599650,
+    "result": "200 application/javascript; charset=utf-8",
+    "sha256": "4353838061d02a38f2e0cdef07bcad0054b3f3ae4ba2d1754bbfbcf5a5aba324"
+  },
+  {
+    "url": "https://starrynightrider.com/assets/kit-DsD4Rc8o.js",
+    "bytes": 293030,
+    "result": "200 application/javascript; charset=utf-8",
+    "sha256": "a8b07f5c0a4e1b87879a251150710376621f7d4aabe95f08cffbf0bff773f553"
+  },
+  {
+    "url": "https://starrynightrider.com/assets/hails-DeolUH4Z.js",
+    "bytes": 7323,
+    "result": "200 application/javascript; charset=utf-8",
+    "sha256": "fa0573aaf441d3ae8f9844c10429175a67f81af27067325eec4129aaeef34e2e"
+  },
+  {
+    "url": "https://starrynightrider.com/assets/index-DHKFK6Tp.css",
+    "bytes": 34470,
+    "result": "200 text/css; charset=utf-8",
+    "sha256": "403b7df508f3f0aaa13d5977b49e2310c039c24e0fa9b0cbba2e7057024b833f"
+  }
+]
