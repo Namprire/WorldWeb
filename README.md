@@ -24,6 +24,14 @@ Open http://127.0.0.1:5179 and press Explore the city, or Start demo for the 90-
 | Street level | W A S D to ride, F to walk, drag to look, Space to jump, E to visit the startup in front of you. |
 | Anywhere | Tab switches view, / jumps to search, Esc closes or skips a cutscene. |
 
+## Getting around
+
+- The visit opens high above the city on the full northern lights, then tilts down over Helsinki and descends onto the district. Any click or key skips it.
+- Choosing a filter flies out to show every match, from wherever you are.
+- Routes are drawn on the street in 3D and on the minimap. The route bar shows distance and walking time, with Street level or Overview, and Clear (Esc also clears).
+- The buttons bottom right: settings (graphics level, company names on the map, sound, full screen, shortcuts), show the whole district, face north, zoom.
+- `?` shows every shortcut. Copy link in a profile, or the address bar, opens straight to that company (`?company=saidot`).
+
 ## Junction 2026 partners
 
 The partner list, tiers, websites and logos come from the Junction 2026 site (`data/junction-partners.json`); Anthropic was added from the organisers' list. Partners with a verified office inside the 3D district (Verda, Aiven, CRACI, Bahn Express and Lifeline Ventures) get an aurora-edged marker with their official logo, a taller light beam and a halo over the building. Every partner is listed at the top of the directory with its home city, the "Junction 2026 partners" filter lights them up, and Partner tour plays a narrated cutscene past their buildings. No partner is placed without a verified address.

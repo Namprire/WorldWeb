@@ -690,9 +690,9 @@ export function App() {
       if (!state.scene?.entered || event.repeat || state.cutscene) return
       if (event.code === 'Escape') {
         if (typing) { (event.target as HTMLElement).blur(); event.stopImmediatePropagation(); return }
-        if (state.selectedId) { state.select(null); event.stopImmediatePropagation() }
+        if (state.shortcuts) { useCity.setState({ shortcuts: false }); event.stopImmediatePropagation() }
+        else if (state.selectedId) { state.select(null); event.stopImmediatePropagation() }
         else if (state.panel) { useCity.setState({ panel: null }); event.stopImmediatePropagation() }
-        else if (state.shortcuts) { useCity.setState({ shortcuts: false }); event.stopImmediatePropagation() }
         else if (state.route) { state.clearRoute(); event.stopImmediatePropagation() }
         else if (state.demo.active) { useCity.setState({ demo: { active: false, step: 0, paused: false } }); event.stopImmediatePropagation() }
         return

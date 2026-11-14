@@ -70,13 +70,21 @@ try {
   await page.click(".sc-panel >> text=Navigate here");
   s = await state(page);
   check("navigation follows mapped streets", s.route && s.route.metres > 50);
+  check("a route bar shows where the route goes", (await page.textContent(".sc-route-bar")).includes("Route to"));
+  check("the route is drawn on the ground in 3D", await page.evaluate(() => !!window.__startupCity.scene.routeMesh));
+  await page.click(".sc-route-bar >> text=Clear");
+  check("Clear removes the route", (await state(page)).route === null && await page.evaluate(() => !window.__startupCity.scene.routeMesh));
   await page.keyboard.press("Escape");
   check("Escape closes the profile", (await state(page)).selectedId === null);
 
   check("the Gemini question bar is hidden for now", await page.locator("#sc-query").count() === 0);
+  await page.evaluate(() => window.__startupCity.scene.flyTo({ tx: 1000, tz: 1100, dist: 150 }, 0.01));
+  await page.waitForTimeout(400);
   await page.click(".sc-filters >> text=AI & Data");
   s = await state(page);
   check("a category filter narrows the map", s.filters.industries.join() === "ai");
+  await page.waitForTimeout(1800);
+  check("choosing a filter flies out to show every match", await page.evaluate(() => window.__startupCity.scene.goal.dist > 400));
   check("non-matching buildings dim, matches highlight", await page.locator('.sc-marker[data-state="match"]').count() >= 3 && await page.locator('.sc-marker[data-state="dim"]').count() >= 5);
   await page.click(".sc-result >> text=Route between them");
   check("a route links the results", "tour" in (await state(page)).route);
@@ -111,6 +119,9 @@ try {
   check("the feed lists sourced headlines with a map link", await page.locator(".sc-feed li").count() > 0 && (await page.textContent(".sc-drawer")).includes("Only published headlines"));
   await page.click(".sc-tabs-nav >> text=Directory");
   check("companies outside the district are listed separately", await page.waitForSelector('.sc-drawer:has-text("Outside the 3D district")', { timeout: 5000 }).then(() => true, () => false));
+  await page.keyboard.press("Shift+Slash");
+  check("? opens the shortcuts sheet", await page.locator(".sc-modal").count() === 1);
+  await page.keyboard.press("Escape");
   await page.click(".sc-tabs-nav >> text=Missions");
   await page.waitForSelector(".sc-missions");
   check("three missions with progress are shown", await page.locator(".sc-missions li").count() === 3);

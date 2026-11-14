@@ -314,7 +314,7 @@ body #gallery #enter:hover { background: #a6f0d3 !important; transform: translat
 body.sc-cinema #pad { display: none !important; }
 
 /* Opening flight: the city and sky alone, then the interface fades in */
-body.sc-opening #startup-city, body.sc-opening #sc-markers, body.sc-opening #sc-overlay { opacity: 0; pointer-events: none !important; }
+body.sc-opening #startup-city, body.sc-opening #sc-markers, body.sc-opening #sc-overlay { visibility: hidden; pointer-events: none !important; }
 #sc-markers, #sc-overlay { transition: opacity 0.8s var(--ease); }
 body.sc-opening #hud { opacity: 0 !important; }
 
@@ -345,10 +345,10 @@ body.sc-cinema .sc-map-controls { display: none; }
 .sc-graphics-panel button[aria-checked="true"] { background: rgb(125 227 188 / 0.16); }
 
 /* Route bar */
-.sc-route-bar { position: absolute; left: 50%; bottom: 66px; translate: -50% 0; display: flex; align-items: center; gap: 12px; padding: 8px 10px 8px 16px; border-radius: 16px; z-index: 7; border-color: rgb(34 211 238 / 0.5) !important; }
+.sc-route-bar { position: absolute; left: 50%; top: 128px; translate: -50% 0; display: flex; align-items: center; gap: 12px; padding: 8px 10px 8px 16px; border-radius: 16px; z-index: 7; border-color: rgb(34 211 238 / 0.5) !important; }
 .sc-route-bar > svg { color: #22d3ee; flex: none; }
 .sc-route-bar p { display: flex; flex-direction: column; line-height: 1.3; }
-#sc-root:has(.sc-demo) .sc-route-bar { bottom: 186px; }
+#sc-root:has(.sc-result) .sc-route-bar { top: 184px; }
 
 /* Shortcuts sheet */
 .sc-modal-backdrop { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; background: rgb(0 0 0 / 0.45); pointer-events: auto; }
@@ -484,7 +484,8 @@ body.sc-cinema #sc-markers { opacity: 0.35; transition: opacity 0.4s var(--ease)
   .sc-panel { top: auto; right: 8px; left: 8px; bottom: 8px; width: auto; height: 62vh; }
   .sc-help > span { display: none; }
   .sc-map-controls { bottom: 120px; right: 10px; }
-  .sc-route-bar { bottom: 70px; width: calc(100vw - 16px); flex-wrap: wrap; }
+  .sc-route-bar { top: auto; bottom: 70px; width: calc(100vw - 16px); flex-wrap: wrap; }
+  #sc-root[data-mode="street"] .sc-route-bar { top: 150px; bottom: auto; }
   .sc-modal dl div { grid-template-columns: 110px 1fr; }
   #sc-root[data-panel-open="true"] .sc-map-controls { display: none; }
   /* Phones: the profile and drawers are bottom sheets, so bottom controls step aside while they are open. */

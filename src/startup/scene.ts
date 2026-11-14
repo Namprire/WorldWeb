@@ -210,8 +210,12 @@ export class CityScene {
     this.visited = true
     this.cam = { ...HOME }
     this.goal = { ...HOME }
-    const from = [HOME.tx + 150, 1250, HOME.tz + 2300]
-    const fromLook = [HOME.tx - 100, 2300, HOME.tz - 5200]
+    // Three keyframes: the aurora alone, then the whole lit city under it, then down to the district.
+    const keys = [
+      { at: 0, pos: [HOME.tx, 950, HOME.tz + 2700], look: [HOME.tx - 80, 2100, HOME.tz - 3400] },
+      { at: 0.16, pos: [HOME.tx, 1000, HOME.tz + 2650], look: [HOME.tx - 80, 2000, HOME.tz - 3400] },
+      { at: 0.52, pos: [HOME.tx + 60, 1150, HOME.tz + 2050], look: [HOME.tx, 120, HOME.tz - 3600] },
+    ]
     document.body.classList.add('sc-opening')
     let finished = false
     const finish = () => {
@@ -222,18 +226,35 @@ export class CityScene {
       window.removeEventListener('keydown', skip, true)
       done?.()
     }
-    const skip = () => { if (this.blend) this.blend.t = Math.max(this.blend.t, 0.97) }
+    const skip = () => { if (this.opening) this.opening.t = Math.max(this.opening.t, 0.97) }
     window.addEventListener('pointerdown', skip, true)
     window.addEventListener('keydown', skip, true)
-    this.blend = { from, fromLook, t: 0, duration: this.reduced() ? 0.01 : 11, hold: 0.28, done: finish }
-    e.state.free = { x: from[0], y: from[1], z: from[2], yaw: 0, pitch: 0, fov: EXPLORER_FOV, bend: 0 }
+    this.opening = { t: this.reduced() ? 1 : 0, duration: 13, keys, done: finish }
+    e.state.free = { x: keys[0].pos[0], y: keys[0].pos[1], z: keys[0].pos[2], yaw: 0, pitch: 0, fov: EXPLORER_FOV, bend: 0 }
     e.state.state = 'free'
     e.player.speed = 0
     e.input?.clear?.()
     this.setMode('explorer')
   }
 
-  skipOpening() { if (this.blend && this.blend.hold !== undefined) this.blend.t = Math.max(this.blend.t, 0.97) }
+  private opening: { t: number; duration: number; keys: { at: number; pos: number[]; look: number[] }[]; done: () => void } | null = null
+
+  /** Camera pose during the opening, eased between keyframes and ending on the city view. */
+  private openingPose(dt: number) {
+    const o = this.opening!
+    o.t = Math.min(1, o.t + dt / o.duration)
+    const end = this.orbitPose()
+    const keys = [...o.keys, { at: 1, pos: end.pos, look: end.look }]
+    let k = 0
+    while (k < keys.length - 2 && o.t > keys[k + 1].at) k++
+    const a = keys[k], b = keys[k + 1]
+    const t = ease(clamp((o.t - a.at) / Math.max(1e-6, b.at - a.at), 0, 1))
+    const pose = { pos: a.pos.map((v, i) => v + (b.pos[i] - v) * t), look: a.look.map((v, i) => v + (b.look[i] - v) * t) }
+    if (o.t >= 1) { this.opening = null; o.done() }
+    return { pose, progress: o.t }
+  }
+
+  skipOpening() { if (this.opening) this.opening.t = Math.max(this.opening.t, 0.97) }
 
   /** Skip the engine's painting-frame dive; the opening flight replaces it. */
   skipDive = true
@@ -514,6 +535,12 @@ export class CityScene {
     if (explorer) {
       if (!this.blend || !this.blend.to) this.stepOrbit(dt)
       let pose = this.orbitPose()
+      if (this.opening) {
+        const opening = this.openingPose(dt)
+        pose = opening.pose
+        // Fog and draw distance open up as the view widens.
+        k = Math.min(1, 0.5 + opening.progress)
+      }
       if (this.blend) {
         this.blend.t += dt / this.blend.duration
         // An optional hold at the start keeps the opening shot on the sky before the descent.
