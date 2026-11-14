@@ -9,13 +9,18 @@
  */
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { atHelsinkiTime, helsinkiMinutes, phaseOf, sunPosition, type Phase } from './sun'
 type Engine = any
 type Building = { id: string; name: string; rings: number[][][]; triangles: number[][]; h: number; bounds: number[]; parent?: string }
 type Road = { kind: string; points: number[][] }
 
 export type Bridge = {
   engine: Engine
-  district: { setDrawScale(scale: number, focus?: { x: number; z: number } | null): void }
+  visuals: { setSun(x: number, y: number, z: number, elevation: number): void; getLight(): { day: number; dusk: number; dark: number } }
+  district: {
+    setDrawScale(scale: number, focus?: { x: number; z: number } | null): void
+    setMinimapOverlay(overlay: { buildings?: string[]; routes?: { points: number[][]; color: string }[] }): void
+  }
   geography: {
     mapData: { buildings: Building[]; parts: Building[]; roads: Road[]; bounds: { west: number; east: number; north: number; south: number } }
     districtProbe(x: number, z: number, y: number, radius?: number): { blocked: boolean }
@@ -45,6 +50,7 @@ export type MarkerInput = {
 
 export type Link = { a: string; b: string; color: string; dashed: boolean; width: number }
 export type Mode = 'explorer' | 'street'
+export type TimeSettings = { live: boolean; minutes: number; season: 'today' | 'summer'; lapse: boolean }
 type Glow = { color: [number, number, number]; power: number; pulse: number }
 
 const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -65,6 +71,13 @@ export class CityScene {
   onPick: (buildingId: string | null, name: string | null) => void = () => {}
   onNear: (buildingId: string | null) => void = () => {}
   onMode: (mode: Mode) => void = () => {}
+  onPhase: (phase: Phase, previous: Phase | null) => void = () => {}
+  /** Read every frame; the store owns the visitor's time settings. */
+  timeSettings: () => TimeSettings = () => ({ live: true, minutes: 720, season: 'today', lapse: false })
+  /** Current Helsinki clock in minutes, and the sun, as shown. */
+  clock = { minutes: 720, elevation: 0, phase: 'afternoon' as Phase }
+  private lapseMinutes: number | null = null
+  private lastSunUpdate = -1
 
   private e: Engine
   private map: Bridge['geography']['mapData']
@@ -177,7 +190,9 @@ export class CityScene {
   /** Drop to street level beside a map position and hand control back to the rider. */
   enterStreet(near?: { x: number; z: number }) {
     const e = this.e
-    if (this.mode === 'street' || this.blend) return
+    if (this.mode === 'street' || this.blend?.to) return
+    // Dropping to the street may interrupt the rise into the city view.
+    this.blend = null
     const spot = this.clearSpot(near ?? { x: this.cam.tx, z: this.cam.tz })
     const player = e.player
     player.gx = spot.x
@@ -371,6 +386,8 @@ export class CityScene {
       }
       if (this.mode !== 'street') this.setMode('street')
     }
+    this.updateSun(dt)
+    this.adaptResolution(dt, state)
     const explorer = state === 'free'
     let k = explorer ? 1 : 0
     if (explorer) {
@@ -423,6 +440,55 @@ export class CityScene {
       this.drawOverlay(time)
       if (state === 'ride') this.checkNear()
     }
+  }
+
+  /**
+   * The engine lowers its render resolution only while riding. The city view draws the whole
+   * district, so it gets the same treatment here: drop resolution when frames are slow, raise it
+   * again after a calm spell, with a cooldown so it never flips back and forth.
+   */
+  private frameTimes: number[] = []
+  private nextResolutionChange = 0
+  private maxQuality = matchMedia('(pointer: coarse)').matches || Math.min(innerWidth, innerHeight) < 600 ? 0.7 : 1
+  private adaptResolution(dt: number, state: string) {
+    const e = this.e
+    if (state === 'ride' || state === 'title' || dt <= 0 || dt > 1) { this.frameTimes.length = 0; return }
+    this.frameTimes.push(dt)
+    if (this.frameTimes.length < 40) return
+    const average = this.frameTimes.reduce((a, b) => a + b, 0) / this.frameTimes.length
+    this.frameTimes.length = 0
+    const now = performance.now()
+    if (now < this.nextResolutionChange) return
+    let quality = e.state.quality as number
+    if (average > 1 / 38 && quality > 0.5) quality = Math.max(0.5, quality - 0.1)
+    else if (average < 1 / 57 && quality < this.maxQuality) quality = Math.min(this.maxQuality, quality + 0.05)
+    else if (quality > this.maxQuality) quality = this.maxQuality
+    else return
+    e.state.quality = quality
+    // The engine resizes its render targets on window resize.
+    window.dispatchEvent(new Event('resize'))
+    this.nextResolutionChange = now + (average > 1 / 38 ? 1500 : 4000)
+  }
+
+  private updateSun(dt: number) {
+    const settings = this.timeSettings()
+    const now = new Date()
+    if (settings.lapse) {
+      // Time-lapse: one Helsinki day every six minutes.
+      this.lapseMinutes = ((this.lapseMinutes ?? (settings.live ? helsinkiMinutes(now) : settings.minutes)) + dt * 4) % 1440
+    } else this.lapseMinutes = null
+    const minutes = this.lapseMinutes ?? (settings.live ? helsinkiMinutes(now) + now.getSeconds() / 60 : settings.minutes)
+    const base = settings.season === 'summer' ? new Date(Date.UTC(now.getUTCFullYear(), 5, 21, 12)) : now
+    const sun = sunPosition(atHelsinkiTime(base, minutes))
+    // Lighting changes slowly; a few updates a second are enough unless time is running fast.
+    if (settings.lapse || Math.abs(minutes - this.clock.minutes) > 0.5 || this.lastSunUpdate < 0) {
+      this.bridge.visuals.setSun(sun.x, sun.y, sun.z, sun.elevation)
+      this.lastSunUpdate = minutes
+    }
+    const phase = phaseOf(minutes, sun.elevation)
+    const previous = this.clock.phase
+    this.clock = { minutes, elevation: sun.elevation, phase }
+    if (phase !== previous && this.entered) this.onPhase(phase, previous)
   }
 
   private stepOrbit(dt: number) {
@@ -478,7 +544,7 @@ export class CityScene {
     const mesh = new e.Mesh(geometry, new e.Material({
       uniforms: { uFogColor: e.shared.uFogColor },
       vertexShader: 'void main(){ gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0); }',
-      fragmentShader: 'uniform vec3 uFogColor; void main(){ gl_FragColor = vec4(uFogColor * 0.9, 1.0); }',
+      fragmentShader: 'uniform vec3 uFogColor; void main(){ gl_FragColor = vec4(uFogColor, 1.0); }',
     }))
     mesh.frustumCulled = false
     mesh.renderOrder = -5
@@ -539,6 +605,8 @@ export class CityScene {
   // Markers
 
   setMarkers(inputs: MarkerInput[]) {
+    this.markersDirty = true
+    this.bridge.district.setMinimapOverlay({ buildings: inputs.map((m) => m.buildingId) })
     const keep = new Set(inputs.map((m) => m.buildingId))
     for (const [id, marker] of this.markers) if (!keep.has(id)) { marker.el.remove(); this.markers.delete(id) }
     for (const input of inputs) {
@@ -588,8 +656,16 @@ export class CityScene {
     return { x: ((v.x + 1) / 2) * window.innerWidth, y: ((1 - v.y) / 2) * window.innerHeight, front: v.z > -1 && v.z < 1 }
   }
 
+  private markerKey = ''
+  private markersDirty = true
   private placeMarkers(explorer: boolean) {
     const camera = this.e.camera.position
+    // Skip the DOM work entirely while the camera and markers are unchanged.
+    const q = this.e.camera.quaternion
+    const key = `${camera.x.toFixed(2)},${camera.y.toFixed(2)},${camera.z.toFixed(2)},${q.x.toFixed(4)},${q.y.toFixed(4)},${q.z.toFixed(4)},${q.w.toFixed(4)},${innerWidth},${innerHeight}`
+    if (key === this.markerKey && !this.markersDirty) return
+    this.markerKey = key
+    this.markersDirty = false
     const limit = explorer ? 5200 : 420
     for (const marker of this.markers.values()) {
       const { input, el } = marker
@@ -599,11 +675,13 @@ export class CityScene {
       const shown = p.front && distance < limit && p.x > -120 && p.x < window.innerWidth + 120 && p.y > -80 && p.y < window.innerHeight + 160
       if (!shown) { if (el.style.display !== 'none') el.style.display = 'none'; continue }
       const scale = explorer ? clamp(520 / distance, 0.5, 1.05) : clamp(60 / distance, 0.55, 1)
-      el.style.display = ''
+      if (el.style.display === 'none') el.style.display = ''
       el.style.transform = `translate3d(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px, 0) translate(-50%, -100%) scale(${scale.toFixed(3)})`
-      el.style.zIndex = String(input.state === 'selected' ? 90000 : Math.max(1, 80000 - Math.round(distance)))
+      const z = String(input.state === 'selected' ? 90000 : Math.max(1, 80000 - Math.round(distance / 10) * 10))
+      if (el.style.zIndex !== z) el.style.zIndex = z
       // Names collapse when far away; logos stay.
-      el.classList.toggle('compact', input.state !== 'selected' && input.state !== 'match' && distance > (explorer ? 1250 : 180))
+      const compact = input.state !== 'selected' && input.state !== 'match' && distance > (explorer ? 1250 : 180)
+      if (el.classList.contains('compact') !== compact) el.classList.toggle('compact', compact)
     }
   }
 
@@ -626,7 +704,10 @@ export class CityScene {
   // Overlay: links and routes
 
   setLinks(links: Link[]) { this.links = links }
-  setRoutes(routes: { points: number[][]; color: string }[]) { this.routes = routes }
+  setRoutes(routes: { points: number[][]; color: string }[]) {
+    this.routes = routes
+    this.bridge.district.setMinimapOverlay({ routes })
+  }
 
   private drawOverlay(time: number) {
     const canvas = this.overlay, ctx = this.ctx
@@ -653,13 +734,14 @@ export class CityScene {
       }
       ctx.setLineDash(dash ?? [])
       ctx.lineDashOffset = flow
-      ctx.shadowColor = color
-      ctx.shadowBlur = 14
+      // A wide faint stroke reads as a glow; canvas shadowBlur cost several ms per line.
       ctx.strokeStyle = color
-      ctx.globalAlpha = 0.9
+      ctx.globalAlpha = 0.22
+      ctx.lineWidth = lineWidth * 3.2
+      ctx.stroke()
+      ctx.globalAlpha = 0.95
       ctx.lineWidth = lineWidth
       ctx.stroke()
-      ctx.shadowBlur = 0
       ctx.globalAlpha = 0.9
       ctx.strokeStyle = '#ffffff'
       ctx.lineWidth = Math.max(0.6, lineWidth * 0.28)

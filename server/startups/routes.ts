@@ -66,6 +66,22 @@ export function registerStartupRoutes(app: Express) {
     next()
   }
   const json = express.json({ limit: '8kb' })
+  // Calls that spend Gemini or Context.dev credits are limited per visitor, so a public link cannot run up a bill.
+  const hits = new Map<string, number[]>()
+  const limit = (max: number, windowMs: number): express.RequestHandler => (request, response, next) => {
+    const key = `${request.path}|${request.ip}`
+    const now = Date.now()
+    const recent = (hits.get(key) ?? []).filter((t) => now - t < windowMs)
+    if (recent.length >= max) {
+      response.status(429).json({ error: 'Too many requests for now. Try again in a few minutes.' })
+      return
+    }
+    recent.push(now)
+    hits.set(key, recent)
+    if (hits.size > 5000) for (const [k, v] of hits) if (!v.some((t) => now - t < windowMs)) hits.delete(k)
+    next()
+  }
+  const TEN_MINUTES = 10 * 60_000
   const persist = () => {
     database.startups = database.startups.map((s) => byId.get(s.id) ?? s)
     writeJson(dataFile, database)
@@ -88,7 +104,7 @@ export function registerStartupRoutes(app: Express) {
     })
   })
 
-  app.post('/api/signals/refresh', sameOrigin, json, async (request, response) => {
+  app.post('/api/signals/refresh', sameOrigin, limit(6, TEN_MINUTES), json, async (request, response) => {
     const body = z.object({ ids: z.array(z.string()).max(40).optional(), force: z.boolean().optional() }).safeParse(request.body ?? {})
     if (!body.success) { response.status(400).json({ error: 'Invalid refresh request.' }); return }
     if (!context) {
@@ -148,7 +164,7 @@ export function registerStartupRoutes(app: Express) {
     })
   })
 
-  app.post('/api/search', sameOrigin, json, async (request, response) => {
+  app.post('/api/search', sameOrigin, limit(40, TEN_MINUTES), json, async (request, response) => {
     const body = z.object({ query: z.string().trim().min(1).max(240) }).safeParse(request.body)
     if (!body.success) { response.status(400).json({ error: 'Ask a question of up to 240 characters.' }); return }
     const local = parseQueryLocally(body.data.query)
@@ -161,7 +177,7 @@ export function registerStartupRoutes(app: Express) {
     }
   })
 
-  app.post('/api/ask', sameOrigin, json, async (request, response) => {
+  app.post('/api/ask', sameOrigin, limit(30, TEN_MINUTES), json, async (request, response) => {
     const body = z.object({ id: z.string(), question: z.string().trim().min(1).max(300), deep: z.boolean().optional() }).safeParse(request.body)
     const startup = body.success ? byId.get(body.data.id) : undefined
     if (!body.success || !startup) { response.status(400).json({ error: 'Unknown company or empty question.' }); return }
@@ -174,7 +190,7 @@ export function registerStartupRoutes(app: Express) {
     }
   })
 
-  app.post('/api/connections/suggest', sameOrigin, async (_request, response) => {
+  app.post('/api/connections/suggest', sameOrigin, limit(3, TEN_MINUTES), async (_request, response) => {
     if (!gemini) { response.status(503).json({ error: 'Gemini is not configured on the server.', suggestions }); return }
     try {
       const items = z.array(suggestionSchema).parse(await gemini.suggest([...byId.values()]))
@@ -187,7 +203,7 @@ export function registerStartupRoutes(app: Express) {
     }
   })
 
-  app.post('/api/cutscene', sameOrigin, json, async (request, response) => {
+  app.post('/api/cutscene', sameOrigin, limit(20, TEN_MINUTES), json, async (request, response) => {
     const body = cutsceneRequestSchema.safeParse(request.body)
     if (!body.success) { response.status(400).json({ error: 'Invalid cutscene request.' }); return }
     try {
@@ -214,7 +230,7 @@ export function registerStartupRoutes(app: Express) {
     response.json({ monitors })
   })
 
-  app.post('/api/monitors', sameOrigin, json, async (request, response) => {
+  app.post('/api/monitors', sameOrigin, limit(5, TEN_MINUTES), json, async (request, response) => {
     const body = z.object({ id: z.string() }).safeParse(request.body)
     const startup = body.success ? byId.get(body.data.id) : undefined
     if (!startup) { response.status(400).json({ error: 'Unknown company.' }); return }

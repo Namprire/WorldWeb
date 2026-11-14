@@ -44,7 +44,7 @@ for (const name of ["Aleksanterinkatu", "Mannerheimintie"])
 for (const b of mapData.buildings) {
   assert.ok(b.triangles.length > 0);
   assert.ok(
-    ["height", "levels-estimate", "fallback-estimate"].includes(b.heightSource),
+    ["height", "register-floors", "levels-estimate", "fallback-estimate"].includes(b.heightSource),
   );
   const vertices = b.rings.flat();
   for (const t of b.triangles) {

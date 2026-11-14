@@ -93,6 +93,24 @@ function contextFor(request: CutsceneRequest, startups: Startup[], missionTitles
       },
     }
   }
+  if (request.kind === 'briefing') {
+    // A new day: the most recent published headlines, newest first.
+    const items = startups.filter((c) => c.location)
+      .flatMap((c) => c.news.map((n) => ({ c, n })))
+      .filter(({ n }) => n.publishedAt)
+      .sort((a, b) => Date.parse(b.n.publishedAt!) - Date.parse(a.n.publishedAt!))
+      .slice(0, 3)
+    const companies = [...new Map(items.map(({ c }) => [c.id, c])).values()]
+    if (!companies.length) return null
+    return {
+      title: 'Morning briefing',
+      companies,
+      brief: {
+        scene: 'Morning briefing at the start of a new day in Helsinki. Open with the sunrise, then report each headline plainly with its publisher and date, then invite the visitor out to explore.',
+        headlines: items.map(({ c, n }) => ({ companyId: c.id, company: c.name, address: c.location!.address, headline: n.title, publisher: n.sourceName, published: n.publishedAt, type: n.eventType })),
+      },
+    }
+  }
   const found = (request.companies ?? []).map((id) => byId.get(id)).filter((c): c is Startup => Boolean(c?.location))
   if (!found.length) return null
   return {
@@ -114,6 +132,7 @@ function templateScript(request: CutsceneRequest, context: Context): z.infer<typ
   const companies = context.companies.slice(0, 3)
   const opening = request.kind === 'intro'
     ? `Central Helsinki. ${context.brief.companiesOnMap} startups on this map, each at its registered address.`
+    : request.kind === 'briefing' ? 'Morning in Helsinki. Here is what was published most recently.'
     : request.kind === 'mission' ? `Mission complete: ${context.title}.` : request.kind === 'signal'
       ? `News from ${context.companies[0].location!.address}.` : `${context.companies[0].location!.address}, Helsinki.`
   const shots: z.infer<typeof scriptSchema>['shots'] = [
@@ -206,6 +225,16 @@ export function createCutscenes(apiKey: string | undefined, models: { writer: st
     return scene
   }
 
+  const filmFile = resolve(import.meta.dirname, '../../public/films/manifest.json')
+  /** Opening film for the request: dawn for a briefing, otherwise the part of the day on screen. */
+  function filmFor(request: CutsceneRequest) {
+    if (!existsSync(filmFile) || request.kind === 'company' || request.kind === 'signal') return null
+    const films = JSON.parse(readFileSync(filmFile, 'utf8')) as Record<string, { src: string; poster: string; model: string; faithful?: boolean }>
+    const id = request.kind === 'briefing' ? 'dawn' : { morning: 'dawn', afternoon: 'day', evening: 'dusk', night: 'night' }[request.phase ?? 'night']
+    const film = films[id]
+    return film && existsSync(resolve(import.meta.dirname, '../../public', film.src.slice(1))) ? { src: film.src, poster: film.poster, model: film.model, faithful: film.faithful !== false } : null
+  }
+
   return {
     available: Boolean(apiKey),
     models,
@@ -216,11 +245,12 @@ export function createCutscenes(apiKey: string | undefined, models: { writer: st
       // The key changes whenever the records behind the scene change.
       const key = createHash('sha256').update(JSON.stringify([request.kind, models, context.brief])).digest('hex').slice(0, 20)
       const file = resolve(directory, `${key}.json`)
+      const film = filmFor(request)
       if (existsSync(file)) {
-        try { return cutsceneSchema.parse(JSON.parse(readFileSync(file, 'utf8'))) } catch { /* rebuild */ }
+        try { return { ...cutsceneSchema.parse(JSON.parse(readFileSync(file, 'utf8'))), film } } catch { /* rebuild */ }
       }
       if (!inFlight.has(key)) inFlight.set(key, build(request, context, key).finally(() => inFlight.delete(key)))
-      return inFlight.get(key)!
+      return { ...(await inFlight.get(key)!), film }
     },
   }
 }

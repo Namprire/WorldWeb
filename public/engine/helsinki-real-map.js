@@ -162,14 +162,13 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
     tile.bounds[3] = Math.max(tile.bounds[3], building.bounds[3]);
     const b = tile.b,
       seed = (Number(building.id.split("/")[1]) % 997) / 997;
+    // Facade colour comes from the map build: OSM colour tags, else register material and era.
+    const parent = building.parent && districtBuildings.find((d) => d.id === building.parent);
     const wall =
       building.type === "cathedral"
         ? [0.88, 0.86, 0.76]
-        : seed < 0.33
-          ? [0.76, 0.65, 0.48]
-          : seed < 0.66
-            ? [0.63, 0.42, 0.32]
-            : [0.73, 0.72, 0.64];
+        : building.wall ?? parent?.wall ?? [0.73, 0.68, 0.56];
+    const roofColour = building.roofColour ?? parent?.roofColour ?? c.copper;
     const bottom = building.minHeight || 0,
       roofH = Math.min(building.roofHeight || 0, building.h - bottom),
       top = building.h - roofH;
@@ -208,13 +207,28 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
           );
       }
     }
-    if (roofH > 0.05 && building.rings.length === 1) {
+    if (building.roof) {
+      // Hipped roof: eave vertices sit on the wall top, ridge vertices rise above it.
+      b.color(roofColour).data(engine.kinds.ROOF, seed, 1, 0);
+      const rise = building.roof.rise;
+      for (const part of building.roof.band) {
+        const points = part.rings.flat();
+        for (const t of part.triangles) {
+          let [i, j, k] = t;
+          const A = points[i], B = points[j], C = points[k];
+          if ((B[0] - A[0]) * (C[1] - A[1]) - (B[1] - A[1]) * (C[0] - A[0]) > 0) [j, k] = [k, j];
+          const P = [i, j, k].map((n) => b.pl(points[n][0], top + part.lift[n] * rise, points[n][1]));
+          b.tri(P[0], P[1], P[2], points[i][0], points[i][1], points[j][0], points[j][1], points[k][0], points[k][1]);
+        }
+      }
+      for (const part of building.roof.top) polygon(b, part, top + rise, roofColour, engine.kinds.ROOF, seed);
+    } else if (roofH > 0.05 && building.rings.length === 1) {
       const ring = building.rings[0],
         cx = ring.reduce((s, p) => s + p[0], 0) / ring.length,
         cz = ring.reduce((s, p) => s + p[1], 0) / ring.length;
       const rounded = ["dome", "onion", "round"].includes(building.roofShape),
         steps = rounded ? 8 : 1;
-      b.color(c.copper).data(engine.kinds.ROOF, seed, 1, 0);
+      b.color(roofColour).data(engine.kinds.ROOF, seed, 1, 0);
       for (let j = 0; j < steps; j++) {
         const t = j / steps,
           T = (j + 1) / steps,
@@ -237,7 +251,7 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
           );
         }
       }
-    } else polygon(b, building, building.h, c.copper, engine.kinds.ROOF, seed);
+    } else polygon(b, building, building.h, roofColour, engine.kinds.ROOF, seed);
   }
   for (const tile of buildingTiles.values()) finish(tile.b, tile.bounds);
   const trees = new Map();
@@ -302,14 +316,48 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
       r.points.forEach(([x, z], i) => ctx[i ? "lineTo" : "moveTo"](x, z));
       ctx.stroke();
     }
-    for (const f of districtBuildings) fill(f, "#846c58");
+    for (const f of districtBuildings) fill(f, overlay.buildings.has(f.id) ? "#7de3bc" : "#846c58");
+    // Routes and the destination, sized in screen pixels whatever the zoom.
+    if (!overlay.routes.length) return;
+    const t = ctx.getTransform(),
+      px = Math.hypot(t.a, t.b) / (window.devicePixelRatio || 1),
+      w = (pixels) => pixels / px;
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    for (const route of overlay.routes) {
+      ctx.beginPath();
+      route.points.forEach(([x, z], i) => ctx[i ? "lineTo" : "moveTo"](x, z));
+      ctx.setLineDash([]);
+      ctx.strokeStyle = "rgba(6, 20, 26, 0.85)";
+      ctx.lineWidth = w(6);
+      ctx.stroke();
+      ctx.strokeStyle = route.color;
+      ctx.lineWidth = w(3);
+      ctx.stroke();
+      const [ex, ez] = route.points[route.points.length - 1];
+      ctx.beginPath();
+      ctx.arc(ex, ez, w(5), 0, Math.PI * 2);
+      ctx.fillStyle = route.color;
+      ctx.fill();
+      ctx.lineWidth = w(2);
+      ctx.strokeStyle = "#ffffff";
+      ctx.stroke();
+    }
   });
   // Give the actual northern sky room in the title's live painting.
   engine.setEntrance(30, 230, 65, -0.06);
   // The bird's-eye view needs the whole district in view. Trees are only drawn
   // around the point being looked at, where they can actually be seen.
+  // Drawn on the street-level minimap: highlighted buildings and routes in map metres.
+  const overlay = { buildings: new Set(), routes: [] };
   let drawScale = 1, treeCentre = null;
+  const warming = [];
+  let warmIndex = 0;
   return {
+    setMinimapOverlay({ buildings, routes }) {
+      if (buildings) overlay.buildings = new Set(buildings);
+      if (routes) overlay.routes = routes;
+    },
     setDrawScale(scale, focus = null) {
       drawScale = scale;
       treeCentre = focus;
@@ -319,6 +367,11 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
     locations: mapData.locations,
     routes: mapData.routes,
     update() {
+      // Geometry is uploaded to the GPU the first time a mesh is drawn. Doing that for the whole
+      // district in one frame (when the city view first opens) froze the page for over a second, so
+      // a few hidden tiles are drawn each frame, collapsed to a point, until all are uploaded.
+      for (const m of warming) m.scale.setScalar(1);
+      warming.length = 0;
       const cam = engine.camera.position;
       for (const { m, bounds: b, range, tree } of groups) {
         const cx = tree && treeCentre ? treeCentre.x : cam.x,
@@ -326,6 +379,14 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
           x = Math.max(b[0], Math.min(b[2], cx)),
           z = Math.max(b[1], Math.min(b[3], cz));
         m.visible = Math.hypot(x - cx, z - cz) < (tree && treeCentre ? 520 : range * drawScale);
+      }
+      for (let n = 0; n < (engine.state.state === "title" ? 60 : 24) && warmIndex < groups.length; warmIndex++) {
+        const m = groups[warmIndex].m;
+        if (m.visible) continue;
+        m.visible = true;
+        m.scale.setScalar(1e-6);
+        warming.push(m);
+        n++;
       }
     },
   };

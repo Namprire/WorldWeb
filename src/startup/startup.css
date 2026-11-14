@@ -301,15 +301,41 @@ body #gallery #enter:hover { background: #a6f0d3 !important; transform: translat
 .sc-load-error { position: absolute; left: 50%; top: 180px; translate: -50% 0; padding: 10px 16px; border-color: rgb(242 193 78 / 0.5); }
 .sc-attribution { position: absolute; left: 16px; bottom: 10px; font-size: var(--t-sm) !important; color: #8ea59f !important; pointer-events: auto; text-decoration: none !important; }
 #sc-root[data-mode="street"] .sc-attribution { left: auto; right: 16px; }
-#sc-root[data-mode="street"] .sc-rail { bottom: 290px; }
+#sc-root[data-mode="street"] .sc-rail { bottom: 330px; }
+/* At street level the minimap sits bottom left; the clock goes above it. */
+#sc-root[data-mode="street"] .sc-clock { bottom: 274px; }
 #sc-root:has(.sc-demo) .sc-panel, #sc-root:has(.sc-demo) .sc-legend-card, #sc-root:has(.sc-demo) .sc-rail { bottom: 172px; }
 #sc-root:has(.sc-demo) .sc-toast { bottom: 190px; }
+
+/* Touch hint at street level, phones only */
+.sc-street-hint { display: none; position: absolute; left: 50%; bottom: 28px; translate: -50% 0; padding: 8px 14px; border-radius: 999px; font-size: var(--t-sm); color: #d8e8e3; background: rgb(8 21 27 / 0.66); backdrop-filter: blur(8px); white-space: nowrap; pointer-events: none; }
+#sc-root[data-mode="explorer"] .sc-street-hint { display: none !important; }
+#pad-jump { font-family: var(--sc-font) !important; letter-spacing: 0 !important; text-transform: none !important; font-size: 14px !important; color: var(--sc-accent-ink) !important; background: var(--sc-accent) !important; box-shadow: 0 8px 24px rgb(0 0 0 / 0.4) !important; }
+body.sc-cinema #pad { display: none !important; }
+
+/* Frame capture mode */
+body.sc-clean #startup-city, body.sc-clean #sc-markers, body.sc-clean #sc-overlay, body.sc-clean #hud, body.sc-clean #map-attribution { display: none !important; }
+
+/* Time of day */
+.sc-clock { position: absolute; left: 16px; bottom: 34px; pointer-events: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; z-index: 6; }
+.sc-clock-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; font-weight: 600; transition: border-color 0.16s var(--ease); }
+.sc-clock-pill:hover { border-color: rgb(125 227 188 / 0.5); }
+.sc-clock-panel { width: 340px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+#sc-root .sc-clock-panel h2 { font-size: var(--t-body); }
+.sc-clock-panel .sc-segmented { flex-wrap: wrap; background: rgb(0 0 0 / 0.2); }
+.sc-clock-panel .sc-segmented button { padding: 7px 10px; font-size: var(--t-sm) !important; }
+.sc-range { display: flex; flex-direction: column; gap: 6px; }
+.sc-range input { width: 100%; accent-color: var(--sc-accent); }
+#sc-root[data-panel-open="true"] .sc-clock { display: flex; }
+#sc-root:has(.sc-drawer) .sc-clock { display: none; }
+body.sc-cinema .sc-clock { display: none; }
 
 /* Cutscenes */
 body.sc-cinema #sc-root > :not(.sc-cutscene) { opacity: 0; pointer-events: none !important; transition: opacity 0.24s var(--ease); }
 body.sc-cinema #sc-root > :not(.sc-cutscene) * { pointer-events: none !important; }
 body.sc-cinema #sc-markers { opacity: 0.35; transition: opacity 0.4s var(--ease); }
 .sc-cutscene { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
+.sc-film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #000; }
 .sc-cutscene .sc-bar { position: absolute; left: 0; right: 0; height: 11vh; background: #000; }
 .sc-cutscene .sc-bar.top { top: 0; transform-origin: top; }
 .sc-cutscene .sc-bar.bottom { bottom: 0; transform-origin: bottom; }
@@ -369,8 +395,8 @@ body.sc-cinema #sc-markers { opacity: 0.35; transition: opacity 0.4s var(--ease)
   .sc-wordmark { font-size: 18px !important; }
   .sc-brand .sc-muted { display: none; }
   .sc-tools { min-width: 0; overflow-x: auto; scrollbar-width: none; }
-  .sc-segmented button, .sc-switch, .sc-primary { font-size: 0 !important; gap: 0; }
-  .sc-segmented button svg, .sc-switch svg, .sc-primary svg { width: 18px; height: 18px; }
+  .sc-tools .sc-segmented button, .sc-tools .sc-switch, .sc-tools .sc-primary { font-size: 0 !important; gap: 0; }
+  .sc-tools .sc-segmented button svg, .sc-tools .sc-switch svg, .sc-tools .sc-primary svg { width: 18px; height: 18px; }
   .sc-switch input { display: none; }
   .sc-rail { top: 156px; left: 8px; width: calc(100vw - 16px); bottom: auto; max-height: 52vh; }
   .sc-tabs-nav { flex-direction: row; width: auto; }
@@ -378,6 +404,19 @@ body.sc-cinema #sc-markers { opacity: 0.35; transition: opacity 0.4s var(--ease)
   .sc-tabs-nav button span { display: none; }
   .sc-panel { top: auto; right: 8px; left: 8px; bottom: 8px; width: auto; height: 62vh; }
   .sc-help > span { display: none; }
+  /* Phones: the profile and drawers are bottom sheets, so bottom controls step aside while they are open. */
+  #sc-root[data-panel-open="true"] .sc-help, #sc-root[data-panel-open="true"] .sc-clock, #sc-root[data-panel-open="true"] .sc-attribution,
+  #sc-root:has(.sc-drawer) .sc-help, #sc-root:has(.sc-drawer) .sc-attribution { display: none; }
+  #sc-root[data-panel-open="true"] .sc-toast { bottom: calc(62vh + 16px); }
+  /* Street level: the left side is the joystick area and the jump button sits bottom right. */
+  #sc-root[data-mode="street"] .sc-help, #sc-root[data-mode="street"] .sc-clock, #sc-root[data-mode="street"] .sc-attribution { display: none; }
+  #sc-root[data-mode="street"] .sc-rail { display: none; }
+  .sc-street-hint { display: block; bottom: 172px; }
+  html.touch #map { top: 196px !important; bottom: auto !important; right: 10px !important; left: auto !important; }
+  html.touch #corner { bottom: 118px !important; }
+  .sc-near { margin-bottom: 92px; }
+  .sc-clock { bottom: 100px; left: 8px; }
+  .sc-clock-panel { width: calc(100vw - 16px); }
   .sc-attribution { bottom: 62px; left: 10px; right: 10px; text-align: center; }
   .sc-demo { flex-direction: column; align-items: stretch; gap: 10px; }
   .sc-demo-controls button span { display: none; }

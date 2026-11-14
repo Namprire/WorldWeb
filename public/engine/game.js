@@ -23242,8 +23242,8 @@ var tu = new to(Yl),
   cu;
 try {
   [iu, au, ou, su, cu] = await Promise.all([
-    ru(`art/helsinki/arrival.png`),
-    ru(`webworld-sky.png`),
+    ru(`art/helsinki/arrival.webp`),
+    ru(`webworld-sky.webp`),
     ru(`flow.png`, { mips: !1 }),
     ru(`cypress.png`),
     ru(`fill.png`),

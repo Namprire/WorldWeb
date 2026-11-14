@@ -5,7 +5,7 @@ import {
 } from '../shared/startup-schema'
 import { missionProgress, tourOrder, type ConnectionKind, type Discovery } from './logic'
 import type { CutsceneRequest } from '../shared/cutscene-schema'
-import type { CityScene, Mode } from './scene'
+import type { CityScene, Mode, TimeSettings } from './scene'
 
 export type Meta = {
   snapshotAt: string
@@ -62,6 +62,8 @@ type State = {
   toast: { id: number; text: string; tone: 'info' | 'gold' | 'green' } | null
   /** The cutscene being played, if any. */
   cutscene: CutsceneRequest | null
+  time: TimeSettings
+  setTime(patch: Partial<TimeSettings>): void
 
   load(): Promise<void>
   setScene(scene: CityScene): void
@@ -136,10 +138,13 @@ export const useCity = create<State>((set, get) => ({
   demo: { active: false, step: 0, paused: false },
   toast: null,
   cutscene: null,
+  time: { live: true, minutes: 13 * 60, season: 'today', lapse: false },
+  setTime(patch) { set({ time: { ...get().time, ...patch } }) },
 
   playCutscene(request) {
-    if (!get().scene?.entered) return
-    set({ cutscene: request })
+    const scene = get().scene
+    if (!scene?.entered) return
+    set({ cutscene: { ...request, phase: request.phase ?? scene.clock.phase } })
   },
 
   set: (partial) => set(partial),

@@ -52,7 +52,8 @@ for el in E:
   raw=num(t.get('height'));levels=num(t.get('building:levels'));height=raw if raw and raw>2 else levels*3.2 if levels else 16
   for p in polys(g):
    if p.area<12:continue
-   buildings.append({'id':oid,'name':t.get('name:en',t.get('name','')),'rings':rings(p),'h':round(min(100,height),2),'heightSource':'height' if raw else 'levels-estimate' if levels else 'fallback-estimate','bounds':[round(v,2) for v in p.bounds], 'type':t['building']})
+   buildings.append({'id':oid,'name':t.get('name:en',t.get('name','')),'rings':rings(p),'h':round(min(100,height),2),'heightSource':'height' if raw else 'levels-estimate' if levels else 'fallback-estimate','bounds':[round(v,2) for v in p.bounds], 'type':t['building'],
+    'tags':{k:t[k] for k in ['building:colour','roof:colour','roof:shape','building:material','roof:material','building:levels','start_date'] if k in t}})
  if t.get('leisure') in ['park','garden'] or t.get('landuse') in ['grass','recreation_ground']:
   for p in polys(shape(el).intersection(clip)):
    if p.area>12:parks.append({'id':oid,'name':t.get('name:en',t.get('name','')),'rings':rings(p)})
@@ -128,6 +129,88 @@ for parent in landmarks:
  if pgparts and unary_union(pgparts).intersection(pg).area/pg.area>.85:
   parent['detailedParts']=True
 
-result={'meta':{'source':'OpenStreetMap contributors','license':'ODbL-1.0','attributionUrl':'https://www.openstreetmap.org/copyright','retrievedAt':D['retrievedAt'],'bbox':D['bbox'],'origin':origin,'projection':'Local equirectangular metres, X east, Z south','earthRadius':R,'heightPolicy':'OSM height; else building:levels × 3.2 m; else 16 m. Flat roofs and level terrain are approximations.','omittedIncompleteBuildingFeatures':missing},'bounds':bounds,'buildings':buildings,'parts':parts,'parks':parks,'water':water,'roads':roads,'trees':trees,'routes':selected[::max(1,math.ceil(len(selected)/90))][:90],'locations':locations,'landmarks':[{'id':b['id'],'name':b['name'],'bounds':b['bounds']} for b in landmarks]}
+# City of Helsinki building register: floors, completion year and facade material for each footprint.
+import os,random
+REGISTER='public/data/helsinki/register.json'
+FACADE={'1':'concrete','2':'brick','3':'metal','4':'stone','5':'wood','6':'glass','7':'render'}
+def hexrgb(h):
+ h=h.lstrip('#');return [round(int(h[i:i+2],16)/255,3) for i in (0,2,4)]
+NAMED={'white':'#e8e6df','yellow':'#d9b45a','beige':'#cbb48e','cream':'#e3d7b8','grey':'#9a9a94','gray':'#9a9a94','red':'#9c4a3c','brown':'#7a5440','pink':'#d39a8c','green':'#6f8f6a','orange':'#c98a4a','black':'#2c2e31','blue':'#6c87a3','darkgrey':'#55585b','darkgray':'#55585b','lightgrey':'#c4c3bd'}
+def colour(v):
+ if not v:return None
+ v=v.strip().lower()
+ if v.startswith('#') and len(v)==7:return hexrgb(v)
+ return hexrgb(NAMED[v]) if v in NAMED else None
+# Facade palettes by material and era, sampled from central Helsinki streets.
+OLD_RENDER=['#d8b45f','#e2cc8f','#d9a68a','#e6dccb','#c9b79c','#b8a58a','#e0c3a6','#c7c9b8','#d6b07a','#ead7ae']
+STONE=['#8d8a83','#a19c92','#76736d','#9b9285']
+OLD_BRICK=['#c9a46e','#d8bf93','#b98d6c','#d6c6a9']
+NEW_BRICK=['#9a5440','#87493a','#a8644b','#7d4f3f']
+CONCRETE=['#c8c6bf','#b6b4ae','#d9d6cd','#a9a8a3']
+GLASS=['#7f95a3','#6f8796','#8aa0ab']
+METAL=['#9aa0a3','#80868a']
+WOOD=['#c9a24a','#a6503c','#d8cfb6']
+def pick(lst,seed):return hexrgb(lst[int(seed*997)%len(lst)])
+def facade(material,year,seed):
+ if material=='glass':return pick(GLASS,seed)
+ if material=='metal':return pick(METAL,seed)
+ if material=='wood':return pick(WOOD,seed)
+ if material=='stone':return pick(STONE,seed)
+ if material=='concrete':return pick(CONCRETE,seed)
+ if material=='brick':return pick(OLD_BRICK if year and year<1940 else NEW_BRICK if year and year>=1950 else OLD_RENDER,seed)
+ if year and year>=1960:return pick(CONCRETE,seed)
+ return pick(OLD_RENDER,seed)
+ROOF_TIN=['#3f454b','#4b5157','#34383c','#585d61','#6a4a3e']
+register=[]
+if os.path.exists(REGISTER):
+ REG=json.load(open(REGISTER))
+ for f in REG['features']:
+  g=f['geometry'];polysR=[]
+  if g['type']=='Polygon':g={'type':'MultiPolygon','coordinates':[g['coordinates']]}
+  for poly in g['coordinates']:
+   ext=[xy({'lon':x,'lat':y}) for x,y in poly[0]];holes=[[xy({'lon':x,'lat':y}) for x,y in r] for r in poly[1:]]
+   if len(ext)>=4:polysR.append(make_valid(Polygon(ext,holes)))
+  if not polysR:continue
+  shapeR=unary_union(polysR);pr=f['properties']
+  year=int(str(pr['c_valmpvm'])[:4]) if pr.get('c_valmpvm') else None
+  register.append({'geom':shapeR,'floors':pr.get('i_kerrlkm'),'year':year,'material':FACADE.get(str(pr.get('c_julkisivu'))),'use':pr.get('tyyppi')})
+ from shapely.strtree import STRtree
+ tree=STRtree([r['geom'] for r in register])
+matched=0
+for b in buildings:
+ poly=Polygon(b['rings'][0],b['rings'][1:]);seed=(int(b['id'].split('/')[1])%997)/997
+ best=None;bestArea=0
+ if register:
+  for i in tree.query(poly):
+   a=register[i]['geom'].intersection(poly).area
+   if a>bestArea:bestArea=a;best=register[i]
+ info=best if best and bestArea>0.3*min(poly.area,best['geom'].area) else None
+ t=b.pop('tags',{})
+ year=info['year'] if info else None
+ if not year and t.get('start_date','')[:4].isdigit():year=int(t['start_date'][:4])
+ material=(info or {}).get('material') or {'brick':'brick','stone':'stone','glass':'glass','concrete':'concrete','metal':'metal','wood':'wood','plaster':'render'}.get(t.get('building:material',''))
+ if info and info['floors'] and b['heightSource']!='height':
+  b['h']=round(min(100,info['floors']*3.5+1.2),2);b['heightSource']='register-floors';matched+=1
+ if year:b['year']=year
+ if material:b['material']=material
+ # OSM colour tags are rough (pure white, pure black, web red): use them as a hint, blended with the palette and clamped.
+ def soften(c,base,lo,hi):
+  if not c:return base
+  m=[0.55*a+0.45*b for a,b in zip(c,base)];return [round(min(hi,max(lo,v)),3) for v in m]
+ b['wall']=soften(colour(t.get('building:colour')),facade(material,year,seed),0.22,0.86)
+ shape=t.get('roof:shape')
+ pitched=shape in ('hipped','gabled','mansard','pyramidal','half-hipped','gambrel','skillion') if shape else (year is not None and year<1932 and b['h']>=7)
+ b['roofColour']=soften(colour(t.get('roof:colour')),pick(ROOF_TIN,seed) if pitched else hexrgb('#5f6264'),0.17,0.7)
+ if pitched and b['type']!='cathedral':
+  # Hipped roof: slopes from every outer and courtyard edge up to an inset ridge outline.
+  d=min(6.5,max(1.5,b['h']*0.18))
+  top=poly.buffer(-d,join_style=2)
+  while (top.is_empty or top.area<4) and d>1.2:
+   d*=0.7;top=poly.buffer(-d,join_style=2)
+  if not top.is_empty and top.area>=4:
+   band=poly.difference(top)
+   b['roof']={'rise':round(min(4.5,d*0.75),2),'band':[rings(p_) for p_ in polys(band) if p_.area>0.5],'top':[rings(p_) for p_ in polys(top) if p_.area>0.5]}
+print('register matched heights for',matched,'of',len(buildings),'buildings;',sum(1 for b in buildings if 'roof' in b),'pitched roofs')
+result={'meta':{'source':'OpenStreetMap contributors','license':'ODbL-1.0','attributionUrl':'https://www.openstreetmap.org/copyright','retrievedAt':D['retrievedAt'],'bbox':D['bbox'],'origin':origin,'projection':'Local equirectangular metres, X east, Z south','earthRadius':R,'heightPolicy':'OSM height tag; else City of Helsinki register floors x 3.5 m + 1.2 m; else OSM building:levels x 3.2 m; else 16 m. Roof shapes before 1932 are inferred as hipped unless OSM tags a shape. Facade colours follow register material and era unless OSM tags a colour. Terrain is level.','omittedIncompleteBuildingFeatures':missing},'bounds':bounds,'buildings':buildings,'parts':parts,'parks':parks,'water':water,'roads':roads,'trees':trees,'routes':selected[::max(1,math.ceil(len(selected)/90))][:90],'locations':locations,'landmarks':[{'id':b['id'],'name':b['name'],'bounds':b['bounds']} for b in landmarks]}
 json.dump(result,open('public/data/helsinki/map.json','w'),separators=(',',':'))
 print({k:len(result[k]) for k in ['buildings','roads','parks','water','trees','routes']});print('bounds',bounds);print('landmarks',result['landmarks']);print('terminals',locations)

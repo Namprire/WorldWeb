@@ -12,6 +12,7 @@ import {
   CONNECTION_KINDS, MISSION_GOAL, badges, buildConnections, formatDate, initials, missionProgress, relativeDate, score,
   type ConnectionKind,
 } from './logic'
+import { Clock } from './Clock'
 import { CutscenePlayer } from './Cutscene'
 import { Logo, Panel } from './Panel'
 import type { MarkerInput } from './scene'
@@ -656,6 +657,7 @@ export function App() {
 
       <Panel />
       <ConnectionLegend />
+      <Clock />
 
       <div className="sc-bottom">
         {mode === 'street' && nearCompanies.length > 0 && !selectedId && (
@@ -674,12 +676,13 @@ export function App() {
         )}
         <DemoBar />
       </div>
+      {mode === 'street' && !selectedId && <p className="sc-street-hint">Drag anywhere to steer. Tap a startup's E prompt to visit.</p>}
 
       <AnimatePresence>
         {toast && <motion.div key={toast.id} className={`sc-toast sc-glass ${toast.tone}`} role="status" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>{toast.text}</motion.div>}
       </AnimatePresence>
       {loaded && loadError && <div className="sc-load-error sc-glass" role="alert">{loadError}</div>}
-      <a className="sc-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Map data OpenStreetMap contributors. Company data via Context.dev.</a>
+      <a className="sc-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Map data OpenStreetMap contributors, buildings City of Helsinki (CC BY 4.0). Company data via Context.dev.</a>
       <CutscenePlayer />
     </div>
   )

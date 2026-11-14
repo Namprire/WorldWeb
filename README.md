@@ -24,7 +24,50 @@ Open http://127.0.0.1:5179 and press Explore the city, or Start demo for the 90-
 | Street level | W A S D to ride, F to walk, drag to look, Space to jump, E to visit the startup in front of you. |
 | Anywhere | Tab switches view, / jumps to search, Esc closes or skips a cutscene. |
 
-## The companies
+## Try it on your phone
+
+With the phone on the same Wi-Fi as the computer:
+
+```sh
+npm run dev:phone
+```
+
+Then open `http://<computer's Wi-Fi address>:5179` on the phone (find the address with `ip -4 addr` on Linux or `ipconfig getifaddr en0` on a Mac). Only the web page is exposed to the network; the API with your keys stays on the computer behind Vite's proxy. If the page doesn't load, the computer's firewall is blocking port 5179.
+
+On Android you can also connect by USB, run `adb reverse tcp:5179 tcp:5179`, and open `http://localhost:5179`. That also lets you inspect the page from desktop Chrome at `chrome://inspect`.
+
+On a phone: drag anywhere at street level to steer, tap Jump to jump, and tap the visit prompt near a startup. In the city view, drag to move and pinch to zoom and turn. Render resolution starts lower on phones and adapts to the frame rate.
+
+## Publish on Google AI Studio (free)
+
+AI Studio's Starter Tier publishes up to two full-stack apps to Cloud Run with a free `your-name.ai.studio` address, without a billing account. Workspace accounts and accounts that have had a paid Google Cloud billing account are not eligible.
+
+1. Push this folder to a GitHub repository. Keep `.env` out of it (it is in `.gitignore`).
+2. In AI Studio, open Build mode, then use the + menu in the prompt box and choose Import from GitHub.
+3. In Settings, under Secrets, add `CONTEXT_DEV_API_KEY`. AI Studio provides `GEMINI_API_KEY` itself; add it as a secret too if the imported app does not pick it up.
+4. Click Publish (top right), confirm, expand "Free .ai.studio URL" to choose the name, then Publish your app.
+
+The server reads `PORT` and listens on all interfaces when it is set, as Cloud Run requires, and serves the built site from `dist/`, so the build must run before start (`npm run build && npm start`). AI Studio documents Node.js server support but not how it runs an imported Express app, so check its first build log for the start command it used. The Starter Tier filesystem is temporary, so refreshed signals and new cutscenes are lost when the instance restarts; the saved data and films in the repository are always there.
+
+A public link spends your Gemini and Context.dev credits. Each visitor is limited per 10 minutes (6 signal refreshes, 40 searches, 30 questions, 20 cutscenes, 3 suggestion runs, 5 monitors), but set a budget alert in both services before sharing widely.
+
+
+
+The map covers about 3.8 × 3.1 km of central Helsinki, from Salmisaari and Jätkäsaari to Kruununhaka. Footprints, streets, parks, trees and shoreline come from OpenStreetMap. Each building is matched to the City of Helsinki building register (2,427 of 2,736 matched), which gives:
+
+- Height from the registered floor count.
+- Facade colour from facade material and construction year: ochre, cream and pastel render on pre-war blocks, granite on stone buildings, brick, concrete and glass on newer ones.
+- Roof shape: pre-1932 buildings get hipped tin roofs unless OpenStreetMap tags a different shape.
+
+It keeps the oil-paint look. Terrain is flat and the rest of the limits are in [map research](docs/research/helsinki-map.md).
+
+### Time of day
+
+The sun follows its real path over Helsinki, computed for the date and time. By default the city follows the real clock, so in November it is dark from about half past four and the northern lights show only when the sky is dark enough. The clock at the bottom left lets you pick morning, afternoon, evening or night, drag to any time, run a time-lapse (one day in six minutes) or switch to midsummer, when the night never gets fully dark. Facade colours show by day; windows light up from dusk.
+
+A new morning opens with a narrated briefing of the latest headlines. That happens when you pick Morning, or when morning arrives on the real clock or in the time-lapse.
+
+
 
 The list comes from the curated database in `Helsinki Startups Map_ Database.ods`. Every row marked "On map" is included (95 companies), plus companies from an earlier research list that the database does not have yet. 144 companies in total:
 
@@ -38,6 +81,8 @@ Values in the database take precedence. Context.dev fills in what the database l
 uv run --with odfpy==1.4.1 --with pandas python scripts/export-spreadsheet.py   # writes data/spreadsheet.json
 npm run research                                                                  # updates data/startups.json
 ```
+
+To rebuild the map itself (OpenStreetMap, then the Helsinki register, then geometry), see `public/data/helsinki/SOURCES.md`.
 
 Research results are cached in `data/research-cache.json`, so a second run only spends credits on new companies.
 
@@ -63,6 +108,7 @@ Limits: figures are what the cited page says and may be out of date. Careers pag
 | Research | `gemini-4-carbon` | Answering questions about one company; writing cutscene scripts |
 | Deep | `gemini-4-argon` | Suggesting relationships between companies; optional deeper answers |
 | Voice | `gemini-3.8-flash-tts` | Narrating cutscenes |
+| Video | `gemini-omni-1.2-flash` | Establishing films for cutscenes |
 
 Gemini only receives the stored records. If it is unavailable, search falls back to keywords and says so.
 
@@ -70,9 +116,12 @@ Gemini only receives the stored records. If it is unavailable, search falls back
 
 A cutscene is a short shot list that Gemini writes as JSON. Each shot names one of six camera moves the scene can perform (establish, aurora, flyover, orbit, close, rise), the company it looks at, and one line of narration. The server checks every company id against the records, removes dashes, voices each line with Gemini text-to-speech and caches the result by a hash of the records, so a scene is rebuilt only when its data changes. The browser plays it with letterboxing, subtitles and the scene's own camera; Esc skips.
 
+Intro, briefing and mission scenes open with a short film that matches the time of day. `npm run films` captures frames of this map at dawn, afternoon, dusk and night (without the interface) and Gemini Omni Flash animates each into an 8 second clip, saved in `public/films/`. The day, dusk and night films stay close to the map. The dawn film came out as a realistic impression of Helsinki rather than the painted map, so its credit says so. The films show the city only, never company offices or people. Each costs about $0.56 to generate.
+
 They appear:
 
 - On first entry, as an intro over the city (skipped when reduced motion is on).
+- Each new morning, as a briefing of the latest headlines.
 - From Watch story in a company profile.
 - From Watch next to a headline in Live from Helsinki.
 - When a mission is completed, as a recap of the companies that completed it.
@@ -122,4 +171,4 @@ The browser checks replace Gemini and Context.dev with fixtures, so they spend n
 
 The renderer, aurora, rider and movement come from this repository's earlier WEBWORLD project and keep its look: an oil-paint treatment adapted from [Patch's oil-paint](https://patch.gg/blendi/oil-paint) (MIT, notice in `public/engine/oil-paint/NOTICE.md`), on the authorized game client in `public/engine/game.js`.
 
-Interface type is Google Sans Flex (SIL Open Font License), bundled locally. Map data © OpenStreetMap contributors, ODbL; see `public/data/helsinki/SOURCES.md`. Address fallback: City of Helsinki open address register. Company names and logos belong to their owners and are shown to identify them.
+Interface type is Google Sans Flex (SIL Open Font License), bundled locally. Map data © OpenStreetMap contributors, ODbL. Building heights, ages and materials: City of Helsinki building register, CC BY 4.0. See `public/data/helsinki/SOURCES.md`. Address fallback: City of Helsinki open address register. Company names and logos belong to their owners and are shown to identify them.

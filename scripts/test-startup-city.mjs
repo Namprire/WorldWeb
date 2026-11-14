@@ -120,6 +120,20 @@ try {
   check("a cutscene ends by itself after its last shot", (await state(page)).mode === "explorer");
   await page.keyboard.press("Escape");
 
+  // Time of day: daylight replaces the aurora, night brings it back
+  await page.evaluate(() => window.__startupCity.store.getState().setTime({ live: false, lapse: false, season: "today", minutes: 13 * 60 }));
+  await page.waitForTimeout(600);
+  const noon = await page.evaluate(() => window.__webworldEngine.visuals.getLight());
+  await page.evaluate(() => window.__startupCity.store.getState().setTime({ minutes: 23 * 60 }));
+  await page.waitForTimeout(600);
+  const night = await page.evaluate(() => window.__webworldEngine.visuals.getLight());
+  check("afternoon is daylight without aurora", noon.day > 0.6 && noon.dark < 0.05);
+  check("night is dark enough for the aurora", night.dark > 0.95 && night.day < 0.05);
+  await page.click(".sc-clock-pill");
+  check("the clock offers the four parts of the day", (await page.textContent(".sc-clock-panel")).includes("Afternoon") && (await page.textContent(".sc-clock-panel")).includes("Midsummer"));
+  await page.click(".sc-clock-pill");
+  await page.evaluate(() => window.__startupCity.store.getState().setTime({ live: true }));
+
   // Street level
   await page.evaluate(() => { const st = window.__startupCity.store.getState(); const t = st.startups.find((x) => x.id === "saidot") ?? st.startups.find((x) => x.location); st.select(t.location.buildingId, t.id, null); st.setMode("street"); st.select(null); });
   await page.waitForFunction(() => window.__webworldEngine.getSnapshot().state === "ride", null, { timeout: 20000 });

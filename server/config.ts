@@ -3,7 +3,8 @@ import { config } from 'dotenv'
 config({ quiet: true })
 
 export const settings = {
-  host: '127.0.0.1',
+  // Local runs stay private to this machine. Hosts like Cloud Run set PORT and expect every interface.
+  host: process.env.HOST?.trim() || (process.env.PORT ? '0.0.0.0' : '127.0.0.1'),
   port: Number(process.env.PORT || 8787),
   contextKey: process.env.CONTEXT_DEV_API_KEY?.trim(),
   geminiKey: process.env.GEMINI_API_KEY?.trim(),

@@ -550,9 +550,6 @@ a:focus-visible {
     padding: 10px 12px;
     font: 11px Arial;
   }
-  #pad-jump {
-    display: none !important;
-  }
   #plaque .sub {
     font-size: 12px;
   }

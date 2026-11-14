@@ -16,6 +16,9 @@ declare global {
   }
 }
 
+// ?clean renders the city alone, for capturing frames that films are generated from.
+if (new URLSearchParams(location.search).has('clean')) document.body.classList.add('sc-clean')
+
 const host = document.createElement('div')
 host.id = 'startup-city'
 document.body.append(host)
@@ -31,6 +34,17 @@ window.addEventListener('webworld-ready', () => {
   scene.onPick = (buildingId) => useCity.getState().select(buildingId)
   scene.onNear = (near) => useCity.setState({ near })
   scene.onMode = (mode) => useCity.setState({ mode })
+  scene.timeSettings = () => useCity.getState().time
+  // A morning that arrives while exploring (real clock or time-lapse) opens with the news, once per day.
+  let lastBriefing = -1
+  scene.onPhase = (phase, previous) => {
+    const state = useCity.getState()
+    const day = Math.floor(Date.now() / 86_400_000) + (state.time.lapse ? Math.floor(performance.now() / 360_000) : 0)
+    if (phase === 'morning' && previous === 'night' && day !== lastBriefing && !state.cutscene && !state.demo.active) {
+      lastBriefing = day
+      state.playCutscene({ kind: 'briefing' })
+    }
+  }
   store.setScene(scene)
 
   // The title painting dives to street level; the city then opens from above.

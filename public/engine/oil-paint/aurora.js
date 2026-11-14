@@ -37,13 +37,19 @@ export function installAurora(engine, atlas) {
     object.material.alphaToCoverage = false;
   });
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-  let gain = 1;
+  let gain = 1, darkness = 1;
   return {
     setMood(mode) { gain = mode === "emergency" ? .78 : mode === "market" ? .9 : 1.12; },
+    /** 1 in full darkness, 0 in daylight: the aurora and stars only show when the sky is dark. */
+    setDarkness(value) {
+      darkness = value;
+      sky.group.visible = value > 0.02;
+      engine.sky.mesh.visible = value > 0.02;
+    },
     update() {
       shared.uTime.value = reduced.matches ? 48 : engine.state.time + 48;
       shared.uPixel.value = engine.shared.uPixel.value;
-      shared.uGlow.value.x = gain * (reduced.matches ? 1 : .94 + .09*Math.sin(shared.uTime.value*.13));
+      shared.uGlow.value.x = darkness * gain * (reduced.matches ? 1 : .94 + .09*Math.sin(shared.uTime.value*.13));
     },
   };
 }

@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const CAMERA_MOVES = ['establish', 'aurora', 'flyover', 'orbit', 'close', 'rise'] as const
 export type CameraMove = (typeof CAMERA_MOVES)[number]
 
-export const cutsceneKindSchema = z.enum(['intro', 'company', 'signal', 'mission'])
+export const cutsceneKindSchema = z.enum(['intro', 'company', 'signal', 'mission', 'briefing'])
 export type CutsceneKind = z.infer<typeof cutsceneKindSchema>
 
 export const cutsceneRequestSchema = z.object({
@@ -13,6 +13,8 @@ export const cutsceneRequestSchema = z.object({
   id: z.string().max(80).optional(),
   /** Companies the visitor found, for mission recaps. */
   companies: z.array(z.string().max(80)).max(6).optional(),
+  /** Part of the day being shown, so the opening film matches the sky. */
+  phase: z.enum(['morning', 'afternoon', 'evening', 'night']).optional(),
 })
 export type CutsceneRequest = z.infer<typeof cutsceneRequestSchema>
 
@@ -35,6 +37,8 @@ export const cutsceneSchema = scriptSchema.extend({
   })),
   writer: z.string(),
   voice: z.string().nullable(),
+  /** Generated establishing film shown under the opening line. */
+  film: z.object({ src: z.string(), poster: z.string(), model: z.string(), faithful: z.boolean() }).nullable().optional(),
   generatedAt: z.string(),
 })
 export type Cutscene = z.infer<typeof cutsceneSchema>

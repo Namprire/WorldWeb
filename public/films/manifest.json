@@ -1,0 +1,42 @@
+{
+ "night": {
+  "src": "/films/night.mp4",
+  "poster": "/films/night.jpg",
+  "model": "gemini-omni-1.2-flash",
+  "prompt": "Animate this oil painting of Helsinki at night under the northern lights. Green aurora curtains ripple and slowly sweep across the starry sky above the lit windows. The camera tilts up slowly towards the aurora. Keep the oil-paint brushwork, the colours and the exact layout of every building and street. Slow, steady, cinematic camera. No text, no logos, no close-up people. Quiet ambient city sound and wind, no dialogue, no music.",
+  "seconds": 8,
+  "generatedAt": "2026-11-14T18:54:27.186Z",
+  "from": "Frame of this app's 3D Helsinki",
+  "faithful": true
+ },
+ "dawn": {
+  "src": "/films/dawn.mp4",
+  "poster": "/films/dawn.jpg",
+  "model": "gemini-omni-1.2-flash",
+  "prompt": "Animate this oil painting of central Helsinki at sunrise in November, exactly as painted. The camera drifts slowly forward over the rooftops towards the harbour. The low sun brightens at the horizon and warm light creeps across the tin roofs. This is a stylised oil painting, not a photograph: it must stay a painting in every frame, with the same simple painted shapes. Keep the oil-paint brushwork, the colours and the exact layout of every building and street. Slow, steady, cinematic camera. No text, no logos, no close-up people. Quiet ambient city sound and wind, no dialogue, no music.",
+  "seconds": 8,
+  "generatedAt": "2026-11-14T18:57:47.703Z",
+  "from": "Frame of this app's 3D Helsinki",
+  "faithful": false
+ },
+ "day": {
+  "src": "/films/day.mp4",
+  "poster": "/films/day.jpg",
+  "model": "gemini-omni-1.2-flash",
+  "prompt": "Animate this oil painting of central Helsinki on a clear winter afternoon. The camera glides slowly sideways above the rooftops. Clouds move across a pale blue sky, shadows shift on the ochre facades, trees sway a little, small trams and cars move along the streets. Keep the oil-paint brushwork, the colours and the exact layout of every building and street. Slow, steady, cinematic camera. No text, no logos, no close-up people. Quiet ambient city sound and wind, no dialogue, no music.",
+  "seconds": 8,
+  "generatedAt": "2026-11-14T18:56:11.143Z",
+  "from": "Frame of this app's 3D Helsinki",
+  "faithful": true
+ },
+ "dusk": {
+  "src": "/films/dusk.mp4",
+  "poster": "/films/dusk.jpg",
+  "model": "gemini-omni-1.2-flash",
+  "prompt": "Animate this oil painting of central Helsinki at dusk. The camera rises slowly. The pink and violet sky deepens to blue, windows light up one by one across the city, street lamps come on. Keep the oil-paint brushwork, the colours and the exact layout of every building and street. Slow, steady, cinematic camera. No text, no logos, no close-up people. Quiet ambient city sound and wind, no dialogue, no music.",
+  "seconds": 8,
+  "generatedAt": "2026-11-14T18:56:46.728Z",
+  "from": "Frame of this app's 3D Helsinki",
+  "faithful": true
+ }
+}

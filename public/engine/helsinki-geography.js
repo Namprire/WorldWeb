@@ -1,5 +1,9 @@
-import { mapData } from "../data/helsinki/map-data.js";
-export { mapData };
+// Loaded as JSON: parsing JSON is several times faster than compiling an equally large JS module.
+const mapUrl = new URL("../data/helsinki/map.json", import.meta.url);
+export const mapData =
+  typeof window === "undefined"
+    ? JSON.parse((await import("node:fs")).readFileSync(mapUrl, "utf8"))
+    : await (await fetch(mapUrl)).json();
 export const districtBuildings = mapData.buildings;
 export const districtBounds = mapData.bounds;
 export function project(lon, lat) {

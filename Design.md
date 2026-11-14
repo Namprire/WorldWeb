@@ -70,7 +70,7 @@ The interface supports scenario application, target selection, projected marker 
 
 ## World
 
-The active geographic renderer is `public/engine/helsinki-real-map.js`. It uses the OpenStreetMap-derived database in `public/data/helsinki/map-data.js`. `helsinki-geography.js` owns metre projection, polygon tests, a spatial building index and shoreline collision. Visuals, collision and the minimap share source polygons and courtyard holes. `helsinki-citizens.js` uses imported, validated public-path segments for ambient pedestrians.
+The active geographic renderer is `public/engine/helsinki-real-map.js`. It loads the OpenStreetMap-derived database from `public/data/helsinki/map.json`. `helsinki-geography.js` owns metre projection, polygon tests, a spatial building index and shoreline collision. Visuals, collision and the minimap share source polygons and courtyard holes. `helsinki-citizens.js` uses imported, validated public-path segments for ambient pedestrians.
 
 The original village chunk group is hidden and its streaming stopped. The original controller and camera retain steering, acceleration, jumps, walking, flight, posing and smoothing. Horizontal coordinate warping and vertical world curvature are disabled for geographic fidelity; flat terrain is an explicit remaining approximation. Old village collectibles are hidden so the geographic world does not display invented village landmarks.
 

@@ -6,6 +6,8 @@ import { registerStartupRoutes } from './startups/routes'
 
 const app = express()
 app.disable('x-powered-by')
+// Behind Cloud Run's proxy the visitor's address is in X-Forwarded-For.
+app.set('trust proxy', 1)
 
 app.use('/api', (_request, response, next) => {
   response.set('Cache-Control', 'no-store')
