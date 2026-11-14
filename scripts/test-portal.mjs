@@ -20,7 +20,7 @@ const check = (name, ok) => {
 };
 const load = async (p) => {
   await p.goto(base);
-  await p.waitForFunction(() => !!window.__webworldEngine);
+  await p.waitForFunction(() => !!window.__webworld);
   await p.waitForFunction(
     () =>
       Number(getComputedStyle(document.getElementById("loading")).opacity) <
@@ -43,12 +43,16 @@ try {
   watch(page);
   await load(page);
   await page.screenshot({ path: "output/webworld/portal/00-gallery.png" });
+  const stillBefore = await page.locator('#gl').screenshot();
+  await page.waitForTimeout(700);
+  check('Title artwork stays pixel-still before starting', stillBefore.equals(await page.locator('#gl').screenshot()));
   const original = await page.locator("#frame-lip").boundingBox();
   await page.click("#enter");
   await page.waitForFunction(
     () =>
       Number(document.querySelector("#gallery").dataset.portalProgress) > 0.14,
   );
+  check('Artwork starts moving during entry', !stillBefore.equals(await page.locator('#gl').screenshot()));
   let frame = await page.locator("#frame-lip").boundingBox();
   check(
     "Live city remains the title content as the frame moves away",
@@ -130,6 +134,11 @@ try {
         .evaluate((e) => document.activeElement === e)),
   );
   await page.screenshot({ path: "output/webworld/portal/05-return.png" });
+  await page.waitForTimeout(300);
+  const returnedStill = await page.locator('#gl').screenshot();
+  await page.waitForTimeout(700);
+  check('Returning to the title freezes the artwork again', returnedStill.equals(await page.locator('#gl').screenshot()));
+  check('Discovery HUD hides on return despite the paused clock', !(await page.locator('#webworld').evaluate(e=>e.classList.contains('playing'))));
   await page.keyboard.press("Enter");
   await page.waitForFunction(
     () => window.__webworldEngine.getSnapshot().state === "ride",

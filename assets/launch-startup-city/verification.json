@@ -1,0 +1,77 @@
+{
+  "screenshots": 12,
+  "clips": [
+    {
+      "file": "video/01-original-night-title-to-city.mp4",
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/02-original-startup-profile.mp4",
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/03-enhanced-night-title-to-city.mp4",
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/04-enhanced-night-flyover.mp4",
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/05-enhanced-night-building-orbit.mp4",
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/06-enhanced-day-city-flyover.mp4",
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/07-enhanced-day-building-orbit.mp4",
+      "width": 1920,
+      "height": 1080,
+      "codec": "h264",
+      "fullDecode": "passed"
+    }
+  ],
+  "sources": [
+    {
+      "file": "source/enhanced-night.webm",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "source/enhanced-summer-afternoon.webm",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "source/incomplete/page@45c49ee554f88e6900e0f13f3a835b47.webm",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "source/original-game-night.webm",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "runtimeErrors": []
+}

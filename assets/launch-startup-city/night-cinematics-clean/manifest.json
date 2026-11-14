@@ -1,0 +1,76 @@
+{
+  "source": "http://10.0.40.63:5179/",
+  "capturedAt": "2026-11-14T20:22:05.042Z",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio": false,
+  "noUI": true,
+  "treatment": {
+    "texture": "AI-generated photographic facade",
+    "materials": 1,
+    "buildingsWithPhysicalDetails": 84,
+    "windowsWithPhysicalDetails": 31900
+  },
+  "clips": [
+    {
+      "file": "video/01-night-city-reveal.mp4",
+      "description": "UI-free night city reveal beneath the northern lights.",
+      "start": 21.887,
+      "duration": 8.475999999999999
+    },
+    {
+      "file": "video/02-aurora-skyline-sweep.mp4",
+      "description": "Slow sweeping skyline shot beneath the animated northern lights.",
+      "start": 32.572,
+      "duration": 10.472999999999999
+    },
+    {
+      "file": "video/03-night-architecture-orbit.mp4",
+      "description": "Close orbit of the station: photographic plaster, glazing, projecting stone sills and cornices.",
+      "start": 45.253,
+      "duration": 9.499000000000002
+    },
+    {
+      "file": "video/04-night-rooftop-glide.mp4",
+      "description": "Smooth camera glide across the illuminated buildings and rooftops.",
+      "start": 56.956,
+      "duration": 10.436999999999998
+    },
+    {
+      "file": "video/05-night-city-rise.mp4",
+      "description": "A rising reveal from the architectural square to the whole luminous city.",
+      "start": 69.601,
+      "duration": 11.843000000000004
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "screenshots/01-clean-night-city.png",
+      "description": "Night city without title, HUD, labels or controls."
+    },
+    {
+      "file": "screenshots/02-aurora-skyline.png",
+      "description": "Northern lights and the photographic city skyline."
+    },
+    {
+      "file": "screenshots/03-night-architecture-detail.png",
+      "description": "Physical window ledges and photographic facade details at night."
+    },
+    {
+      "file": "screenshots/04-night-rooftops.png",
+      "description": "Illuminated facades during the rooftop glide."
+    },
+    {
+      "file": "screenshots/05-night-city-rise.png",
+      "description": "Cinematic rising view over Helsinki."
+    },
+    {
+      "file": "screenshots/06-night-city-panorama.png",
+      "description": "The full night city at the end of the rising reveal."
+    }
+  ],
+  "errors": [],
+  "note": "Cinematic promotional rendering with AI-generated facade texture and additional physical architectural details; capture-browser only, not current gameplay graphics.",
+  "mapCredit": "Small map attribution overlay retained in every exported frame; game UI removed."
+}

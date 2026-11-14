@@ -1,0 +1,139 @@
+{
+  "capturedAt": "2026-11-14T20:01:47.723Z",
+  "source": "http://10.0.40.63:5179/",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "audio": false,
+  "note": "Original and enhanced shots are explicitly labeled. Enhanced materials exist only in isolated capture browser pages. Remote branch and source files were not modified.",
+  "clips": [
+    {
+      "file": "video/01-original-night-title-to-city.mp4",
+      "description": "Original running game: night title into the full city explorer.",
+      "start": 5.837,
+      "duration": 13.012,
+      "enhanced": false,
+      "day": false,
+      "source": "source/original-game-night.webm",
+      "exportedDurationSeconds": 13.033
+    },
+    {
+      "file": "video/02-original-startup-profile.mp4",
+      "description": "Original game interface: focus a startup, open its profile, show connections.",
+      "start": 19.282,
+      "duration": 8.883,
+      "enhanced": false,
+      "day": false,
+      "source": "source/original-game-night.webm",
+      "exportedDurationSeconds": 8.867
+    },
+    {
+      "file": "video/03-enhanced-night-title-to-city.mp4",
+      "description": "Video-only architectural finish: night title-to-city transition.",
+      "start": 9.043,
+      "duration": 12.781000000000002,
+      "enhanced": true,
+      "day": false,
+      "source": "source/enhanced-night.webm",
+      "exportedDurationSeconds": 12.767
+    },
+    {
+      "file": "video/04-enhanced-night-flyover.mp4",
+      "description": "Night skyline flyover with cleaner facades and northern lights.",
+      "start": 23.529,
+      "duration": 9.449000000000002,
+      "enhanced": true,
+      "day": false,
+      "source": "source/enhanced-night.webm",
+      "exportedDurationSeconds": 9.433
+    },
+    {
+      "file": "video/05-enhanced-night-building-orbit.mp4",
+      "description": "Close night orbit: sharp window frames, roof seams and restrained warm interiors.",
+      "start": 34.686,
+      "duration": 8.542000000000002,
+      "enhanced": true,
+      "day": false,
+      "source": "source/enhanced-night.webm",
+      "exportedDurationSeconds": 8.533
+    },
+    {
+      "file": "video/06-enhanced-day-city-flyover.mp4",
+      "description": "Summer-afternoon flyover of the new map with architectural facades.",
+      "start": 19.078,
+      "duration": 8.446000000000002,
+      "enhanced": true,
+      "day": true,
+      "source": "source/enhanced-summer-afternoon.webm",
+      "exportedDurationSeconds": 8.467
+    },
+    {
+      "file": "video/07-enhanced-day-building-orbit.mp4",
+      "description": "Architectural close orbit: plaster facades, window detailing and metal roof seams.",
+      "start": 29.227,
+      "duration": 8.485000000000003,
+      "enhanced": true,
+      "day": true,
+      "source": "source/enhanced-summer-afternoon.webm",
+      "exportedDurationSeconds": 8.5
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "screenshots/03-original-night-title.png",
+      "description": "Unmodified Startup City night title.",
+      "enhanced": false,
+      "day": false
+    },
+    {
+      "file": "screenshots/04-original-city-interface.png",
+      "description": "Original city explorer and startup markers.",
+      "enhanced": false,
+      "day": false
+    },
+    {
+      "file": "screenshots/05-original-startup-profile.png",
+      "description": "Real startup profile in the running game.",
+      "enhanced": false,
+      "day": false
+    },
+    {
+      "file": "screenshots/06-original-startup-connections.png",
+      "description": "Real company connections overlay.",
+      "enhanced": false,
+      "day": false
+    },
+    {
+      "file": "screenshots/07-enhanced-night-title.png",
+      "description": "Night title with video-only architectural facade treatment.",
+      "enhanced": true,
+      "day": false
+    },
+    {
+      "file": "screenshots/08-enhanced-night-skyline.png",
+      "description": "Northern lights above the architectural night skyline.",
+      "enhanced": true,
+      "day": false
+    },
+    {
+      "file": "screenshots/09-enhanced-night-architecture.png",
+      "description": "Closer view of the video-only night building treatment.",
+      "enhanced": true,
+      "day": false
+    },
+    {
+      "file": "screenshots/10-enhanced-day-city.png",
+      "description": "Full city view under summer-afternoon lighting.",
+      "enhanced": true,
+      "day": true
+    },
+    {
+      "file": "screenshots/11-enhanced-day-architecture.png",
+      "description": "Closer architectural building view in afternoon light.",
+      "enhanced": true,
+      "day": true
+    }
+  ],
+  "errors": [],
+  "failure": null
+}

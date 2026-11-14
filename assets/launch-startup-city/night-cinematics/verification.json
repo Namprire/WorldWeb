@@ -1,0 +1,56 @@
+{
+  "videos": [
+    {
+      "file": "video/01-night-title-reveal.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "seconds": 13.033,
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/02-aurora-skyline-sweep.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "seconds": 10.433,
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/03-night-architecture-orbit.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "seconds": 9.467,
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/04-night-rooftop-glide.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "seconds": 10.4,
+      "fullDecode": "passed"
+    },
+    {
+      "file": "video/05-night-city-rise.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "seconds": 11.8,
+      "fullDecode": "passed"
+    },
+    {
+      "file": "night-launch-reel.mp4",
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "seconds": 52.567,
+      "fullDecode": "passed",
+      "sizeBytes": 91825081,
+      "encoding": "H.264, 14 Mbps two-pass, 1920\u00d71080"
+    }
+  ],
+  "pngCount": 6,
+  "runtimeErrors": []
+}

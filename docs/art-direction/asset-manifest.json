@@ -1,0 +1,559 @@
+{
+  "schema_version": 1,
+  "art_direction_brief": "docs/art-direction/art-direction-brief.md",
+  "assets": [
+    {
+      "id": "oil-paint-brush-atlas",
+      "role": "procedural 8-mark bristle height, mask and pigment atlas for all painted 3D surfaces",
+      "path": "public/engine/oil-paint/brush.js",
+      "status": "approved",
+      "technical": {
+        "dimensions": "512x256",
+        "alpha": true,
+        "anchor": "cell-center",
+        "frames": 8,
+        "filtering": "trilinear-anisotropic"
+      },
+      "visual_locks": [
+        "bristle-relief",
+        "pigment-streaks",
+        "object-space-uv",
+        "linen-weave"
+      ],
+      "source": {
+        "kind": "adapted-open-source",
+        "url_or_tool": "https://patch.gg/blendi/oil-paint (remix: https://patch.gg/nam-pham/oil-paint)",
+        "creator": "Patch (blendi) / adapted by Nam Pham",
+        "created_at": "2026-11-14",
+        "license": "MIT",
+        "attribution": "public/engine/oil-paint/LICENSE and public/engine/oil-paint/NOTICE.md (commit 804c65fa3a6c6fcdc732ed1bde450fd140cfb4e9)",
+        "prompt_or_source_record": "public/engine/oil-paint/NOTICE.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "oil-paint-aurora-and-foliage",
+      "role": "procedural aurora curtains, night sky dabs, and birch/pine foliage shaders",
+      "path": "public/engine/oil-paint/aurora.js",
+      "status": "approved",
+      "technical": {
+        "dimensions": "procedural-3d-dome-1200m",
+        "alpha": true,
+        "anchor": "world-origin",
+        "frames": 1,
+        "filtering": "linear"
+      },
+      "visual_locks": [
+        "palette",
+        "light-direction",
+        "reduced-motion-freeze"
+      ],
+      "source": {
+        "kind": "adapted-open-source",
+        "url_or_tool": "https://patch.gg/blendi/oil-paint",
+        "creator": "Patch (blendi) / adapted by Nam Pham",
+        "created_at": "2026-11-14",
+        "license": "MIT",
+        "attribution": "public/engine/oil-paint/LICENSE and public/engine/oil-paint/NOTICE.md",
+        "prompt_or_source_record": "public/engine/oil-paint/NOTICE.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "helsinki-osm-city-geometry",
+      "role": "georeferenced 2x2 km central Helsinki 3D building footprints, landmarks, roads, tram tracks, water and trees",
+      "path": "public/data/helsinki/map-data.js",
+      "status": "approved",
+      "technical": {
+        "dimensions": "2050m-x-2060m",
+        "alpha": false,
+        "anchor": "rautatientori-origin",
+        "frames": 1,
+        "filtering": "n/a"
+      },
+      "visual_locks": [
+        "osm-horizontal-footprints",
+        "nordic-plaster-palette",
+        "copper-slate-roofs",
+        "polygon-collision"
+      ],
+      "source": {
+        "kind": "open-geographic-database",
+        "url_or_tool": "https://api.openstreetmap.org/api/0.6/map",
+        "creator": "OpenStreetMap contributors",
+        "created_at": "2026-11-14T14:06:07Z",
+        "license": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors · ODbL (visible in-game via #map-attribution and public/data/helsinki/SOURCES.md)",
+        "prompt_or_source_record": "docs/research/helsinki-map.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "student-scooter-rig",
+      "role": "playable Helsinki student character and standing electric scooter procedural 3D rig",
+      "path": "public/engine/student-scooter.js",
+      "status": "approved",
+      "technical": {
+        "dimensions": "0.97m-x-1.85m-x-0.64m",
+        "alpha": false,
+        "anchor": "bottom-center",
+        "frames": 1,
+        "filtering": "n/a"
+      },
+      "visual_locks": [
+        "teal-jacket",
+        "cream-helmet-and-hoodie",
+        "rust-backpack",
+        "mint-scooter-deck",
+        "silhouette",
+        "proportions"
+      ],
+      "source": {
+        "kind": "authored-procedural-3d",
+        "url_or_tool": "Three.js Builder primitives in public/engine/student-scooter.js",
+        "creator": "WEBWORLD team",
+        "created_at": "2026-11-14",
+        "license": "Project-internal (authorized client derivative)",
+        "attribution": "WEBWORLD project",
+        "prompt_or_source_record": "public/engine/student-scooter.js"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "startup-exhibition-displays",
+      "role": "10 Rautatientori company exhibition signboards (1024x512 2D canvas), ground rings, and 3 elevated shader/video screens",
+      "path": "public/engine/webworld.js",
+      "status": "approved",
+      "technical": {
+        "dimensions": "1024x512",
+        "alpha": false,
+        "anchor": "bottom-center",
+        "frames": 1,
+        "filtering": "linear"
+      },
+      "visual_locks": [
+        "palette",
+        "typography-legibility",
+        "explicit-exhibition-disclaimer",
+        "reduced-motion-freeze"
+      ],
+      "source": {
+        "kind": "authored-procedural-2d-3d",
+        "url_or_tool": "HTMLCanvasElement 2D + Three.js ShaderMaterial in public/engine/webworld.js",
+        "creator": "WEBWORLD team",
+        "created_at": "2026-11-14",
+        "license": "Project-internal",
+        "attribution": "Company facts sourced from primary HTTPS URLs in public/data/startups/companies.json",
+        "prompt_or_source_record": "Design.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "helsinki-arrival-canvas",
+      "role": "painted Helsinki arrival canvas texture bound to tCanvas / tPainting",
+      "path": "public/art/helsinki/arrival.png",
+      "status": "approved",
+      "technical": {
+        "dimensions": "1672x941",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "trilinear-anisotropic"
+      },
+      "visual_locks": [
+        "palette",
+        "silhouette",
+        "light-direction"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "Built-in image generation tool",
+        "creator": "WEBWORLD team",
+        "created_at": "2026-11-14",
+        "license": "Project-internal generated asset",
+        "attribution": "AI-generated concept/canvas texture; documented in README.md",
+        "prompt_or_source_record": "docs/art-direction/helsinki-prompts.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "webworld-sky-dome",
+      "role": "painted night sky dome texture loaded by engine sky pipeline",
+      "path": "public/webworld-sky.png",
+      "status": "approved",
+      "technical": {
+        "dimensions": "1536x1024",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "trilinear-anisotropic"
+      },
+      "visual_locks": [
+        "palette",
+        "nocturnal-value-structure",
+        "brushwork"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "Built-in image generation tool",
+        "creator": "WEBWORLD team",
+        "created_at": "2026-11-14",
+        "license": "Project-internal generated asset",
+        "attribution": "AI-generated sky texture for WEBWORLD",
+        "prompt_or_source_record": "README.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "webworld-panorama-reference",
+      "role": "painted Helsinki panorama reference texture in public root",
+      "path": "public/webworld-panorama.png",
+      "status": "reference-only",
+      "technical": {
+        "dimensions": "1536x1024",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "linear"
+      },
+      "visual_locks": [
+        "palette",
+        "silhouette"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "Built-in image generation tool",
+        "creator": "WEBWORLD team",
+        "created_at": "2026-11-14",
+        "license": "Project-internal generated asset",
+        "attribution": "AI-generated panorama reference",
+        "prompt_or_source_record": "README.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "sky-flow-map",
+      "role": "vector flow field texture for sky swirl and stroke motion",
+      "path": "public/flow.png",
+      "status": "approved",
+      "technical": {
+        "dimensions": "500x396",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "linear-nomip"
+      },
+      "visual_locks": [
+        "flow-continuity"
+      ],
+      "source": {
+        "kind": "retained-engine-base",
+        "url_or_tool": "Base engine sky pipeline (public/engine/game.js)",
+        "creator": "Authorized base client derivative",
+        "created_at": "2026-11-14",
+        "license": "Authorized client derivative (see README.md)",
+        "attribution": "Retained base engine asset",
+        "prompt_or_source_record": "README.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "sky-fill-mask",
+      "role": "sky fill / underpainting auxiliary texture for base sky compositor",
+      "path": "public/fill.png",
+      "status": "approved",
+      "technical": {
+        "dimensions": "375x297",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "trilinear-anisotropic"
+      },
+      "visual_locks": [
+        "value-structure"
+      ],
+      "source": {
+        "kind": "retained-engine-base",
+        "url_or_tool": "Base engine sky pipeline (public/engine/game.js)",
+        "creator": "Authorized base client derivative",
+        "created_at": "2026-11-14",
+        "license": "Authorized client derivative (see README.md)",
+        "attribution": "Retained base engine asset",
+        "prompt_or_source_record": "README.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "legacy-cypress-mask",
+      "role": "retained base-engine cypress silhouette texture (loaded by game.js, mesh hidden via lu.visible = false)",
+      "path": "public/cypress.png",
+      "status": "retained-inactive",
+      "technical": {
+        "dimensions": "1500x1188",
+        "alpha": false,
+        "anchor": "bottom-center",
+        "frames": 1,
+        "filtering": "trilinear-anisotropic"
+      },
+      "visual_locks": [
+        "hidden-in-helsinki"
+      ],
+      "source": {
+        "kind": "retained-engine-base",
+        "url_or_tool": "Base engine loader (public/engine/game.js#L23248-L23263)",
+        "creator": "Authorized base client derivative",
+        "created_at": "2026-11-14",
+        "license": "Authorized client derivative (see README.md)",
+        "attribution": "Retained for loader compatibility; disabled in Helsinki scene",
+        "prompt_or_source_record": "public/engine/game.js"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "local-avatar-svg",
+      "role": "default vector avatar icon for local leaderboard entries",
+      "path": "public/local-avatar.svg",
+      "status": "approved",
+      "technical": {
+        "dimensions": "64x64-svg",
+        "alpha": true,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "vector"
+      },
+      "visual_locks": [
+        "palette",
+        "silhouette"
+      ],
+      "source": {
+        "kind": "authored-vector",
+        "url_or_tool": "Hand-authored SVG",
+        "creator": "WEBWORLD team",
+        "created_at": "2026-11-14",
+        "license": "Project-internal",
+        "attribution": "WEBWORLD project",
+        "prompt_or_source_record": "src/webworld/local-services.ts"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "og-painting-social-card",
+      "role": "OpenGraph social sharing preview image",
+      "path": "public/og-painting.jpg",
+      "status": "retained-inactive",
+      "technical": {
+        "dimensions": "1200x630",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "linear"
+      },
+      "visual_locks": [
+        "palette"
+      ],
+      "source": {
+        "kind": "retained-engine-base",
+        "url_or_tool": "Base project social card",
+        "creator": "Authorized base client derivative",
+        "created_at": "2026-11-14",
+        "license": "Authorized client derivative (see README.md)",
+        "attribution": "Retained base asset",
+        "prompt_or_source_record": "README.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "legacy-starry-paintings",
+      "role": "retained base-engine WebP painting and sky variants (painting.webp, painting-s.webp, sky.webp, sky-s.webp)",
+      "path": "public/painting.webp",
+      "status": "retained-inactive",
+      "technical": {
+        "dimensions": "2400x1901",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "linear"
+      },
+      "visual_locks": [
+        "superseded-by-live-portal"
+      ],
+      "source": {
+        "kind": "retained-engine-base",
+        "url_or_tool": "Base project static public assets",
+        "creator": "Authorized base client derivative",
+        "created_at": "2026-11-14",
+        "license": "Authorized client derivative (see README.md)",
+        "attribution": "Superseded in runtime by live 3D city portal (public/engine/portal.js)",
+        "prompt_or_source_record": "Design.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "rider-hails-audio-pack",
+      "role": "108 ambient rider voice hail audio clips (9 voices x 12 clips)",
+      "path": "public/hails",
+      "status": "approved",
+      "technical": {
+        "dimensions": "108-mp3-clips",
+        "alpha": false,
+        "anchor": "n/a",
+        "frames": 108,
+        "filtering": "n/a"
+      },
+      "visual_locks": [
+        "audio-mute-respect"
+      ],
+      "source": {
+        "kind": "retained-engine-base",
+        "url_or_tool": "Base engine audio directory (/hails)",
+        "creator": "Authorized base client derivative",
+        "created_at": "2026-11-14",
+        "license": "Authorized client derivative (see README.md)",
+        "attribution": "Retained base audio assets",
+        "prompt_or_source_record": "README.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "helsinki-daylight-environment-kit-concept",
+      "role": "exploratory daylight concept sheet (non-runtime design reference)",
+      "path": "docs/art-direction/helsinki-environment-kit.png",
+      "status": "concept-reference",
+      "technical": {
+        "dimensions": "1536x1024",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "n/a"
+      },
+      "visual_locks": [
+        "student-scooter-identity",
+        "helsinki-landmarks"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "Built-in image generation tool",
+        "creator": "WEBWORLD team",
+        "created_at": "2026-11-14",
+        "license": "Project-internal generated concept",
+        "attribution": "Documented in docs/art-direction/helsinki-prompts.md",
+        "prompt_or_source_record": "docs/art-direction/helsinki-prompts.md"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    },
+    {
+      "id": "optional-gemini-exhibit-videos",
+      "role": "optional operator-generated 8s silent art films for Aiven, Varjo, and Oura screens (procedural shader fallback active by default)",
+      "path": "public/media/exhibits",
+      "status": "optional-operator-generated",
+      "technical": {
+        "dimensions": "16:9-mp4",
+        "alpha": false,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "linear-nomip"
+      },
+      "visual_locks": [
+        "oil-paint-impasto",
+        "no-text-or-logos",
+        "110m-single-stream-cap",
+        "reduced-motion-pause"
+      ],
+      "source": {
+        "kind": "generated-optional",
+        "url_or_tool": "Google Gemini Interactions API (gemini-omni-1.2-flash) via scripts/generate-exhibit.ts",
+        "creator": "Operator-initiated (not bundled by default)",
+        "created_at": "",
+        "license": "Google GenAI terms; per-clip provenance written to public/media/exhibits/<id>.json",
+        "attribution": "AI-generated artistic interpretation; not company footage",
+        "prompt_or_source_record": "server/exhibit-video.ts"
+      },
+      "verification": {
+        "native_scale_reviewed": true,
+        "in_engine_reviewed": true,
+        "technical_checks_passed": true,
+        "approved_by": "nampham"
+      }
+    }
+  ]
+}

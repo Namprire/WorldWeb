@@ -1,0 +1,146 @@
+{
+  "pngCount": 11,
+  "runtimeErrors": [],
+  "videos": [
+    {
+      "file": "video/01-title-to-game.mp4",
+      "decode": "passed",
+      "durationSeconds": 11.567,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "video/02-autumn-scooter.mp4",
+      "decode": "passed",
+      "durationSeconds": 7.067,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "video/03-company-discovery.mp4",
+      "decode": "passed",
+      "durationSeconds": 8.6,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "video/04-helsinki-city-view.mp4",
+      "decode": "passed",
+      "durationSeconds": 8.6,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "video/05-autumn-flight.mp4",
+      "decode": "passed",
+      "durationSeconds": 8.833,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "video/06-northern-lights-scooter.mp4",
+      "decode": "passed",
+      "durationSeconds": 7.533,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "file": "video/07-autumn-park-atmosphere.mp4",
+      "decode": "passed",
+      "durationSeconds": 10.033,
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "resolutionAudit": {
+    "checkedAt": "2026-11-14T19:52:14.537271+00:00",
+    "minimumWidth": 1920,
+    "minimumHeight": 1080,
+    "files": [
+      {
+        "file": "source/aurora-square-ride.webm",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "source/autumn-gameplay.webm",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "source/autumn-park.webm",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "source/autumn-square-ride.webm",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "source/company-discovery.webm",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "source/northern-lights-gameplay.webm",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "source/northern-lights-title-transition.webm",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "video/01-title-to-game.mp4",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "video/02-autumn-scooter.mp4",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "video/03-company-discovery.mp4",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "video/04-helsinki-city-view.mp4",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "video/05-autumn-flight.mp4",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "video/06-northern-lights-scooter.mp4",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      },
+      {
+        "file": "video/07-autumn-park-atmosphere.mp4",
+        "width": 1920,
+        "height": 1080,
+        "meets1080pMinimum": true
+      }
+    ]
+  }
+}

@@ -59,3 +59,82 @@
 @media (prefers-reduced-motion: reduce) {
   #gallery #enter { transition: none; }
 }
+
+/* Two paintings of the same city. A small, tangible menu control. */
+.environment-picker {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  border: 1px solid #c5c9ba30;
+  background: #0b1824e8;
+  border-radius: 5px;
+}
+#gallery .environment-picker button,
+#webworld .environment-picker button {
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: #b5c5c2;
+  font: 12px/1.3 Arial, sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
+  box-shadow: none;
+  white-space: nowrap;
+}
+#gallery .environment-picker button[aria-pressed="true"],
+#webworld .environment-picker button[aria-pressed="true"] {
+  color: #172723;
+  background: #a8dac1;
+}
+#gallery .environment-picker button:hover,
+#webworld .environment-picker button:hover { color: #fff; background: #38514c; }
+.environment-picker button:focus-visible { outline: 2px solid #f4cf86; outline-offset: 2px; }
+#webworld .environment-in-game {
+  position: absolute;
+  top: 91px;
+  left: 28px;
+  pointer-events: auto;
+}
+#webworld.city-view .environment-in-game { display: none; }
+#gallery .ww-title-actions { display: flex; align-items: flex-end; flex-direction: column; gap: 14px; }
+html[data-environment="autumn"] #gallery #wall {
+  background-color: #242822;
+}
+html[data-environment="autumn"] #gallery #frame {
+  background: #4f4737;
+  border-color: #4f4737 !important;
+  box-shadow: 0 1px 0 #dec99355, 0 9px 30px #0006 !important;
+}
+html[data-environment="autumn"] #gallery #plaque h1 {
+  -webkit-text-stroke-color: #514831;
+  text-shadow: 3px 4px 0 #514831;
+}
+html[data-environment="autumn"] #gallery #enter {
+  background: #e8c778 !important;
+  border-color: #e8c778 !important;
+  color: #2d2a20 !important;
+  box-shadow: 3px 3px 0 #665232 !important;
+}
+html[data-environment="autumn"] #gallery .ww-eyebrow { color: #e8c778; }
+html[data-environment="autumn"] .environment-picker { background: #2b2d24eb; border-color: #dbc89944; }
+html[data-environment="autumn"] .environment-picker button[aria-pressed="true"] { background: #e8c778 !important; color: #302a20 !important; }
+html[data-environment="autumn"] .discovery-brand { text-shadow: 0 1px 9px #231d16; }
+html[data-environment="autumn"] .discovery-brand span { color: #f1e2b9; }
+@media (max-width: 700px) {
+  #webworld .environment-in-game { top: 112px; left: 16px; }
+  #webworld .environment-picker button { font-size: 11px; padding: 7px 10px; }
+  #webworld .discovery-pane { top: 164px; max-height: calc(100dvh - 184px); }
+  #webworld #discovery-navigation { top: 164px; }
+  #gallery .ww-title-actions { gap: 12px; align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+  #gallery .environment-picker button { padding: 8px; font-size: 11px; }
+}
+html[data-environment="autumn"] .discovery-location { text-shadow: 0 1px 6px #fff4d9b3; }
+html[data-environment="autumn"] .discovery-location strong { color: #263332; }
+html[data-environment="autumn"] .discovery-location > span,
+html[data-environment="autumn"] .discovery-location small { color: #3c4a42; }
+#webworld #discovery-navigation { top: 144px; }
+@media (max-width: 700px) {
+  #webworld #discovery-navigation { top: 164px; }
+}

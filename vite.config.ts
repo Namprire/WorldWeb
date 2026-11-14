@@ -1,19 +1,21 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    host: '127.0.0.1',
+    host: "127.0.0.1",
     port: 5179,
-    proxy: { '/api': 'http://127.0.0.1:8787' },
+    proxy: {
+      "/api": `http://127.0.0.1:${process.env.WEBWORLD_API_PORT || 8787}`,
+    },
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('/node_modules/three/')) return 'three';
+          if (id.includes("/node_modules/three/")) return "three";
         },
       },
     },

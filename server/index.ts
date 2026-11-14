@@ -1,4 +1,5 @@
 import express from 'express'
+import { startupsRouter } from './startups'
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { type NewsEvent, type SyncResult } from '../src/shared/schema'
@@ -79,9 +80,13 @@ app.post('/api/sync', async (request, response) => {
   }
 })
 
+app.use('/api/startups', startupsRouter)
+
 app.use('/api', (_request, response) => {
   response.status(404).json({ error: 'Unknown API route.' })
 })
+
+app.use('/media/exhibits', express.static(resolve(import.meta.dirname, '../public/media/exhibits')))
 
 const dist = resolve(import.meta.dirname, '../dist')
 if (existsSync(resolve(dist, 'index.html'))) {

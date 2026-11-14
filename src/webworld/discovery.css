@@ -1,0 +1,486 @@
+/* The game stays full-screen. Only discovery tools sit over the painting. */
+#stars,
+#bank,
+#hyper,
+#trick,
+#brief,
+#finish,
+#riders,
+#guide,
+#btn-chat,
+#talk-tip,
+#bubbles,
+#chat,
+#open-board,
+#board {
+  display: none !important;
+}
+#hint [data-code="Enter"] {
+  display: none;
+}
+#webworld {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  font-family: Arial, sans-serif;
+  color: #f2eee4;
+  z-index: 20;
+}
+#webworld:not(.playing),
+#webworld.theater {
+  visibility: hidden;
+}
+#webworld button,
+#webworld input,
+#webworld select,
+#webworld a {
+  pointer-events: auto;
+}
+#webworld button,
+#webworld select,
+#webworld input {
+  font: inherit;
+}
+#webworld button {
+  cursor: pointer;
+  color: inherit;
+  border: 1px solid #b9d8d42b;
+  background: #101c24e8;
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+#webworld button:hover {
+  background: #253a42;
+  border-color: #98dbbc;
+}
+#webworld button:focus-visible,
+#webworld a:focus-visible {
+  outline: 2px solid #b2f1d0;
+  outline-offset: 3px;
+}
+#webworld [hidden] {
+  display: none !important;
+}
+.discovery-brand {
+  position: absolute;
+  left: 30px;
+  top: 28px;
+  display: grid;
+  gap: 6px;
+}
+.discovery-brand b {
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+.discovery-brand span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #b0c6c7;
+}
+.discovery-tools {
+  position: absolute;
+  right: 28px;
+  top: 26px;
+  display: flex;
+  gap: 8px;
+}
+.discovery-tools kbd {
+  margin-left: 12px;
+  font: 11px monospace;
+  color: #a6c2ba;
+}
+.discovery-tools button[aria-pressed="true"] {
+  border-color: #a4efc9 !important;
+}
+.discovery-pane {
+  position: absolute;
+  z-index: 2;
+  right: 28px;
+  top: 88px;
+  width: 350px;
+  box-sizing: border-box;
+  max-height: calc(100dvh - 120px);
+  overflow: auto;
+  pointer-events: auto;
+  padding: 22px;
+  background: linear-gradient(145deg, #152730f5, #0b151dfb);
+  border: 1px solid #9dbfb933;
+  box-shadow: 0 20px 70px #0007;
+  border-radius: 6px;
+  scrollbar-width: thin;
+}
+.pane-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #afc6c4;
+}
+.pane-top button {
+  padding: 2px 9px !important;
+  font-size: 23px !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+#company-query {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 12px;
+  background: #07131b;
+  color: #fff;
+  border: 1px solid #8facaa66;
+  border-radius: 3px;
+  font-size: 14px !important;
+}
+.discovery-filters {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 12px 0;
+  font-size: 12px;
+}
+.discovery-filters select {
+  min-width: 0;
+  background: #142630;
+  color: #dce9e2;
+  border: 1px solid #8dacaa44;
+  padding: 8px;
+}
+.discovery-filters label {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+#result-count {
+  font-size: 11px;
+  color: #93b7af;
+}
+#company-results {
+  display: grid;
+  gap: 4px;
+  max-height: 35vh;
+  overflow: auto;
+  font-size: 13px;
+  line-height: 1.5;
+}
+#webworld .company-result {
+  text-align: left;
+  display: grid;
+  gap: 5px;
+  padding: 10px 14px;
+  border: 0;
+  border-left: 2px solid var(--company);
+  border-radius: 0;
+  background: #ffffff04;
+}
+.company-result span {
+  font-size: 11px;
+  color: #9aadb4;
+}
+.discovery-caption,
+#source-status {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #95aeb5;
+}
+.discovery-caption a {
+  color: #b7dacd;
+}
+#source-refresh {
+  font-size: 11px !important;
+}
+#company-card h2 {
+  font:
+    600 35px/1.1 Arial,
+    sans-serif;
+  letter-spacing: -1.5px;
+  margin: 22px 0 12px;
+}
+#company-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #c9d6d8;
+}
+#company-art {
+  height: 125px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 60% 80%,
+      color-mix(in srgb, var(--company), transparent 70%),
+      transparent 75%
+    ),
+    #07121a;
+  border-radius: 3px;
+}
+#company-art i {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  left: 65px;
+  top: -25px;
+  border: 1px solid var(--company);
+  border-radius: 50%;
+  transform: rotateX(60deg) rotateZ(25deg);
+  animation: exhibit-orbit 18s linear infinite;
+  box-shadow: 0 0 25px color-mix(in srgb, var(--company), transparent 85%);
+}
+#company-art i:nth-child(2) {
+  animation-delay: -6s;
+}
+#company-art i:nth-child(3) {
+  animation-delay: -12s;
+}
+#company-art span {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #b0c6c7;
+}
+#company-facts {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 12px;
+  font-size: 12px;
+  border-block: 1px solid #9eacae26;
+  padding: 18px 0;
+}
+#company-facts dt {
+  color: #7f9ba4;
+}
+#company-facts dd {
+  margin: 0;
+}
+#company-jobs {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #9db1ba;
+}
+#company-jobs a,
+#company-facts a {
+  color: #b7dacd;
+}
+.company-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 20px 0;
+}
+.company-links a {
+  color: var(--company);
+  font-size: 13px;
+}
+.company-links button {
+  font-size: 12px !important;
+  margin-left: auto;
+}
+.discovery-location {
+  position: absolute;
+  left: 255px;
+  bottom: 36px;
+  display: grid;
+  gap: 8px;
+  text-shadow: 0 2px 12px #000;
+}
+.discovery-location > span {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #a6cfc1;
+}
+.discovery-location strong {
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: -0.6px;
+}
+.discovery-location small {
+  font-size: 11px;
+  color: #afc1c8;
+}
+#discover-nearby {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: #9de5c3 !important;
+  box-shadow: 0 0 35px #8eddb51a;
+  font-size: 14px !important;
+}
+#discovery-navigation {
+  position: absolute;
+  top: 88px;
+  left: 30px;
+  font-size: 12px;
+  color: #c4e9db;
+  background: #12232bcc;
+  padding: 12px;
+  border-left: 2px solid #9de5c3;
+}
+#discovery-pins button,
+#discovery-clusters button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: #15252e;
+  background: #f5f1e8;
+  border: 2px solid #fff;
+  box-shadow: 0 3px 12px #07132285;
+  white-space: nowrap;
+}
+#discovery-pins button {
+  width: 43px;
+  height: 43px;
+  border-radius: 6px;
+}
+#discovery-pins button:hover,
+#discovery-clusters button:hover {
+  background: #dff4ea;
+  z-index: 1;
+}
+.map-pin-badge {
+  display: grid;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 3px;
+  background: var(--company);
+  font-size: 14px;
+  font-weight: 800;
+}
+[data-kind="exhibit"] .map-pin-badge {
+  color: #f3eee3;
+  background: #243946;
+  outline: 1px dashed var(--company);
+  outline-offset: -3px;
+}
+.map-pin-label {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #f5f1e8;
+  color: #15252e;
+  font-size: 12px;
+  font-weight: 700;
+}
+#discovery-clusters .company-cluster {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  font-weight: 800;
+}
+#map-cluster-companies {
+  display: grid;
+  gap: 8px;
+}
+#map-note {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 13px;
+  padding: 14px 22px;
+  background: #10212beb;
+  white-space: nowrap;
+}
+#map-note span {
+  display: block;
+  color: #a3b8bf;
+  font-size: 11px;
+  margin-top: 8px;
+}
+#map-note i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin: 0 3px 0 8px;
+  border: 1px solid #9de5c3;
+  background: #9de5c3;
+}
+#map-note .exhibit-key {
+  border-style: dashed;
+  background: transparent;
+}
+.city-view .discovery-location,
+body:has(.city-view.playing) #map {
+  display: none;
+}
+@keyframes exhibit-orbit {
+  to {
+    transform: rotateX(60deg) rotateZ(385deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #company-art i {
+    animation: none;
+  }
+}
+@media (max-width: 700px) {
+  .discovery-brand {
+    top: 18px;
+    left: 16px;
+  }
+  .discovery-brand b {
+    font-size: 19px;
+  }
+  .discovery-brand span {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .discovery-tools {
+    top: 66px;
+    right: 16px;
+    left: 16px;
+  }
+  .discovery-tools button {
+    padding: 9px !important;
+    font-size: 12px !important;
+  }
+  .discovery-pane {
+    top: 116px;
+    right: 16px;
+    width: min(350px, calc(100vw - 32px));
+    max-height: calc(100dvh - 140px);
+  }
+  .discovery-location {
+    left: 16px;
+    bottom: 175px;
+  }
+  .discovery-location strong {
+    font-size: 19px;
+  }
+  #discover-nearby {
+    bottom: 125px;
+    white-space: nowrap;
+  }
+  #discovery-navigation {
+    top: 115px;
+    left: 16px;
+  }
+  #map-note {
+    max-width: 90vw;
+    white-space: normal;
+    bottom: 130px;
+  }
+}
+
+#webworld .discovery-tools kbd {
+  background: none;
+  box-shadow: none;
+  border: 1px solid #92ad9c55;
+  border-radius: 3px;
+  padding: 2px 4px;
+  color: #aac5ba;
+}
+
+/* Discovery prompts replace the old keyboard/trick tutorial overlay. */
+#hint { display: none !important; }

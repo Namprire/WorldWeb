@@ -1,0 +1,259 @@
+[
+  {
+    "id": "aiven",
+    "name": "Aiven",
+    "sector": "Data & AI",
+    "description": "Managed open-source data infrastructure for building applications.",
+    "website": "https://aiven.io/about",
+    "sourceUrl": "https://aiven.io/about",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": null,
+    "color": "#83e4cf",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": -17,
+      "gz": 12
+    },
+    "jobs": [],
+    "exhibit": true,
+    "office": {
+      "address": "Antinkatu 1, Helsinki",
+      "sourceUrl": "https://aiven.io/contact",
+      "lon": 24.931582,
+      "lat": 60.1705452,
+      "osm": "node/295933328",
+      "markerHeight": 5
+    }
+  },
+  {
+    "id": "varjo",
+    "name": "Varjo",
+    "sector": "XR",
+    "description": "Industrial virtual and mixed reality for immersive simulation and training.",
+    "website": "https://varjo.com/company",
+    "sourceUrl": "https://varjo.com/company",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": "180+ professionals",
+    "color": "#b8a4fa",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": 17,
+      "gz": 12
+    },
+    "jobs": [],
+    "exhibit": true,
+    "office": {
+      "address": "Vuorikatu 20, Helsinki",
+      "sourceUrl": "https://varjo.com/company",
+      "lon": 24.94678558,
+      "lat": 60.1725722,
+      "osm": "way/123522304",
+      "markerHeight": 24
+    }
+  },
+  {
+    "id": "oura",
+    "name": "Oura",
+    "sector": "Health",
+    "description": "Smart rings and software that help people understand sleep and health.",
+    "website": "https://ouraring.com/about-us",
+    "sourceUrl": "https://ouraring.com/about-us",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": "1,200+ employees",
+    "color": "#efb978",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": -17,
+      "gz": -10
+    },
+    "jobs": [],
+    "exhibit": true
+  },
+  {
+    "id": "iceye",
+    "name": "ICEYE",
+    "sector": "Space",
+    "description": "Radar satellites and Earth observation for monitoring change on the ground.",
+    "website": "https://www.iceye.com/",
+    "sourceUrl": "https://www.iceye.com/",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": null,
+    "color": "#8ebeff",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": 17,
+      "gz": -10
+    },
+    "jobs": [],
+    "exhibit": false
+  },
+  {
+    "id": "reaktor",
+    "name": "Reaktor",
+    "sector": "Data & AI",
+    "description": "Technology, design and software services for digital products.",
+    "website": "https://www.reaktor.com/",
+    "sourceUrl": "https://www.reaktor.com/",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": null,
+    "color": "#f19c91",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": -17,
+      "gz": -32
+    },
+    "jobs": [],
+    "exhibit": false,
+    "office": {
+      "address": "Yliopistonkatu 4, Helsinki",
+      "sourceUrl": "https://www.reaktor.com/careers/locations/helsinki",
+      "lon": 24.9490401,
+      "lat": 60.1697721,
+      "osm": "node/5295582293",
+      "markerHeight": 28
+    }
+  },
+  {
+    "id": "smartly",
+    "name": "Smartly",
+    "sector": "Marketing",
+    "description": "An AI advertising platform connecting creative production and media.",
+    "website": "https://www.smartly.io/",
+    "sourceUrl": "https://www.smartly.io/",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": null,
+    "color": "#eeb2f5",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": 17,
+      "gz": -32
+    },
+    "jobs": [],
+    "exhibit": false,
+    "office": {
+      "address": "Elielinaukio 2 G, Helsinki",
+      "sourceUrl": "https://www.smartly.io/helsinki-office",
+      "lon": 24.93828352,
+      "lat": 60.17161769,
+      "osm": "way/122595218",
+      "markerHeight": 34
+    }
+  },
+  {
+    "id": "supermetrics",
+    "name": "Supermetrics",
+    "sector": "Marketing",
+    "description": "Marketing data connections, analysis and reporting tools.",
+    "website": "https://supermetrics.com/",
+    "sourceUrl": "https://supermetrics.com/",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": null,
+    "color": "#f1cb75",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": -17,
+      "gz": -54
+    },
+    "jobs": [],
+    "exhibit": false,
+    "office": {
+      "address": "Kaivokatu 10 A, Helsinki",
+      "sourceUrl": "https://supermetrics.com/contact",
+      "lon": 24.94054287,
+      "lat": 60.16991137,
+      "osm": "way/23648033",
+      "markerHeight": 34
+    }
+  },
+  {
+    "id": "yousician",
+    "name": "Yousician",
+    "sector": "Music",
+    "description": "Interactive music learning with lessons and feedback as you play.",
+    "website": "https://yousician.com/company",
+    "sourceUrl": "https://yousician.com/company",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": null,
+    "color": "#9fe4ac",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": 17,
+      "gz": -54
+    },
+    "jobs": [],
+    "exhibit": false
+  },
+  {
+    "id": "sulapac",
+    "name": "Sulapac",
+    "sector": "Climate",
+    "description": "Bio-based materials designed as alternatives to conventional plastics.",
+    "website": "https://www.sulapac.com/",
+    "sourceUrl": "https://www.sulapac.com/",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": null,
+    "color": "#8bcdc4",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": -17,
+      "gz": -76
+    },
+    "jobs": [],
+    "exhibit": false,
+    "office": {
+      "address": "Iso Roobertinkatu 21, Helsinki",
+      "sourceUrl": "https://www.sulapac.com/contact/",
+      "lon": 24.9405585,
+      "lat": 60.1630411,
+      "osm": "node/319804348",
+      "markerHeight": 25
+    }
+  },
+  {
+    "id": "solar-foods",
+    "name": "Solar Foods",
+    "sector": "Climate",
+    "description": "Protein production using air, electricity and fermentation.",
+    "website": "https://solarfoods.com/",
+    "sourceUrl": "https://solarfoods.com/",
+    "reviewedAt": "2026-11-14",
+    "founders": null,
+    "teamSize": "Over 60 people (company careers page)",
+    "color": "#e3c46e",
+    "placement": {
+      "kind": "exhibition",
+      "label": "Rautatientori discovery exhibition \u00b7 not an office",
+      "gx": 17,
+      "gz": -76
+    },
+    "jobs": [
+      {
+        "title": "Finance Director",
+        "location": "Vantaa, Finland",
+        "url": "https://solarfoods.com/careers/",
+        "expiresAt": "2026-11-15T21:59:59Z",
+        "verifiedAt": "2026-11-14"
+      }
+    ],
+    "exhibit": false,
+    "teamSource": "https://solarfoods.com/careers/"
+  }
+]

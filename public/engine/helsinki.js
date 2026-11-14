@@ -1,5 +1,6 @@
 /* Moonlit Helsinki materials; the geographic layout stays in helsinki-real-map.js. */
 import { installAurora } from "./oil-paint/aurora.js";
+import { ENVIRONMENTS, initialEnvironment, applyEnvironment } from "./oil-paint/environment.js";
 export const helsinkiSurfacePalette = `
   // Helsinki plaster, oxidised copper and pale granite, under the original paint strokes.
   if (gIndoor < 0.5) {
@@ -140,13 +141,27 @@ export function installHelsinki(engine, oilPaint) {
     aurora.setMood(mode);
   }
   atmosphere("breakthrough");
+  let environment = initialEnvironment();
+  function setEnvironment(mode) {
+    if (!applyEnvironment(engine, mode)) return false;
+    environment = mode;
+    aurora.setEnvironment(mode);
+    return true;
+  }
+  setEnvironment(environment);
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
   const helpers = { builder, localBox, ellipsoid, line, mesh, paint, colors };
   return {
     atmosphere,
+    setEnvironment,
+    getEnvironment: () => environment,
+    getFogRange: () => ENVIRONMENTS[environment].fogRange,
     helpers,
     update() {
-      shared.uHeadPower.value = engine.state.state === "ride" ? 1.6 : 0;
-      shared.uGlow.value = .7;
+      shared.uPaintTime.value = reduced.matches ? 0 : engine.state.time;
+      // The legacy score lighting resets on entry; the selected painting owns it.
+      shared.uGlow.value = ENVIRONMENTS[environment].glow;
+      shared.uHeadPower.value = engine.state.state === "ride" && environment === "aurora" ? 1.6 : 0;
       aurora.update();
     },
   };

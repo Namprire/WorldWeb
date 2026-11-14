@@ -1,0 +1,365 @@
+{
+  "capturedAt": "2026-11-14T19:42:48.486Z",
+  "base": "http://127.0.0.1:5179",
+  "width": 1920,
+  "height": 1080,
+  "videoFormat": "H.264 MP4, 30 fps export, no audio",
+  "shots": [
+    {
+      "file": "screenshots/01-autumn-title.png",
+      "description": "Framed autumn city and WEB WORLD title.",
+      "state": {
+        "state": "title",
+        "presentation": "helsinki-autumn",
+        "environment": "autumn",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 0,
+        "gz": 60,
+        "y": 0,
+        "speed": 0,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 30,
+          "y": 65,
+          "z": 230,
+          "fov": 80.86229987889035
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/02-autumn-gameplay.png",
+      "description": "Scooter in the square with the normal game HUD.",
+      "state": {
+        "state": "ride",
+        "presentation": "helsinki-autumn",
+        "environment": "autumn",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 3.612551660781139e-15,
+        "gz": 1.002554151999635,
+        "y": 0,
+        "speed": 8.2,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 3.3026501940897303e-15,
+          "y": 2.4499999999999984,
+          "z": 6.0636291804433355,
+          "fov": 73.486848
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/03-autumn-scooter-clean.png",
+      "description": "Theater-mode scooter ride through the open Helsinki square.",
+      "state": {
+        "state": "ride",
+        "presentation": "helsinki-autumn",
+        "environment": "autumn",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 2.469651666216544e-15,
+        "gz": 19.66752751999963,
+        "y": 0,
+        "speed": 7.38,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 2.1654837763602198e-15,
+          "y": 2.4499999999999984,
+          "z": 24.634966132799626,
+          "fov": 72.622510272
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/04-company-search.png",
+      "description": "Company search over the open Helsinki square.",
+      "state": {
+        "state": "ride",
+        "presentation": "helsinki-autumn",
+        "environment": "autumn",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 2.4696512086885018e-15,
+        "gz": 19.667534991999684,
+        "y": 0,
+        "speed": 7.38,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 2.1654833188321774e-15,
+          "y": 2.4499999999999984,
+          "z": 24.63497360479968,
+          "fov": 72.622510272
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/05-company-profile.png",
+      "description": "Varjo profile over the open Helsinki square.",
+      "state": {
+        "state": "ride",
+        "presentation": "helsinki-autumn",
+        "environment": "autumn",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 2.4696512086885018e-15,
+        "gz": 19.667534991999684,
+        "y": 0,
+        "speed": 7.38,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 2.1654833188321774e-15,
+          "y": 2.4499999999999984,
+          "z": 24.63497360479968,
+          "fov": 72.622510272
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/06-helsinki-city-view.png",
+      "description": "Full Helsinki company atlas with all search filters cleared.",
+      "state": {
+        "state": "ride",
+        "presentation": "helsinki-autumn",
+        "environment": "autumn",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 2.5006779393022354e-15,
+        "gz": 19.16083002799968,
+        "y": 0,
+        "speed": 7.726840000000003,
+        "walking": false,
+        "flying": false,
+        "mapOpen": true,
+        "camera": {
+          "x": -184.9999512470171,
+          "y": 1029.9997292101211,
+          "z": 751.6998082726329,
+          "fov": 72.94992599237497
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/07-autumn-flight.png",
+      "description": "Player flying above painted Helsinki.",
+      "state": {
+        "state": "ride",
+        "presentation": "helsinki-autumn",
+        "environment": "autumn",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 257.54656750087594,
+        "gz": -91.63203209184034,
+        "y": 34.62364849000005,
+        "speed": 23.45344000000001,
+        "walking": false,
+        "flying": true,
+        "mapOpen": false,
+        "camera": {
+          "x": 245.84657147127052,
+          "y": 40.4143985666754,
+          "z": -91.63203209142135,
+          "fov": 88.9999978512122
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/08-northern-lights-title.png",
+      "description": "Northern lights title painting.",
+      "state": {
+        "state": "title",
+        "presentation": "helsinki-aurora",
+        "environment": "aurora",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 0,
+        "gz": 60,
+        "y": 0,
+        "speed": 0,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 30,
+          "y": 65,
+          "z": 230,
+          "fov": 80.86229987889035
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/09-northern-lights-scooter.png",
+      "description": "Theater-mode scooter ride through the open Helsinki square.",
+      "state": {
+        "state": "ride",
+        "presentation": "helsinki-aurora",
+        "environment": "aurora",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 2.469696855683435e-15,
+        "gz": 19.666789519999654,
+        "y": 0,
+        "speed": 7.38,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 2.1655289658271105e-15,
+          "y": 2.4499999999999984,
+          "z": 24.63422813279965,
+          "fov": 72.622510272
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/10-northern-lights-exhibits.png",
+      "description": "Northern lights above the company exhibition square.",
+      "state": {
+        "state": "ride",
+        "presentation": "helsinki-aurora",
+        "environment": "aurora",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 5.403719715903462e-15,
+        "gz": -28.249440078000283,
+        "y": 0,
+        "speed": 0,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 5.103681105277218e-15,
+          "y": 2.4499999999999984,
+          "z": -23.3494377126629,
+          "fov": 72
+        },
+        "drawCalls": 1
+      }
+    },
+    {
+      "file": "screenshots/11-autumn-park.png",
+      "description": "Clean view into Kaisaniemi Park using the existing free-camera preview.",
+      "state": {
+        "state": "free",
+        "presentation": "helsinki-autumn",
+        "environment": "autumn",
+        "district": "Central Helsinki \u00b7 OpenStreetMap",
+        "buildings": 1301,
+        "pedestrians": 172,
+        "vehicle": "student-scooter",
+        "gx": 0,
+        "gz": 60,
+        "y": 0,
+        "speed": 0,
+        "walking": false,
+        "flying": false,
+        "mapOpen": false,
+        "camera": {
+          "x": 80,
+          "y": 3,
+          "z": -280,
+          "fov": 65
+        },
+        "drawCalls": 1
+      }
+    }
+  ],
+  "clips": [
+    {
+      "file": "video/01-title-to-game.mp4",
+      "description": "Northern lights: actual continuous night title-to-game camera transition.",
+      "start": 4.37,
+      "duration": 11.591999999999999,
+      "source": "source/northern-lights-title-transition.webm",
+      "exportedDurationSeconds": 11.567
+    },
+    {
+      "file": "video/02-autumn-scooter.mp4",
+      "description": "Clean scooter ride north through the open exhibition square.",
+      "start": 16.277,
+      "duration": 7.050999999999998,
+      "source": "source/autumn-square-ride.webm",
+      "exportedDurationSeconds": 7.067
+    },
+    {
+      "file": "video/03-company-discovery.mp4",
+      "description": "Search for Varjo and open its sourced company profile in the square.",
+      "start": 12.784,
+      "duration": 8.575999999999999,
+      "source": "source/company-discovery.webm",
+      "exportedDurationSeconds": 8.6
+    },
+    {
+      "file": "video/04-helsinki-city-view.mp4",
+      "description": "Rise to the Helsinki atlas with the complete company collection.",
+      "start": 21.451,
+      "duration": 8.605999999999998,
+      "source": "source/company-discovery.webm",
+      "exportedDurationSeconds": 8.6
+    },
+    {
+      "file": "video/05-autumn-flight.mp4",
+      "description": "Launch from the scooter and fly above the autumn city.",
+      "start": 57.166,
+      "duration": 8.855000000000004,
+      "source": "source/autumn-gameplay.webm",
+      "exportedDurationSeconds": 8.833
+    },
+    {
+      "file": "video/06-northern-lights-scooter.mp4",
+      "description": "Clean scooter ride north through the open exhibition square.",
+      "start": 16.167,
+      "duration": 7.542999999999999,
+      "source": "source/aurora-square-ride.webm",
+      "exportedDurationSeconds": 7.533
+    },
+    {
+      "file": "video/07-autumn-park-atmosphere.mp4",
+      "description": "Autumn park atmosphere, foliage and falling leaves; fixed scenic camera.",
+      "start": 4.624,
+      "duration": 10.006,
+      "source": "source/autumn-park.webm",
+      "exportedDurationSeconds": 10.033
+    }
+  ],
+  "errors": []
+}

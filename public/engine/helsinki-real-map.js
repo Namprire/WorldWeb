@@ -6,8 +6,9 @@ import {
   districtBounds,
 } from "./helsinki-geography.js";
 import { createFoliagePainter } from "./oil-paint/foliage.js";
+import { createCanopyShade } from "./oil-paint/canopy-shade.js";
 export function installHelsinkiMap(engine, helpers, brushAtlas) {
-  const { builder, mesh, ellipsoid, line, colors: c } = helpers;
+  const { builder, mesh, line, colors: c } = helpers;
   engine.legacyWorld.group.visible = false;
   engine.legacyWorld.retarget =
     engine.legacyWorld.work =
@@ -232,6 +233,7 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
     finish(b, building.bounds);
   }
   const trees = new Map();
+  createCanopyShade(engine, mapData.trees, B);
   const foliage = createFoliagePainter(engine, brushAtlas);
   for (let i = 0; i < mapData.trees.length; i++) {
     const [x, z] = mapData.trees[i],
@@ -244,19 +246,7 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
       });
     const tile = trees.get(key);
     const b = tile.b;
-    foliage.tree(tile.paint, x, z, i);
-    line(b, [x, 0, z], [x, 5, z], 0.18, c.bark);
-    ellipsoid(
-      b,
-      x,
-      5.5,
-      z,
-      1.65,
-      2.1,
-      1.65,
-      i % 3 ? c.leaf : c.green,
-      engine.kinds.LEAF,
-    );
+    foliage.tree(tile.paint, x, z, i, b, helpers);
   }
   for (const t of trees.values()) {
     finish(t.b, t.bounds, 220);
@@ -302,12 +292,13 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
     buildings: districtBuildings,
     locations: mapData.locations,
     routes: mapData.routes,
-    update() {
+    update(overview = 0) {
       for (const { m, bounds: b, range } of groups) {
         const x = Math.max(b[0], Math.min(b[2], engine.camera.position.x)),
           z = Math.max(b[1], Math.min(b[3], engine.camera.position.z));
         m.visible =
-          Math.hypot(x - engine.camera.position.x, z - engine.camera.position.z) < range;
+          Math.hypot(x - engine.camera.position.x, z - engine.camera.position.z) <
+          range + overview * 1000;
       }
     },
   };

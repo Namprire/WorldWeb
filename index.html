@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="color-scheme" content="dark" />
-    <title>WEBWORLD — Ride the internet</title>
-    <meta name="description" content="Ride a living tech city. Turn real headlines into missions, collect compute, and deliver the future." />
+    <title>WEBWORLD · Helsinki</title>
+    <meta name="description" content="Explore oil-painted Helsinki and discover the companies building what comes next." />
     <meta name="theme-color" content="#0b1a5c" />
     <!-- what a link to the game looks like when it is shared -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b1a5c'/%3E%3Ccircle cx='40' cy='24' r='15' fill='%23ffd94a'/%3E%3Ccircle cx='33' cy='21' r='13' fill='%230b1a5c'/%3E%3Cpath d='M6 46c10-10 18 6 28-2s14-6 24 2' stroke='%237fb6ff' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
@@ -29,9 +29,12 @@
         <div class="ww-title-copy">
           <div class="ww-eyebrow">Helsinki, Finland</div>
           <h1 aria-label="Webworld"><span>WEB</span><span>WORLD</span></h1>
-          <p class="sub">Grab your scooter. See what's around the corner.</p>
         </div>
         <div class="ww-title-actions">
+          <div class="environment-picker" role="group" aria-label="Painting environment">
+            <button type="button" data-environment="aurora" aria-pressed="false" disabled>Northern lights</button>
+            <button type="button" data-environment="autumn" aria-pressed="true" disabled>Autumn wood</button>
+          </div>
           <button id="enter" type="button">Let’s ride <span aria-hidden="true">↵</span></button>
           <button id="open-board" type="button">Leaderboard</button>
         </div>
@@ -65,7 +68,7 @@
         <div class="kb-row kb-top">
           <kbd data-code="KeyW"><b>W</b><i>ride</i></kbd>
           <kbd data-code="KeyE"><b>E</b><i>trick</i></kbd>
-          <kbd data-code="KeyR"><b>R</b><i>talk</i></kbd>
+          <kbd data-code="KeyR"><b>R</b><i>discover</i></kbd>
           <kbd data-code="KeyT"><b>T</b><i>theater</i></kbd>
         </div>
         <div class="kb-row kb-home">

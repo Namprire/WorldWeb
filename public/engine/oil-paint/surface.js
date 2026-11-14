@@ -4,6 +4,9 @@ import { createBrushSheet } from "./brush.js";
 
 const atlasGLSL = /* glsl */ `
 uniform sampler2D tOilBrush;
+uniform float uAutumn;
+uniform sampler2D tCanopyShade;
+uniform vec4 uCanopyBounds;
 // Each mark has a permanent place on its object's surface. No time or screen
 // coordinates enter the pattern, so turning the camera never repaints an object.
 vec2 oilUV(vec2 q, float cell) {
@@ -54,6 +57,10 @@ Dab dab(vec2 p, vec2 size, float seed) {
 // This factory is installed once before the scene is assembled. Every caller
 // (including new mission actors) receives the same atlas and material treatment.
 export function installOilPaint(engine) {
+  engine.shared.uAutumn = { value: 0 };
+  engine.shared.uPaintTime = { value: 0 };
+  engine.shared.tCanopyShade = { value: null };
+  engine.shared.uCanopyBounds = { value: [0,0,1,1] };
   const atlas = createBrushSheet(engine.Texture);
   const original = engine.paintMaterial;
   let materialCount = 0;
@@ -61,6 +68,9 @@ export function installOilPaint(engine) {
     const material = original();
     material.name = "WEBWORLD / Patch oil paint";
     material.uniforms.tOilBrush = { value: atlas };
+    material.uniforms.uAutumn = engine.shared.uAutumn;
+    material.uniforms.tCanopyShade = engine.shared.tCanopyShade;
+    material.uniforms.uCanopyBounds = engine.shared.uCanopyBounds;
     let shader = material.fragmentShader;
     shader = shader.replace("struct Dab {", `${atlasGLSL}\nstruct Dab {\n  float pigment;\n  float thickness;`);
     shader = shader.replace(/Dab dab\(vec2 p, vec2 size, float seed\) \{[\s\S]*?\n\}/, dabGLSL);
@@ -70,8 +80,29 @@ export function installOilPaint(engine) {
       size *= kind == 14.0 ? 1.5 : 2.0;
       float lod = clamp(log2(max(vDist / uStrokeDist, .5)), -1., 2.5);`);
     shader = shader.replace("vec3 under = mix(hueShift(base, -0.25) * 0.60, base * 0.94, soft) * dPix;",
-      "vec3 under = base * dPix * .89;");
+      `vec3 under = base * dPix * .89;`);
+    // A stable shadow glaze anchors the trees without another scene render.
+    shader = shader.replace("col += (1.0 - alpha) * under;", `
+      col += (1.0 - alpha) * under;
+      if (uAutumn > .5 && vWorld.y < .2 && N.y > .5) {
+        vec2 shadeUv = (vWorld.xz-uCanopyBounds.xy)/uCanopyBounds.zw;
+        float canopy = texture2D(tCanopyShade,vec2(shadeUv.x,1.-shadeUv.y)).r;
+        col *= mix(vec3(.50,.46,.60),vec3(1.),canopy);
+      }`);
     shader = shader.replace("float furrow = sin(d.across * 7.0 + d.id * 40.0);", "float furrow = 0.0;");
+    // Autumn earth uses the reference's ochre / sienna / plum pigment family.
+    // Windows, roads, roofs and landmarks keep their semantic materials.
+    shader = shader.replace("float lod = clamp(log2", `
+      if (uAutumn > .5 && gIndoor < .5) {
+        if (kind == 5. || kind == 13.) {
+          float earthMix = vnoise(vWorld.xz * .065);
+          base = mix(vec3(.23,.14,.13),vec3(.48,.30,.10),earthMix);
+          base = mix(base,vec3(.30,.34,.15),smoothstep(.62,.84,earthMix)*.6);
+          accentCol = vec3(.82,.53,.13); accent = .28;
+        }
+        gloss *= .5;
+      }
+      float lod = clamp(log2`);
     // Helsinki's ordinary facades have pale window surrounds and blue-grey
     // daylight glass, rather than the night village's coloured shutters.
     shader = shader.replace("base = mix(base, shCol, sh * step(hash11(seed * 7.0), 0.75));",

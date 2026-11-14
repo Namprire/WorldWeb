@@ -12,8 +12,11 @@
     "check": "tsc --noEmit",
     "build": "npm run check && vite build",
     "test": "node --import tsx --test 'src/**/*.test.ts' 'server/**/*.test.ts'",
-    "test:browser": "node --import tsx scripts/test-webworld.mjs",
-    "test:portal": "node scripts/test-portal.mjs"
+    "test:browser": "node scripts/test-discovery.mjs",
+    "test:portal": "node scripts/test-portal.mjs",
+    "test:environments": "node scripts/test-environments.mjs",
+    "generate:exhibit": "node --import tsx scripts/generate-exhibit.ts",
+    "test:discovery": "node scripts/test-discovery.mjs"
   },
   "dependencies": {
     "@google/genai": "^3.2.0",

@@ -2,10 +2,12 @@ import { installCitizens } from "./helsinki-citizens.js";
 /* WEBWORLD scene additions. Uses the original renderer, terrain and frame loop. */
 import { installHelsinki } from "./helsinki.js";
 import { installHelsinkiMap } from "./helsinki-real-map.js";
+import { project } from "./helsinki-geography.js";
 import { installStudent } from "./student-scooter.js";
 import { installOilPaint } from "./oil-paint/surface.js";
 
 export function installWebworld(engine) {
+  engine.state.titleStillReady = false;
   const oilPaint = installOilPaint(engine);
   const visuals = installHelsinki(engine, oilPaint);
   const district = installHelsinkiMap(engine, visuals.helpers, oilPaint.atlas);
@@ -15,7 +17,7 @@ export function installWebworld(engine) {
     engine;
   const subscribers = new Set();
   const world = new Group();
-  world.name = "WEBWORLD Helsinki network district";
+  world.name = "WEBWORLD Helsinki discovery exhibition";
   scene.add(world);
   const positions = district.locations;
   const point = (gx, gz, lift = 0) => [
@@ -142,23 +144,19 @@ export function installWebworld(engine) {
     // text on its own readable material; only its casing and supports are painted.
     const count = points.length / 3;
     const data = new Float32Array(count * 4);
-    for (let i = 0; i < count; i++) data.set([engine.kinds.FIGURE, .43, 1.4, 0], i * 4);
+    for (let i = 0; i < count; i++)
+      data.set([engine.kinds.FIGURE, 0.43, 1.4, 0], i * 4);
     result.setAttribute("aData", new Attribute(data, 4));
     result.setAttribute("aLamp", new Attribute(new Float32Array(count * 4), 4));
-    result.setAttribute("aLamp2", new Attribute(new Float32Array(count * 4), 4));
+    result.setAttribute(
+      "aLamp2",
+      new Attribute(new Float32Array(count * 4), 4),
+    );
     result.computeBoundingSphere();
     return result;
   }
-  const cyan = [0.09, 0.72, 0.51],
-    pink = [0.82, 0.33, 0.16],
-    dark = [0.06, 0.14, 0.12],
+  const dark = [0.06, 0.14, 0.12],
     steel = [0.32, 0.4, 0.33];
-  const staticBoxes = [];
-  function gridBox(gx, gz, lift, w, h, d, color) {
-    const [x, y, z] = point(gx, gz, lift);
-    staticBoxes.push([x, y, z, w, h, d, color]);
-  }
-  world.add(new Mesh(geometry(staticBoxes), paint));
   const boards = [];
   function board(gx, gz, label, subtitle) {
     const canvas = document.createElement("canvas");
@@ -216,247 +214,305 @@ export function installWebworld(engine) {
     ctx.fillText(subtitle.slice(0, 52), 50, 440);
     record.texture.needsUpdate = true;
   }
-  const newsBoard = board(
-    -9,
-    25,
-    "COMPUTE IS CURRENCY",
-    "Ride. Collect. Deliver.",
+  // Exhibition positions are curated game props, never asserted office addresses.
+  let companies = [],
+    matches = new Set(),
+    selected = null,
+    mapOpen = false,
+    mapBlend = 0;
+  let records = [],
+    videos = new Map(),
+    changedSources = new Set();
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const mapCamera = engine.camera.clone();
+  const { near: rideNear, far: rideFar } = engine.camera;
+  const officePoints = new Map();
+  const ringGeometry = geometry(
+    Array.from({ length: 64 }, (_, i) => {
+      const a = (i / 64) * Math.PI * 2;
+      return [
+        Math.cos(a) * 4.4,
+        0,
+        Math.sin(a) * 4.4,
+        0.35,
+        0.1,
+        0.35,
+        [0.3, 1.5, 1.2],
+      ];
+    }),
   );
-  board(9, -16, "RAUTATIENTORI", "Map data: OpenStreetMap contributors");
-  for (const id of ["exchange", "relay", "arcade"]) {
-    const p = positions[id];
-    board(
-      p.gx,
-      p.gz,
-      p.name.toUpperCase(),
-      "Fictional WEBWORLD mission terminal",
-    );
-  }
-  const actorGroup = new Group();
-  world.add(actorGroup);
-  const robotGeometry = geometry([
-    [0, 0.85, 0, 0.55, 0.65, 0.38, steel],
-    [0, 1.35, 0, 0.5, 0.35, 0.4, dark],
-    [0, 1.39, 0.22, 0.34, 0.08, 0.04, cyan],
-    [-0.18, 0.3, 0, 0.17, 0.6, 0.2, steel],
-    [0.18, 0.3, 0, 0.17, 0.6, 0.2, steel],
-    [-0.4, 0.9, 0, 0.15, 0.6, 0.17, steel],
-    [0.4, 0.9, 0, 0.15, 0.6, 0.17, steel],
-  ]);
-  const droneGeometry = geometry([
-    [0, 0, 0, 0.7, 0.25, 0.7, dark],
-    [-0.65, 0, 0, 0.6, 0.07, 0.2, cyan],
-    [0.65, 0, 0, 0.6, 0.07, 0.2, cyan],
-    [0, 0, -0.65, 0.2, 0.07, 0.6, pink],
-    [0, 0, 0.65, 0.2, 0.07, 0.6, pink],
-  ]);
-  const actors = [];
-  const cartGeometry = geometry([
-    [0, 0.6, 0, 0.9, 0.45, 1.5, dark],
-    [0, 0.95, -0.2, 0.65, 0.3, 0.8, steel],
-    [0, 0.38, 0, 1.05, 0.08, 1.6, cyan],
-    [0, 0.67, 0.77, 0.7, 0.1, 0.03, pink],
-  ]);
-  const carts = Array.from({ length: 4 }, () => {
-    const mesh = new Mesh(cartGeometry, paint);
-    world.add(mesh);
-    return mesh;
-  });
-  function actorsFor(robots, drones) {
-    actorGroup.clear();
-    actors.length = 0;
-    for (let i = 0; i < robots + drones; i++) {
-      const drone = i >= robots;
-      const mesh = new Mesh(drone ? droneGeometry : robotGeometry, paint);
-      actorGroup.add(mesh);
-      actors.push({ mesh, drone, index: i });
-    }
-  }
-  const marker = new Group();
-  world.add(marker);
-  const crystal = new Mesh(geometry([[0, 0, 0, 0.8, 0.8, 0.8, cyan]]), paint);
-  const pillar = new Mesh(geometry([[0, 2, 0, 0.05, 4, 0.05, cyan]]), paint);
-  marker.add(crystal, pillar);
-  marker.visible = false;
-  let target = null,
-    atmosphere = "breakthrough",
-    chaos = false,
-    mood = "calm";
-  function setAtmosphere(mode) {
-    atmosphere = mode;
-    visuals.atmosphere(mode);
-  }
-  setAtmosphere("breakthrough");
-  actorsFor(3, 3);
-  function snapshot() {
-    const p = engine.player;
-    return {
-      state: engine.state.state,
-      presentation: "helsinki-aurora",
-      district: district.name,
-      buildings: district.buildings.length,
-      pedestrians: citizens.count,
-      vehicle: "student-scooter",
-      camera: {
-        x: engine.camera.position.x,
-        y: engine.camera.position.y,
-        z: engine.camera.position.z,
-        fov: engine.camera.fov,
+  const artworkMaterial = () =>
+    new Material({
+      uniforms: {
+        clock: { value: 0 },
+        tone: { value: new engine.Color(0.2, 0.8, 0.65) },
+        variant: { value: 0 },
+        video: { value: null },
+        hasVideo: { value: 0 },
       },
-      gx: p.gx,
-      gz: p.gz,
-      y: p.y,
-      speed: p.speed,
-      walking: p.walking,
-      flying: p.flying,
-      points: engine.score.points,
-      banked: engine.score.banked,
-      caught: engine.score.caught,
-      distance: target
-        ? Math.hypot(
-            p.gx - target.gx,
-            p.gz - target.gz,
-            p.y - engine.ground(target.gx, target.gz),
+      vertexShader:
+        "varying vec2 v; void main(){v=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}",
+      fragmentShader: `varying vec2 v; uniform float clock; uniform vec3 tone; uniform float variant;
+      uniform sampler2D video; uniform float hasVideo;
+      void main(){
+        vec2 p=(v-.5)*vec2(1.8,1.); float t=clock*.22; float glow=0.;
+        for(int i=0;i<7;i++){float k=float(i);float y=sin(p.x*4.+t+k*.4)*.19+sin(p.x*9.-t*.7+k)*.06;
+          float d=abs(p.y-y); glow+=.005/(d+.008)*( .55+.45*sin(k+t));}
+        float orb=length(p-vec2(sin(t*.5)*.20,cos(t*.8)*.1));
+        float halo=.012/(abs(orb-(.25+variant*.035))+.012);
+        vec3 c=vec3(.007,.018,.035)+tone*glow*.42+mix(tone,vec3(.8,.55,1.),.6)*halo;
+        c*=smoothstep(.9,.3,length(v-.5));
+        if(hasVideo>.5)c=pow(texture2D(video,v).rgb,vec3(2.2));
+        gl_FragColor=vec4(c,1.);
+      }`,
+      side: 2,
+    });
+  function configure(items) {
+    engine.state.titleStillReady = false;
+    if (records.length) return; // Immutable placement for this curated collection.
+    companies = items;
+    for (const { id, office } of items) {
+      if (!office) continue;
+      const [gx, gz] = project(office.lon, office.lat);
+      officePoints.set(id, new engine.Vector(gx, office.markerHeight, gz));
+    }
+    matches = new Set(items.map((c) => c.id));
+    board(
+      0,
+      -103,
+      "IDEAS AFTER DARK",
+      "Rautatientori / A curated company exhibition",
+    );
+    records = items.map((c, i) => {
+      const { gx, gz } = c.placement;
+      const sign = board(gx, gz, c.name, c.sector + " / Discovery exhibition");
+      const ctx = sign.canvas.getContext("2d");
+      ctx.fillStyle = "#101e2b";
+      ctx.fillRect(0, 0, 1024, 512);
+      ctx.fillStyle = c.color;
+      ctx.fillRect(48, 55, 60, 5);
+      ctx.font = "28px sans-serif";
+      ctx.fillText(
+        String(i + 1).padStart(2, "0") + " / " + c.sector.toUpperCase(),
+        48,
+        110,
+      );
+      ctx.fillStyle = "#f5f0e7";
+      ctx.font = "bold 92px sans-serif";
+      ctx.fillText(c.name, 48, 270, 925);
+      ctx.font = "24px sans-serif";
+      ctx.fillStyle = "#b9c7c7";
+      ctx.fillText("DISCOVERY EXHIBITION · NOT AN OFFICE", 48, 445);
+      sign.texture.needsUpdate = true;
+      const ring = new Mesh(ringGeometry, paint);
+      ring.position.set(gx, 0.12, gz);
+      world.add(ring);
+      const art = c.exhibit
+        ? new Mesh(
+            geometry([[0, 0, 0, 9, 5, 0.1, [1, 1, 1]]]),
+            artworkMaterial(),
           )
-        : null,
-      bearing: target
-        ? Math.atan2(target.gz - p.gz, target.gx - p.gx) - p.heading
-        : 0,
-      robots: actors.filter((a) => !a.drone).length,
-      drones: actors.filter((a) => a.drone).length,
-      atmosphere,
-      trafficMode: chaos ? "chaos" : "normal",
-      npcMood: mood,
-      drawCalls: engine.renderer.info.render.calls,
+        : null;
+      if (art) {
+        art.position.set(gx, 8.1, gz);
+        art.material.uniforms.tone.value.set(c.color);
+        art.material.uniforms.variant.value = i;
+        world.add(art);
+      }
+      return { id: c.id, sign, ring, art, phase: i };
+    });
+  }
+  const snapshot = () => ({
+    state: engine.state.state,
+    presentation: `helsinki-${visuals.getEnvironment()}`,
+    environment: visuals.getEnvironment(),
+    district: district.name,
+    buildings: district.buildings.length,
+    pedestrians: citizens.count,
+    vehicle: "student-scooter",
+    gx: engine.player.gx,
+    gz: engine.player.gz,
+    y: engine.player.y,
+    speed: engine.player.speed,
+    walking: engine.player.walking,
+    flying: engine.player.flying,
+    mapOpen,
+    camera: {
+      x: engine.camera.position.x,
+      y: engine.camera.position.y,
+      z: engine.camera.position.z,
+      fov: engine.camera.fov,
+    },
+    drawCalls: engine.renderer.info.render.calls,
+  });
+  function projectCompany(id) {
+    const c = companies.find((c) => c.id === id);
+    if (!c) return null;
+    const office = mapOpen && officePoints.get(id);
+    const p = (office
+      ? office.clone()
+      : new engine.Vector(c.placement.gx, 5, c.placement.gz)
+    ).project(engine.camera);
+    return {
+      x: (p.x + 1) / 2,
+      y: (1 - p.y) / 2,
+      visible:
+        p.z > -1 && p.z < 1 && Math.abs(p.x) < 0.95 && Math.abs(p.y) < 0.9,
     };
   }
   const api = {
     getGraphics: oilPaint.getStats,
-    locations: positions,
+    setEnvironment(mode) {
+      if (!visuals.setEnvironment(mode)) return false;
+      for (const fn of subscribers) fn(snapshot());
+      return true;
+    },
     getSnapshot: snapshot,
-    subscribe(callback) {
-      subscribers.add(callback);
-      return () => subscribers.delete(callback);
+    locations: positions,
+    subscribe(fn) {
+      subscribers.add(fn);
+      return () => subscribers.delete(fn);
     },
-    applyScenario(scenario) {
-      setAtmosphere(scenario.worldChanges.atmosphere);
-      chaos = scenario.worldChanges.trafficMode === "chaos";
-      mood = scenario.worldChanges.npcMood;
-      actorsFor(
-        scenario.worldChanges.spawnRobots,
-        scenario.worldChanges.spawnDrones,
-      );
-      drawBoard(
-        newsBoard,
-        scenario.worldChanges.billboardText,
-        scenario.mission.title,
-      );
+    configureCompanies: configure,
+    setMatches(ids) {
+      matches = new Set(ids);
     },
-    setTarget(id) {
-      target = positions[id] || null;
-      marker.visible = !!target;
-      if (target) {
-        marker.position.set(...point(target.gx, target.gz, 1.4));
+    setSourceChanges(ids) {
+      changedSources = new Set(ids);
+    },
+    selectCompany(id) {
+      selected = id;
+    },
+    projectCompany,
+    setUIFocus(value) {
+      engine.state.uiFocused = value;
+    },
+    setMap(value) {
+      mapOpen = value;
+    },
+    setExhibitMedia(items) {
+      for (const item of items) {
+        if (
+          !item.url ||
+          !/^\/media\/exhibits\/[a-z0-9-]+\.mp4$/.test(item.url) ||
+          videos.has(item.id)
+        )
+          continue;
+        const record = records.find((r) => r.id === item.id && r.art);
+        if (!record) continue;
+        const video = document.createElement("video");
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.preload = "none";
+        video.src = item.url;
+        const texture = new Texture(video);
+        texture.generateMipmaps = false;
+        texture.minFilter = 1006;
+        texture.magFilter = 1006;
+        videos.set(item.id, { video, texture, record });
+        video.addEventListener("error", () => {
+          record.art.material.uniforms.hasVideo.value = 0;
+        });
       }
-    },
-    collect() {
-      engine.burst(engine.player.wx, engine.player.y + 1, engine.player.wz);
-      engine.toast("Compute packet secured");
-    },
-    finish() {
-      engine.reward(500);
-      engine.toast("Delivery complete · +500 compute");
-      marker.visible = false;
-      target = null;
-      chaos = false;
-      mood = "calm";
-      setAtmosphere("breakthrough");
-      actorsFor(2, 3);
-      drawBoard(
-        newsBoard,
-        "NETWORK RESTORED",
-        "Delivery confirmed. Ready for your next signal.",
-      );
-    },
-    projectSpeaker() {
-      const citizen = citizens.speaker();
-      if (citizen) {
-        const v = citizen.group.position.clone();
-        v.y += 2.2;
-        v.project(engine.camera);
-        return {
-          x: (v.x + 1) / 2,
-          y: (1 - v.y) / 2,
-          text: citizen.text,
-          visible:
-            v.z > -1 && v.z < 1 && Math.abs(v.x) < 0.7 && Math.abs(v.y) < 0.7,
-        };
-      }
-      const actor = actors.find(
-        (a) =>
-          Math.hypot(
-            a.mesh.position.x - engine.player.wx,
-            a.mesh.position.z - engine.player.wz,
-          ) < 18,
-      );
-      if (!actor) return null;
-      const v = actor.mesh.position.clone();
-      v.y += actor.drone ? 1 : 2;
-      v.project(engine.camera);
-      return {
-        x: (v.x + 1) / 2,
-        y: (1 - v.y) / 2,
-        visible:
-          v.z > -1 && v.z < 1 && Math.abs(v.x) < 0.7 && Math.abs(v.y) < 0.7,
-      };
-    },
-    projectTarget() {
-      if (!target) return null;
-      const v = new engine.Vector(...point(target.gx, target.gz, 3));
-      v.project(engine.camera);
-      return {
-        x: (v.x + 1) / 2,
-        y: (1 - v.y) / 2,
-        visible:
-          v.z > -1 && v.z < 1 && Math.abs(v.x) < 0.95 && Math.abs(v.y) < 0.9,
-      };
     },
   };
-  let lastNotify = 0;
+  let lastNotifiedState = null;
+  let lastNotify = 0,
+    lastVideo = 0;
   engine.state.director = (dt) => {
-    const t = engine.state.time;
+    const t = reduced ? 0 : engine.state.time;
     visuals.update();
     engine.hideLegacyMapDecorations();
-    district.update();
     citizens.update(dt);
     updateStudent(dt);
-    for (const actor of actors) {
-      const i = actor.index;
-      const gx = actor.drone ? Math.sin(t * 0.17 + i) * 16 : i % 2 ? 3.8 : -3.8;
-      const gz =
-        12 + Math.sin(t * (mood === "panic" ? 0.4 : 0.16) + i * 2) * 32;
-      actor.mesh.position.set(
-        ...point(gx, gz, actor.drone ? 8 + Math.sin(t + i) : 0),
-      );
-      actor.mesh.rotation.y = t * (actor.drone ? 0.3 : 0) + i;
+    if (engine.state.state !== "ride") {
+      mapOpen = false;
+      mapBlend = 0;
+      engine.state.uiFocused = false;
     }
-    carts.forEach((cart, index) => {
-      const phase = t * (chaos ? 0.45 : 0.16) + (index * Math.PI) / 2;
-      cart.position.set(
-        ...point(
-          index % 2 ? 2.6 : -2.6,
-          5 + Math.sin(phase) * 55,
-          0.08 * Math.sin(t * 2 + index),
-        ),
+    mapBlend +=
+      ((mapOpen ? 1 : 0) - mapBlend) * (reduced ? 1 : 1 - Math.exp(-dt * 3));
+    if (mapBlend > 0.001 && engine.state.state === "ride") {
+      const halfFov = (engine.camera.fov * Math.PI) / 360;
+      const height = Math.max(1030, 615 / (Math.tan(halfFov) * engine.camera.aspect));
+      mapCamera.position.set(-185, height, 350 + height * 0.39);
+      mapCamera.lookAt(-185, 0, 350);
+      engine.camera.position.lerp(mapCamera.position, mapBlend);
+      engine.camera.quaternion.slerp(mapCamera.quaternion, mapBlend);
+    }
+    // A raised near plane preserves depth precision between roads and the
+    // ground at atlas altitude. Ease it back down as the rider comes into view.
+    const near = Math.max(rideNear, (engine.camera.position.y - 100) * 0.055 * mapBlend);
+    const far = rideFar + 1700 * mapBlend;
+    if (engine.camera.near !== near || engine.camera.far !== far) {
+      engine.camera.near = near;
+      engine.camera.far = far;
+      engine.camera.updateProjectionMatrix();
+    }
+    engine.camera.updateMatrixWorld();
+    const [fogNear, fogFar] = visuals.getFogRange();
+    shared.uFogRange.value.set(fogNear + mapBlend * 2400, fogFar + mapBlend * 3450);
+    shared.uCityMap.value = mapBlend;
+    district.update(mapBlend);
+    let nearest = null,
+      nearestDistance = 110;
+    for (const record of records) {
+      const match = matches.has(record.id),
+        chosen = selected === record.id;
+      const scale =
+        (chosen ? 1.1 : match ? 1 : 0.65) +
+        (changedSources.has(record.id) && !reduced
+          ? 0.12 * (1 + Math.sin(t * 2))
+          : 0);
+      record.ring.scale.setScalar(
+        scale * (1 + (reduced ? 0 : 0.025 * Math.sin(t * 1.5 + record.phase))),
       );
-      cart.rotation.y = Math.cos(phase) > 0 ? 0 : Math.PI;
-    });
-    crystal.rotation.set(t * 0.5, t, Math.PI / 4);
-    crystal.position.y = Math.sin(t * 2) * 0.25;
-    if (t - lastNotify > 0.08) {
-      lastNotify = t;
-      const s = snapshot();
-      for (const fn of subscribers) fn(s);
+      record.ring.visible = match || chosen;
+      if (record.art) {
+        record.art.material.uniforms.clock.value = t;
+        const d = record.art.position.distanceTo(engine.camera.position);
+        if (d < nearestDistance) {
+          nearestDistance = d;
+          nearest = record.id;
+        }
+      }
+    }
+    for (const [id, v] of videos) {
+      const playing =
+        id === nearest &&
+        engine.state.state === "ride" &&
+        !mapOpen &&
+        !reduced &&
+        !document.hidden;
+      if (playing) {
+        if (v.video.paused && !v.video.error && !v.playPending && !v.blocked) {
+          v.playPending = true;
+          void v.video
+            .play()
+            .catch(() => {
+              v.blocked = true;
+            })
+            .finally(() => {
+              v.playPending = false;
+            });
+        }
+        if (v.video.readyState >= 2 && engine.state.time - lastVideo > 0.08) {
+          v.texture.needsUpdate = true;
+          v.record.art.material.uniforms.video.value = v.texture;
+          v.record.art.material.uniforms.hasVideo.value = 1;
+        }
+      } else {
+        v.video.pause();
+        v.blocked = false;
+        v.record.art.material.uniforms.hasVideo.value = 0;
+      }
+    }
+    if (engine.state.time - lastVideo > 0.08) lastVideo = engine.state.time;
+    if (engine.state.state !== lastNotifiedState || engine.state.time - lastNotify > 0.08) {
+      lastNotifiedState = engine.state.state;
+      lastNotify = engine.state.time;
+      for (const fn of subscribers) fn(snapshot());
     }
   };
   window.__webworldEngine = api;

@@ -60,7 +60,7 @@ window.fetch = async (
   diagnostics.apiCalls.push({ path: url.pathname, method });
   if (url.pathname.startsWith("/_vercel/insights/"))
     return new Response(null, { status: 204 });
-  if (url.pathname === "/api/sync" || url.pathname === "/api/status")
+  if (url.pathname.startsWith("/api/startups") || url.pathname === "/api/sync" || url.pathname === "/api/status")
     return originalFetch(input, init);
   if (url.pathname === "/api/presence")
     return json({ count: 1, best: board().top[0]?.score ?? 0 });

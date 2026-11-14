@@ -18,3 +18,11 @@ noise and dab shaders. Changes: existing-engine type imports via `three.js`, exp
 vertex buffers instead of instanced geometry, use of the existing sky projection,
 a 1,200m sky shell, and sky-wash/impasto/gain compensation for WEBWORLD's filmic finish.
 The reference's globe geometry, separate renderer, character and physics are not used.
+
+`autumn-sky.js` adapts the sky wash and camera-relative brush strokes from
+`src/world/sky.js`. `foliage.js` adapts the five autumn pigment families,
+layered crowns, backlighting and drifting leaves from `src/world/forest.js` and
+`src/world/leaves.js`. These run on Helsinki's existing mapped tree centres,
+with indexed brush cards batched into map tiles. The reference's woodland layout
+and physics are not imported. `canopy-shade.js` adds a local ground-shadow atlas;
+`environment.js` manages the two presentations without changing the map or player.

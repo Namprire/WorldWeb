@@ -14085,6 +14085,7 @@ function ra() {
     uHillReveal: { value: 0 },
     uFogColor: { value: new i(0.034, 0.06, 0.17) },
     uFogRange: { value: new r(170, fe.hillRadius - 8) },
+    uCityMap: { value: 0 },
     uMoonDir: { value: new W(0.4, 0.5, -0.76).normalize() },
     uMoonCol: { value: new i(0.34, 0.5, 0.95) },
     uAmbSky: { value: new i(0.06, 0.12, 0.36) },
@@ -16109,6 +16110,7 @@ uniform float uGlow;
 uniform float uAlive;
 uniform vec3 uFogColor;
 uniform vec2 uFogRange;
+uniform float uCityMap;
 uniform vec3 uMoonDir;
 uniform vec3 uMoonCol;
 uniform vec3 uAmbSky;
@@ -16190,6 +16192,19 @@ void main() {
   vec3 V = normalize(cameraPosition - vWorld);
   vec3 base = vColor;
   ${helsinkiSurfacePalette}
+
+  // A muted atlas palette keeps building outlines and shoreline legible
+  // when the camera pulls far above the painted night scene.
+  vec3 mapColor = vec3(0.84, 0.78, 0.67);
+  if (kind == 1.0 || kind == 2.0) mapColor = mix(mapColor, vec3(0.63, 0.49, 0.39), 0.35 + seed * 0.38);
+  else if (kind == 19.0) mapColor = vec3(0.025, 0.11, 0.37);
+  else if (kind == 20.0) mapColor = vec3(0.94, 0.90, 0.82);
+  else if (kind == 5.0 || kind == 13.0 || kind == 8.0 || kind == 9.0) mapColor = vec3(0.50, 0.65, 0.44);
+  mapColor *= 0.79 + 0.21 * max(0.0, dot(N, normalize(vec3(-0.4, 0.8, 0.4))));
+  if (uCityMap > 0.995) {
+    gl_FragColor = vec4(mapColor, 1.0);
+    return;
+  }
   vec2 uvx = dFdx(vUv), uvy = dFdy(vUv);
   vec3 pdx = dFdx(vPos), pdy = dFdy(vPos);
 
@@ -16721,6 +16736,7 @@ void main() {
   float fogF = pow(smoothstep(uFogRange.x, uFogRange.y, vDist), 1.5);
   col = mix(col, uFogColor, fogF * 0.97);
   col += e * (1.0 - fogF * 0.86);
+  col = mix(col, mapColor, uCityMap);
   gl_FragColor = vec4(col, 1.0);
 }
 `;
@@ -16734,6 +16750,7 @@ function io(e, { dynamic: t = !1, walker: n = !1 } = {}) {
       uAlive: e.uAlive,
       uFogColor: e.uFogColor,
       uFogRange: e.uFogRange,
+      uCityMap: e.uCityMap,
       uMoonDir: e.uMoonDir,
       uMoonCol: e.uMoonCol,
       uAmbSky: e.uAmbSky,
@@ -23473,6 +23490,7 @@ var Au = kc(Y(`map`), {
 var Mu = new W(0, Math.sin(B.pitch), -Math.cos(B.pitch)),
   Nu = { gx: we.church.gx, gz: we.church.gz - 60 };
 function Pu() {
+  Z.titleStillReady = false;
   let e = window.innerWidth,
     t = window.innerHeight;
   ((Z.view.W = e), (Z.view.H = t));
@@ -24306,6 +24324,12 @@ function Ud(e = 0.016) {
     (Xl.uHeadPower.value = 2.4 * Z.alive));
 }
 function Wd(e) {
+  // The title is a still painting of this same scene. Resume its clock on
+  // the first dive frame, so the artwork comes alive without swapping images.
+  if (Z.state === `title`) {
+    if (Z.titleStillReady && !Z.loading) return;
+    e = 0;
+  } else Z.titleStillReady = false;
   ((Z.time += e), (Xl.uTime.value = Z.time), Tu.update(Z.time));
   let t = Nu.gx,
     n = Nu.gz,
@@ -24370,7 +24394,7 @@ function Wd(e) {
         ((X.wings = !0), (X.vy = 9), (X.grounded = !1)));
     let i = vu.aside || Su.engaged();
     if (
-      (X.update(e, i ? Od : Tu),
+      (!Z.uiFocused && X.update(e, i ? Od : Tu),
       i && X.grounded && (X.speed *= Math.exp(-7 * e)),
       Ud(e),
       Cd(e),
@@ -24469,6 +24493,7 @@ function Wd(e) {
     $l.update(Ql));
   let a = Z.state === `title` && Z.titleMix >= 0.999 && !Z.loading;
   Z.blind || tu.render(Zl, Ql, Z.time, a);
+  if (Z.state === `title` && !Z.loading && !Z.blind) Z.titleStillReady = true;
 }
 var Gd = performance.now(),
   Kd = {
