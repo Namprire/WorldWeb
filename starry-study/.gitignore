@@ -1,7 +1,0 @@
-node_modules/
-prototype/node_modules/
-prototype/dist/
-reproduction/node_modules/
-reproduction/dist/
-.venv/
-.DS_Store
