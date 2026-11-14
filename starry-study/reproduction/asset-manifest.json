@@ -1,0 +1,847 @@
+{
+  "source": "public deployment captured 2026-11-14",
+  "authorization": "User explicitly confirmed permission to reuse original code and modified graphics in this conversation. Not independently legally verified.",
+  "assets": [
+    {
+      "url": "https://starrynightrider.com/assets/hails-DeolUH4Z.js",
+      "path": "assets/hails-DeolUH4Z.js",
+      "bytes": 7323,
+      "sha256": "fa0573aaf441d3ae8f9844c10429175a67f81af27067325eec4129aaeef34e2e",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/assets/index-DHKFK6Tp.css",
+      "path": "assets/index-DHKFK6Tp.css",
+      "bytes": 34470,
+      "sha256": "403b7df508f3f0aaa13d5977b49e2310c039c24e0fa9b0cbba2e7057024b833f",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/assets/kit-DsD4Rc8o.js",
+      "path": "assets/kit-DsD4Rc8o.js",
+      "bytes": 293030,
+      "sha256": "a8b07f5c0a4e1b87879a251150710376621f7d4aabe95f08cffbf0bff773f553",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/assets/index-BY2CcXjY.js",
+      "path": "assets/index-BY2CcXjY.js",
+      "bytes": 599650,
+      "sha256": "4353838061d02a38f2e0cdef07bcad0054b3f3ae4ba2d1754bbfbcf5a5aba324",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/fill.png",
+      "path": "fill.png",
+      "bytes": 96093,
+      "sha256": "dd60a54639f0df72ef5063563cbe2e31a17bd24ee7e8dd6cce88fbfc969b5089",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/cypress.png",
+      "path": "cypress.png",
+      "bytes": 98601,
+      "sha256": "e1263df868b0a8cfbd452fde63039438c1c255e1b4137c113a83eda0314ebc3a",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/flow.png",
+      "path": "flow.png",
+      "bytes": 300814,
+      "sha256": "0587d078755cf380aa6074776ca7f13b105fa1f76090528baae9c44f17e09d9f",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/sky.webp",
+      "path": "sky.webp",
+      "bytes": 1215302,
+      "sha256": "6c2bdae167cce22be916c5bf43e3823467077fde5f8997f56c89321eb089d121",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/painting.webp",
+      "path": "painting.webp",
+      "bytes": 1353426,
+      "sha256": "136ecea55578e046613134ad11ab55446495c2a578da08db281e209838720669",
+      "provenance": "captured public bytes; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.0.mp3",
+      "path": "hails/bill.0.mp3",
+      "bytes": 22403,
+      "sha256": "eeedbcf9ca8c564a01bef87be78b3122d44ab37fd45c37fa5c6a6cf3c615c3fb",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.1.mp3",
+      "path": "hails/bill.1.mp3",
+      "bytes": 30554,
+      "sha256": "9a2efca498111c0db837f73dbf9b29ad2d0421d183dbb0c9c6c24ab553daf2f2",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.10.mp3",
+      "path": "hails/bill.10.mp3",
+      "bytes": 35151,
+      "sha256": "f2c3da802a4021830d0b77efc37f1c173668bced150be66d1aa9c04199db7783",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.11.mp3",
+      "path": "hails/bill.11.mp3",
+      "bytes": 22403,
+      "sha256": "d015f675a16de26002f240cfbf4c92f5edd4122733d086bbc6b00aef8837bfb4",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.2.mp3",
+      "path": "hails/bill.2.mp3",
+      "bytes": 27419,
+      "sha256": "b678cef337b450a086e8364ee0943e95bca0a80551d721336d683d067ede7af1",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.3.mp3",
+      "path": "hails/bill.3.mp3",
+      "bytes": 29300,
+      "sha256": "9d255d8b73624dd7234311eddbec13f01c25d0de06645282b5b5aa6e51544000",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.4.mp3",
+      "path": "hails/bill.4.mp3",
+      "bytes": 19060,
+      "sha256": "ef39b3e5944d1db79742a59b04f02bc23991753ec1724c8161dcdd4b2cc927c0",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.5.mp3",
+      "path": "hails/bill.5.mp3",
+      "bytes": 29300,
+      "sha256": "d99d2ae68254d7fffb2bd4d6d2ec1782c3768af02934af11d904ed5871e68e59",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.6.mp3",
+      "path": "hails/bill.6.mp3",
+      "bytes": 30554,
+      "sha256": "5394e61c98fd028527e4876d3fe45a2c6a805183a22da044014d58e0f68a071b",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.7.mp3",
+      "path": "hails/bill.7.mp3",
+      "bytes": 33270,
+      "sha256": "b6d758ebdd32921365010d010bfdc8c5fc6cfada3fc2290eee3f492c58d15004",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.8.mp3",
+      "path": "hails/bill.8.mp3",
+      "bytes": 33897,
+      "sha256": "cc4f3b8f43cc9fa99681109c30cf72c2076c9d16c9eb789e250acb8f31d625cf",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/bill.9.mp3",
+      "path": "hails/bill.9.mp3",
+      "bytes": 28673,
+      "sha256": "f4d093e4db1c5c9942e1ebcf4b23c29c0430bd89405128ae7d75d2b3e73d1566",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.0.mp3",
+      "path": "hails/brian.0.mp3",
+      "bytes": 33897,
+      "sha256": "ab4822e64af7a248fc5cc9d3da242224e06efac46aea2b20ae4cb0ff49af1477",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.1.mp3",
+      "path": "hails/brian.1.mp3",
+      "bytes": 22403,
+      "sha256": "e27dd0d77917271bb9d8ff96ba4198dacf2a2fa6beecdc7035dd920e41e6f5a8",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.10.mp3",
+      "path": "hails/brian.10.mp3",
+      "bytes": 32016,
+      "sha256": "4be86a14ed15ee498acf7ae044b283d781b905471e24ba41679c2399322ae638",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.11.mp3",
+      "path": "hails/brian.11.mp3",
+      "bytes": 31180,
+      "sha256": "ae74f3325804d3297fb036fe761551ad363c81e6b54aab965921b8f82c92ecdf",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.2.mp3",
+      "path": "hails/brian.2.mp3",
+      "bytes": 27419,
+      "sha256": "9830eefc0a3684719514e51bc95dfec729247b3b434ce6c5e6516ada76be3c3f",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.3.mp3",
+      "path": "hails/brian.3.mp3",
+      "bytes": 31180,
+      "sha256": "4a53f1ea91d7ffbcf2b51bab0a1a09fa959803bf04d825749512b782c270d6fd",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.4.mp3",
+      "path": "hails/brian.4.mp3",
+      "bytes": 26165,
+      "sha256": "c151fbba1944d1c9cf4ead1b8edc42dc60621d2ad765228665da446dab9b47db",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.5.mp3",
+      "path": "hails/brian.5.mp3",
+      "bytes": 24284,
+      "sha256": "57b64cd519e5635ac072128d8b9723a7942f1c0a98a84a8d528528f229a9b2aa",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.6.mp3",
+      "path": "hails/brian.6.mp3",
+      "bytes": 35778,
+      "sha256": "cde984bdd5a03ed7c99dc390d72512fdc04c3df5a47b5fe0ff29a7d005274dd0",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.7.mp3",
+      "path": "hails/brian.7.mp3",
+      "bytes": 24284,
+      "sha256": "1fd33a1a8a13e9a3ff2f9117c6d6726cceb950e584760f9225763801cca59aaf",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.8.mp3",
+      "path": "hails/brian.8.mp3",
+      "bytes": 27419,
+      "sha256": "9cb78fec9b22d798a9a0952e96f20983ba90b98773e2af53ba84036b9442133d",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/brian.9.mp3",
+      "path": "hails/brian.9.mp3",
+      "bytes": 25538,
+      "sha256": "22f4a3aa9d418b9bc6f8437ad2fc8f61e4224da60a6974e06a4b4ec80a97760c",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.0.mp3",
+      "path": "hails/callum.0.mp3",
+      "bytes": 36405,
+      "sha256": "082c868ef17d2aae164f5d4110310c1b504cbedbd32fea9efc34494e0459db5f",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.1.mp3",
+      "path": "hails/callum.1.mp3",
+      "bytes": 44764,
+      "sha256": "8dbd6fb9d1e49dc1af42a1727da0141edbe1f3790924549e781e3293ec9c070b",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.10.mp3",
+      "path": "hails/callum.10.mp3",
+      "bytes": 40794,
+      "sha256": "c3c4031f72496b27512e3f86bfb9b8383f8528d14a4c29e04f2e7041993b56b5",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.11.mp3",
+      "path": "hails/callum.11.mp3",
+      "bytes": 46018,
+      "sha256": "fc03aa1ccafe32899a7409d221f317d6dddbce6a787151921106d587255892ee",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.2.mp3",
+      "path": "hails/callum.2.mp3",
+      "bytes": 36405,
+      "sha256": "32602fa5ce97f0e4a7c6310ceaac09c0c70d1130d90d139b4e83019af8f52426",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.3.mp3",
+      "path": "hails/callum.3.mp3",
+      "bytes": 45391,
+      "sha256": "3c278bb7d3a460240dbe197e2f2c254d2068a0b4d18735ef095fc6e47d54d9fd",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.4.mp3",
+      "path": "hails/callum.4.mp3",
+      "bytes": 40167,
+      "sha256": "3a67b9010b5719ddd754e7948ba0fd8d400930c0052a3329f3c826c95b15277f",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.5.mp3",
+      "path": "hails/callum.5.mp3",
+      "bytes": 56258,
+      "sha256": "6acf410da0cceb9d2ca8c06878eed55777c5b780f52f5ab2eae97de89a9071ed",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.6.mp3",
+      "path": "hails/callum.6.mp3",
+      "bytes": 40794,
+      "sha256": "3fc07be6a9a7a6ecde4bbd5ea53612b4777c698d038a2c654febaf53adb76fca",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.7.mp3",
+      "path": "hails/callum.7.mp3",
+      "bytes": 40794,
+      "sha256": "b830277b0adc904794a5edaeb7fe958adc1e636e72923b5e4a4b0fa604a53a76",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.8.mp3",
+      "path": "hails/callum.8.mp3",
+      "bytes": 44764,
+      "sha256": "fab38753205386c2c67928565bf48436230ca71162e2fe8bbd462b521977e08a",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/callum.9.mp3",
+      "path": "hails/callum.9.mp3",
+      "bytes": 37659,
+      "sha256": "54805c7553fc22f4e0b1156459ca492daab1010b080de2df29aec53c6b4bb5f9",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.0.mp3",
+      "path": "hails/chris.0.mp3",
+      "bytes": 21776,
+      "sha256": "6964208c543fcb07763a5eaa01800fe66142e542303e091b66f8ab981967e53f",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.1.mp3",
+      "path": "hails/chris.1.mp3",
+      "bytes": 31180,
+      "sha256": "4ef495c9ae0cc91be25831f6a32ea7509594dc34386c904a9da0eee0f10028ba",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.10.mp3",
+      "path": "hails/chris.10.mp3",
+      "bytes": 29927,
+      "sha256": "2f81206ebedaca1790dddde89566c41954bfd8bf9818ab67c47a99be5db4091e",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.11.mp3",
+      "path": "hails/chris.11.mp3",
+      "bytes": 22403,
+      "sha256": "1c810d64071915ccd5dc62a90d66ef601290e5dc319a2fd1683f493426e0ed04",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.2.mp3",
+      "path": "hails/chris.2.mp3",
+      "bytes": 20940,
+      "sha256": "3a7ff4ce395b0c08309fa2ff5381c5b543099870737c7c7150ca85be88f64184",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.3.mp3",
+      "path": "hails/chris.3.mp3",
+      "bytes": 34524,
+      "sha256": "e58e34e7e6b12278dad6ceaf47a731073b2d3d423ee90eccfce3c16d084c5730",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.4.mp3",
+      "path": "hails/chris.4.mp3",
+      "bytes": 23030,
+      "sha256": "71e52abd75b19ce82e3740fb811a9b19f626d770c3701ea1abc59bc28337184a",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.5.mp3",
+      "path": "hails/chris.5.mp3",
+      "bytes": 29300,
+      "sha256": "4e27170b5d08b2bbb3f3760c6f02e815f754af6581c5558bd5f54ad35d129aa5",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.6.mp3",
+      "path": "hails/chris.6.mp3",
+      "bytes": 24284,
+      "sha256": "f669f49a8bb4b907558599d455e7960a19f423e383c98b39ac21385d202b5792",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.7.mp3",
+      "path": "hails/chris.7.mp3",
+      "bytes": 28673,
+      "sha256": "78a24e717eb2debbb9f5f44ddde1584aa54757c809c2f76d3c3376b0cc652b12",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.8.mp3",
+      "path": "hails/chris.8.mp3",
+      "bytes": 22403,
+      "sha256": "16485cb1cdb15b30bbd8e10ae6ebbb5a050d14a0efc5855861617ec9500791ea",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/chris.9.mp3",
+      "path": "hails/chris.9.mp3",
+      "bytes": 23657,
+      "sha256": "eff221bcb4831eb68d259127346a7504658dd64d53cc1feaf8e803a17d2bd455",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.0.mp3",
+      "path": "hails/george.0.mp3",
+      "bytes": 27419,
+      "sha256": "55d7157adee53481da7f244ea574101c441a787a3c84976f893050beca45a7bd",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.1.mp3",
+      "path": "hails/george.1.mp3",
+      "bytes": 28046,
+      "sha256": "9117fa0dd12da8aae784820890a92538ef25b0b13b35086da446f96079f528e3",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.10.mp3",
+      "path": "hails/george.10.mp3",
+      "bytes": 28046,
+      "sha256": "ddb97fdfb291015428280c7ff3ac2f48b67f39b3a47271ee51dbed2c49b2ce0d",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.11.mp3",
+      "path": "hails/george.11.mp3",
+      "bytes": 31180,
+      "sha256": "5a0df67862f62210c9dc2c5b6bacb12be5698238cdd12d9fdc9c01c04cce645d",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.2.mp3",
+      "path": "hails/george.2.mp3",
+      "bytes": 27419,
+      "sha256": "21a04db749ce01fce02f34251b8ed99fff77aff536e020c43f107c370e2cc61f",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.3.mp3",
+      "path": "hails/george.3.mp3",
+      "bytes": 25538,
+      "sha256": "e4e59b48c2f1d4f2d6415c77c82173bf0d508186e88f3dcc81b5d7d30c12f493",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.4.mp3",
+      "path": "hails/george.4.mp3",
+      "bytes": 32643,
+      "sha256": "1499eb0ff4c7ad368f4f8bc9ffa10f6aec5f6f9cb6891fd59becd4e517f94fdf",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.5.mp3",
+      "path": "hails/george.5.mp3",
+      "bytes": 25538,
+      "sha256": "4ebe0365085785eb43d7607f4f401eb03516f766488bf2e8acb4af1d2e2be801",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.6.mp3",
+      "path": "hails/george.6.mp3",
+      "bytes": 16552,
+      "sha256": "280ee68d4748eea55835ff66bec8effef6d54f29e1d1141e5dba0e8464470097",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.7.mp3",
+      "path": "hails/george.7.mp3",
+      "bytes": 27419,
+      "sha256": "e8926933beaa8ccf799696eeccff3355fcc62682ff35f6e29a7363809f3d61b8",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.8.mp3",
+      "path": "hails/george.8.mp3",
+      "bytes": 30554,
+      "sha256": "8bf88cab7e307904601d348db42529e0e9b52dccee5673c4af71566c2af1f24c",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.9.mp3",
+      "path": "hails/george.9.mp3",
+      "bytes": 31180,
+      "sha256": "756e812667bf56d22b4748143e43e047ee964ec33c6046cb2a57215bf8e58067",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.0.mp3",
+      "path": "hails/jessica.0.mp3",
+      "bytes": 25538,
+      "sha256": "897ec9cdf3271f802cbf8a241f184cc7756dd1a4d920f6536605335799d8ba3f",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.1.mp3",
+      "path": "hails/jessica.1.mp3",
+      "bytes": 35778,
+      "sha256": "5f674eb571ec2a2f5008cb07d67a17fac752f17c6eb434029d987625faca1b05",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.10.mp3",
+      "path": "hails/jessica.10.mp3",
+      "bytes": 28673,
+      "sha256": "31837bd9752df4d75749e1b8f663d58fbb4004d94164a72738ba6aba9324057c",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.11.mp3",
+      "path": "hails/jessica.11.mp3",
+      "bytes": 24911,
+      "sha256": "6921f72c6b8270441d42a5ea7e029c317f314705cef345d1d2edd9e0ba4f3691",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.2.mp3",
+      "path": "hails/jessica.2.mp3",
+      "bytes": 29300,
+      "sha256": "a11c51ab1a7a3c050fdec7479521ece1cc0b9dac9c63ccc99a9a7aa23077f3b3",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.3.mp3",
+      "path": "hails/jessica.3.mp3",
+      "bytes": 24284,
+      "sha256": "f48012ce29647ec5f40a17a13a7e985f5d1f3d2fcf0acdf6ff03fb711eede050",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.4.mp3",
+      "path": "hails/jessica.4.mp3",
+      "bytes": 37032,
+      "sha256": "11ad5b3952a4a2a4009856f2cdf2e32d8fbc897ff2547324e85a374d5356c76f",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.5.mp3",
+      "path": "hails/jessica.5.mp3",
+      "bytes": 20940,
+      "sha256": "8d6f7a72048f8a7f988a7adb83afe83a50cab703c70752c18e333e06efacfe40",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.6.mp3",
+      "path": "hails/jessica.6.mp3",
+      "bytes": 28673,
+      "sha256": "a036ac015fe1925cbfd53d3c50fd918edabb7013edb1e70a42ac377c6247946d",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.7.mp3",
+      "path": "hails/jessica.7.mp3",
+      "bytes": 24284,
+      "sha256": "4bc761c5cf5e0e5d79fe5cb9f7fb588fe9cc7d37edda8b587973cd47438ccac2",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.8.mp3",
+      "path": "hails/jessica.8.mp3",
+      "bytes": 28046,
+      "sha256": "ce44d20f52f3fa1b78cd960acb605393ed4e6afb26e810b4cbec1bcaba8879ea",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/jessica.9.mp3",
+      "path": "hails/jessica.9.mp3",
+      "bytes": 25538,
+      "sha256": "02e3a7fa3f3ae20ad878fc01cfcaba485ee8f24dc1998be4fa6caf747f1d1f8a",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.0.mp3",
+      "path": "hails/laura.0.mp3",
+      "bytes": 32016,
+      "sha256": "3363b8c4434cf2e4aa4467713286609c7c97f217daceaecedff9ed2921f8b1a2",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.1.mp3",
+      "path": "hails/laura.1.mp3",
+      "bytes": 26792,
+      "sha256": "83d171bd73e78a4de1a91ad2ad1a5d8a583186d7f97ee7b46eacfe993a14ae30",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.10.mp3",
+      "path": "hails/laura.10.mp3",
+      "bytes": 30554,
+      "sha256": "f2cc9b9d55b51c811e495168625cd73b8e3f98eebeee76ebcb061d2517d408d0",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.11.mp3",
+      "path": "hails/laura.11.mp3",
+      "bytes": 24911,
+      "sha256": "f08cf5510ce2f7378a8546b9c81e837260976d13f60f6d9183825dd8a4d17538",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.2.mp3",
+      "path": "hails/laura.2.mp3",
+      "bytes": 24911,
+      "sha256": "77146aab289b7c326e92220e6aba089657fca5d2bd38fd52287dd520cfb4867b",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.3.mp3",
+      "path": "hails/laura.3.mp3",
+      "bytes": 30554,
+      "sha256": "c86815591eff7b72a8559dfa3bab9ff047c940d7e5ffc7288f18d71afb4c8c12",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.4.mp3",
+      "path": "hails/laura.4.mp3",
+      "bytes": 30554,
+      "sha256": "9ea4afeb3eb5c4e6a506a4e462c3f7992a909bbfe51b3c1e3b41bf0e1e62eca8",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.5.mp3",
+      "path": "hails/laura.5.mp3",
+      "bytes": 24911,
+      "sha256": "e45e6717cc63d710e0aa79f5acd1556729bd11e04afd1dfb9acc8aa208d01178",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.6.mp3",
+      "path": "hails/laura.6.mp3",
+      "bytes": 28673,
+      "sha256": "eba8023f5ad6759b94ffc1eb98d7d84c862a88be29760bd653fcb6b433b2aa54",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.7.mp3",
+      "path": "hails/laura.7.mp3",
+      "bytes": 33270,
+      "sha256": "136aed48e2cbc855842d73e22e9e8afa8bd3eeba84b8b7400049df587076d6ba",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.8.mp3",
+      "path": "hails/laura.8.mp3",
+      "bytes": 28046,
+      "sha256": "a69b30a3c1333a6dde859c4e19c9abfe1c30cb4ecd87c77c84374e9321fac2e2",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.9.mp3",
+      "path": "hails/laura.9.mp3",
+      "bytes": 33897,
+      "sha256": "3d10bb59f844669f2f7b109948c1920975dfd5afa16dc46a3f8cac296943e3c6",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.0.mp3",
+      "path": "hails/lily.0.mp3",
+      "bytes": 28046,
+      "sha256": "f7f10d3670af38d70c12537bd165a13e4a85384a12b12eed8c7f710a688a3094",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.1.mp3",
+      "path": "hails/lily.1.mp3",
+      "bytes": 28046,
+      "sha256": "2698b93d83abec663e48b300f5644c3b5f6c695c426c763c5643d8abd0450616",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.10.mp3",
+      "path": "hails/lily.10.mp3",
+      "bytes": 22403,
+      "sha256": "8cfdf367c6f405d20f923ea61d598092c71ab456c22922357103aa5fe21cedee",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.11.mp3",
+      "path": "hails/lily.11.mp3",
+      "bytes": 22403,
+      "sha256": "649dd0ef03bb2fb5032680f62c4db0845e202c2f2d8362fce4766506330e9cec",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.2.mp3",
+      "path": "hails/lily.2.mp3",
+      "bytes": 29927,
+      "sha256": "c13e71c7ec19ef4e19e81ef515eaf30072154414603a9b3abf0b0c05da26dc20",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.3.mp3",
+      "path": "hails/lily.3.mp3",
+      "bytes": 27419,
+      "sha256": "5f05447eb1098016ad5122e88bb9fac777324b5925d70eb44e9386faa972c333",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.4.mp3",
+      "path": "hails/lily.4.mp3",
+      "bytes": 26165,
+      "sha256": "03eb28ac953d3682bc48b3b7839a4e4d5abd04623734f1814821809a2b459cd1",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.5.mp3",
+      "path": "hails/lily.5.mp3",
+      "bytes": 28673,
+      "sha256": "0d96cfd5f49e9df52790e596f3f3d39de5d56182485d01499a543e5b3f87e2ad",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.6.mp3",
+      "path": "hails/lily.6.mp3",
+      "bytes": 19060,
+      "sha256": "cb923a4a5a758844686f7f596b5fd9d97b9ab8bba5852365bb61dfc65c407b91",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.7.mp3",
+      "path": "hails/lily.7.mp3",
+      "bytes": 31180,
+      "sha256": "9621c9705d118f2505f27ce2439747c2353cfdbfa507363aaf5bbf784a18efab",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.8.mp3",
+      "path": "hails/lily.8.mp3",
+      "bytes": 27419,
+      "sha256": "96b05110e6bb252a20fcfe640cc40190b655ac3bf14868bd144ebbe36bf8a87d",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/lily.9.mp3",
+      "path": "hails/lily.9.mp3",
+      "bytes": 29300,
+      "sha256": "15fc88e6c4700a540fc1dcec387a8a940d5eea327132352b995819b13c5d4a99",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.0.mp3",
+      "path": "hails/matilda.0.mp3",
+      "bytes": 18433,
+      "sha256": "0bb82a7026c0a84aa026d59f8c6f514629888ce7af690edc7942e3a9c3c7526c",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.1.mp3",
+      "path": "hails/matilda.1.mp3",
+      "bytes": 37659,
+      "sha256": "523b8d00ab0fb8aed2772e953435338b8ebac81c21f6e4dafd5622acafb808af",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.10.mp3",
+      "path": "hails/matilda.10.mp3",
+      "bytes": 33270,
+      "sha256": "ebc212a77d29b187fb61573f1fb6cd8afbb3c5f02e2d835bca89bfdd13c167fb",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.11.mp3",
+      "path": "hails/matilda.11.mp3",
+      "bytes": 32016,
+      "sha256": "6d4610d21960e45a7a60ca0cc956e2be16558f8c50dd72beed5d0b7ef8d054c9",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.2.mp3",
+      "path": "hails/matilda.2.mp3",
+      "bytes": 32016,
+      "sha256": "fd58fe897865a7eec144a83c8326e2e6c529a532923ba3f37108f4243870aba2",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.3.mp3",
+      "path": "hails/matilda.3.mp3",
+      "bytes": 23657,
+      "sha256": "98d4dd01e5b059a1a9129c9b5e9a216f9c7f0b04f3dd01ebf49b24e3fad88d7d",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.4.mp3",
+      "path": "hails/matilda.4.mp3",
+      "bytes": 23657,
+      "sha256": "9faf6cb9ab7cf8a7d55509907196b360fc96d5f1850fe9da5b86ebdf5d45cfa6",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.5.mp3",
+      "path": "hails/matilda.5.mp3",
+      "bytes": 20940,
+      "sha256": "3127210e01c2581be73dba8d610e0874d8578ef0561a032d9511c6c9347a9602",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.6.mp3",
+      "path": "hails/matilda.6.mp3",
+      "bytes": 25538,
+      "sha256": "894279f0d0cb74bf963d14bb0f450b0a4d96dc278c66553baa338710e99d0a01",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.7.mp3",
+      "path": "hails/matilda.7.mp3",
+      "bytes": 28673,
+      "sha256": "a0ed8b97dd63a54a00a60b210b215dd7a2457308cb6e2bcc4299e8203f695722",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.8.mp3",
+      "path": "hails/matilda.8.mp3",
+      "bytes": 20940,
+      "sha256": "9aa883e4e77f9fce07289d8c8bca52c4b3fab8c309a25672c7ff407c72212e94",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.9.mp3",
+      "path": "hails/matilda.9.mp3",
+      "bytes": 26792,
+      "sha256": "4616c102d7b7eaac13d49596ecf4b3f7194ae2ece0cc19b29f3580ff0913fd52",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/painting-s.webp",
+      "path": "painting-s.webp",
+      "bytes": 683952,
+      "sha256": "fe8b49caa3de3636458d5a1bd64ef4e7c8c590b79eccf764fcc483e1fe737275",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/sky-s.webp",
+      "path": "sky-s.webp",
+      "bytes": 651644,
+      "sha256": "2d38e3695609a1be96f76be81f270da4e116653f895350bd1110b64127f600eb",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    },
+    {
+      "url": "https://starrynightrider.com/og-painting.jpg",
+      "path": "og-painting.jpg",
+      "bytes": 237379,
+      "sha256": "8e03ef256c0eedf1a8d3aaca5db973a64910b7f6e3921e885e85b803c35e81bc",
+      "provenance": "explicit public asset reference; user confirmed reuse permission"
+    }
+  ],
+  "failures": []
+}

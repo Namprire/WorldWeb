@@ -1,0 +1,307 @@
+{
+  "started": "2026-11-14T01:45:41.030Z",
+  "network": [
+    {
+      "url": "https://starrynightrider.com/",
+      "status": 200,
+      "type": "document",
+      "mime": "text/html; charset=utf-8",
+      "contentLength": null,
+      "decodedBytes": 9526,
+      "sha256": "ca8697f85ba0a6f10fa3f039d8ec5b1c5f9dbc99706b30a8ec1682c71d03477b",
+      "local": "raw/index.html"
+    },
+    {
+      "url": "https://starrynightrider.com/assets/hails-DeolUH4Z.js",
+      "status": 200,
+      "type": "script",
+      "mime": "application/javascript; charset=utf-8",
+      "contentLength": null,
+      "decodedBytes": 7323,
+      "sha256": "fa0573aaf441d3ae8f9844c10429175a67f81af27067325eec4129aaeef34e2e",
+      "local": "raw/hails-DeolUH4Z.js"
+    },
+    {
+      "url": "https://starrynightrider.com/assets/index-DHKFK6Tp.css",
+      "status": 200,
+      "type": "stylesheet",
+      "mime": "text/css; charset=utf-8",
+      "contentLength": null,
+      "decodedBytes": 34470,
+      "sha256": "403b7df508f3f0aaa13d5977b49e2310c039c24e0fa9b0cbba2e7057024b833f",
+      "local": "raw/index-DHKFK6Tp.css"
+    },
+    {
+      "url": "https://starrynightrider.com/assets/kit-DsD4Rc8o.js",
+      "status": 200,
+      "type": "script",
+      "mime": "application/javascript; charset=utf-8",
+      "contentLength": null,
+      "decodedBytes": 293030,
+      "sha256": "a8b07f5c0a4e1b87879a251150710376621f7d4aabe95f08cffbf0bff773f553",
+      "local": "raw/kit-DsD4Rc8o.js"
+    },
+    {
+      "url": "https://starrynightrider.com/assets/index-BY2CcXjY.js",
+      "status": 200,
+      "type": "script",
+      "mime": "application/javascript; charset=utf-8",
+      "contentLength": null,
+      "decodedBytes": 599650,
+      "sha256": "4353838061d02a38f2e0cdef07bcad0054b3f3ae4ba2d1754bbfbcf5a5aba324",
+      "local": "raw/index-BY2CcXjY.js"
+    },
+    {
+      "url": "https://starrynightrider.com/fill.png",
+      "status": 200,
+      "type": "image",
+      "mime": "image/png",
+      "contentLength": "96093",
+      "decodedBytes": 96093,
+      "sha256": "dd60a54639f0df72ef5063563cbe2e31a17bd24ee7e8dd6cce88fbfc969b5089",
+      "local": "raw/fill.png"
+    },
+    {
+      "url": "https://starrynightrider.com/cypress.png",
+      "status": 200,
+      "type": "image",
+      "mime": "image/png",
+      "contentLength": "98601",
+      "decodedBytes": 98601,
+      "sha256": "e1263df868b0a8cfbd452fde63039438c1c255e1b4137c113a83eda0314ebc3a",
+      "local": "raw/cypress.png"
+    },
+    {
+      "url": "https://starrynightrider.com/_vercel/insights/script.js",
+      "status": 200,
+      "type": "script",
+      "mime": "application/javascript; charset=utf-8",
+      "contentLength": null,
+      "decodedBytes": 4522,
+      "sha256": "050e35bf7e6e96590f2a9de114c14ff792806ed28457b3248762944350c0ba4c",
+      "local": "raw/script.js"
+    },
+    {
+      "url": "https://starrynightrider.com/flow.png",
+      "status": 200,
+      "type": "image",
+      "mime": "image/png",
+      "contentLength": "300814",
+      "decodedBytes": 300814,
+      "sha256": "0587d078755cf380aa6074776ca7f13b105fa1f76090528baae9c44f17e09d9f",
+      "local": "raw/flow.png"
+    },
+    {
+      "url": "https://starrynightrider.com/sky.webp",
+      "status": 200,
+      "type": "image",
+      "mime": "image/webp",
+      "contentLength": "1215302",
+      "decodedBytes": 1215302,
+      "sha256": "6c2bdae167cce22be916c5bf43e3823467077fde5f8997f56c89321eb089d121",
+      "local": "raw/sky.webp"
+    },
+    {
+      "url": "https://starrynightrider.com/painting.webp",
+      "status": 200,
+      "type": "image",
+      "mime": "image/webp",
+      "contentLength": "1353426",
+      "decodedBytes": 1353426,
+      "sha256": "136ecea55578e046613134ad11ab55446495c2a578da08db281e209838720669",
+      "local": "raw/painting.webp"
+    },
+    {
+      "url": "https://starrynightrider.com/api/leaderboard",
+      "status": 200,
+      "type": "fetch",
+      "mime": "application/json; charset=utf-8",
+      "contentLength": null
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1879925254300340224/bRoxqCMV_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "3329"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1814352642107383810/FhmR9cx3_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "2439"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/2073021007452061697/DddUKlmB_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "1905"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1858216141446881280/MPcKIqwD_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "3151"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1141569279294226432/J1N7MQIV_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "3151"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1922601341576216576/JA1DF-Tv_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "3151"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/2085643446925017088/Xv6AypXv_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "3863"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1252786325570195457/4U8r80S5_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "3329"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/934894346985287680/mD-zu1xk_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "2261"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/2050135930011541504/LMZpS2Ds_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "2795"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/2057885623374290944/lmj0pawP_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "2617"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1336297050/avatar_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "16298"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1796568199900655616/1eX1KgB2_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "2083"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/1809668197463023616/OegiwejR_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "2973"
+    },
+    {
+      "url": "https://pbs.twimg.com/profile_images/2105783660914122752/qyF3N1l8_bigger.jpg",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": "3507"
+    },
+    {
+      "url": "https://unavatar.io/x/mister_xtr?fallback=false",
+      "status": 200,
+      "type": "image",
+      "mime": "image/jpeg",
+      "contentLength": null
+    },
+    {
+      "url": "https://unavatar.io/x/1ssssss?fallback=false",
+      "status": 200,
+      "type": "image",
+      "mime": "image/png",
+      "contentLength": null
+    },
+    {
+      "url": "https://unavatar.io/x/FrankenHenry?fallback=false",
+      "status": 404,
+      "type": "image",
+      "contentLength": null
+    },
+    {
+      "url": "https://starrynightrider.com/hails/matilda.3.mp3",
+      "status": 206,
+      "type": "media",
+      "mime": "audio/mpeg",
+      "contentLength": "23657"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/george.2.mp3",
+      "status": 206,
+      "type": "media",
+      "mime": "audio/mpeg",
+      "contentLength": "27419"
+    },
+    {
+      "url": "https://starrynightrider.com/hails/laura.11.mp3",
+      "status": 206,
+      "type": "media",
+      "mime": "audio/mpeg",
+      "contentLength": "24911"
+    }
+  ],
+  "blocked": [
+    {
+      "url": "https://starrynightrider.com/api/presence",
+      "method": "POST",
+      "reason": "study blocks writes and analytics"
+    },
+    {
+      "url": "https://starrynightrider.com/api/leaderboard",
+      "method": "POST",
+      "reason": "study blocks writes and analytics"
+    },
+    {
+      "url": "https://starrynightrider.com/api/leaderboard",
+      "method": "POST",
+      "reason": "study blocks writes and analytics"
+    },
+    {
+      "url": "https://starrynightrider.com/api/leaderboard",
+      "method": "POST",
+      "reason": "study blocks writes and analytics"
+    },
+    {
+      "url": "https://starrynightrider.com/api/leaderboard",
+      "method": "POST",
+      "reason": "study blocks writes and analytics"
+    },
+    {
+      "url": "https://starrynightrider.com/api/presence",
+      "method": "POST",
+      "reason": "study blocks writes and analytics"
+    }
+  ],
+  "sockets": [
+    {
+      "url": "wss://starry-nightrider-riders.starry-nightrider-riders.workers.dev/ws",
+      "policy": "connection not forwarded; no server traffic"
+    }
+  ],
+  "errors": []
+}

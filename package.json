@@ -1,0 +1,47 @@
+{
+  "name": "webworld",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"node --watch --import tsx server/index.ts\" \"vite --strictPort\"",
+    "start": "node --import tsx server/index.ts",
+    "check": "tsc --noEmit",
+    "build": "npm run check && vite build",
+    "test": "node --import tsx --test 'src/**/*.test.ts' 'server/**/*.test.ts'",
+    "test:browser": "node --import tsx scripts/test-webworld.mjs",
+    "test:portal": "node scripts/test-portal.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^3.2.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.7.0",
+    "context.dev": "^3.28.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "lucide-react": "^0.577.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.185.0",
+    "tsx": "^4.20.6",
+    "zod": "^4.1.12",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.185.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "concurrently": "^9.2.1",
+    "playwright": "^1.65.1",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6"
+  }
+}

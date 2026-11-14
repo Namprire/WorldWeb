@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "name": "W advances rider and collects lights",
+      "pass": true
+    },
+    {
+      "name": "S brakes",
+      "pass": true
+    },
+    {
+      "name": "F toggles walking",
+      "pass": true
+    },
+    {
+      "name": "Space jumps",
+      "pass": true
+    },
+    {
+      "name": "Three taps enable flight",
+      "pass": true
+    },
+    {
+      "name": "T hides HUD",
+      "pass": true
+    },
+    {
+      "name": "Drag changes orbit",
+      "pass": true
+    },
+    {
+      "name": "Delivery reached by normal keyboard input",
+      "pass": true
+    },
+    {
+      "name": "Pause freezes simulation",
+      "pass": true
+    },
+    {
+      "name": "No external requests",
+      "pass": true
+    },
+    {
+      "name": "No browser errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "http://127.0.0.1:5178/",
+    "http://127.0.0.1:5178/assets/index-B-q_T5ug.js",
+    "http://127.0.0.1:5178/assets/index-3FKxu4MY.css"
+  ]
+}

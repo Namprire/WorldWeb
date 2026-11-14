@@ -1,0 +1,61 @@
+# WEBWORLD implementation
+
+The root application uses the authorized Starry Nightrider client derivative for rendering, movement, camera, terrain, and character animation. Its new scene adapter and TypeScript interface connect that world to the existing WEBWORLD backend.
+
+```mermaid
+flowchart LR
+  Browser[TypeScript HUD and mission progression] --> Sync[POST /api/sync]
+  Sync --> News[Context.dev article retrieval]
+  News --> Director[Gemini structured scenario]
+  Director --> Schema[Backend schema validation]
+  Schema --> Browser
+  Browser --> Validation[Browser schema validation]
+  Validation --> Adapter[Controlled scene adapter]
+  Adapter --> Engine[Original renderer and frame loop]
+  Engine --> Observations[Position, mode and objective distance]
+  Observations --> Browser
+```
+
+## Runtime boundary
+
+`public/engine/game.js` runs as a browser ES module after the local service adapters and HUD are installed. A module script loads this static engine in both Vite development and the production build. It imports the captured `kit` and voice-table modules from `public/assets/`.
+
+At the end of initialization, `installWebworld` receives concrete engine references. It publishes `window.__webworldEngine`, dispatches `webworld-ready`, and runs its updates through the original `state.director` hook. There is one renderer and one animation loop.
+
+The interface supports scenario application, target selection, projected marker positions, gameplay snapshots, collection feedback, and delivery rewards. Model output never executes JavaScript. It selects values from the shared scenario schema.
+
+## World
+
+The active geographic renderer is `public/engine/helsinki-real-map.js`. It uses the OpenStreetMap-derived database in `public/data/helsinki/map-data.js`. `helsinki-geography.js` owns metre projection, polygon tests, a spatial building index and shoreline collision. Visuals, collision and the minimap share source polygons and courtyard holes. `helsinki-citizens.js` uses imported, validated public-path segments for ambient pedestrians.
+
+The original village chunk group is hidden and its streaming stopped. The original controller and camera retain steering, acceleration, jumps, walking, flight, posing and smoothing. Horizontal coordinate warping and vertical world curvature are disabled for geographic fidelity; flat terrain is an explicit remaining approximation. Old village collectibles are hidden so the geographic world does not display invented village landmarks.
+
+`helsinki.js` retains the original painted surface shader, lighting and postprocessing. `student-scooter.js` retains the custom student model on the original rider rig. `portal.js` still frames the actual live scene and transitions into the same world. The GTA-inspired menu styling is unchanged.
+
+See [the map research and accuracy report](docs/research/helsinki-map.md) for source selection, pipeline, data counts and limitations. The earlier `helsinki-map.js`, `helsinki-landmarks.js` and `helsinki-neighbourhoods.js` are inactive prototype references.
+
+## Missions
+
+The starting Compute Run collects packets at two fixed street positions, then delivers them at a fictional terminal in Rautatientori. All six mission locations are mapped onto accessible streets and plaza positions in `public/engine/webworld.js`. These positions differ from those in the earlier React Three Fiber prototype.
+
+Collection and delivery use a six-unit proximity check while the engine is in ride state. This state supports both scooter riding and walking. Collection increments mission cargo. Delivery requires cargo, completes the mission, and grants a 500-point local reward. Interact steps require R or the touch prompt. Each step advances once. Original trick controls and scoring remain available; the old village collectible meshes are hidden.
+
+Demo sync cycles the existing robot uprising, GPU market crash, and drone breakthrough fixtures. Starting a new scenario replaces the current mission and cargo. Live sync disables the mode control until the request finishes, validates the response, and applies it only on success. A failure leaves mission and scene state intact.
+
+## Providers
+
+Express owns Context.dev and Gemini credentials. The existing server retains bounded requests, cache behavior, shared concurrent syncs, error mapping, and validation. The local service adapter forwards `/api/status` and `/api/sync`, and keeps original multiplayer and original telemetry disconnected.
+
+The browser shows the retrieved article's source and time separately from its fictional mission. Live source URLs must use HTTP or HTTPS. The current implementation uses local generated artwork and original ambient audio. Runtime media generation remains an extension.
+
+## Verification
+
+The 13 unit checks exercise provider parsing and scenario rules. A before/after source comparison verified identical movement/chase-camera, input/scoring and rider-transform implementations. The subsequent portal pass changes entry/return presentation and reduced-motion handling, while the riding movement and chase/orbit camera remain unchanged. `scripts/test-webworld.mjs` exercises the current game through its normal UI and keyboard, including a complete delivery, original movement modes, braking with orbit/zoom, the painting aspect ratio, all three scenario changes, Live errors, validated and invalid API fixtures, shader errors and touch layout. Successful live provider calls require configured credentials and were not verified in this workspace.
+
+`npm run test:portal` verifies frame expansion, live-scene presentation without a photo overlay, HUD timing, full viewport coverage, return/focus restoration, second entry and reduced motion. Optional recording uses `PORTAL_VIDEO=1`.
+
+The district collision regression check runs with `node scripts/test-helsinki-map.mjs`. It covers building interiors, rooftop landing, camera clearance, the first delivery corridor, shop/park access and perimeter walls.
+
+## Geographic verification
+
+`node scripts/test-helsinki-map.mjs` checks source landmark coordinates, named roads, land/sea classification, building collision, courtyard triangulation, the introductory delivery corridor and all imported citizen routes. Source height provenance remains in the shipped data. Browser tests verify the mission and controls after activating metre coordinates.

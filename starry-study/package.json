@@ -1,0 +1,23 @@
+{
+  "name": "starry-study",
+  "version": "1.0.0",
+  "description": "Public-client feasibility study and independent local prototype",
+  "scripts": {
+    "inspect": "node scripts/inspect.mjs",
+    "verify": "node scripts/verify.mjs",
+    "check-references": "python3 scripts/check-references.py",
+    "format-evidence": "node scripts/format-evidence.mjs",
+    "analyze": "python3 scripts/analyze.py",
+    "verify-reproduction": "node scripts/verify-reproduction.mjs",
+    "dev": "npm --prefix reproduction run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "devDependencies": {
+    "playwright": "^1.65.1",
+    "prettier": "^3.6.2"
+  },
+  "private": true
+}
