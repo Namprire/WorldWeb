@@ -1,5 +1,5 @@
 {
-  "name": "webworld",
+  "name": "startup-city-helsinki",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -12,8 +12,9 @@
     "check": "tsc --noEmit",
     "build": "npm run check && vite build",
     "test": "node --import tsx --test 'src/**/*.test.ts' 'server/**/*.test.ts'",
-    "test:browser": "node --import tsx scripts/test-webworld.mjs",
-    "test:portal": "node scripts/test-portal.mjs"
+    "test:browser": "node scripts/test-startup-city.mjs",
+    "research": "node --import tsx scripts/research-startups.ts",
+    "research:refresh": "node --import tsx scripts/research-startups.ts --refresh"
   },
   "dependencies": {
     "@google/genai": "^3.2.0",
@@ -22,6 +23,7 @@
     "context.dev": "^3.28.0",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "framer-motion": "^14.14.0",
     "lucide-react": "^0.577.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

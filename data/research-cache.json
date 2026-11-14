@@ -1,0 +1,3243 @@
+{
+ "profiles": {
+  "wolt.com": {
+   "name": "Wolt",
+   "description": "Wolt is a technology-driven delivery platform that connects local restaurants, grocery stores and other merchants with customers who want fast, reliable, and sustainable deliveries. Through its award‑winning mobile app, users can order food, groceries, and everyday items and receive them in as little as 30 minutes. Wolt also offers a courier partnership program, allowing individuals to earn flexible income by delivering orders on their own schedule. For merchants, the service provides marketing, payment processing, and logistics support, helping them reach new customers and increase sales wit…",
+   "street": "Pohjoinen Rautatiekatu 21",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Food, Beverage & Grocery E-commerce",
+   "linkedin": "https://linkedin.com/company/wolt-oy",
+   "careersUrl": "https://careers.wolt.com/",
+   "contactUrl": "https://explore.wolt.com/en/usa/contact",
+   "blogUrl": "https://press.wolt.com/en-WW/tags/blog/",
+   "logoUrl": "https://media.brand.dev/a4dece71-b0d0-432d-85b3-cf7fd6af0730.png",
+   "retrievedAt": "2026-11-14T16:35:39.196Z",
+   "logoOnDark": true
+  },
+  "smartly.io": {
+   "name": "Smartly",
+   "description": "Smartly (smartly.io) is an AI‑powered advertising platform that unifies creative, media, and intelligence to help marketers build, launch, and optimize cross‑channel campaigns up to three times faster. Its suite includes Creative tools for automated design at scale, Media management that activates and optimizes ads across social, CTV, open web, and video, and Intelligence that turns performance data into actionable insights. Smartly serves agency, performance, brand, creative, and B2B teams, offering solutions for social, conversational commerce, connected TV, and programmatic display. By lev…",
+   "street": "Elielinaukio 2G",
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "501–1000",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/smartly-io",
+   "careersUrl": "https://www.smartly.io/careers",
+   "contactUrl": null,
+   "blogUrl": "https://www.smartly.io/resource-categories/blogs",
+   "logoUrl": "https://media.brand.dev/76fee3d2-afda-44a4-bbbc-153a284bfd50.webp",
+   "retrievedAt": "2026-11-14T16:35:39.203Z",
+   "logoOnDark": false
+  },
+  "relexsolutions.com": {
+   "name": "RELEX",
+   "description": "Relex is an AI‑native platform that enables retailers, manufacturers, and wholesalers to execute end‑to‑end planning across the entire consumer‑goods value chain. By unifying demand forecasting, inventory optimization, pricing, merchandising, and production planning into a single, real‑time system, Relex leverages built‑in and agentic AI to deliver higher forecast accuracy, automated replenishment, reduced waste, and improved product availability. The solution integrates demand sensing, supply‑chain collaboration, space and assortment planning, and promotional optimization, helping businesses…",
+   "street": "Postintaival 7",
+   "city": "Helsinki",
+   "postalCode": "00230",
+   "country": "FI",
+   "employees": "1001–5000",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/relexsolutions",
+   "careersUrl": "https://www.relexsolutions.com/careers/",
+   "contactUrl": "https://www.relexsolutions.com/contact/",
+   "blogUrl": "https://www.relexsolutions.com/news/",
+   "logoUrl": "https://media.brand.dev/f44d95a8-e591-49e1-ad9b-8ce20d15e8bd.webp",
+   "retrievedAt": "2026-11-14T16:35:39.206Z",
+   "logoOnDark": false
+  },
+  "maria.io": {
+   "name": "Maria",
+   "description": "Maria 01 is the leading startup campus in the Nordics, based in a 20,000 m² former hospital in Helsinki’s city centre. It creates a thriving ecosystem for early‑stage startups, investors, venture capital firms, large enterprises and other ecosystem partners. Members gain access to community‑focused workspaces, accelerator programs such as the equity‑free Northern Light Accelerator, corporate‑startup collaboration opportunities, investor deal‑flow, and a calendar of events ranging from breakfast talks to global mixers. With over 230 startup members annually, more than €1.4 billion in total fun…",
+   "street": "Lapinlahdenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Corporate Training & Upskilling",
+   "linkedin": "https://linkedin.com/company/maria-io",
+   "careersUrl": "https://jobs.maria.io/",
+   "contactUrl": "https://maria.io/contact-us/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/997a3646-f0c4-4934-a3b1-906f70038b7a.png",
+   "retrievedAt": "2026-11-14T16:35:39.317Z",
+   "logoOnDark": false
+  },
+  "aiven.io": {
+   "name": "Aiven",
+   "description": "Aiven provides a fully managed, open-source data cloud for building and running applications and AI agents in production. Its platform brings together services including Apache Kafka, PostgreSQL, MySQL, ClickHouse, OpenSearch, Valkey, and DataHub, with operations such as scaling, security, patching, and uptime managed for customers. Aiven supports streaming, transactional databases, analytics, search, caching, data governance, and application runtime across AWS, Google Cloud, Microsoft Azure, and bring-your-own-cloud environments. Built on open-source tools and standards, the platform helps t…",
+   "street": "Antinkatu 1, 6th floor",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "201–500",
+   "profileIndustry": "Cloud Infrastructure & DevOps",
+   "linkedin": "https://linkedin.com/company/aiven",
+   "careersUrl": "https://aiven.io/careers",
+   "contactUrl": "https://aiven.io/contact",
+   "blogUrl": "https://aiven.io/blog",
+   "logoUrl": "https://media.brand.dev/964e049a-0ea6-40e2-a4f3-c46fdb30351e.svg",
+   "retrievedAt": "2026-11-14T16:35:39.319Z",
+   "logoOnDark": false
+  },
+  "varjo.com": {
+   "name": "Varjo",
+   "description": "Varjo is a Finnish technology company that designs and manufactures high‑fidelity mixed‑reality headsets and end‑to‑end training solutions for mission‑critical applications. Their XR‑4 series provides photorealistic visuals, comfort, and durability for air, land, and sea simulation, while the Secure Edition meets classified‑environment requirements. Varjo Base software lets organizations customize rendering, tracking, and device management, and the company integrates with leading 3D and simulation platforms. In addition, Varjo Alpha offers professional services and expertise to help partners…",
+   "street": "Vuorikatu 20",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "201–500",
+   "profileIndustry": "XR & Spatial Computing",
+   "linkedin": "https://linkedin.com/company/varjo",
+   "careersUrl": "https://varjo.com/jobs",
+   "contactUrl": null,
+   "blogUrl": "https://varjo.com/news",
+   "logoUrl": "https://media.brand.dev/5b9b173d-9ccd-4710-9b2d-5da5c7f074df.png",
+   "retrievedAt": "2026-11-14T16:35:39.463Z",
+   "logoOnDark": false
+  },
+  "swappie.com": {
+   "name": "Swappie",
+   "description": "Swappie sells affordable refurbished iPhones that are restored to work like new. Purchases include a free 12-month Swappie warranty.",
+   "street": "Itämerenkatu 3 a",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "501–1000",
+   "profileIndustry": "Online Marketplaces",
+   "linkedin": "https://fi.linkedin.com/company/swappie",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/2f5a5fdf-f75c-4227-bda4-f15541d0a4b4.png",
+   "retrievedAt": "2026-11-14T16:35:39.465Z",
+   "logoOnDark": false
+  },
+  "supercell.com": {
+   "name": "Supercell",
+   "description": "Supercell is a Finnish mobile game developer that creates globally popular, long‑lasting games. Known for hits such as Clash of Clans, Clash Royale, Brawl Stars, Boom Beach, Hay Day, Squad Busters and mo.co, Supercell focuses on delivering simple yet deep experiences that players enjoy for years. The company operates studios in Helsinki, London and Shanghai, and emphasizes a player‑first philosophy, fair play, and continuous innovation across its portfolio of free‑to‑play titles.",
+   "street": "Itmerenkatu 11 13",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "501–1000",
+   "profileIndustry": "Gaming & Interactive Entertainment",
+   "linkedin": "https://linkedin.com/company/supercell",
+   "careersUrl": "https://supercell.com/en/careers/",
+   "contactUrl": null,
+   "blogUrl": "https://supercell.com/en/news/",
+   "logoUrl": "https://media.brand.dev/83cda41b-e7a0-4889-847e-c805ec3f4ec3.png",
+   "retrievedAt": "2026-11-14T16:35:39.623Z",
+   "logoOnDark": false
+  },
+  "yousician.com": {
+   "name": "Yousician",
+   "description": "Yousician is a music education platform that offers interactive lessons for guitar, piano, bass, ukulele, and singing. Using award‑winning technology, the app listens to users playing and provides real‑time feedback on accuracy and timing. It provides personalized lesson plans created by music teachers, a library of thousands of songs across genres, progress tracking, rewards, and a family membership option. Available on iOS, Android, and desktop, Yousician lets learners of any skill level practice on real instruments without extra hardware.",
+   "street": "Siltasaarenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00530",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Online Learning & MOOCs",
+   "linkedin": "https://linkedin.com/company/yousician",
+   "careersUrl": "https://yousician.com/careers",
+   "contactUrl": "https://yousician.com/contact",
+   "blogUrl": "https://yousician.com/blog",
+   "logoUrl": "https://media.brand.dev/288ebfa9-a1c9-4808-a4f9-05dfa8240f8c.png",
+   "retrievedAt": "2026-11-14T16:35:39.625Z",
+   "logoOnDark": true
+  },
+  "silo.ai": {
+   "name": "AMD",
+   "description": "silo.ai is AMD’s AI‑focused platform that brings together the company’s full portfolio of processors, accelerators, adaptive SoCs, FPGAs, system‑on‑modules, and software tools to enable intelligent solutions across data‑center, edge, and consumer markets. The site showcases AMD server CPUs (EPYC), business and consumer Ryzen processors, Radeon graphics, Instinct GPU accelerators, Pensando DPUs, Alveo and Kria adaptive accelerator cards, and a range of development tools such as ROCm, Vitis, and Ryzen AI software. It also provides resources for developers, industry‑specific AI workloads, and in…",
+   "street": "Lapinlahdenkatu 1 C",
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Hardware & Semiconductors",
+   "linkedin": "https://linkedin.com/company/amd",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/032a0f81-b426-4cec-947c-234217c88f9a.svg",
+   "retrievedAt": "2026-11-14T16:35:39.659Z"
+  },
+  "hoxhunt.com": {
+   "name": "Hoxhunt",
+   "description": "Hoxhunt provides an AI-powered human risk management platform that helps organizations reduce cybersecurity risk and meet security awareness and compliance goals. Its products include security awareness and adaptive phishing training, automated email incident response, and tools to identify risky behaviors and deliver targeted interventions. Hoxhunt uses personalized, gamified training to engage employees while automating routine security training tasks.",
+   "street": "Porkkalankatu 3",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "201–500",
+   "profileIndustry": "Cybersecurity",
+   "linkedin": "https://linkedin.com/company/hoxhunt",
+   "careersUrl": "https://careers.hoxhunt.com/",
+   "contactUrl": null,
+   "blogUrl": "https://hoxhunt.com/blog",
+   "logoUrl": "https://media.brand.dev/7d374001-e932-4227-ab3e-50acbbea464b.png",
+   "retrievedAt": "2026-11-14T16:35:39.780Z",
+   "logoOnDark": false
+  },
+  "supermetrics.com": {
+   "name": "Supermetrics",
+   "description": "Supermetrics is a marketing data platform that connects, stores, and analyzes data from all major advertising, analytics, and ecommerce channels. It offers a suite of connectors to pull live data into data warehouses, BI tools, and AI assistants like Claude, enabling marketers to clean, blend, and structure insights without manual effort. Users can build dashboards, generate reports, and activate campaigns directly from unified profiles, audience segments, and journey orchestration tools. The platform supports enterprises, agencies, and SMBs across ecommerce, travel, retail, and media, and pr…",
+   "street": "Kaivokatu 10 A",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "201–500",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/supermetrics",
+   "careersUrl": "https://supermetrics.com/careers",
+   "contactUrl": "https://supermetrics.com/contact",
+   "blogUrl": "https://supermetrics.com/blog",
+   "logoUrl": "https://media.brand.dev/4c0919fd-a71e-4099-9f19-63e92dfa271b.png",
+   "retrievedAt": "2026-11-14T16:35:39.781Z",
+   "logoOnDark": true
+  },
+  "nightingalehealth.com": {
+   "name": "Nightingale Health",
+   "description": "Nightingale Health is a Finnish biotech company that provides advanced health check services, including in‑person and remote blood‑based testing, leveraging omics technology to deliver disease risk detection for healthcare providers, insurers, governments, consumers, telehealth, and medical research. Their platform offers comprehensive metabolic and biomarker profiling, enabling personalized prevention and treatment while aiming to build sustainable healthcare and reduce health inequalities. They also supply gold‑standard omics data for research and partner with labs and clinics worldwide.",
+   "street": "Mannerheimintie 164A",
+   "city": "Helsinki",
+   "postalCode": "00300",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Healthcare Providers & Services",
+   "linkedin": "https://linkedin.com/company/nightingalehealth",
+   "careersUrl": "https://nightingalehealth.com/careers",
+   "contactUrl": "https://nightingalehealth.com/contact",
+   "blogUrl": "https://nightingalehealth.com/news",
+   "logoUrl": "https://media.brand.dev/12c9d495-3a12-4e94-9d37-edb0d1e2badd.svg",
+   "retrievedAt": "2026-11-14T16:35:39.886Z",
+   "logoOnDark": false
+  },
+  "meruhealth.com": {
+   "name": "Meru Health",
+   "description": "Meru Health provides a digital mental health program for adults and teens, combining one-to-one video sessions and secure messaging with licensed therapists, self-guided evidence-based lessons, wellness practices, and tools for stress management. Its 12-week program takes a mind-body approach to supporting people experiencing challenges such as stress, anxiety, depression, and burnout. Meru Health also partners with health plans to offer its services through coverage.",
+   "street": "720 S B St",
+   "city": "San Mateo",
+   "postalCode": "94401",
+   "country": "US",
+   "employees": "51–200",
+   "profileIndustry": "Digital Health & Telemedicine",
+   "linkedin": "https://linkedin.com/company/meru-health",
+   "careersUrl": "https://www.meruhealth.com/careers",
+   "contactUrl": null,
+   "blogUrl": "https://www.meruhealth.com/blog",
+   "logoUrl": "https://media.brand.dev/72b8e7be-7046-494d-9aa3-066f4c733128.svg",
+   "retrievedAt": "2026-11-14T16:35:39.964Z"
+  },
+  "sievo.com": {
+   "name": "Sievo",
+   "description": "Sievo provides procurement analytics and performance management solutions that help organizations turn purchasing data into actionable insights. Its platform supports spend analysis, payment terms, contract compliance, purchase order analytics, supplier risk, and market benchmarking, alongside sustainability, emissions, and supplier diversity tracking. Sievo also offers tools for savings initiative management, direct materials budgeting and forecasting, and scenario planning. Powered by AI, data cleansing, integrations, and benchmarking data, its solutions help procurement, finance, sustainab…",
+   "street": "Kaisaniemenkatu 2b 6th Floor",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "201–500",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/sievo-oy",
+   "careersUrl": "https://sievo.com/careers",
+   "contactUrl": "https://sievo.com/company/contact-us",
+   "blogUrl": "https://sievo.com/blog",
+   "logoUrl": "https://media.brand.dev/ad4030b4-8885-460c-a4cb-bdc2bcb60bb2.svg",
+   "retrievedAt": "2026-11-14T16:35:40.021Z",
+   "logoOnDark": true
+  },
+  "swarmia.com": {
+   "name": "Swarmia",
+   "description": "Swarmia is an engineering intelligence platform that helps software organizations understand and improve how they build and deliver software. By connecting to teams’ existing tools, Swarmia provides insights into engineering productivity, AI tool adoption and costs, DORA metrics, developer experience, and investment balance. Its features support cross-team initiatives, smoother pull request workflows, developer surveys, and audit-ready software capitalization reports. Teams can explore built-in views, create custom reports, and connect engineering data to AI tools to guide practical improveme…",
+   "street": "169 Madison Ave, Suite",
+   "city": "New York",
+   "postalCode": null,
+   "country": "US",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/swarmia",
+   "careersUrl": "https://www.swarmia.com/careers/",
+   "contactUrl": null,
+   "blogUrl": "https://www.swarmia.com/blog/",
+   "logoUrl": "https://media.brand.dev/040028f7-8a87-4cf4-9fd8-92ec98847e6d.png",
+   "retrievedAt": "2026-11-14T16:35:40.081Z"
+  },
+  "giosg.com": {
+   "name": "Giosg",
+   "description": "giosg is a customer‑experience platform that combines AI‑driven agents with live‑chat, video, and omnichannel tools to automate and personalize support, sales, and marketing interactions. Their product suite includes giosg AI Agent for automating internal and external support, giosg Live for human‑to‑human conversations, giosg Agentic Search to boost conversions with conversational search, Interaction Builder for interactive content, and Agentic Analytics for conversational insights. Tailored industry solutions serve automotive, e‑commerce, pharmaceutical, and telecommunications sectors, whil…",
+   "street": "Valimotie 21",
+   "city": "Helsinki",
+   "postalCode": "00380",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/giosg-com",
+   "careersUrl": "https://www.giosg.com/giosg-careers-senior-account-manager",
+   "contactUrl": null,
+   "blogUrl": "https://www.giosg.com/blog",
+   "logoUrl": "https://media.brand.dev/3bad2420-421e-4225-b551-e7c6c8e39483.png",
+   "retrievedAt": "2026-11-14T16:35:40.082Z",
+   "logoOnDark": true
+  },
+  "kodit.io": {
+   "name": "Kodit",
+   "description": "Xoilac TV is an online streaming platform that offers free, high‑definition live broadcasts of football matches from around the world. Targeting Vietnamese fans, the service provides crystal‑clear HD video, smooth 60 fps playback, immersive audio, and multiple backup links to ensure uninterrupted viewing. The site features match schedules, league tables, results, news, and expert Vietnamese commentary, all without intrusive advertisements or mandatory registration. Accessible on various devices, Xoilac TV aims to make top‑tier football accessible to anyone, anytime, while maintaining a user‑f…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Streaming Platforms (Video, Music, Audio)",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/2fd34081-9561-4930-a9b0-fc82c5ff23bb.jpg",
+   "retrievedAt": "2026-11-14T16:35:40.216Z"
+  },
+  "metacoregames.com": {
+   "name": "Metacore",
+   "description": "Metacore is a mobile game company based in Helsinki and Berlin, creating entertainment for global audiences. The company develops games with a strong focus on player enjoyment, including Merge Mansion, and brings together a diverse team that values trust, wellbeing, autonomy, and collaboration.",
+   "street": "Porkkalankatu 24",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Gaming & Interactive Entertainment",
+   "linkedin": "https://linkedin.com/company/metacoregames",
+   "careersUrl": "https://metacoregames.com/careers",
+   "contactUrl": "https://metacoregames.com/contact",
+   "blogUrl": "https://metacoregames.com/news",
+   "logoUrl": "https://media.brand.dev/6824cbd1-d834-4a7d-84d8-7fc14b651673.png",
+   "retrievedAt": "2026-11-14T16:35:40.282Z",
+   "logoOnDark": false
+  },
+  "bobw.co": {
+   "name": "Bob W",
+   "description": "Bob W is a hospitality brand that blends the comfort of hotels with the authenticity of serviced apartments, offering flexible stays for days, weeks, or months across major European cities. Guests enjoy fully equipped spaces with kitchens, washing machines, and free local gym access, plus optional local breakfast experiences. The platform provides seamless mobile check‑in, 24/7 chat support, and easy booking management via phone. Bob W’s loyalty program rewards members with discounts and exclusive offers, while its commitment to sustainability includes renewable energy use and full guest emis…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": "00150",
+   "country": "FI",
+   "employees": "201–500",
+   "profileIndustry": "Hotels & Accommodation",
+   "linkedin": "https://linkedin.com/company/bobw",
+   "careersUrl": "https://careers.bobw.co/jobs",
+   "contactUrl": "https://bobw.co/contact-us",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/9ecc634d-458b-47bf-9caf-471634d6d7da.png",
+   "retrievedAt": "2026-11-14T16:35:40.283Z",
+   "logoOnDark": false
+  },
+  "smallgiantgames.com": {
+   "name": "Small Giant Games",
+   "description": "Small Giant Games is a Helsinki‑based studio that has been building extraordinary mobile games since 2013. The company focuses on creating easily accessible, socially rich games that are simple to learn but hard to master, encouraging cooperation and competition among friends in vibrant worlds. Operating in small, low‑hierarchy teams, Small Giant Games gives its talent freedom and responsibility, fostering a culture of trust, well‑being, and employee input. Their portfolio emphasizes deep, lasting hobby experiences for players worldwide.",
+   "street": "Kasarminkatu 42",
+   "city": "Helsinki",
+   "postalCode": "00130",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Gaming & Interactive Entertainment",
+   "linkedin": "https://linkedin.com/company/small-giant-games",
+   "careersUrl": "https://www.smallgiantgames.com/careers/",
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/9165c308-8473-4761-8934-ef7c6cf7ab36.png",
+   "retrievedAt": "2026-11-14T16:35:40.422Z",
+   "logoOnDark": true
+  },
+  "sharetribe.com": {
+   "name": "Sharetribe",
+   "description": "Sharetribe provides marketplace software for founders and growing businesses to build, launch, and scale online platforms. Its flexible tools support rental, service, product, directory, and other marketplace models, with features for user profiles, listings, payments, monetization, administration, and infrastructure. Businesses can customize their marketplace and extend it through APIs and integrations.",
+   "street": "Bulevardi 12",
+   "city": "Helsinki",
+   "postalCode": "00130",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": null,
+   "careersUrl": "https://www.sharetribe.com/company/careers/",
+   "contactUrl": "https://www.sharetribe.com/contact/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/57ea4110-09d7-4300-b761-d8d0c22dee88.png",
+   "retrievedAt": "2026-11-14T16:35:40.572Z",
+   "logoOnDark": false
+  },
+  "vainu.com": {
+   "name": "Vainu",
+   "description": "Vainu is a Nordic B2B intelligence platform that delivers AI‑ready company and contact data for over 5 million businesses across Finland, Sweden, Denmark and Norway. By aggregating official company registers, financial statements, technology usage, group structures and more, Vainu provides 700+ data fields and 9 million decision‑maker contacts. The service integrates directly with popular CRMs and sales tools (e.g., Salesforce, HubSpot, Microsoft Dynamics) via Excel, API or built‑in connectors, enabling sales, marketing, RevOps and data teams to automate prospecting, keep records up‑to‑date a…",
+   "street": "Vainutie",
+   "city": "Oulu",
+   "postalCode": "90540",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/3803996",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://www.vainu.com/blog",
+   "logoUrl": "https://media.brand.dev/b766ac28-11cf-4842-9e56-1aa82c945983.svg",
+   "retrievedAt": "2026-11-14T16:35:40.573Z"
+  },
+  "aiforia.com": {
+   "name": "Aiforia",
+   "description": "Aiforia Technologies provides AI‑driven image analysis solutions for pathology. Its cloud‑based Aiforia® Clinical Platform streamlines diagnostic workflows with secure, browser‑based tools for breast, lung, prostate, gastric, colon and other cancer suites. For researchers, Aiforia® Create enables collaborative development of deep‑learning models without prior AI expertise, supporting fully automated, study‑centric workflows that integrate with existing lab infrastructure. The company’s portfolio spans clinical, prognostic and pre‑clinical applications, enhancing speed, accuracy and consistenc…",
+   "street": "Pursimiehenkatu 29-31",
+   "city": "Helsinki",
+   "postalCode": "00150",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "linkedin": "https://linkedin.com/company/aiforia-tech",
+   "careersUrl": "https://www.aiforia.com/careers",
+   "contactUrl": "https://www.aiforia.com/contact-us",
+   "blogUrl": "https://www.aiforia.com/blog/tag/digital-pathology",
+   "logoUrl": "https://media.brand.dev/dca0ef04-bb74-48df-95c1-dd04d48f105a.png",
+   "retrievedAt": "2026-11-14T16:35:40.673Z",
+   "logoOnDark": false
+  },
+  "saidot.ai": {
+   "name": "Saidot",
+   "description": "Saidot is an AI governance platform that connects an organization’s AI inventory—agents, models, datasets, and third‑party tools—to a curated knowledge graph of risks, policies, controls, and compliance requirements. By mapping these elements in a single graph, Saidot automatically inherits and updates risk assessments, policy controls, and evidence whenever components change, enabling continuous, agent‑first governance. The platform offers a centralized catalogue, automated risk inheritance, ISO‑27001 certified security, and integration with major cloud providers, allowing AI developers, leg…",
+   "street": "Lapinlahdenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/saidot",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/2b26a240-3e3b-42b4-95b2-f78578c1fb9a.png",
+   "retrievedAt": "2026-11-14T16:35:40.676Z",
+   "logoOnDark": false
+  },
+  "valohai.com": {
+   "name": "Valohai",
+   "description": "Valohai is an MLOps platform that helps organizations build, train, and ship AI models at scale. It provides end‑to‑end pipelines for dataset management, compute orchestration, experiment tracking, and automated versioning, supporting both specialized models and large language models. The service works across multi‑cloud, on‑prem, and hybrid environments, offering GPU‑efficient execution, dataset caching, and cost analysis. Valohai ensures full lineage, one‑click reproducibility, and audit‑ready compliance, enabling teams to collaborate on model development, regression testing, and continuous…",
+   "street": "128 Spear St",
+   "city": "San Francisco",
+   "postalCode": "94105",
+   "country": "US",
+   "employees": "11–50",
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "linkedin": "https://linkedin.com/company/valohai",
+   "careersUrl": "https://valohai.com/careers/",
+   "contactUrl": null,
+   "blogUrl": "https://valohai.com/blog/",
+   "logoUrl": "https://media.brand.dev/7dbcd355-3302-4f61-9942-4c86f6631c72.svg",
+   "retrievedAt": "2026-11-14T16:35:40.925Z"
+  },
+  "datacrunch.io": {
+   "name": "Verda",
+   "description": "Verda is a SOC 2 Type II‑compliant AI cloud provider that delivers a full‑stack platform for the entire AI lifecycle. Built on European data centers and powered by the latest NVIDIA GPUs, Verda offers on‑demand GPU instances, instant self‑service clusters with InfiniBand, and serverless containers that auto‑scale for training, inference and batch jobs. Its high‑performance storage suite includes NVMe block disks, POSIX‑compliant shared filesystems, and an OCI‑compatible container registry. An in‑house AI Lab drives frontier research, open‑source contributions, and confidential computing with…",
+   "street": "United Kingdom, 9, Appold Street, Shoreditch, London Borough Of Hackney, London, Greater London, England, Ec 2 A 2 Ap, United Kingdom",
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Cloud Infrastructure & DevOps",
+   "linkedin": "https://linkedin.com/company/verda-cloud",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/99d9a1fd-268f-4636-9072-97370e0ea12c.svg",
+   "retrievedAt": "2026-11-14T16:35:40.926Z"
+  },
+  "uprightproject.com": {
+   "name": "Upright Project",
+   "description": "Upright is a Helsinki‑based AI company that provides science‑driven sustainability intelligence for investors, companies, asset managers, advisors and universities. Its proprietary AI engine and vertically‑trained sustainability LLM quantify a firm’s environmental and social impacts, risks and opportunities in financial terms within minutes, using data from over 300 million scientific papers rather than self‑reported corporate disclosures. The platform delivers audit‑ready ESG due diligence, double‑materiality assessments, climate risk analysis, impact quantification and regulatory reporting,…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": null,
+   "careersUrl": "https://www.uprightproject.com/careers/",
+   "contactUrl": null,
+   "blogUrl": "https://www.uprightproject.com/blog/",
+   "logoUrl": "https://media.brand.dev/1ba3f15b-4ea8-40a4-bed0-080c9ab99341.png",
+   "retrievedAt": "2026-11-14T16:35:40.988Z",
+   "logoOnDark": false
+  },
+  "algorithmiq.fi": {
+   "name": "Algorithmiq",
+   "description": "Algorithmiq is a quantum‑computing company focused on transforming healthcare and life‑science research. It creates proprietary quantum algorithms and a Digital Quantum Interface that blend classical and cutting‑edge quantum processors to tackle atomistic‑scale problems. Their solutions enable advanced chemistry simulations, drug‑discovery pipelines, and multiscale modeling of rare diseases, while also supporting broader applications such as new materials, green energy, and next‑generation batteries. Led by experts in physics, quantum information, and computing, Algorithmiq publishes its find…",
+   "street": "Via della Chiusa 15",
+   "city": "Milano",
+   "postalCode": "20123",
+   "country": "IT",
+   "employees": "11–50",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/algorithmiq",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://algorithmiq.fi/news/",
+   "logoUrl": "https://media.brand.dev/4911478a-4a56-49d5-8ae6-d7b0845ba42e.svg",
+   "retrievedAt": "2026-11-14T16:35:41.124Z"
+  },
+  "carboculture.com": {
+   "name": "Carbo Culture",
+   "description": "Carbo Culture is a climate‑tech project developer that commercialises a patented biochar process called Carbolysis™. Using proprietary reactors, the company converts waste biomass into stable biochar, permanently locking carbon for centuries while co‑generating renewable heat and electricity. The high‑quality biochar serves agricultural and construction markets, and the system produces verifiable carbon credits. Carbo Culture is scaling its technology through multiple facilities, with its first commercial plant (C1) underway and a roadmap to several more sites by 2026. By turning photosynthes…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Renewable Energy & Cleantech",
+   "linkedin": "https://linkedin.com/company/carbo-culture",
+   "careersUrl": "https://carboculture.com/careers",
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/2028dc39-255e-4ee1-a716-8248e9968926.png",
+   "retrievedAt": "2026-11-14T16:35:41.183Z",
+   "logoOnDark": false
+  },
+  "happeo.com": {
+   "name": "Happeo",
+   "description": "Happeo provides an AI-powered intranet that gives growing companies one searchable place for company information, knowledge, policies, processes, and updates. Its platform helps employees find answers, onboard faster, and collaborate through structured knowledge spaces, internal communications, and connected search across Happeo, Google Drive, Gmail, and Slack. Happeo also offers tools for governance, analytics, mobile access, and integrations, helping organizations make information easier to manage and access.",
+   "street": "Pursimiehenkatu 26 C",
+   "city": "Helsinki",
+   "postalCode": "00150",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/happeohq",
+   "careersUrl": null,
+   "contactUrl": "https://www.happeo.com/contact-us",
+   "blogUrl": "https://www.happeo.com/blog",
+   "logoUrl": "https://media.brand.dev/cfa30dd8-da0c-428c-bd8e-7f2143716bfe.svg",
+   "retrievedAt": "2026-11-14T16:35:41.185Z",
+   "logoOnDark": false
+  },
+  "sulapac.com": {
+   "name": "Sulapac",
+   "description": "Sulapac is a Finnish materials company that creates bio‑based, fully renewable alternatives to conventional plastics. Using a patented blend of wood‑derived fibers and biodegradable polymers, Sulapac develops high‑performance materials for injection molding, thermoforming, extrusion and 3D printing. Their product range—Sulapac Flow for flexible packaging, Sulapac Solid for reusable items, and custom solutions—serves cosmetics, food service, homeware, and other consumer‑goods sectors. By replacing fossil‑based plastics, Sulapac helps brands lower cradle‑to‑gate carbon footprints, eliminate mic…",
+   "street": "Iso Roobertinkatu 21",
+   "city": "Helsinki",
+   "postalCode": "00120",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Specialty Chemicals",
+   "linkedin": "https://linkedin.com/company/sulapac",
+   "careersUrl": null,
+   "contactUrl": "https://sulapac.com/contact/",
+   "blogUrl": "https://www.sulapac.com/blog/",
+   "logoUrl": "https://media.brand.dev/40ed1b37-a869-42f4-8d03-b416d4ba6851.png",
+   "retrievedAt": "2026-11-14T16:35:41.255Z",
+   "logoOnDark": false
+  },
+  "steadyenergy.com": {
+   "name": "Steady Energy",
+   "description": "Steady Energy designs, builds, and operates compact, advanced nuclear heating plants for district‑heat networks. Leveraging a simplified low‑temperature, low‑pressure LDR‑50 light‑water reactor, the company delivers zero‑carbon, reliable heat that can be sited near urban areas, replacing fossil‑based or biomass heating. Their solution complements renewable electricity by decoupling intensive heating demand from the grid, enabling cities to meet climate targets without sacrificing comfort. Steady Energy offers turn‑key heating plants and ongoing operational services, allowing municipalities an…",
+   "street": "Sammonsilta 8",
+   "city": "Espoo",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Energy Production (Oil, Gas, Nuclear)",
+   "linkedin": "https://linkedin.com/company/steady-energy",
+   "careersUrl": null,
+   "contactUrl": "https://www.steadyenergy.com/contact",
+   "blogUrl": "https://www.steadyenergy.com/news",
+   "logoUrl": "https://media.brand.dev/abbc8786-46ba-4198-8dc3-4c6dbb24a792.png",
+   "retrievedAt": "2026-11-14T16:35:41.371Z"
+  },
+  "reorbit.space": {
+   "name": "ReOrbit",
+   "description": "ReOrbit is an advanced satellite manufacturer based in Helsinki, Finland. The company designs and builds both GEO‑based critical‑communication satellites and next‑generation LEO satellites that provide direct‑to‑device connectivity. ReOrbit’s solutions focus on sovereign, secure satellite systems for military and industrial customers, ensuring private control of both the hardware and the data. Its software‑defined architecture enables a flexible, future‑proof supply chain, allowing rapid production of varied satellite types. Key offerings include the OrbitCloud 5G network for defense and the…",
+   "street": "Lapinlahdenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Space & Satellite Technology",
+   "linkedin": "https://linkedin.com/company/reorbit",
+   "careersUrl": "https://www.reorbit.space/careers",
+   "contactUrl": null,
+   "blogUrl": "https://www.reorbit.space/news",
+   "logoUrl": "https://media.brand.dev/91389acf-3456-4423-83d7-ab0d3a9e4f58.png",
+   "retrievedAt": "2026-11-14T16:35:41.421Z",
+   "logoOnDark": false
+  },
+  "virta.global": {
+   "name": "Virta",
+   "description": "Virta is a global provider of end‑to‑end electric‑vehicle charging solutions. Through its Virta Hub platform, the company offers a comprehensive Charge Point Management System (CPMS) that enables charge point operators, e‑mobility service providers, workplaces, fleets and ultra‑fast charging hubs to monitor, control and monetize their networks. Features include AI‑driven automation, tariff and energy management, payments, invoicing, roaming, CO₂ cashback, and extensive API integrations. Virta also supplies modular hardware options, supports over 2,000 charger models, and delivers fleet‑specif…",
+   "street": "Energiakuja 3",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Electric Vehicles (EVs) & Charging Infrastructure",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": "https://www.virta.global/contact",
+   "blogUrl": "https://www.virta.global/blog",
+   "logoUrl": "https://media.brand.dev/16594bca-6e76-4806-9e29-487fc216591e.png",
+   "retrievedAt": "2026-11-14T16:35:41.529Z",
+   "logoOnDark": false
+  },
+  "flowhaven.com": {
+   "name": "Flowhaven",
+   "description": "Flowhaven is a purpose‑built SaaS platform that centralizes every aspect of a licensing operation. It combines agreement management, product approval workflows, royalty calculation, and real‑time analytics into a single system, giving licensing leaders visibility, control, and the ability to turn renewals into revenue. By replacing fragmented CRM, spreadsheets, and email processes, Flowhaven automates rights tracking, multi‑stage brand‑safe product approvals, accurate royalty reconciliation, and live performance dashboards across territories, partners, and categories. The platform is designed…",
+   "street": "Eteläesplanadi 22b",
+   "city": "Helsinki",
+   "postalCode": "00130",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/flowhaven",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/4498e547-50df-4096-8746-20b6a6fe069b.png",
+   "retrievedAt": "2026-11-14T16:35:41.559Z",
+   "logoOnDark": false
+  },
+  "enfuce.com": {
+   "name": "Enfuce",
+   "description": "Enfuce provides a cloud-native, modular platform for card issuing, payment processing and licensing. Its API-first infrastructure supports real-time transaction decisions, fraud and dispute management, ledgers, analytics and card programmes across debit, credit, prepaid, fleet, mobility and employee benefits. Serving banks, fintechs, fleet providers and global brands, Enfuce helps organisations launch and scale payment programmes, expand into new markets and manage card migrations, with hands-on expertise from implementation through growth.",
+   "street": "Metsänneidonkuja 12",
+   "city": "Espoo",
+   "postalCode": "02130",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Financial Infrastructure & APIs",
+   "linkedin": "https://linkedin.com/company/enfuce",
+   "careersUrl": "https://enfuce.com/who-we-are/careers",
+   "contactUrl": "https://enfuce.com/contact",
+   "blogUrl": "https://enfuce.com/blog",
+   "logoUrl": "https://media.brand.dev/4a71e380-21ac-4983-ac37-eb51e307164d.svg",
+   "retrievedAt": "2026-11-14T16:35:41.597Z"
+  },
+  "basemark.com": {
+   "name": "Basemark",
+   "description": "Basemark is a European dual‑use software and services company that builds mission‑critical augmented reality (AR) and human‑machine interface (HMI) solutions. Its flagship Rocksolid platform combines a design studio, SDK and high‑performance runtimes to create immersive AR experiences for automotive dashboards, heads‑up displays, smart helmets, glasses, drones and enterprise logistics. Basemark delivers end‑to‑end professional services, from rapid prototyping to series‑production support, helping customers in automotive, defense and other sectors improve safety, situational awareness and oper…",
+   "street": "Albertinkatu 25",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/basemarkltd",
+   "careersUrl": "https://www.basemark.com/company/careers/",
+   "contactUrl": "https://www.basemark.com/company/contact-us/",
+   "blogUrl": "https://www.basemark.com/news/basemark-helps-to-deliver-augmented-reality-experience-for-one-of-the-worlds-leading-premium-car-brands/",
+   "logoUrl": "https://media.brand.dev/c9d6c50a-ca33-4599-bb86-7b5dc31db6f7.svg",
+   "retrievedAt": "2026-11-14T16:35:41.656Z",
+   "logoOnDark": false
+  },
+  "inven.ai": {
+   "name": "Inven",
+   "description": "Inven is an AI‑powered platform for private‑market professionals that combines proprietary data, a robust AI engine, and secure integrations to streamline M&A and corporate development workflows. It helps private‑equity firms, investment banks, corporate development teams, and consultants with deal sourcing, market and competitor analysis, company material preparation, and portfolio monitoring. Users can automate repetitive research tasks, generate client‑ready deliverables, and enrich data with verifiable sources, including private European financials. Inven’s agentic workflows let teams set…",
+   "street": "Lönnrotinkatu 32",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/inven-ai",
+   "careersUrl": "https://www.inven.ai/company/careers",
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/b91109f2-38ce-4d78-9090-46acced954f2.png",
+   "retrievedAt": "2026-11-14T16:35:41.890Z",
+   "logoOnDark": false
+  },
+  "distance.tech": {
+   "name": "Distance",
+   "description": "Distance Technologies develops AI‑driven computational optics that turn any transparent surface into an intelligent visual interface. By embedding pixel‑perfect depth and sensor data into windshields, helmets, and vehicle glass, their Lightfield HUD technology provides real‑time, 3D situational awareness for defense, aerospace and automotive markets. The platform fuses hyper‑spectral, thermal and battlefield information into a seamless visual layer, enhancing decision‑making, safety and operator effectiveness without adding screens or overlays. Their solutions enable advanced navigation, ADAS…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "XR & Spatial Computing",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://distance.tech/news",
+   "logoUrl": "https://media.brand.dev/bc84d919-bfa7-43d1-b292-1c43365dc1e6.png",
+   "retrievedAt": "2026-11-14T16:35:41.959Z"
+  },
+  "combinostics.com": {
+   "name": "Combinostics",
+   "description": "Combinostics is a health‑technology company that delivers a complete AI‑driven platform, cNeuro, for the early detection, diagnosis, and management of major neurological disorders. The cloud‑based solution integrates two core applications—cNeuro cMRI, which provides fully automated, quantitative brain MRI analysis, and cNeuro cDSI, an AI‑supported clinical decision‑support system that combines imaging biomarkers with laboratory, neuropsychological, and demographic data. By linking radiology and neurology workflows across institutions, Combinostics enables clinicians to generate high‑quality,…",
+   "street": "Hatanpään valtatie 24",
+   "city": "Tampere",
+   "postalCode": "33100",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://linkedin.com/company/combinostics",
+   "careersUrl": "https://www.combinostics.com/careers/",
+   "contactUrl": "https://www.combinostics.com/contact-us/",
+   "blogUrl": "https://www.combinostics.com/blog/",
+   "logoUrl": "https://media.brand.dev/0789fd16-73a0-4159-81b3-e791f88139cc.png",
+   "retrievedAt": "2026-11-14T16:35:42.281Z"
+  },
+  "gubbe.com": {
+   "name": "Gubbe",
+   "description": "Gubbe is a Nordic care provider offering reliable, personalised elderly and disability support across Finland and Sweden. They deliver consistent in‑home helpers who combine companionship, daily‑living assistance, outdoor activities, and technology coaching, reducing caregiver burnout and loneliness. Services include elderly care, disability aid, respite care, and guidance on subsidies and benefits, plus municipal and corporate welfare solutions such as employee benefits and CSR programmes. Gubbe’s single‑helper model builds trusted relationships, while regular updates keep families informed.…",
+   "street": "Erottajankatu",
+   "city": "Helsinki",
+   "postalCode": "00130",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Healthcare Providers & Services",
+   "linkedin": "https://linkedin.com/company/gubbe",
+   "careersUrl": null,
+   "contactUrl": "https://www.gubbe.com/en/contact",
+   "blogUrl": "https://www.gubbe.com/en/blog",
+   "logoUrl": "https://media.brand.dev/aefdeb24-6d44-47de-8561-e5cb0951e8a5.png",
+   "retrievedAt": "2026-11-14T16:35:42.692Z",
+   "logoOnDark": false
+  },
+  "fiksuruoka.fi": {
+   "name": "Fiksuruoka",
+   "description": "Fiksuruoka is a Finnish online retailer dedicated to reducing food waste by selling surplus, near‑expiry and overstock items at steep discounts. Operating through fiksuruoka.fi, the platform offers a wide range of categories—including pantry staples, beverages, snacks, health products, pet supplies, cosmetics and special diet items—often bundled in “Fiksuruoka‑laatikko” boxes. Customers enjoy free delivery on orders over €39 and can shop special promotions such as Hävikkiviikko (waste‑week) and daily surprise deals. By redirecting products that would otherwise be discarded, Fiksuruoka helps c…",
+   "street": null,
+   "city": "Espoo",
+   "postalCode": null,
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Food, Beverage & Grocery E-commerce",
+   "linkedin": "https://linkedin.com/company/fiksu-ruoka-oy",
+   "careersUrl": null,
+   "contactUrl": "https://www.fiksuruoka.fi/page/52/ota-yhteytta",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/f2659bc0-f97d-41ca-9243-2445676e9e1f.png",
+   "retrievedAt": "2026-11-14T16:35:43.016Z"
+  },
+  "logmore.com": {
+   "name": "Logmore",
+   "description": "Logmore provides QR-enabled data loggers and a cloud platform that give real‑time visibility into the condition of sensitive shipments. Their small, reusable or single‑use loggers record temperature, humidity, shock and light, storing the data in a dynamic QR code. When a receiver scans the code with any smartphone, the trip record uploads instantly to Logmore Cloud, where teams can review, analyze, and decide on shipment status, generate audit trails and compliance reports. The solution works across all transport modes, requires no apps, cables or DGR labeling, and integrates with analytics…",
+   "street": "Korkeavuorenkatu 35",
+   "city": "Helsinki",
+   "postalCode": "00130",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Supply Chain Visibility Platforms",
+   "linkedin": null,
+   "careersUrl": "https://logmore.com/careers/",
+   "contactUrl": "https://logmore.com/contact/",
+   "blogUrl": "https://logmore.com/news/",
+   "logoUrl": "https://media.brand.dev/16677051-f1b9-4c9c-817e-867c7ef32e92.svg",
+   "retrievedAt": "2026-11-14T16:35:43.292Z",
+   "logoOnDark": true
+  },
+  "cloudpermit.com": {
+   "name": "Cloudpermit",
+   "description": "Cloudpermit is a software company that provides purpose‑built, cloud‑based solutions for municipalities and public‑works agencies. Their platform streamlines community development, building permitting, licensing, land‑use planning, inspections, code enforcement, property management, and work‑order management. By digitizing applications, automating workflows, and offering mobile‑ready field tools, Cloudpermit helps local governments issue permits faster, conduct inspections efficiently, manage assets, and improve citizen self‑service. The suite integrates with popular tools like Bluebeam, DigE…",
+   "street": "11911 Freedom Dr",
+   "city": "Reston",
+   "postalCode": "20190",
+   "country": "US",
+   "employees": "11–50",
+   "profileIndustry": "Government Technology & Digital Services",
+   "linkedin": "https://linkedin.com/company/cloudpermit",
+   "careersUrl": "https://cloudpermit.com/careers",
+   "contactUrl": "https://cloudpermit.com/contact",
+   "blogUrl": "https://cloudpermit.com/blog/cloudpermit-expands-its-local-government-software-suite-with-cityreporter-acquisition",
+   "logoUrl": "https://media.brand.dev/dc887b35-c1e9-4b9a-b28f-e60b2f34df09.png",
+   "retrievedAt": "2026-11-14T16:35:43.524Z"
+  },
+  "jobilla.com": {
+   "name": "Jobilla",
+   "description": "Jobilla is an AI‑driven recruitment platform that helps employers and staffing agencies find and engage both active and passive talent across multiple industries. Leveraging data from over 45,000 campaigns, Jobilla’s AIR solution creates and distributes multilingual job ads, landing pages, and forms in minutes, automatically optimising audience targeting on Meta channels. The platform pre‑scores candidates, reduces application time to three minutes, and shortens time‑to‑hire by delivering only highly matched profiles. It integrates with ATS systems, complies with GDPR and the EU AI Act, and s…",
+   "street": "Vuorikatu 16",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/jobilla",
+   "careersUrl": "https://www.jobilla.com/careers",
+   "contactUrl": "https://www.jobilla.com/contact-us",
+   "blogUrl": "https://www.jobilla.com/en/blog",
+   "logoUrl": "https://media.brand.dev/44edfc80-8e66-47be-b529-2669e0935003.png",
+   "retrievedAt": "2026-11-14T16:35:43.770Z",
+   "logoOnDark": false
+  },
+  "lumoa.me": {
+   "name": "Netigate",
+   "description": "Netigate is a global experience‑management platform that helps organisations collect, analyse and act on feedback across customer, employee and digital experiences. Using AI‑powered tools such as ASK AI, the platform aggregates data from surveys, web and app interactions, NPS/eNPS scores and integrates with CRM, help‑desk and BI systems. Netigate serves a wide range of industries—including retail, e‑commerce, banking, insurance, travel, manufacturing, energy and technology—offering tailored use‑cases for improving loyalty, satisfaction and operational efficiency. Its suite includes Netigate S…",
+   "street": "Hermannin rantatie 8",
+   "city": "Helsinki",
+   "postalCode": "00580",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/netigate",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/aa620d7b-9a43-466c-ab2a-d843c00c4f81.png",
+   "retrievedAt": "2026-11-14T16:35:43.976Z"
+  },
+  "getjenny.com": {
+   "name": "GetJenny",
+   "description": "GetJenny offers an AI‑powered chatbot platform called JennyBot that automates customer‑service interactions for businesses across sectors such as energy, media, e‑commerce and more. The solution can operate as a standalone bot or augment live‑chat agents, deflecting up to 80‑87% of routine inquiries, creating tickets, checking inventory, and handling deliveries. JennyBot integrates with major contact‑center and CRM tools like Zendesk, HubSpot, SAP Contact Center and others, enabling seamless hand‑off to human agents. By automating repetitive tasks, companies boost productivity, shrink respons…",
+   "street": "Urho Kekkosen katu 4-6",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/getjenny",
+   "careersUrl": "https://www.getjenny.com/careers",
+   "contactUrl": null,
+   "blogUrl": "https://www.getjenny.com/blog",
+   "logoUrl": "https://media.brand.dev/4c369d0e-5b2c-4d4e-b56f-b38419202f2a.png",
+   "retrievedAt": "2026-11-14T16:35:44.189Z",
+   "logoOnDark": false
+  },
+  "singa.com": {
+   "name": "Singa",
+   "description": "Singa provides a karaoke app and platform for singing at home or at Singa-powered venues. Its extensive song library includes high-quality karaoke tracks and original recordings, accessible on computers, phones, tablets, and smart TVs. Features include pitch adjustment, guide vocals, song queues, and AirPlay support. Singa also offers subscriptions for individuals and professional karaoke tools for businesses.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Streaming Platforms (Video, Music, Audio)",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/3991d44a-eca6-41f6-a4a4-d9f06324e8e6.png",
+   "retrievedAt": "2026-11-14T16:35:47.987Z"
+  },
+  "noice.com": {
+   "name": "Noice",
+   "description": "Noice is an early‑stage startup that is creating a next‑gen livestreaming and social platform for gamers, enabling players to stream, interact, and build communities in real time. Leveraging cutting‑edge technology, Noice aims to reshape how gamers share experiences, discover content, and connect with each other, positioning itself in the fast‑growing games industry.",
+   "street": "Vuorikatu 14",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Gaming & Interactive Entertainment",
+   "linkedin": "https://linkedin.com/company/noice-inc",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/cce10640-1eab-4b0c-b049-d6877596b0a4.png",
+   "retrievedAt": "2026-11-14T16:35:48.260Z",
+   "logoOnDark": false
+  },
+  "zefort.com": {
+   "name": "Zefort",
+   "description": "Zefort is a technology‑driven financial services company that provides a digital platform for banking, payments, and wealth management. Leveraging modern APIs and secure cloud infrastructure, Zefort enables individuals and businesses to open accounts, transfer funds, make payments, and invest in a range of assets—all through a user‑friendly mobile and web experience. The company focuses on transparency, low fees, and real‑time analytics, helping customers manage their money more efficiently. Zefort also offers API‑first solutions for fintech partners, allowing seamless integration of banking…",
+   "street": "Kairiskulmantie 12",
+   "city": "Kaarina",
+   "postalCode": "20760",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Regulatory Compliance",
+   "linkedin": "https://linkedin.com/company/zefort",
+   "careersUrl": "https://zefort.com/careers/",
+   "contactUrl": "https://zefort.com/contact-us/",
+   "blogUrl": "https://zefort.com/blog/",
+   "logoUrl": "https://media.brand.dev/0c6f98e7-22f2-42ba-a316-bec440c84be9.png",
+   "retrievedAt": "2026-11-14T16:35:48.557Z"
+  },
+  "zervant.com": {
+   "name": "Zervant",
+   "description": "Zervant is an invoicing and financial management platform for sole traders and small businesses, part of Ageras. It lets users create, send, and track estimates and invoices online, automate recurring billing, accept payments, and manage time tracking—all through a simple, ad‑free interface. The free mobile app enables on‑the‑go invoicing, while premium tools add advanced features as businesses grow. Zervant also provides templates, guides, and resources to help entrepreneurs run their finances more efficiently.",
+   "street": "Tekniikantie 12",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Accounting, Tax & Financial Planning Tools",
+   "linkedin": "https://linkedin.com/company/zervant",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://www.zervant.com/en/blog/",
+   "logoUrl": "https://media.brand.dev/49abd56d-f01b-4a58-b404-a1611980b340.png",
+   "retrievedAt": "2026-11-14T16:35:48.857Z"
+  },
+  "onego.bio": {
+   "name": "Onego Bio",
+   "description": "Onego Bio is a Finnish‑U.S. food ingredient company that creates sustainable egg protein using precision fermentation. Their flagship product, Bioalbumen®, is a non‑animal ovalbumin identical to egg‑white protein, offering the same functional and nutritional benefits while reducing land use, greenhouse‑gas emissions, and water consumption. By producing this protein at scale in fermentation facilities, Onego Bio provides food manufacturers with a price‑stable, supply‑resilient, and ESG‑friendly ingredient for applications ranging from baked goods to high‑protein beverages. The company is expan…",
+   "street": "Hämeentie 157",
+   "city": "Helsinki",
+   "postalCode": "00560",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Food & Beverage Manufacturing & Processing",
+   "linkedin": "https://linkedin.com/company/onego-bio",
+   "careersUrl": "https://www.onego.bio/careers",
+   "contactUrl": "https://www.onego.bio/getintouch",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/716d4151-91f0-467e-b910-924c5bf23b1a.png",
+   "retrievedAt": "2026-11-14T16:35:49.144Z",
+   "logoOnDark": false
+  },
+  "nextgames.com": {
+   "name": "Next Games",
+   "description": "Next Games is a Netflix game studio based in Helsinki, Finland, that creates innovative mobile, web, and TV games inspired by Netflix original series and other popular IPs. Leveraging a legacy in Finnish game development, they deliver seamless gaming experiences that integrate into the Netflix ecosystem, reaching a global audience. Their focus is on fresh ideas, high-quality production, and values such as integrity, inclusion, and collaboration. They also offer career opportunities and emphasize responsibility and culture.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Gaming & Interactive Entertainment",
+   "linkedin": null,
+   "careersUrl": "https://www.nextgames.com/careers",
+   "contactUrl": "https://www.nextgames.com/contact",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/8f378e72-dfa1-44e8-bd89-0a7c12beb114.png",
+   "retrievedAt": "2026-11-14T16:35:49.357Z"
+  },
+  "futureplaygames.com": {
+   "name": "Futureplay",
+   "description": "FuturePlayGames is an ambitious, globally‑recruiting game development studio founded in 2015. Based in Helsinki, the company creates casual and social mobile games that have reached over 120 million players, with flagship titles such as Merge Gardens, Battlelands Royale, and Idle Farming Empire. Their diverse team collaborates to design, develop, and support engaging experiences, emphasizing fun, creativity, and quality. FuturePlayGames continues to expand its portfolio and invites new talent to join its culture of innovation and teamwork, aiming to deliver more hit games for players worldwid…",
+   "street": "Urho Kekkosen katu 5",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Gaming & Interactive Entertainment",
+   "linkedin": "https://linkedin.com/company/futureplay-games",
+   "careersUrl": "https://www.futureplaygames.com/careers",
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/c57585cb-8ed1-439c-9731-cbc393966130.svg",
+   "retrievedAt": "2026-11-14T16:35:49.586Z",
+   "logoOnDark": false
+  },
+  "leadoo.com": {
+   "name": "Leadoo AI",
+   "description": "Leadoo AI is a conversion and customer experience platform that helps businesses turn website visitors into leads and customers. Its AI-powered conversational tools engage visitors, qualify leads, answer support questions, and route interactions to the right teams. The platform also provides insights into visitor behavior and supports personalized marketing, sales, recruitment, and customer service journeys. Leadoo serves more than 1,000 brands across Europe.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/leadoomt",
+   "careersUrl": "https://leadoo.com/careers/",
+   "contactUrl": "https://leadoo.com/contact-us/",
+   "blogUrl": "https://leadoo.com/blog/conversion-rate-and-roi-calculator/",
+   "logoUrl": "https://media.brand.dev/0c782b23-77b4-4aa8-b5cc-432a6b397f4d.png",
+   "retrievedAt": "2026-11-14T16:35:53.586Z"
+  },
+  "redhillgames.com": {
+   "name": "Redhill Games",
+   "description": "Redhill Games is a seasoned game development studio based in Helsinki, Finland. They specialize in co‑development for AAA PC and console titles, partnering with leading developers and publishers worldwide. Leveraging extensive experience with top gaming brands, the international and diverse team helps create high‑quality gaming experiences that leave a lasting impression on players. Redhill Games also offers a collaborative pipeline, from concept to production, supporting partners in delivering polished, large‑scale games. Recognized as a Great Place to Work®, the studio emphasizes a strong c…",
+   "street": "Töölönlahdenkatu 2",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Gaming & Interactive Entertainment",
+   "linkedin": "https://linkedin.com/company/redhill-games",
+   "careersUrl": "https://www.redhillgames.com/careers/",
+   "contactUrl": "https://www.redhillgames.com/contact-us/",
+   "blogUrl": "https://www.redhillgames.com/blog/",
+   "logoUrl": "https://media.brand.dev/b4dbe4ef-1842-45d3-99f0-fe865a0572c1.png",
+   "retrievedAt": "2026-11-14T16:35:53.878Z",
+   "logoOnDark": false
+  },
+  "savagegamestudios.com": {
+   "error": "400 Domain branding not present (DNS resolution failed) [savagegamestudios.com]"
+  },
+  "papukaya.com": {
+   "name": "Papukaya",
+   "description": "Papukaya is an Indonesian‑based online platform that blends a full‑service e‑commerce store with a specialized Toto Macau lottery‑prediction service. Through its website, Papukaya offers a wide range of electronics—including PCs, laptops, smartphones, accessories, smart‑home devices, and networking gear—sourced as original, certified products with flexible payment options and 24/7 customer support. In parallel, the site provides licensed lottery‑prediction packages (Paito, Syair, Bocoran, and other Toto Macau models) aimed at helping players make informed betting decisions. Serving customers…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Online Marketplaces",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/3f882847-5309-4d9e-9985-8ddc7591cca7.webp",
+   "retrievedAt": "2026-11-14T16:35:54.981Z"
+  },
+  "enablebanking.com": {
+   "name": "Enable Banking",
+   "description": "Enable Banking provides a PSD2‑compliant open banking platform that connects businesses to over 2,700 banks across 30 European countries through a single API. By handling the complex back‑end integration, authentication, and regulatory updates, it lets developers embed real‑time account information and payment initiation into products in days rather than months. The service supports use cases in accounting & ERP, credit risk, onboarding/KYC, loyalty & rewards, and property management, delivering verified transaction data, cash‑flow insights, and strong customer authentication. Trusted by 180+…",
+   "street": null,
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Financial Infrastructure & APIs",
+   "linkedin": "https://linkedin.com/company/enablebanking",
+   "careersUrl": null,
+   "contactUrl": "https://enablebanking.com/contact-us",
+   "blogUrl": "https://enablebanking.com/blog",
+   "logoUrl": "https://media.brand.dev/1001aab2-9b0d-44e9-a146-cab76d1dc264.png",
+   "retrievedAt": "2026-11-14T16:35:55.262Z"
+  },
+  "holvi.com": {
+   "name": "Holvi",
+   "description": "Holvi provides digital business finance tools for self-employed people and teams. Its services combine an online business account with payment cards, invoicing, international transfers, expense management and bookkeeping preparation. Customers can manage receipts, monitor spending, access financial insights, and connect accounting software through Holvi’s app and online platform. Holvi serves businesses in markets including Finland, Germany and Austria.",
+   "street": "Kaikukatu 2 c",
+   "city": "Helsinki",
+   "postalCode": "00530",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Banking & Lending",
+   "linkedin": "https://linkedin.com/company/holvi",
+   "careersUrl": "https://www.holvi.com/careers/",
+   "contactUrl": "https://www.holvi.com/contact-us/",
+   "blogUrl": "https://blog.holvi.com/",
+   "logoUrl": null,
+   "retrievedAt": "2026-11-14T16:35:55.490Z",
+   "logoOnDark": false
+  },
+  "kidescience.com": {
+   "name": "Kidescience",
+   "description": "KidScience is an online educational platform dedicated to making science fun and accessible for children. Through engaging articles, interactive experiments, videos, and hands‑on activities, KidScience sparks curiosity and encourages young learners to explore topics ranging from biology and chemistry to physics and earth science. The site offers age‑appropriate content aligned with school curricula, resources for parents and teachers, and a safe, ad‑free environment where kids can discover, ask questions, and share their findings. By combining clear explanations with visual storytelling, KidS…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Corporate Training & Upskilling",
+   "linkedin": "https://linkedin.com/company/acceleratelearninginc",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/3102165b-7271-4058-ba85-da56545b2547.svg",
+   "retrievedAt": "2026-11-14T16:35:55.502Z",
+   "logoOnDark": false
+  },
+  "seppo.io": {
+   "name": "Seppo",
+   "description": "Seppo is a gamified learning and capability intelligence platform that helps organisations turn training, onboarding, and change initiatives into interactive, data‑driven experiences. Using its AI‑facilitated simulation engine (SAIGE) and 3D learning environments, Seppo’s SeppoQ™ solution assesses how employees think, communicate, and decide in realistic scenarios, delivering personalised feedback and actionable insights for leaders. The platform identifies capability gaps, tracks progress, and guides investment in reskilling, while its broader gamification suite adds challenges, storytelling…",
+   "street": "Lapinlahdenkatu 16 C15",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Corporate Training & Upskilling",
+   "linkedin": "https://linkedin.com/company/seppo",
+   "careersUrl": null,
+   "contactUrl": "https://seppo.io/contact-us/",
+   "blogUrl": "https://seppo.io/blog/",
+   "logoUrl": "https://media.brand.dev/5bca3791-cca1-4add-bdf3-875fd85f550b.png",
+   "retrievedAt": "2026-11-14T16:35:55.703Z",
+   "logoOnDark": false
+  },
+  "puro.earth": {
+   "name": "Puro",
+   "description": "Puro.earth is a leading engineered carbon‑removal (CDR) platform that builds the certification infrastructure turning CO₂ removal into a tangible, bankable asset. It operates a Nasdaq‑backed registry, rigorous Puro Standard, and governance framework approved by the ICVCM, providing institutional‑grade assurance, insolvency protection, and long‑term market continuity. The company develops and validates methodologies for technologies such as direct‑air capture, biochar, enhanced rock weathering, marine and terrestrial storage, and BECCS, issuing verified CO₂ removal certificates (CORCs) that ar…",
+   "street": "Tammasaarenkatu 1",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Capital Markets & Trading Platforms",
+   "linkedin": "https://linkedin.com/company/puro-earth",
+   "careersUrl": "https://puro.earth/contact-us/careers/",
+   "contactUrl": "https://puro.earth/contact-us/",
+   "blogUrl": "https://puro.earth/insights/",
+   "logoUrl": "https://media.brand.dev/ea6a2310-2722-49df-a6be-b1263eefe490.svg",
+   "retrievedAt": "2026-11-14T16:35:55.752Z",
+   "logoOnDark": false
+  },
+  "skipperi.fi": {
+   "name": "Skipperi",
+   "description": "Skipperi is a Finnish startup founded in 2017 that makes boating easy and affordable for everyone. Through its Skipperi Fleet and peer‑to‑peer rental platform, users can rent boats by the hour, day or season without owning a vessel. The service offers a wide selection of over 1,200 boats across Finland and Sweden, including shared‑use boats, traditional rentals, and direct owner‑to‑renter bookings via the Friilo marketplace. Skipperi provides a hassle‑free, subscription‑based model with monthly payments, a digital logbook, and a mobile app available on iOS and Android. By simplifying access t…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Online Marketplaces",
+   "linkedin": "https://linkedin.com/company/skipperi",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/c6cbb73b-f223-420f-abf8-8c1a50c8cc73.jpg",
+   "retrievedAt": "2026-11-14T16:35:55.932Z"
+  },
+  "resq-club.com": {
+   "name": "ResQ Club",
+   "description": "ResQ Club is an online community and resource hub for rescue professionals, volunteers, and enthusiasts. The platform connects members through forums, training materials, event listings, and networking tools, helping them share knowledge, improve skills, and coordinate emergency response efforts. ResQ Club provides educational content, certification guidance, and a marketplace for related gear, fostering collaboration and preparedness among its global membership.",
+   "street": "Eerikinkatu 28",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/resq-club-oy",
+   "careersUrl": "https://careers.resq-club.com/",
+   "contactUrl": "https://www.resq-club.com/contact/",
+   "blogUrl": "https://www.resq-club.com/blog/",
+   "logoUrl": "https://media.brand.dev/e5e33eb3-d1f5-45bc-9d90-a5bc8454323f.png",
+   "retrievedAt": "2026-11-14T16:35:55.970Z",
+   "logoOnDark": false
+  },
+  "upcloud.com": {
+   "name": "UpCloud",
+   "description": "UpCloud is a European‑based cloud provider delivering high‑performance, scalable infrastructure for businesses of all sizes. It offers a full suite of services including virtual compute (Linux and Windows servers), dedicated GPU clusters for AI, ML, rendering, and video workloads, private cloud environments, managed databases, Kubernetes, and a range of storage options (block, file, object). Its network features—software‑defined networking, load balancers, NAT gateways, peering, VPN, and zero‑cost egress—run on a private global backbone for low latency and high reliability. UpCloud also provi…",
+   "street": "Aleksanterinkatu 15b",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Cloud Infrastructure & DevOps",
+   "linkedin": "https://linkedin.com/company/upcloud",
+   "careersUrl": "https://upcloud.com/careers/",
+   "contactUrl": "https://upcloud.com/contact/",
+   "blogUrl": "https://upcloud.com/blog/",
+   "logoUrl": "https://media.brand.dev/589bef2f-e10c-4205-a8de-950103a50624.png",
+   "retrievedAt": "2026-11-14T16:35:56.421Z",
+   "logoOnDark": false
+  },
+  "kaikuhealth.com": {
+   "name": "Elekta",
+   "description": "Elekta is a medical technology company that develops equipment, software, and services for cancer care. Its offerings include radiation therapy and treatment-planning systems, brachytherapy solutions, stereotactic radiosurgery and neurosurgery systems, oncology software, and related training and support services.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://linkedin.com/company/9359",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/024e85c1-4bb3-4a39-96f6-d5d6998c02a9.png",
+   "retrievedAt": "2026-11-14T16:35:56.485Z"
+  },
+  "tuxera.com": {
+   "name": "Tuxera",
+   "description": "Tuxera is a global software company that delivers high‑performance, reliable data‑layer solutions for embedded and enterprise systems. Its portfolio includes embedded file systems (NTFS, exFAT, FAT, NitroFS, SnapFS, EdgeFS), flash memory controllers (FlashFX Tera), networking and security stacks (TCP/IP Stack, CryptoCore, ESC), and enterprise‑grade file sharing platforms (Fusion SMB/NFS). Serving sectors such as aerospace, automotive, cloud services, defense, industrial, media, healthcare, and smart energy, Tuxera ensures data integrity, deterministic performance, and long‑term durability—cri…",
+   "street": "Westendintie 1",
+   "city": "Espoo",
+   "postalCode": "02160",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/tuxera",
+   "careersUrl": "https://www.tuxera.com/careers/",
+   "contactUrl": "https://www.tuxera.com/contact/",
+   "blogUrl": "https://tuxera.com/blog/",
+   "logoUrl": "https://media.brand.dev/ac6ea358-9a9a-4509-8323-0c5fef7aee8e.png",
+   "retrievedAt": "2026-11-14T16:35:56.633Z"
+  },
+  "unikie.com": {
+   "name": "Unikie",
+   "description": "Unikie is a global software‑engineering and innovation firm that brings AI‑native, real‑time intelligence to physical systems. The company develops embedded software, autonomous drone swarms, composite AI, embedded security, HMI, immersive technologies, situational‑awareness tools, performance‑optimization and test‑automation solutions. Its expertise spans automotive, defence & security, intelligent devices & networks, and industrial automation, delivering automated marshalling systems for vehicle plants, bus depots, parcel‑logistics hubs and vehicle‑logistics operations. By integrating AI in…",
+   "street": "Visiokatu 4",
+   "city": "Tampere",
+   "postalCode": "33720",
+   "country": "FI",
+   "employees": "501–1000",
+   "profileIndustry": "Automotive OEMs & Vehicle Manufacturing",
+   "linkedin": "https://linkedin.com/company/unikie",
+   "careersUrl": "https://www.unikie.com/career/",
+   "contactUrl": "https://www.unikie.com/contact/",
+   "blogUrl": "https://www.unikie.com/news/unikie-introduces-approach-to-ai-driven-development/",
+   "logoUrl": "https://media.brand.dev/551dd9e6-fe1b-483d-96eb-a5d17f7fc4c1.png",
+   "retrievedAt": "2026-11-14T16:35:56.779Z"
+  },
+  "oura.com": {
+   "name": "Oura",
+   "description": "Oùra est un service de mobilité en Auvergne-Rhône-Alpes qui facilite les déplacements dans la région. Sa plateforme et son application permettent de rechercher des itinéraires et d’accéder aux offres de nombreux réseaux partenaires, notamment les trains TER, les cars régionaux et les transports urbains. Oùra accompagne aussi les déplacements à vélo, en autopartage et en covoiturage, et propose l’achat de titres de transport sur carte.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Mobility-as-a-Service (MaaS)",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://www.oura.com/category/actualites/",
+   "logoUrl": "https://media.brand.dev/d8765108-202e-49ed-bdfc-0f6e2794832a.png",
+   "retrievedAt": "2026-11-14T16:35:57.010Z"
+  },
+  "dealfront.com": {
+   "name": "Leadfeeder",
+   "description": "Dealfront, now Leadfeeder, provides a B2B sales and marketing intelligence platform that helps businesses identify companies visiting their websites, uncover buying intent, and prioritize high-fit accounts. Its tools support lead qualification, audience building, targeted advertising, and sales workflows, with integrations for platforms such as Salesforce, HubSpot, Pipedrive, and Zoho.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/leadfeeder",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/8dee5739-7886-4cd8-be88-6b654e969e84.svg",
+   "retrievedAt": "2026-11-14T16:35:57.169Z"
+  },
+  "iceye.com": {
+   "name": "Iceye",
+   "description": "ICEYE is a space‑technology company that operates the world’s largest synthetic‑aperture radar (SAR) satellite constellation. It delivers near‑real‑time, high‑resolution (up to 25 cm) imagery and analytics for flood, hurricane, wildfire and other natural‑catastrophe monitoring. ICEYE’s portfolio includes mission‑system solutions such as the ISR Cell, federated satellite access, rapid‑tasking APIs, and tactical data delivery within an hour for defense, intelligence and government users. The company also provides tailored data services for insurance, banking, utilities, and energy sectors to as…",
+   "street": "Otaniemi",
+   "city": "Espoo",
+   "postalCode": null,
+   "country": "FI",
+   "employees": "1001–5000",
+   "profileIndustry": "Space & Satellite Technology",
+   "linkedin": "https://linkedin.com/company/iceye",
+   "careersUrl": "https://www.iceye.com/careers",
+   "contactUrl": "https://www.iceye.com/contact",
+   "blogUrl": "https://www.iceye.com/blog",
+   "logoUrl": "https://media.brand.dev/69668eba-fa74-45de-8b5d-370f937fca8f.png",
+   "retrievedAt": "2026-11-14T16:35:57.232Z"
+  },
+  "meetiqm.com": {
+   "name": "IQM",
+   "description": "IQM builds superconducting full-stack quantum computers with cutting-edge technology, offering systems with up to 150 high-fidelity qubits and exceptional connectivity, making them a leader in the quantum computing space.",
+   "street": "Keilaranta 19",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "201–500",
+   "profileIndustry": "Hardware & Semiconductors",
+   "linkedin": "https://linkedin.com/company/iqm-finland",
+   "careersUrl": "https://meetiqm.com/careers/",
+   "contactUrl": "https://meetiqm.com/contact/",
+   "blogUrl": "https://meetiqm.com/resources/blog/",
+   "logoUrl": "https://media.brand.dev/fdf77c37-13a6-4c3f-9bc2-2a777b4fc3bf.png",
+   "retrievedAt": "2026-11-14T16:35:57.504Z"
+  },
+  "compensate.com": {
+   "name": "Compensate",
+   "description": "Compensate is a climate‑action platform that helps organisations offset their carbon footprints through rigorously vetted, high‑quality carbon projects. Leveraging a scientific evaluation process, only about 10% of screened projects meet its strict standards, ensuring genuine climate impact. The company manages diversified portfolios of carbon removal and nature‑based solutions, incorporates an over‑compensation mechanism to hedge calculation uncertainties, and focuses on projects that also deliver biodiversity, social justice, and Sustainable Development Goal benefits. In addition to commerc…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Environmental & Climate Action Organizations",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": "https://www.compensate.com/contact",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/f7d2d59c-936e-4851-8e76-0f2f0146b1da.png",
+   "retrievedAt": "2026-11-14T16:35:57.505Z"
+  },
+  "yeply.com": {
+   "name": "Yeply",
+   "description": "Yeply is Europe’s fastest‑growing maintenance ecosystem for bicycles and bike‑like vehicles, operating in Finland, Germany, the Netherlands and Belgium. The company offers on‑demand, neighborhood‑based maintenance and service for individual cyclists as well as comprehensive fleet solutions for businesses, including cargo bike upkeep and corporate bike‑day events. Powered by a digital platform, Yeply coordinates a network of service hubs and mobile teams that have serviced over 100,000 bikes since 2016. Its B2C and B2B services aim to decarbonise city transportation, promote healthier lifestyl…",
+   "street": "Ristipellontie 21",
+   "city": "Helsinki",
+   "postalCode": "00390",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Aftermarket Parts & Services",
+   "linkedin": "https://linkedin.com/company/yeply",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://www.yeply.com/press/",
+   "logoUrl": "https://media.brand.dev/eb61a437-5387-4925-9274-2a6b9704040e.png",
+   "retrievedAt": "2026-11-14T16:35:57.786Z"
+  },
+  "hailer.com": {
+   "name": "Hailer",
+   "description": "Hailer is a low‑code workflow and app platform that lets organizations build, customize, and run their own internal tools. Through a marketplace of ready‑made apps and templates—such as address books, AI hubs, email builders, and custom dashboards—teams can automate processes ranging from HR and sales to maintenance and legal case management. Hailer provides a REST API, SDKs, and AI‑agent integration so developers can extend functionality or embed the system into existing software. Trusted by manufacturers, agencies, staffing firms, and service providers across Europe, the platform centralise…",
+   "street": "Rihkamatori 2",
+   "city": "Porvoo",
+   "postalCode": "06100",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/eae1b262-8ad3-49d6-8200-634253ab2667.png",
+   "retrievedAt": "2026-11-14T16:35:58.060Z"
+  },
+  "whimapp.com": {
+   "error": "400 Domain branding not present (DNS resolution failed) [whimapp.com]"
+  },
+  "wellmo.com": {
+   "name": "Wellmo",
+   "description": "Wellmo is a health‑engagement platform that powers ecosystem‑based digital health services. Acting as a Platform‑as‑a‑Service (PaaS) orchestrator, Wellmo enables insurers, payers, governments and other health entities to launch, customize, and continuously improve branded health apps and web portals. The platform offers ready‑made integrations with hundreds of connected devices (Apple Health, Google Health Connect), a white‑label mobile and web UI, low‑code content management, API‑driven developer tools, and analytics for usage and outcomes. By aggregating services from multiple providers, We…",
+   "street": "Otakaari 5 A",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Digital Health & Telemedicine",
+   "linkedin": "https://linkedin.com/company/mobile-wellness-solutions-oy",
+   "careersUrl": "https://www.wellmo.com/wellmo-jobs/",
+   "contactUrl": "https://www.wellmo.com/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/504172ec-64d8-4c89-b2cb-3a6454df988b.png",
+   "retrievedAt": "2026-11-14T16:35:58.382Z"
+  },
+  "claned.com": {
+   "name": "Claned",
+   "description": "Claned is a learning‑technology company that provides an AI‑enhanced platform designed to turn learning into measurable skills and real‑world capability. Their solution combines a personalized learner feed, a portable competence passport, and integration with recognized skill frameworks such as ESCO. Organizations can reuse existing content, deliver engaging experiences faster, and track outcomes through analytics that show what learners can actually do, not just course completion rates. The platform also supports open integration with existing systems, mobile‑ready document conversion, and c…",
+   "street": "Konepajankuja 1",
+   "city": "Helsinki",
+   "postalCode": "00510",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Education Management Systems (LMS/SIS)",
+   "linkedin": "https://linkedin.com/company/claned-group",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/32fe449e-750c-4af0-ae1c-51134f69a8f5.png",
+   "retrievedAt": "2026-11-14T16:35:58.557Z"
+  },
+  "3dbear.io": {
+   "name": "3DBear",
+   "description": "3DBear is a Finnish technology company that creates digital learning materials and immersive learning environments for vocational education. Their flagship platform, Simuna, delivers web‑based, AI‑enhanced simulations that let students practice real‑world work scenarios in a safe, scalable setting. 3DBear also designs custom physical spaces equipped with 360° multisensory simulations and advanced pedagogical planning. By combining AI‑driven pedagogy, immersive 360° content, and multilingual support, they help institutions modernize curricula, improve skill‑based training, and boost learner en…",
+   "street": "Lapinlahdenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Corporate Training & Upskilling",
+   "linkedin": "https://linkedin.com/company/3dbear-ltd.",
+   "careersUrl": null,
+   "contactUrl": "https://3dbear.io/yhteystiedot/",
+   "blogUrl": "https://3dbear.io/blog/",
+   "logoUrl": "https://media.brand.dev/81dc7f12-f52f-4647-81a8-54d99405dbdd.svg",
+   "retrievedAt": "2026-11-14T16:35:58.692Z",
+   "logoOnDark": true
+  },
+  "mightifier.com": {
+   "name": "Mightifier",
+   "description": "Mightifier is an email marketing agency that creates, manages, and optimizes email campaigns for businesses, delivering targeted content, automation, and analytics to boost engagement and conversions. The company focuses on personalized strategies, list growth, and compliance, offering services such as newsletter design, live news updates, and subscription management. Although its website is currently under development, Mightifier is preparing to launch a platform that provides tools and expertise to help brands connect with their audiences effectively.",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Marketing & Advertising Agencies",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://mightifier.com/news",
+   "logoUrl": "https://media.brand.dev/46ec58be-881e-4b43-8549-8ad6b8a31851.png",
+   "retrievedAt": "2026-11-14T16:35:58.827Z"
+  },
+  "skenariolabs.com": {
+   "name": "Skenario Labs",
+   "description": "Skenario Labs is a real‑estate finance data platform that transforms fragmented property information into decision‑ready intelligence. By aggregating and enriching data on valuation, climate risk, ESG, energy performance, and technical condition, the company delivers asset‑level insights for lenders, public sector bodies, and real‑estate owners. Its suite includes automated valuation models, climate and transition risk analytics, renovation cost forecasting, and portfolio audit tools, all designed to support risk monitoring, loan origination, and regulatory reporting. Skenario Labs enables us…",
+   "street": "Tekniikantie 2",
+   "city": "Espoo",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Mortgage & Lending Tech",
+   "linkedin": "https://fi.linkedin.com/company/skenariolabs",
+   "careersUrl": null,
+   "contactUrl": "https://skenariolabs.com/contact/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/4215f585-6c58-4418-8e85-597900a8fa03.png",
+   "retrievedAt": "2026-11-14T16:35:58.925Z"
+  },
+  "sensorfleet.com": {
+   "name": "SensorFleet",
+   "description": "SensorFleet is a European open‑and‑scalable Network Detection and Response (NDR) provider that protects IT, OT and SDN environments for over 100 end‑user organizations worldwide. Leveraging more than 300 sensors and 1,000 instruments, the platform lets customers run multiple NDR tools on a single, modular framework, with flexible deployment options for the vendor, the end‑user or a SOC partner. The open NDR stack eliminates vendor lock‑in and integrates easily with SIEM, threat‑intel and cloud solutions, enabling continuous security improvement across industries and government agencies. With…",
+   "street": "Toivontie 90530",
+   "city": "Oulu",
+   "postalCode": "90530",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Cybersecurity",
+   "linkedin": "https://tw.linkedin.com/company/sensorfleet",
+   "careersUrl": null,
+   "contactUrl": "https://sensorfleet.com/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/0597c122-68ee-4925-8023-13561f475927.jpg",
+   "retrievedAt": "2026-11-14T16:35:59.073Z"
+  },
+  "badrap.io": {
+   "name": "Badrap",
+   "description": "Badrap is a cyber‑security platform that simplifies and automates everyday security tasks through interactive, step‑by‑step playbooks. Users can adopt industry‑best practices, receive personalized recommendations, and set up automated routines via integrations with common service providers. Badrap offers a free tier with basic playbooks and alerts, a self‑service tier for business automation, and full‑service plans that include professional consulting and regular customer‑success meetings. The platform helps individuals, families, and organizations improve their security posture quickly, prov…",
+   "street": "Teknologiantie 11",
+   "city": "Oulu",
+   "postalCode": "90590",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Cybersecurity",
+   "linkedin": "https://linkedin.com/company/badrap",
+   "careersUrl": null,
+   "contactUrl": "https://badrap.io/contact",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/c2461c62-54e3-487e-bf00-ffb30d6f4e97.png",
+   "retrievedAt": "2026-11-14T16:35:59.181Z"
+  },
+  "aito.ai": {
+   "name": "Aito",
+   "description": "Aito provides a predictive database that combines generative AI with calibrated predictions from live business data. It lets users run SQL‑like queries that return predictions with confidence scores, enabling instant, per‑row decisions for accounting, ERP, e‑commerce, etc. The platform offers predictions, recommendations, classification, smart search, knowledge graph, and AI agents. It is self‑hosted or managed, GDPR‑ready, with low latency (<200 ms) and security. Developers can integrate via Docker, use the API to forecast demand, auto‑fill forms, detect anomalies, and route tasks. Aito’s co…",
+   "street": "Kaivokatu 10 a",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/aitodotai",
+   "careersUrl": "https://aito.ai/company/",
+   "contactUrl": "https://aito.ai/contact-us/",
+   "blogUrl": "https://aito.ai/blog/",
+   "logoUrl": "https://media.brand.dev/34eb91a6-3dc7-4f2b-8efb-62592d6696ec.png",
+   "retrievedAt": "2026-11-14T16:35:59.551Z",
+   "logoOnDark": true
+  },
+  "veil.ai": {
+   "name": "Veil",
+   "description": "VEIL.AI is a Finnish privacy‑enhancing technology company that transforms sensitive health and research data into safe, high‑utility assets. Using its BONSAI platform, VEIL.AI provides accurate free‑text redaction and row‑level anonymization for structured data, while also offering synthetic data generation that preserves statistical properties. The solution enables pharma, biotech, hospitals, universities and health data authorities to train and test AI/ML models, share data, and conduct real‑world evidence studies without violating GDPR, HIPAA, the EU AI Act or other regulations. By retaini…",
+   "street": "Tukholmankatu 8",
+   "city": "Helsinki",
+   "postalCode": "00290",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Cybersecurity",
+   "linkedin": "https://linkedin.com/company/veil-ai",
+   "careersUrl": null,
+   "contactUrl": "https://veil.ai/contact-us/",
+   "blogUrl": "https://veil.ai/category/blog/",
+   "logoUrl": "https://media.brand.dev/e7786757-58c0-4986-9672-a50f9d442156.jpg",
+   "retrievedAt": "2026-11-14T16:35:59.810Z"
+  },
+  "huuva.com": {
+   "name": "Huuva",
+   "description": "GoDaddy is a domain registrar and marketplace that helps people buy or lease domain names. It offers a simple, secure transfer process and assistance with pricing and transactions.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/75ddd26a-1d2c-4739-9c61-082400879eef.png",
+   "retrievedAt": "2026-11-14T16:36:02.987Z"
+  },
+  "ixi.com": {
+   "name": "IXI",
+   "description": "IXI Investments is a systematic investment manager specializing in foreign exchange trading. The firm uses proprietary, data-driven algorithms and quantitative techniques to identify trends and trading opportunities in currency pairs and spot gold. Its approach emphasizes disciplined execution, rigorous testing, adaptive models, and risk management to pursue consistent risk-adjusted returns across changing market environments. IXI also provides market and performance commentary and brings together professionals from diverse quantitative disciplines.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Investment Management & WealthTech",
+   "linkedin": "https://linkedin.com/company/ixi-fund-managers-ltd",
+   "careersUrl": "https://www.ixi.com/careers",
+   "contactUrl": "https://www.ixi.com/contact-us",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/fd37cf99-dcdf-499f-bc31-fb179fc371cb.svg",
+   "retrievedAt": "2026-11-14T16:36:03.977Z"
+  },
+  "vergemotorcycles.com": {
+   "name": "Verge Motorcycles",
+   "description": "Verge Motorcycles designs and manufactures high‑performance all‑electric superbikes for riders who demand uncompromising power and range. Their flagship models, the TS Pro and TS Ultra, feature industry‑first solid‑state battery packs (20.2 kWh or 33.3 kWh) delivering up to 370 mi on a single charge and 200 kW fast‑charging that reaches 80 % in under ten minutes. A patented hub‑less rear‑wheel motor provides up to 885 lb‑ft of instant torque, while a modular, hub‑less architecture reduces maintenance and enables easy upgrades. Integrated with the Starmatter software platform, the bikes receiv…",
+   "street": "1580 Industrial St",
+   "city": "Los Angeles",
+   "postalCode": "90067",
+   "country": "US",
+   "employees": "11–50",
+   "profileIndustry": "Automotive OEMs & Vehicle Manufacturing",
+   "linkedin": "https://linkedin.com/company/vergemotorcycles",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/73fadaf9-dc5c-4f3f-8a3f-3dd762d9df35.svg",
+   "retrievedAt": "2026-11-14T16:36:04.263Z"
+  },
+  "ultimate.ai": {
+   "name": "Zendesk",
+   "description": "Ultimate.ai provides AI-powered customer service automation, helping businesses resolve customer inquiries across digital channels. Its technology supports automated AI agents and integrates with service tools to improve response speed and resolution quality.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/zendesk",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/25cf8cff-ed54-4688-a42e-7ed22dbb4a0d.png",
+   "retrievedAt": "2026-11-14T16:36:09.044Z"
+  },
+  "solarfoods.com": {
+   "name": "Solar Foods",
+   "description": "Solar Foods is a Finnish biotech company pioneering sustainable food production by turning air, electricity, and water into protein. Using a proprietary microbial fermentation process, the firm cultivates the microorganism Solein®, an all‑purpose, nutritionally rich protein that can be flavored and used across the food industry. Their commercial‑scale facility, Factory 01, began operations in 2024, and the upcoming Factory 02 will boost annual output from 160 tons to 6,400 tons, with plans for a global network of plants. By decoupling protein production from traditional agriculture, Solar Foo…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": "00000",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Food & Beverage Manufacturing & Processing",
+   "linkedin": "https://linkedin.com/company/solarfoods",
+   "careersUrl": "https://solarfoods.com/careers/",
+   "contactUrl": "https://solarfoods.com/contact/",
+   "blogUrl": "https://solarfoods.com/category/blog/",
+   "logoUrl": "https://media.brand.dev/439b81ce-f1f3-47f0-abbe-291852bfd3b4.png",
+   "retrievedAt": "2026-11-14T16:36:09.314Z"
+  },
+  "wirepas.com": {
+   "name": "Wirepas",
+   "description": "Wirepas is a global IoT connectivity provider that offers the Wirepas Platform, a resilient, vendor‑agnostic mesh networking solution for infrastructure‑grade deployments. The platform enables large‑scale, long‑haul device networks without lock‑in, delivering high reliability (SLA ~99.5%) across millions of devices in smart metering, building automation, and other data‑intensive applications. Wirepas’ technology is proven in multi‑million‑device rollouts worldwide, offering scalability, interoperability, and performance for smart cities and industrial IoT projects.",
+   "street": "Visiokatu 4",
+   "city": "Tampere",
+   "postalCode": "33720",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/wirepas",
+   "careersUrl": "https://wirepas.com/join-us/",
+   "contactUrl": "https://wirepas.com/contact/",
+   "blogUrl": "https://wirepas.com/blog/how-to-build-resilient-infrastructure-connectivity/",
+   "logoUrl": "https://media.brand.dev/a5c18b54-ba45-4e0c-8eba-71a6639eb43f.png",
+   "retrievedAt": "2026-11-14T16:36:09.542Z"
+  },
+  "lyfta.com": {
+   "name": "Lyfta",
+   "description": "Lyfta is an education technology company that creates immersive, story‑driven learning experiences for primary and secondary schools. Using award‑winning, Oscar‑winning production teams, Lyfta builds 360° storyworlds that transport students to diverse cultures, languages, and real‑world scenarios, fostering curiosity, empathy, and critical thinking. Their platform integrates with curricula to support personal development, PSHE, DEIB, sustainability, and global citizenship, offering interactive media, soundscapes, and documentaries. Lyfta partners with trusts and schools to deliver high‑qualit…",
+   "street": null,
+   "city": "London",
+   "postalCode": null,
+   "country": "GB",
+   "employees": "11–50",
+   "profileIndustry": "K-12 Education Platforms & Tools",
+   "linkedin": "https://linkedin.com/company/lyftaed",
+   "careersUrl": null,
+   "contactUrl": "https://www.lyfta.com/contact",
+   "blogUrl": "https://www.lyfta.com/blog",
+   "logoUrl": "https://media.brand.dev/49582e04-0fab-4867-80a7-667e2fab3dd4.png",
+   "retrievedAt": "2026-11-14T16:36:09.738Z"
+  },
+  "framian.fi": {
+   "name": "Framian",
+   "description": "Framian is a Finnish digital‑innovation agency that helps companies imagine, innovate and transform. They deliver modern, headless‑based websites, motion‑design video systems, and end‑to‑end product development—from rapid prototypes to market‑ready digital products. Their services span software development (web, mobile, integrations, automations), design (UX/UI, brand, motion, 3D, design systems), and data/AI (LLM‑driven agents, generative AI, analytics). Framian also offers technology and innovation partnerships, providing cost‑effective, scalable solutions that accelerate time‑to‑market whi…",
+   "street": "Hämeentie 135",
+   "city": "Helsinki",
+   "postalCode": "00560",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/framian",
+   "careersUrl": null,
+   "contactUrl": "https://www.framian.fi/index.html",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/d9f20ba7-fb8d-42ef-b751-a457cb25d80b.png",
+   "retrievedAt": "2026-11-14T16:36:10.052Z"
+  },
+  "reaktor.com": {
+   "name": "Reaktor",
+   "description": "Reaktor Group is a global technology company that designs and builds category‑defining digital solutions. Leveraging deep expertise in agile software development, user‑centric design, and data & AI, Reaktor delivers end‑to‑end services across industries such as aviation, defence, finance, gaming, health, industrial, public sector, and retail. Their work spans strategic consulting, custom software, AI‑driven products, and continuous digital transformation, helping clients like Posti, ABB, HBO, adidas, and Cathay Pacific innovate and improve performance.",
+   "street": "Yliopistonkatu 4",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "501–1000",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/reaktor_",
+   "careersUrl": "https://www.reaktor.com/careers",
+   "contactUrl": "https://www.reaktor.com/contact",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/97805897-a530-4167-b4a0-91325560e345.png",
+   "retrievedAt": "2026-11-14T16:36:10.412Z"
+  },
+  "futurice.com": {
+   "name": "Futurice",
+   "description": "Futurice is a digital transformation consultancy that partners with businesses to design, build, and operate innovative technology solutions. Combining strategy, design, development, AI, data platforms, and managed services, Futurice helps clients create measurable outcomes— from launching new digital products and modernizing platforms to embedding agile ways of working and generative AI. Their multidisciplinary teams work across industries such as automotive, finance, health, and media, delivering projects like a direct‑to‑consumer sales channel for Volkswagen Financial Services and a fan‑ex…",
+   "street": "Annankatu 34 B",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "501–1000",
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "linkedin": "https://linkedin.com/company/futurice",
+   "careersUrl": "https://www.futurice.com/careers",
+   "contactUrl": "https://www.futurice.com/contact",
+   "blogUrl": "https://www.futurice.com/blog",
+   "logoUrl": "https://media.brand.dev/5d39e8cb-c8c7-42b8-9042-7c1b716a3a65.png",
+   "retrievedAt": "2026-11-14T16:36:10.700Z"
+  },
+  "lightheart.fi": {
+   "name": "RAJALANGIT77",
+   "description": "Bonanza is an online marketplace where shoppers can browse products across categories such as fashion, home and garden, health and beauty, collectibles, art, and jewelry. It also supports sellers with tools to list or import products, manage their accounts, and open an online storefront.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Online Marketplaces",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": "https://www.lightheart.fi/blog",
+   "logoUrl": "https://media.brand.dev/5ecf897b-9309-4b26-91b4-52317e4687e0.png",
+   "retrievedAt": "2026-11-14T16:36:12.289Z"
+  },
+  "norsepower.com": {
+   "name": "Norsepower",
+   "description": "Norsepower is a global leader in auxiliary wind propulsion for ships, offering its patented Norsepower Rotor Sail™ system. The company designs, manufactures, installs, and maintains rotor sails that harness wind energy to reduce fuel consumption and emissions across a range of vessels, including tankers, bulk carriers, gas carriers, RoRo ships, and passenger ships. With more than 100,000 hours of third‑party verified performance data, Norsepower has equipped 21 vessels to date and secured orders for 46 more, delivering measurable fuel savings and environmental benefits. Their services also in…",
+   "street": "Tammasaarenlaituri",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Maritime Shipping",
+   "linkedin": null,
+   "careersUrl": "https://careers.norsepower.com/",
+   "contactUrl": "https://www.norsepower.com/contact-us/",
+   "blogUrl": "https://www.norsepower.com/news/",
+   "logoUrl": "https://media.brand.dev/aeadb308-8daa-49e4-adeb-4ed5d82790f1.png",
+   "retrievedAt": "2026-11-14T16:36:12.512Z"
+  },
+  "zenrobotics.com": {
+   "name": "Zenrobotics",
+   "description": "Terex Corporation is a globally diversified industrial company that designs, manufactures, and services a wide range of equipment and solutions for construction, infrastructure, mining, and environmental markets. Leveraging innovative, sustainable technologies, Terex delivers specialty vehicles, material‑processing machinery, aerial work platforms, and genuine parts that help customers operate safely, efficiently, and with reduced environmental impact. The firm serves sectors such as aggregates, concrete, waste management, and electric utilities, offering both new equipment and comprehensive…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Manufacturing & Industrial Automation",
+   "linkedin": "https://linkedin.com/company/terex",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/ef7793d0-c8de-415b-94fe-02899eb60ea8.png",
+   "retrievedAt": "2026-11-14T16:36:12.743Z"
+  },
+  "donutlab.com": {
+   "name": "Donut Lab",
+   "description": "Donut Lab develops integrated electric-vehicle and industrial technology, including in-wheel motors, all-solid-state batteries, control hardware, and Donut OS software. Its unified platform helps manufacturers combine propulsion, energy storage, and vehicle control, or deploy individual technologies in their own programs. Donut Lab technologies are used in vehicle and industrial applications, including electric motorcycles, lightweight vehicle platforms, and robotic load-control systems.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": "11–50",
+   "profileIndustry": "Electric Vehicles (EVs) & Charging Infrastructure",
+   "linkedin": "https://linkedin.com/company/donutlabofficial",
+   "careersUrl": null,
+   "contactUrl": "https://www.donutlab.com/contact/",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/a8ec5423-2b9b-4622-8f54-608d3437768e.png",
+   "retrievedAt": "2026-11-14T16:36:12.747Z"
+  },
+  "noona.com": {
+   "name": "Siemens Healthineers",
+   "description": "Varian is a global leader in cancer‑care technology, delivering integrated radiation therapy and oncology solutions that span the entire patient journey. The company designs and manufactures advanced radiosurgery, treatment‑planning, and delivery systems—including TrueBeam, Halcyon, Edge, and Ethos adaptive platforms—alongside imaging tools such as CT, MRI, and specialized software. Varian also provides brachytherapy devices, interventional oncology products, and comprehensive oncology services that streamline clinical workflows and enable personalized care. By combining AI‑driven analytics,…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://linkedin.com/company/varian-medical-systems",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/7b960533-864e-404d-af5e-c8f247d860ba.png",
+   "retrievedAt": "2026-11-14T16:36:12.989Z"
+  },
+  "osgenic.com": {
+   "name": "Osgenic",
+   "description": "Osgenic provides an educational platform for orthopaedic surgeons, residents and departments, offering concise surgical videos, step‑by‑step guides, pitfalls, complications, and interactive 3D anatomy (Invivo). Users can save notes, share content, and create anatomy illustrations. The service is available via institutional licenses and individual subscriptions, with a free trial.",
+   "street": "Lapinlahdenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Online Learning & MOOCs",
+   "linkedin": "https://linkedin.com/company/osgenic",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/0887bccf-7d11-44c4-ade3-38687f9c93df.png",
+   "retrievedAt": "2026-11-14T16:36:13.265Z",
+   "logoOnDark": false
+  },
+  "talentadore.com": {
+   "name": "TalentAdore",
+   "description": "TalentAdore provides TalentAdore Hire, an AI-powered, full-cycle recruitment platform for organizations, agencies, and public-sector employers. Its tools help recruiters attract and source talent, screen applications, manage candidate communications, build talent communities, and analyze hiring performance. The platform includes Taika, an AI assistant designed to reduce routine work while keeping people in control of hiring decisions. TalentAdore emphasizes human-centered recruitment, candidate engagement, and responsible AI, with GDPR-compliant practices and ISO 27001 certification. More tha…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": null,
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/talentadore",
+   "careersUrl": "https://www.talentadore.com/about-us/careers",
+   "contactUrl": "https://www.talentadore.com/about-us/contact-us",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/39dcf189-8f34-4f1d-aa9d-436889ec0ec2.png",
+   "retrievedAt": "2026-11-14T16:36:13.777Z"
+  },
+  "disior.com": {
+   "name": "SMART28",
+   "description": "Paragon 28, Inc. is a medical‑technology company focused on transforming foot and ankle surgery through advanced 3D analytics, artificial‑intelligence‑driven planning, and patient‑specific implants. Their SMART28℠ platform offers surgeons a suite of tools—including the SMART Bun‑Yo‑Matic™ imaging system, MAVEN™ patient‑specific instrumentation, and FDA‑approved 3D‑printed talus spacers—to create precise, anatomy‑specific surgical plans, streamline case management, and improve postoperative outcomes. By integrating AI, data analytics, and custom‑manufactured devices, Paragon 28 expands access…",
+   "street": "14445 Grasslands Dr.",
+   "city": "Englewood",
+   "postalCode": "80112",
+   "country": "US",
+   "employees": null,
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://linkedin.com/company/paragon-28",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/cfb0f944-d962-4f3c-a77d-570bc5bb867a.png",
+   "retrievedAt": "2026-11-14T16:36:13.985Z"
+  },
+  "freska.fi": {
+   "name": "Freska",
+   "description": "Freska is a Finnish cleaning company that offers on‑demand home, office, window and moving cleaning services across Finland and the Nordics. Customers book through the Freska app or website, choose flexible, non‑binding plans and receive a 100% satisfaction guarantee. All cleaners are carefully selected (only 5% of applicants are hired), fully insured, trained and continuously evaluated, achieving an average quality rating of 4.9/5 from over a million cleanings. Freska emphasizes responsible business practices, supporting its employees, customers, homes and the environment. The service includ…",
+   "street": "Annankatu 27",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Home & Living",
+   "linkedin": "https://linkedin.com/company/10164941",
+   "careersUrl": null,
+   "contactUrl": "https://www.freska.fi/aspa",
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/44582daa-0bef-4ce8-9e93-0eeb36abb0d2.png",
+   "retrievedAt": "2026-11-14T16:36:14.332Z",
+   "logoOnDark": true
+  },
+  "alisapankki.fi": {
+   "name": "Alisa Pankki",
+   "description": "Alisa Pankki is a Finnish bank that offers fast, transparent banking services for both business and private customers. For companies it provides instant credit decisions, invoice‑based financing, unsecured loans, Finnvera‑backed guarantees, and a corporate Visa card that integrates directly with the client’s accounting system, allowing payments and cash‑management without separate portals. Personal customers receive secure savings options, including high‑interest term deposits (up to 3 %) and everyday savings accounts (up to 1.5 %), with account opening in under five minutes and full coverage…",
+   "street": "Bulevardi 21 A",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "51–200",
+   "profileIndustry": "Banking & Lending",
+   "linkedin": "https://fi.linkedin.com/company/alisa-pankki",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/1d0004eb-60aa-4fc6-9354-59dcb0c1980b.png",
+   "retrievedAt": "2026-11-14T16:36:14.697Z",
+   "logoOnDark": false
+  },
+  "mash.com": {
+   "name": "Mash",
+   "description": "Mash is an AI‑powered personal relationship manager designed for professionals who rely on extensive networks to drive business, careers, and deals. The platform remembers every contact, aggregates information from emails, notes, calls, and public sources, and surfaces relevant insights and opportunities in real time. Users can capture new details by voice, text, or photo, and Mash automatically updates profiles, creates meeting briefs, drafts follow‑up messages, and suggests thoughtful actions such as introductions or gifts. By turning scattered relationship data into an active, automated sy…",
+   "street": null,
+   "city": "Toronto",
+   "postalCode": null,
+   "country": "CA",
+   "employees": "11–50",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/mash",
+   "careersUrl": "https://mash.com/careers/",
+   "contactUrl": "https://mash.com/contact/",
+   "blogUrl": "https://mash.com/resources/blog/what-is-a-prm/",
+   "logoUrl": "https://media.brand.dev/92b7191a-836f-4d97-aeae-f6a4b79cb61e.svg",
+   "retrievedAt": "2026-11-14T16:36:15.003Z"
+  },
+  "tesseract.fi": {
+   "name": "Tesseract",
+   "description": "Tesseract is a Helsinki‑based crypto‑asset service provider authorized under MiCA, offering institutional‑grade yield solutions for digital assets. Through its two core products—Vaults and Lending—Tesseract lets treasuries, family offices, funds, exchanges, wallets and fintechs earn yield on crypto holdings. Vaults are individually managed on‑chain portfolios that allocate capital to vetted DeFi venues under a segregated mandate, while the Lending arm matches capital with vetted institutional borrowers, handling credit structuring, settlement and reporting. Operating since 2018, the firm foll…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Cryptocurrency & Digital Assets",
+   "linkedin": "https://linkedin.com/company/tesseractinvestment",
+   "careersUrl": "https://tesseract.fi/careers/",
+   "contactUrl": "https://tesseract.fi/contact/",
+   "blogUrl": "https://tesseract.fi/news/",
+   "logoUrl": "https://media.brand.dev/0df91796-a429-4616-b66a-14caef9e0465.svg",
+   "retrievedAt": "2026-11-14T16:36:15.441Z"
+  },
+  "cubicasa.com": {
+   "name": "CubiCasa",
+   "description": "CubiCasa is the world’s leading provider of digital real‑estate media, offering fast, phone‑based scanning to create professional 2D and 3D floor plans, virtual tours, 3D video renders, CAD files, GLA reports and AI‑powered photo editing. Their platform lets photographers, agents, appraisers, inspectors and enterprises generate high‑quality marketing assets in minutes, upload scans, and receive ready‑to‑use plans within 6‑24 hours. With over 5 million floor plans created for 200 k+ companies, CubiCasa also supplies API integration, MLS partnerships and enterprise solutions, helping users boos…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Real Estate Marketplaces",
+   "linkedin": "https://linkedin.com/company/cubicasa",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/7118c646-0c46-4b4c-bc81-eb65f08dcd1f.svg",
+   "retrievedAt": "2026-11-14T16:36:15.710Z"
+  },
+  "nomagames.com": {
+   "name": "Nomagames",
+   "description": "Noma Games: The available page does not provide information about the company or its activities. The nomagames.com domain registration has expired and currently displays a Namecheap renewal page.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": null,
+   "retrievedAt": "2026-11-14T16:36:16.009Z"
+  },
+  "immersal.com": {
+   "name": "Immersal",
+   "description": "Immersal is a spatial‑computing company that delivers Visual Positioning System (VPS) technology for accurate device localization in indoor, outdoor, and underground environments. Their platform creates high‑precision 3D maps and enables wayfinding, asset tracking, AR experiences, and smart‑city applications such as last‑mile delivery, tourism, and stadium fan engagement. Immersal offers developer tools, city‑scale mapping kits, and customizable solutions for industries ranging from oil & gas to sports entertainment, supporting both international and China servers. The company partners with b…",
+   "street": "Kansakoulukatu 5",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "XR & Spatial Computing",
+   "linkedin": "https://linkedin.com/company/immersal",
+   "careersUrl": null,
+   "contactUrl": "https://immersal.com/contact-us",
+   "blogUrl": "https://immersal.com/news",
+   "logoUrl": "https://media.brand.dev/ce2f4713-34c1-4bd3-a612-54d5e9b4ea38.jpg",
+   "retrievedAt": "2026-11-14T16:36:16.062Z",
+   "logoOnDark": false
+  },
+  "volur.ai": {
+   "name": "Völur",
+   "description": "Völur is an AI software company helping meat processors make better production decisions. Its platform turns operational data from existing manufacturing execution and enterprise resource planning systems into optimized production plans, scenarios, and recommendations. By accounting for factors such as customer needs, pricing, yields, timing, and capacity, Völur helps teams plan faster, improve efficiency, and capture more value from meat processing operations.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/v-lur",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/1383ab3e-f042-4e4f-a5f9-1226c7fc75f1.png",
+   "retrievedAt": "2026-11-14T16:36:16.288Z"
+  },
+  "workfellow.ai": {
+   "name": "Workfellow",
+   "description": "Workfellow is a process intelligence platform (now part of ProcessMaker) that combines process mining, task mining, and object‑centric analytics to help organizations visualize, analyze, and improve their business processes. Through its Work API and marketplace of integrations, it delivers insights for digital transformation across finance, insurance, procurement, banking, and other sectors, enabling automation, efficiency gains, and continuous improvement. The solution offers guides, webinars, podcasts, and case studies to support users in adopting intelligent automation and data‑driven proc…",
+   "street": "Lapinlahdenkatu 16",
+   "city": "Helsinki",
+   "postalCode": "00180",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Software (B2B)",
+   "linkedin": "https://linkedin.com/company/workfellow-ai",
+   "careersUrl": "https://www.workfellow.ai/careers",
+   "contactUrl": "https://www.workfellow.ai/contact-us",
+   "blogUrl": "https://www.workfellow.ai/blog",
+   "logoUrl": "https://media.brand.dev/94da10bb-d73c-458b-a8ec-5dd338794865.svg",
+   "retrievedAt": "2026-11-14T16:36:16.639Z",
+   "logoOnDark": false
+  },
+  "flowrite.com": {
+   "name": "Maestro Labs",
+   "description": "Flowrite is an AI‑powered productivity platform that helps professionals write, manage, and summarize email, meeting notes, and documents across Microsoft 365 and Google Workspace. Its suite of assistants—MailMaestro, TeamsMaestro, WordMaestro and CalMaestro—integrates directly into Outlook, Gmail, Teams, Zoom and Word, offering instant draft generation, smart replies, automatic tagging, action‑item extraction, meeting‑note transcription and scheduling assistance. Built with enterprise‑grade security, Flowrite encrypts data in transit and at rest, supports 20+ languages, and provides customiz…",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "linkedin": "https://linkedin.com/company/maestrolabs",
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/8fa2b25e-26e5-4ef7-9b0a-e40fcf7ef831.jpg",
+   "retrievedAt": "2026-11-14T16:36:16.843Z"
+  },
+  "speechly.com": {
+   "name": "Roblox",
+   "description": "Roblox Corporation is a global online platform that lets users create, share, and play immersive 3D experiences. Through its user‑generated virtual worlds, millions of players can design games, watch interactive content, chat with friends, and build their own digital spaces. Roblox provides the tools and marketplace for creators of all skill levels to develop and monetize experiences, fostering a collaborative imagination‑driven community that powers the next generation of entertainment.",
+   "street": "Kaisaniemenkatu 1 d",
+   "city": "Helsinki",
+   "postalCode": "00100",
+   "country": "FI",
+   "employees": null,
+   "profileIndustry": "Gaming & Interactive Entertainment",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/20d73fd9-0458-44ba-a8e2-8cb19e98fda1.png",
+   "retrievedAt": "2026-11-14T16:36:17.045Z"
+  },
+  "rensoriginal.com": {
+   "name": "Rens Original",
+   "description": "Rens Original is a sustainable footwear brand that designs and sells everyday sneakers made from recycled post‑industrial plastic bottles and used coffee grounds. Their flagship Nomad line features AquaScreen™ technology for 100% waterproof, breathable shoes with quick‑dry performance, a lightweight airy midsole, removable insole, and durable high‑traction outsole. Rens focuses on eco‑friendly materials and manufacturing methods to minimize environmental impact while delivering stylish, comfortable shoes for men and women. The company offers free shipping, free 30‑day returns, a one‑year dry‑…",
+   "street": null,
+   "city": "Helsinki",
+   "postalCode": "02150",
+   "country": "FI",
+   "employees": "1–10",
+   "profileIndustry": "Direct-to-Consumer (DTC) Brands",
+   "linkedin": "https://linkedin.com/company/rensoriginal",
+   "careersUrl": null,
+   "contactUrl": "https://rensoriginal.com/pages/contact-us",
+   "blogUrl": "https://rensoriginal.com/blogs/news",
+   "logoUrl": "https://media.brand.dev/182aa214-5f2e-450d-be1f-0b1e5a07d092.png",
+   "retrievedAt": "2026-11-14T16:36:17.406Z"
+  },
+  "fluido.com": {
+   "name": "Fluido",
+   "description": "GoDaddy is a domain registrar and web services company that provides a marketplace for buying and leasing domain names. Its platform offers secure payments, transaction support, and domain transfers; fluido.com is currently listed for sale.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/62b3e448-f1f6-4800-bc4b-fc10225d377b.png",
+   "retrievedAt": "2026-11-14T16:36:18.696Z"
+  },
+  "thingsee.com": {
+   "error": "400 Domain branding not present [thingsee.com]"
+  },
+  "neuroeventlabs.com": {
+   "name": "Neuro Event Labs",
+   "description": "Neuro Event Labs develops Nelli, a medical solution for detecting and analyzing seizure-related events from video and audio recordings at home and in hospitals. Its AI algorithms identify relevant moments and present findings in an interactive web dashboard for physicians to review. The company also offers optional expert review by credentialed clinical staff, helping support seizure diagnosis, monitoring, and treatment decisions.",
+   "street": "Biokatu 10, 3rd floor",
+   "city": "Tampere",
+   "postalCode": "33520",
+   "country": "FI",
+   "employees": "11–50",
+   "profileIndustry": "Medical Devices & Diagnostics",
+   "linkedin": "https://fi.linkedin.com/company/neuro-event-labs",
+   "careersUrl": "https://neuroeventlabs.com/careers",
+   "contactUrl": "https://neuroeventlabs.com/contact",
+   "blogUrl": "https://neuroeventlabs.com/news",
+   "logoUrl": "https://media.brand.dev/38f96af3-4052-433a-bd5a-7afde9b71afd.png",
+   "retrievedAt": "2026-11-14T16:36:21.738Z"
+  },
+  "realm.fi": {
+   "name": "DomainEasy",
+   "description": "DomainEasy is an online marketplace for buying and selling premium domain names. It offers transparent pricing, secure transactions, guided transfers, optional broker support, and flexible financing plans, including lease-to-own, deposit, and balloon payment options. Sellers can list domains for free and choose how fees are handled, while buyers receive payment protection if a domain cannot be transferred.",
+   "street": null,
+   "city": null,
+   "postalCode": null,
+   "country": null,
+   "employees": null,
+   "profileIndustry": "eCommerce & Marketplace Platforms",
+   "linkedin": null,
+   "careersUrl": null,
+   "contactUrl": null,
+   "blogUrl": null,
+   "logoUrl": "https://media.brand.dev/5ba6a995-21b5-46e3-9ba2-629ec5e494d5.svg",
+   "retrievedAt": "2026-11-14T16:36:32.715Z"
+  }
+ },
+ "facts": {
+  "aiven.io": {
+   "founded": 2016,
+   "founders": [
+    "Heikki Nousiainen",
+    "Oskari Saarenmaa",
+    "Hannu Valtonen"
+   ],
+   "foundingSource": "https://aiven.io/blog/why-you-should-love-open-source-databases",
+   "totalFunding": "$420 million",
+   "latestRound": {
+    "type": "Series D",
+    "amount": "$210 million",
+    "date": "May 11, 2022"
+   },
+   "investors": [
+    "Eurazeo",
+    "BlackRock",
+    "IVP",
+    "Atomico",
+    "Earlybird",
+    "World Innovation Lab",
+    "Salesforce Ventures"
+   ],
+   "fundingSource": "https://aiven.io/press/Aiven-raises-210M-to-invest-in-sustainable-open-source-cloud",
+   "retrievedAt": "2026-11-14T16:36:43.221Z"
+  },
+  "varjo.com": {
+   "founded": 2016,
+   "founders": [
+    "Niko Eiden",
+    "Urho Konttori",
+    "Klaus Melakari",
+    "Roope Rainisto"
+   ],
+   "foundingSource": "https://varjo.com/ai-info",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Series D",
+    "amount": "$40 million USD (€41 million EUR)",
+    "date": "2022-09-06"
+   },
+   "investors": [
+    "EQT Ventures",
+    "Atomico",
+    "Volvo Car Tech Fund",
+    "Lifeline Ventures",
+    "Mirabaud",
+    "Foxconn"
+   ],
+   "fundingSource": "https://varjo.com/news/varjo-raises-40-million-series-d-funding-to-build-an-industrial-metaverse",
+   "retrievedAt": "2026-11-14T16:36:43.617Z"
+  },
+  "smartly.io": {
+   "founded": 2013,
+   "founders": [
+    "Kristo Ovaska",
+    "Tuomo Riekki"
+   ],
+   "foundingSource": "https://tracxn.com/d/companies/smartly.io/__Z-iyY4RnJ9GwYU5SvI0TyIrCKzniKpY2jwPXNmw6AIo/founders-and-board-of-directors",
+   "totalFunding": "$22.8 million",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "$20 million",
+    "date": "September 19, 2017"
+   },
+   "investors": [
+    "Highland Europe",
+    "Lifeline Ventures"
+   ],
+   "fundingSource": "https://techcrunch.com/2019/12/18/smartly-io-sells-to-providence-equity-partners/",
+   "retrievedAt": "2026-11-14T16:36:44.314Z"
+  },
+  "wolt.com": {
+   "founded": 2014,
+   "founders": [
+    "Elias Aalto",
+    "Juhani Mykkänen",
+    "Lauri Andler",
+    "Mika Matikainen",
+    "Miki Kuusi",
+    "Oskari Petas"
+   ],
+   "foundingSource": "https://life.wolt.com/en/fin/moments/10-years/ceo-message",
+   "totalFunding": "$856 million",
+   "latestRound": {
+    "type": "financing round",
+    "amount": "$530 million",
+    "date": "2021-01-25"
+   },
+   "investors": [
+    "ICONIQ Growth",
+    "Tiger Global",
+    "DST",
+    "KKR",
+    "Prosus",
+    "EQT Growth",
+    "Coatue",
+    "83North"
+   ],
+   "fundingSource": "https://press.wolt.com/en-WW/196005-wolt-closes-530-million-financing-round-to-continue-expanding-beyond-the-restaurant/",
+   "retrievedAt": "2026-11-14T16:36:44.846Z"
+  },
+  "swappie.com": {
+   "founded": 2016,
+   "founders": [
+    "Sami Marttinen",
+    "Jiri Heinonen"
+   ],
+   "foundingSource": "https://en.wikipedia.org/wiki/Swappie",
+   "totalFunding": "$171 million (€149 million) raised from investors to date, per Swappie; the 202…",
+   "latestRound": {
+    "type": "Loan from the European Investment Bank…",
+    "amount": "€17 million",
+    "date": "2024"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Reaktor Ventures",
+    "Inventure",
+    "TESI",
+    "European Investment Bank"
+   ],
+   "fundingSource": "https://swappie.com/en/press/with-two-million-customers-swappie-solidifies-its-position-as-europes-leading-iphone-refurbisher-with-a-focus-on-sustainability/",
+   "retrievedAt": "2026-11-14T16:36:53.101Z"
+  },
+  "silo.ai": {
+   "founded": 2017,
+   "founders": [
+    "Peter Sarlin",
+    "Tero Ojanperä",
+    "Johan Kronberg",
+    "Juha Hulkko",
+    "Kaj-Mikael Björk",
+    "Ville Hulkko"
+   ],
+   "foundingSource": "https://theinnovator.news/interview-of-the-week-peter-sarlin-silo-ai/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [],
+   "fundingSource": "https://www.linkedin.com/company/amdsiloai",
+   "retrievedAt": "2026-11-14T16:36:55.037Z"
+  },
+  "supermetrics.com": {
+   "founded": 2013,
+   "founders": [
+    "Mikael Thuneberg"
+   ],
+   "foundingSource": "https://techcrunch.com/2020/08/24/supermetrics/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Series B",
+    "amount": "€40 million",
+    "date": "2020-08-24"
+   },
+   "investors": [
+    "Highland Europe",
+    "IVP",
+    "Ilkka Paananen",
+    "Amit Agarwal"
+   ],
+   "fundingSource": "https://supermetrics.com/blog/internationalization-award",
+   "retrievedAt": "2026-11-14T16:36:59.122Z"
+  },
+  "sievo.com": {
+   "founded": 2003,
+   "founders": [
+    "Sammeli Sammalkorpi",
+    "Matti Sillanpää"
+   ],
+   "foundingSource": "https://sievo.com/news/celebrating-18-years-of-sievo",
+   "totalFunding": "$44 million",
+   "latestRound": {
+    "type": "Growth investment",
+    "amount": "$44 million",
+    "date": "September 19, 2022"
+   },
+   "investors": [
+    "Susquehanna Growth Equity"
+   ],
+   "fundingSource": "https://sievo.com/news/press-release-growth-investment",
+   "retrievedAt": "2026-11-14T16:36:59.346Z"
+  },
+  "saidot.ai": {
+   "founded": 2018,
+   "founders": [
+    "Meeri Haataja"
+   ],
+   "foundingSource": "https://www.saidot.ai/insights/saidot-raises-seed-round-to-grow-its-ai-governance-platform",
+   "totalFunding": "€1.75 million publicly reported",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€1.75 million",
+    "date": "2023-10-05"
+   },
+   "investors": [
+    "Crowberry Capital",
+    "Ventic",
+    "Business Finland"
+   ],
+   "fundingSource": "https://www.saidot.ai/insights/saidot-raises-seed-round-to-grow-its-ai-governance-platform",
+   "retrievedAt": "2026-11-14T16:37:03.752Z"
+  },
+  "sulapac.com": {
+   "founded": 2016,
+   "founders": [
+    "Suvi Haimi",
+    "Laura Tirkkonen-Rajasalo",
+    "Antti Pärssinen"
+   ],
+   "foundingSource": "https://www.sulapac.com/blog/sulapac-receives-financing-from-nefco-to-scale-up/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Loan financing from Nefco",
+    "amount": null,
+    "date": "2023-04-28"
+   },
+   "investors": [
+    "CHANEL",
+    "Sky Ocean Ventures",
+    "Lifeline Ventures",
+    "Eerik Paasikivi",
+    "Ilkka Herlin",
+    "Saara Kankaanrinta",
+    "Mika Ihamuotila",
+    "Planvest Oy"
+   ],
+   "fundingSource": "https://www.sulapac.com/blog/sulapac-receives-financing-from-nefco-to-scale-up/",
+   "retrievedAt": "2026-11-14T16:37:07.540Z"
+  },
+  "sharetribe.com": {
+   "founded": 2011,
+   "founders": [
+    "Juho Makkonen",
+    "Antti Virolainen"
+   ],
+   "foundingSource": "https://www.sharetribe.com/balanced/steward-ownership-is-capitalism-2-0/",
+   "totalFunding": "Not publicly documented as a total. Publicly reported funding includes $1 milli…",
+   "latestRound": {
+    "type": "Equity crowdfunding",
+    "amount": "€1.1M+",
+    "date": "2018-05-16"
+   },
+   "investors": [
+    "Lifeline Ventures",
+    "Reaktor Polte",
+    "Tekes"
+   ],
+   "fundingSource": "https://news.cision.com/invesdor/r/sharetribe-raises--1-1m--as-new-kind-of-company-structure-inspires-investors-from-42-countries-world,c2522289",
+   "retrievedAt": "2026-11-14T16:37:07.749Z"
+  },
+  "reorbit.space": {
+   "founded": 2019,
+   "founders": [
+    "Sethu Saveda Suvanam"
+   ],
+   "foundingSource": "https://www.reorbit.space/news/reorbit-secures-eur45-million-to-manufacture-sovereign-satellites-and-connected-systems-for-national-security",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€45 million",
+    "date": "September 9, 2025"
+   },
+   "investors": [
+    "Springvest",
+    "Varma",
+    "Elo",
+    "Icebreaker.vc",
+    "Expansion VC",
+    "10x Founders",
+    "Inventure VC"
+   ],
+   "fundingSource": "https://www.reorbit.space/news/reorbit-secures-eur45-million-to-manufacture-sovereign-satellites-and-connected-systems-for-national-security",
+   "retrievedAt": "2026-11-14T16:37:08.548Z"
+  },
+  "flowhaven.com": {
+   "founded": 2016,
+   "founders": [
+    "Kalle Törmä",
+    "Timo Olkkola"
+   ],
+   "foundingSource": "https://www.flowhaven.com/about/",
+   "totalFunding": "$21.5 million (publicly reported as of January 2021; later 2026 investment amou…",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "$16 million",
+    "date": "2021-01-28"
+   },
+   "investors": [
+    "Sapphire Sport",
+    "Global Founders Capital",
+    "Icebreaker.vc"
+   ],
+   "fundingSource": "https://www.prnewswire.com/news-releases/brand-licensing-software-leader-flowhaven-secures-16m-led-by-sapphire-sport-301217281.html",
+   "retrievedAt": "2026-11-14T16:37:12.639Z"
+  },
+  "inven.ai": {
+   "founded": 2022,
+   "founders": [
+    "Ekku Jokinen",
+    "Niilo Pirttijärvi",
+    "Tommi Kupiainen"
+   ],
+   "foundingSource": "https://www.inven.ai/articles/inven-raises-1-5meu-in-seed-funding",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Series A",
+    "amount": "$12.75 million (€11.2 million)",
+    "date": null
+   },
+   "investors": [
+    "Ventech",
+    "Vendep Capital",
+    "Risto Siilasmaa",
+    "Lifeline Ventures",
+    "Joint Effects"
+   ],
+   "fundingSource": "https://www.inven.ai/articles/announcing-series-a-funding-deal-sourcing-private-market-research",
+   "retrievedAt": "2026-11-14T16:37:15.254Z"
+  },
+  "basemark.com": {
+   "founded": 2015,
+   "founders": [
+    "Tero Sarkkinen",
+    "Arto Ruotsalainen"
+   ],
+   "foundingSource": "https://www.basemark.com/ai-information/",
+   "totalFunding": "€34 million",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "€22 million",
+    "date": "2024-04-09"
+   },
+   "investors": [
+    "ETF Partners"
+   ],
+   "fundingSource": "https://www.basemark.com/news/basemark-raises-22-million-to-make-driving-safer-with-augmented-reality/",
+   "retrievedAt": "2026-11-14T16:37:17.120Z"
+  },
+  "logmore.com": {
+   "founded": 2017,
+   "founders": [
+    "Antti Tapio",
+    "Janne Juhala",
+    "Niko Polvinen"
+   ],
+   "foundingSource": "https://www.logmore.com/about/",
+   "totalFunding": "€5.8 million (prior €1.3 million plus €4.5 million Series A)",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€4.5 million",
+    "date": "2020-04-28"
+   },
+   "investors": [
+    "NordicNinja VC",
+    "Icebreaker VC",
+    "Trind Ventures",
+    "Tekton Ventures",
+    "Jaakkoo-Taara"
+   ],
+   "fundingSource": "https://www.logmore.com/post/logmore-raises-eu4-5m",
+   "retrievedAt": "2026-11-14T16:37:17.201Z"
+  },
+  "redhillgames.com": {
+   "founded": 2018,
+   "founders": [
+    "Matias Myllyrinne"
+   ],
+   "foundingSource": "https://nordic9.com/news/redhill-games-secured-186-million/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": "$18.6 million",
+    "date": null
+   },
+   "investors": [
+    "NetEase Capital",
+    "Makers Fund",
+    "Kowloon Nights",
+    "David Helgason",
+    "Jason Kay",
+    "Mika Reini"
+   ],
+   "fundingSource": "https://nordic9.com/news/redhill-games-secured-186-million/",
+   "retrievedAt": "2026-11-14T16:37:25.588Z"
+  },
+  "jobilla.com": {
+   "founded": 2015,
+   "founders": [
+    "Henri Nordstrom",
+    "Tommi Siro"
+   ],
+   "foundingSource": "https://en.ain.ua/2022/02/02/finnish-jobilla-raises-8-25m/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Additional funding round (type not spec…",
+    "amount": "€6 million",
+    "date": "August 2024"
+   },
+   "investors": [
+    "Juuri Partners",
+    "Trind VC",
+    "Business Finland",
+    "Business angels"
+   ],
+   "fundingSource": "https://www.eu-startups.com/2024/08/helsinki-based-jobilla-secures-e6-million-and-launches-ai-powered-recruitment-tools/",
+   "retrievedAt": "2026-11-14T16:37:26.138Z"
+  },
+  "futureplaygames.com": {
+   "founded": 2015,
+   "founders": [
+    "Jami Laes",
+    "Tuomas Huhtanen",
+    "Arttu Mäki",
+    "Mika Rahko",
+    "Kai Auvinen"
+   ],
+   "foundingSource": "https://www.finsmes.com/2016/08/futureplay-games-raises-2-5m-in-funding.html",
+   "totalFunding": "$2.5 million publicly reported",
+   "latestRound": {
+    "type": "Funding round (type not specified)",
+    "amount": "$2.5 million",
+    "date": "2016-08-25"
+   },
+   "investors": [
+    "London Venture Partners",
+    "DN Capital",
+    "Sunstone",
+    "Creandum"
+   ],
+   "fundingSource": "https://www.pocketgamer.biz/futureplay-funding-round/",
+   "retrievedAt": "2026-11-14T16:37:29.850Z"
+  },
+  "resq-club.com": {
+   "founded": 2015,
+   "founders": [
+    "Tuure Parkkinen"
+   ],
+   "foundingSource": "https://news.cision.com/loudspring/r/cleantech-invest-portfolio-firm-resq-club-wins-the-best-finnish-mobile-services-award-at-slush,c2134767",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [
+    "Cleantech Invest",
+    "Martin Anderlind",
+    "Peter Carlsson"
+   ],
+   "fundingSource": "https://news.cision.com/loudspring/r/cleantech-invest-portfolio-firm-resq-club-wins-the-best-finnish-mobile-services-award-at-slush,c2134767",
+   "retrievedAt": "2026-11-14T16:37:34.516Z"
+  },
+  "seppo.io": {
+   "founded": 2012,
+   "founders": [
+    "Riku Alkio"
+   ],
+   "foundingSource": "https://en.ain.ua/2022/11/14/seppo-raises-1-2m/",
+   "totalFunding": "€1.55 million publicly reported (€1.2 million in 2022, €300,000 in 2017, and €5…",
+   "latestRound": {
+    "type": "Funding round",
+    "amount": "€1.2 million",
+    "date": "2022"
+   },
+   "investors": [
+    "Almaral",
+    "ECO-Innovation and Sustainability Management Oy",
+    "Oppiva Invest",
+    "Liquido Ventures",
+    "Excedea Capital"
+   ],
+   "fundingSource": "https://www.edtechreview.in/news/finland-based-gamified-education-platform-seppo-raises-e12m-to-accelerate-its-growth/",
+   "retrievedAt": "2026-11-14T16:37:35.568Z"
+  },
+  "noice.com": {
+   "founded": 2020,
+   "founders": [
+    "Jussi Laakkonen"
+   ],
+   "foundingSource": "https://app.dealroom.co/companies/noice1",
+   "totalFunding": "$26 million publicly reported ($5 million seed and $21 million Series A)",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "$21 million",
+    "date": "November 9, 2023"
+   },
+   "investors": [
+    "F4 Fund",
+    "Bitkraft",
+    "Team Builder Ventures",
+    "Sedona Holdings",
+    "Ilkka Paananen",
+    "Mikko Kodisoja",
+    "Miki Kuusi",
+    "Riku Mäkelä"
+   ],
+   "fundingSource": "https://www.pocketgamer.biz/games-livestreaming-start-up-noice-raises-21-million/",
+   "retrievedAt": "2026-11-14T16:37:35.633Z"
+  },
+  "upcloud.com": {
+   "founded": 2011,
+   "founders": [
+    "Joel Pihlajamaa"
+   ],
+   "foundingSource": "https://upcloud.com/global/blog/upcloud-appoints-founder-joel-pihlajamaa-chief-executive-officer/",
+   "totalFunding": "€22 million publicly reported across the 2016 and 2020 rounds (€4 million and €…",
+   "latestRound": {
+    "type": "Funding round",
+    "amount": "€18 million",
+    "date": "2020-01-21"
+   },
+   "investors": [
+    "Connected Capital & Partners",
+    "Finnish Industry Investment",
+    "Inventure"
+   ],
+   "fundingSource": "https://upcloud.com/global/blog/upcloud-secures-18-million-euro-funding-boost/",
+   "retrievedAt": "2026-11-14T16:37:40.668Z"
+  },
+  "3dbear.io": {
+   "founded": 2016,
+   "founders": [
+    "Jussi Kajala"
+   ],
+   "foundingSource": "https://www.3dbear.io/en/blog/3dbear-10-vuotta/",
+   "totalFunding": "More than €2 million in new funding over 2024–2025; a complete lifetime total i…",
+   "latestRound": {
+    "type": "Funding round (including a €500,000 R&D…",
+    "amount": "€1 million additional funding; total ne…",
+    "date": "2025-11-14"
+   },
+   "investors": [
+    "Infinit Capital",
+    "Gorilla Capital",
+    "Risto Vahanen (Eco-Innovation and Sustainability Oy)",
+    "Business Finland",
+    "Oppiva Invest / Tesi",
+    "Finnpartnership",
+    "Angel investors"
+   ],
+   "fundingSource": "https://www.3dbear.io/en/blog/3dbear-secures-financing/",
+   "retrievedAt": "2026-11-14T16:37:43.730Z"
+  },
+  "aito.ai": {
+   "founded": 2018,
+   "founders": [
+    "Vesa-Pekka Grönfors",
+    "Antti Rauhala",
+    "Kai Inkinen"
+   ],
+   "foundingSource": "https://aito.ai/blog/aito-ai-raises-1-1m-aiming-to-make-machine-learning-as-easy-as-sql-queries/",
+   "totalFunding": "€3.1 million publicly reported (€1.5 million total by May 2019, then €1.6 milli…",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€1.6 million",
+    "date": "2019-12-03"
+   },
+   "investors": [
+    "henQ",
+    "Futurice",
+    "First Fellow Partners",
+    "Hermitage",
+    "UMO Capital",
+    "AC Odiseado",
+    "Leoppi Enterprise",
+    "Aito co-founders"
+   ],
+   "fundingSource": "https://aito.ai/blog/ai-startup-aito-announces-1-6m-eur-seed-and-launches-its-predictive-database/",
+   "retrievedAt": "2026-11-14T16:37:43.752Z"
+  },
+  "reaktor.com": {
+   "founded": 2000,
+   "founders": [],
+   "foundingSource": "https://group.reaktor.com/files/documents/Reaktor%20Group%20Plc%20-%20Offering%20Circular%20-%205%20June%202026.pdf",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [],
+   "fundingSource": "https://www.linkedin.com/company/reaktor_/",
+   "retrievedAt": "2026-11-14T16:37:46.739Z"
+  },
+  "futurice.com": {
+   "founded": 2000,
+   "founders": [
+    "Tuomas Syrjänen",
+    "Hanno Nevanlinna",
+    "Mikko Viikari",
+    "Markku Taulamo"
+   ],
+   "foundingSource": "https://techmeetups.com/joining-hands-with-futurice/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [],
+   "fundingSource": "https://www.linkedin.com/company/futurice/",
+   "retrievedAt": "2026-11-14T16:37:51.390Z"
+  },
+  "freska.fi": {
+   "founded": 2015,
+   "founders": [
+    "Sebastian Heinrichs",
+    "Esa Vuolas"
+   ],
+   "foundingSource": "https://www.actoncapital.com/portfolio/freska",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": "€2 million",
+    "date": "2017-05-09"
+   },
+   "investors": [
+    "Spintop Ventures",
+    "Momentum Partners",
+    "Lasse Smedsvig",
+    "Harald Aalvik",
+    "Olli Sirkia",
+    "Tekes"
+   ],
+   "fundingSource": "https://techcrunch.com/2017/05/09/home-cleaning-space-hasnt-quite-dried-up-yet-as-nordic-startup-freska-raises-e2m/",
+   "retrievedAt": "2026-11-14T16:37:53.285Z"
+  },
+  "osgenic.com": {
+   "founded": 2017,
+   "founders": [
+    "Arne Schlenzka",
+    "Jouni Lohikoski",
+    "Tatu Lyytinen"
+   ],
+   "foundingSource": "https://nordic9.com/news/osgenic-raised-1m-from-icebreaker-and-nordic-xr-startups-news2349207839/",
+   "totalFunding": "$1.02 million USD",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "EUR 900,000 (approximately $1 million)",
+    "date": null
+   },
+   "investors": [
+    "Icebreaker",
+    "Angel investors including more than 30 doctors and surgeons…"
+   ],
+   "fundingSource": "https://nordic9.com/news/osgenic-raised-1m-from-icebreaker-and-nordic-xr-startups-news2349207839/",
+   "retrievedAt": "2026-11-14T16:37:57.071Z"
+  },
+  "alisapankki.fi": {
+   "founded": 2022,
+   "founders": [],
+   "foundingSource": "https://www.alisapankki.fi/pankki",
+   "totalFunding": null,
+   "latestRound": {
+    "type": null,
+    "amount": null,
+    "date": null
+   },
+   "investors": [],
+   "fundingSource": "https://www.linkedin.com/company/alisa-pankki/",
+   "retrievedAt": "2026-11-14T16:37:58.672Z"
+  },
+  "immersal.com": {
+   "founded": 2015,
+   "founders": [],
+   "foundingSource": "https://nordic9.com/news/immersal-secured-1m-from-sisu-game-ventures-and-kasvumoottori-growth-engine-ecosystem-news5876008047/",
+   "totalFunding": "EUR 1.71 million (reported by Nordic9 as USD 1.71 million)",
+   "latestRound": {
+    "type": "capital investment round",
+    "amount": "EUR 900,000 (approximately USD 1 millio…",
+    "date": "2019-05-31"
+   },
+   "investors": [
+    "Sisu Game Ventures",
+    "Business Finland (Kasvumoottori Growth Engine ecosystem fun…",
+    "Angel investors",
+    "Presence Capital",
+    "Reaktor",
+    "Polkuni",
+    "Gumi Ventures",
+    "Bruce J. Oreck"
+   ],
+   "fundingSource": "https://nordic9.com/news/immersal-secured-1m-from-sisu-game-ventures-and-kasvumoottori-growth-engine-ecosystem-news5876008047/",
+   "retrievedAt": "2026-11-14T16:38:01.623Z"
+  },
+  "workfellow.ai": {
+   "founded": 2020,
+   "founders": [
+    "Kustaa Kivela",
+    "Henri Wiik"
+   ],
+   "foundingSource": "https://www.workfellow.ai/blog/workfellow-raises-3-12-million-in-series-a-funding-round",
+   "totalFunding": "$3.12 million publicly reported",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "$3.12 million",
+    "date": "December 16, 2021"
+   },
+   "investors": [
+    "OpenOcean",
+    "Icebreaker",
+    "Kulpreet Singh",
+    "Kedar Dani"
+   ],
+   "fundingSource": "https://bmmagazine.co.uk/get-funded/workfellow-announces-close-of-series-a-funding-round-of-3-12-million/",
+   "retrievedAt": "2026-11-14T16:38:04.809Z"
+  },
+  "speechly.com": {
+   "founded": 2016,
+   "founders": [],
+   "foundingSource": "https://www.linkedin.com/company/speechly/",
+   "totalFunding": "€2 million publicly reported",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€2 million",
+    "date": "December 2019"
+   },
+   "investors": [
+    "Cherry Ventures",
+    "Tiny.vc",
+    "Quantum Angels",
+    "Seedcamp",
+    "Social Starts",
+    "Joyance Partners",
+    "Juha Paananen",
+    "Nicolas Dessaigne"
+   ],
+   "fundingSource": "https://www.finsmes.com/2019/12/speechly-raises-usd2m-funding.html",
+   "retrievedAt": "2026-11-14T16:38:07.960Z"
+  },
+  "relexsolutions.com": {
+   "founded": 2005,
+   "founders": [
+    "Mikko Kärkkäinen",
+    "Johanna Småros",
+    "Michael Falck"
+   ],
+   "foundingSource": "https://www.relexsolutions.com/about/",
+   "totalFunding": "Over €700 million publicly reported by February 17, 2022 (€500 million round pl…",
+   "latestRound": {
+    "type": "Funding round led by Blackstone Growth",
+    "amount": "€500 million",
+    "date": "February 17, 2022"
+   },
+   "investors": [
+    "Blackstone Growth"
+   ],
+   "fundingSource": "https://www.relexsolutions.com/news/relex-solutions-raises-500m-in-blackstone-led-funding-round-at-5bn-valuation/",
+   "retrievedAt": "2026-11-14T16:38:09.962Z"
+  },
+  "supercell.com": {
+   "founded": 2010,
+   "founders": [
+    "Ilkka Paananen",
+    "Mikko Kodisoja",
+    "Petri Styrman",
+    "Lassi Leppinen",
+    "Visa Forstén",
+    "Niko Derome"
+   ],
+   "foundingSource": "https://mobidictum.com/supercell-celebrates-15-years-timeline-2010-2025/",
+   "totalFunding": "$143 million",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "$130 million",
+    "date": "April 17, 2013"
+   },
+   "investors": [
+    "Accel Partners",
+    "London Venture Partners",
+    "Initial Capital",
+    "SoftBank",
+    "GungHo",
+    "Tencent"
+   ],
+   "fundingSource": "https://mobidictum.com/supercell-celebrates-15-years-timeline-2010-2025/",
+   "retrievedAt": "2026-11-14T16:38:11.916Z"
+  },
+  "yousician.com": {
+   "founded": 2010,
+   "founders": [
+    "Chris Thür",
+    "Mikko Kaipainen"
+   ],
+   "foundingSource": "https://techround.co.uk/interviews/interview-with-chris-thur-co-founder-and-ceo-of-yousician/",
+   "totalFunding": "$35 million",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "$28 million",
+    "date": "2021-04-28"
+   },
+   "investors": [
+    "True Ventures",
+    "Amazon Alexa Fund",
+    "MPL Ventures LLP",
+    "Mark Pincus",
+    "Jason Calacanis",
+    "David Helgason",
+    "Rolf Schrömgens",
+    "Moaffak Ahmed"
+   ],
+   "fundingSource": "https://www.prnewswire.com/news-releases/yousician-the-worlds-leading-platform-for-learning-and-playing-music-announces-closing-of-28-million-series-b-round-301279380.html",
+   "retrievedAt": "2026-11-14T16:38:14.702Z"
+  },
+  "hoxhunt.com": {
+   "founded": 2016,
+   "founders": [
+    "Mika Aalto",
+    "Pyry Åvist"
+   ],
+   "foundingSource": "https://hoxhunt.com/blog/the-power-of-cyber-practice",
+   "totalFunding": "$43 million",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "$40 million",
+    "date": "May 31, 2022"
+   },
+   "investors": [
+    "Level Equity Management",
+    "Icebreaker.vc"
+   ],
+   "fundingSource": "https://news.cision.com/hoxhunt/r/hoxhunt-raises--40m-to-solve-the-hardest-part-of-cybersecurity--people,c3577495",
+   "retrievedAt": "2026-11-14T16:38:16.099Z"
+  },
+  "nightingalehealth.com": {
+   "founded": 2013,
+   "founders": [
+    "Teemu Suna"
+   ],
+   "foundingSource": "https://nightingalehealth.com/news/nightingale-health-to-receive-eur-20-million-eu-financing-to-herald-a-new-era-of-chronic-disease-prevention",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "EUR 20 million loan from the European I…",
+    "amount": "EUR 20 million loan; company states it…",
+    "date": null
+   },
+   "investors": [
+    "Timo Soininen",
+    "Markku Kaloniemi",
+    "Mikko Kodisoja",
+    "Langenskiöld family investment firm",
+    "Leena Niemistö"
+   ],
+   "fundingSource": "https://nightingalehealth.com/news/nightingale-health-secured-funding-of-eur-8-8-million-leena-niemisto-appointed-as-member-of-the-board",
+   "retrievedAt": "2026-11-14T16:38:17.813Z"
+  },
+  "giosg.com": {
+   "founded": 2011,
+   "founders": [
+    "Ville Rissanen"
+   ],
+   "foundingSource": "https://www.giosg.com/en/company",
+   "totalFunding": "€4.5 million",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "€4.5 million",
+    "date": "May 30, 2018"
+   },
+   "investors": [
+    "Zenith Growth I (Zenith Group AB)",
+    "Business Finland"
+   ],
+   "fundingSource": "https://www.giosg.com/newsroom/topic/partner-networks",
+   "retrievedAt": "2026-11-14T16:38:22.888Z"
+  },
+  "bobw.co": {
+   "founded": 2018,
+   "founders": [
+    "Niko Karstikko",
+    "Sebastian Emberger"
+   ],
+   "foundingSource": "https://techcrunch.com/2021/04/06/bob-w/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Series B",
+    "amount": "€40 million",
+    "date": "2024-02-13"
+   },
+   "investors": [
+    "Evli Growth Partners",
+    "Taavet+Sten",
+    "Flashpoint",
+    "Mikko Kodisoja",
+    "existing investors (not individually specified)"
+   ],
+   "fundingSource": "https://bobw.co/notebook/bob-w-secures-%E2%82%AC40-million-series-b-funding-for-continued-pan-european-expansion",
+   "retrievedAt": "2026-11-14T16:38:25.746Z"
+  },
+  "metacoregames.com": {
+   "founded": 2020,
+   "founders": [],
+   "foundingSource": "https://metacoregames.com/",
+   "totalFunding": "€25 million publicly documented in 2020: €15 million investment and a €10 milli…",
+   "latestRound": {
+    "type": "€10 million credit line",
+    "amount": "€10 million",
+    "date": "2020"
+   },
+   "investors": [
+    "Supercell"
+   ],
+   "fundingSource": "https://metacoregames.com/press-release/finnish-mobile-game-company-metacore-raises-25m-in-equity-and-additional-funding-from-supercell-and-launches-merge-mansion",
+   "retrievedAt": "2026-11-14T16:38:26.384Z"
+  },
+  "smallgiantgames.com": {
+   "founded": 2013,
+   "founders": [
+    "Timo Soininen",
+    "Otto",
+    "Markus"
+   ],
+   "foundingSource": "https://medium.com/eqtventures/41m-to-help-the-small-giant-continue-its-growth-59ac8ac9aae7",
+   "totalFunding": "$46.7 million in publicly reported funding: $5.7 million Series A and $41 milli…",
+   "latestRound": {
+    "type": "Investment round",
+    "amount": "$41 million",
+    "date": "2018-02-20"
+   },
+   "investors": [
+    "EQT Ventures",
+    "Creandum",
+    "Spintop Ventures",
+    "PROfounders"
+   ],
+   "fundingSource": "https://tech.eu/2018/02/20/small-giant-games-funding/",
+   "retrievedAt": "2026-11-14T16:38:28.175Z"
+  },
+  "holvi.com": {
+   "founded": 2011,
+   "founders": [
+    "Tuomas Toivonen"
+   ],
+   "foundingSource": "https://www.holvi.com/fi-en/about/",
+   "totalFunding": "$4M",
+   "latestRound": {
+    "type": "Series A",
+    "amount": null,
+    "date": "May 22, 2014"
+   },
+   "investors": [
+    "Seedcamp"
+   ],
+   "fundingSource": "https://tracxn.com/d/companies/holvi/__u7Hq0S2cKKdX4eETb0_Eqxdz1OmRcslK6tHR4mcBmCM/funding-and-investors",
+   "retrievedAt": "2026-11-14T16:38:32.164Z"
+  },
+  "datacrunch.io": {
+   "founded": 2020,
+   "founders": [
+    "Ruben Bryon",
+    "Miłosz",
+    "Tamir"
+   ],
+   "foundingSource": "https://datacrunch.io/company",
+   "totalFunding": "Over $450 million",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "$189 million",
+    "date": "September 22, 2026"
+   },
+   "investors": [
+    "Emergence Capital",
+    "MUFG Innovation Partners",
+    "Supermicro",
+    "Varma Mutual Pension Insurance Company",
+    "Lifeline Ventures",
+    "ENDUR",
+    "6 Degrees Capital (6DC)",
+    "byFounders"
+   ],
+   "fundingSource": "https://verda.com/blog/verda-raises-189m",
+   "retrievedAt": "2026-11-14T16:38:37.842Z"
+  },
+  "uprightproject.com": {
+   "founded": 2017,
+   "founders": [
+    "Annu Nieminen",
+    "Juho Ojala"
+   ],
+   "foundingSource": "https://www.thesaasnews.com/news/the-upright-project-raises-5-million-in-seed-round/",
+   "totalFunding": "€5 million",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€5 million",
+    "date": "December 2022"
+   },
+   "investors": [
+    "Planet A Ventures",
+    "First Fellow Partners",
+    "Risto Siilasmaa"
+   ],
+   "fundingSource": "https://www.uprightproject.com/blog/upright-raises-5m-to-make-net-impact-data-openly-available-for-all/",
+   "retrievedAt": "2026-11-14T16:38:37.859Z"
+  },
+  "happeo.com": {
+   "founded": 2017,
+   "founders": [
+    "Perttu Ojansuu",
+    "Vesa Sironen",
+    "Antero Hanhirova"
+   ],
+   "foundingSource": "https://app.dealroom.co/companies/happeo",
+   "totalFunding": "$46 million (publicly reported rounds: $8 million seed, $12 million Series A, $…",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "$26 million",
+    "date": "July 2022"
+   },
+   "investors": [
+    "Endeit Capital",
+    "Smartfin",
+    "Evli Growth Partners",
+    "Inkef Capital",
+    "Maki.vc",
+    "Vendep Capital",
+    "DN Capital"
+   ],
+   "fundingSource": "https://www.happeo.com/blog/happeo-raises-26m-series-b-funding",
+   "retrievedAt": "2026-11-14T16:38:41.337Z"
+  },
+  "aiforia.com": {
+   "founded": 2013,
+   "founders": [
+    "Johan Lundin",
+    "Mikael Lundin",
+    "Kari Pitkänen"
+   ],
+   "foundingSource": "https://dealroom.co/companies/aiforia-technologies/",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Venture debt financing",
+    "amount": "€20 million",
+    "date": "2026-08-03"
+   },
+   "investors": [
+    "European Investment Bank (EIB)"
+   ],
+   "fundingSource": "https://www.eu-startups.com/2026/08/helsinki-based-aiforia-secures-e20-million-eib-financing-to-advance-ai-powered-cancer-diagnostics/",
+   "retrievedAt": "2026-11-14T16:38:42.435Z"
+  },
+  "carboculture.com": {
+   "founded": 2018,
+   "founders": [
+    "Henrietta Moon"
+   ],
+   "foundingSource": "https://carboculture.com/about",
+   "totalFunding": "$24.5 million publicly documented ($6.2 million seed and $18.3 million Series A)",
+   "latestRound": {
+    "type": "Series A",
+    "amount": "US$18.3 million",
+    "date": "2023-11-28"
+   },
+   "investors": [
+    "GenZero",
+    "True Ventures",
+    "Tesi (Finnish Industry Investment Ltd)"
+   ],
+   "fundingSource": "https://genzero.co/carbo-culture-us18m-series-a-co-led-by-genzero-and-true-ventures/",
+   "retrievedAt": "2026-11-14T16:38:48.089Z"
+  },
+  "virta.global": {
+   "founded": 2013,
+   "founders": [],
+   "foundingSource": "https://www.virta.global/company",
+   "totalFunding": "€85 million publicly reported growth funding",
+   "latestRound": {
+    "type": "growth funding",
+    "amount": "€85 million (€65 million equity investm…",
+    "date": "2023-04-25"
+   },
+   "investors": [
+    "Jolt Capital",
+    "Future Energy Ventures (backed by E.ON.)",
+    "Helen Ventures",
+    "Vertex Growth Fund",
+    "Finnish Industry Investment",
+    "Lahti Energy",
+    "Vantaa Energy",
+    "Kotka Energy"
+   ],
+   "fundingSource": "https://www.virta.global/news/virta-closes-85m-funding",
+   "retrievedAt": "2026-11-14T16:38:51.547Z"
+  },
+  "onego.bio": {
+   "founded": 2022,
+   "founders": [
+    "Maija Itkonen",
+    "Christopher Landowski",
+    "Jussi Joensuu"
+   ],
+   "foundingSource": "https://www.prnewswire.com/news-releases/onego-bio-secures-eur-4-5m-additional-funding-to-accelerate-research-and-development-301619545.html",
+   "totalFunding": "$70.8 million (€65 million)",
+   "latestRound": {
+    "type": "New funding",
+    "amount": "€14 million ($15.2 million)",
+    "date": "2024-07-17"
+   },
+   "investors": [
+    "NordicNinja",
+    "Tesi",
+    "EIT Food",
+    "Agronomics",
+    "Maki.vc",
+    "Holdix",
+    "Turret",
+    "Business Finland"
+   ],
+   "fundingSource": "https://www.onego.bio/press/our-news/onego-bio-secures-new-funding",
+   "retrievedAt": "2026-11-14T16:41:05.046Z"
+  },
+  "kidescience.com": {
+   "founded": 2017,
+   "founders": [
+    "Jenni Vartiainen",
+    "Sari Hurme-Mehtälä",
+    "Aino Kuronen"
+   ],
+   "foundingSource": "https://www.educationfinland.fi/news-events/kide-science-raises-eu1m-bridge-round-starting-partnership-dreamworks-animation",
+   "totalFunding": "€3.2 million in total seed funding publicly reported by August 2022; Dealroom separately reports $3.26 million total funding before the October 2023 acquisition.",
+   "latestRound": {
+    "type": "Bridge round (reported as seed funding)",
+    "amount": "€1 million",
+    "date": "August 2022"
+   },
+   "investors": [
+    "Sparkmind Fund",
+    "Tesi (Finnish Industry Investment Ltd)",
+    "Business Finland (R&D loan)"
+   ],
+   "fundingSource": "https://www.educationfinland.fi/news-events/kide-science-raises-eu1m-bridge-round-starting-partnership-dreamworks-animation",
+   "retrievedAt": "2026-11-14T16:41:06.936Z"
+  },
+  "gubbe.com": {
+   "founded": 2018,
+   "founders": [
+    "Sandra Lounamaa",
+    "Meri-Tuuli Laaksonen"
+   ],
+   "foundingSource": "https://www.gubbe.com/en/partners/for-investors",
+   "totalFunding": null,
+   "latestRound": {
+    "type": "Late-seed",
+    "amount": "€4 million",
+    "date": "2022-05-12"
+   },
+   "investors": [
+    "Spintop Ventures",
+    "Tesi (Finnish Industry Investment Ltd)"
+   ],
+   "fundingSource": "https://tesi.fi/en/news-item/gubbe-raises-eur-4-million-to-combat-loneliness-among-elderly/",
+   "retrievedAt": "2026-11-14T16:41:19.137Z"
+  },
+  "getjenny.com": {
+   "founded": 2016,
+   "founders": [
+    "Angelo Leto",
+    "Mikko Malmari",
+    "Teemu Kinos"
+   ],
+   "foundingSource": "https://siliconcanals.com/with-e2m-funding-this-finnish-startup-aims-to-improve-its-customer-support-with-human-directed-ai-chatbots/",
+   "totalFunding": "€2M publicly reported",
+   "latestRound": {
+    "type": "Seed",
+    "amount": "€2M",
+    "date": "2019-02-05"
+   },
+   "investors": [
+    "Dubai Angel Investors",
+    "May Nasrallah (deNovo Corporate Advisors)",
+    "Exio",
+    "Business Finland",
+    "Techstars",
+    "Nestholma",
+    "Avanto Ventures"
+   ],
+   "fundingSource": "https://www.getjenny.com/blog/getjenny-raises-2m-to-enhance-the-effectiveness-of-customer-support-teams-with-human-directed-ai-chatbots",
+   "retrievedAt": "2026-11-14T16:41:19.607Z"
+  },
+  "puro.earth": {
+   "founded": 2018,
+   "founders": [],
+   "foundingSource": "https://www.esgtoday.com/nasdaq-backed-puro-earth-raises-12-8-million-to-grow-carbon-crediting-platform/",
+   "totalFunding": "€11 million (US$12.8 million), publicly reported Series B funding",
+   "latestRound": {
+    "type": "Series B",
+    "amount": "€11 million (US$12.8 million)",
+    "date": "2025-09-04"
+   },
+   "investors": [
+    "Nasdaq",
+    "Fortum Innovation & Venturing"
+   ],
+   "fundingSource": "https://ir.nasdaq.com/news-releases/news-release-details/puroearth-secures-eu11-m-series-b-financing-led-nasdaq",
+   "retrievedAt": "2026-11-14T16:41:26.186Z"
+  }
+ },
+ "logos": {
+  "smartly": "/startup-logos/smartly.webp",
+  "wolt": "/startup-logos/wolt.png",
+  "maria": "/startup-logos/maria.png",
+  "varjo": "/startup-logos/varjo.png",
+  "aiven": "/startup-logos/aiven.svg",
+  "swappie": "/startup-logos/swappie.png",
+  "silo": "/startup-logos/silo.svg",
+  "supermetrics": "/startup-logos/supermetrics.png",
+  "sievo": "/startup-logos/sievo.svg",
+  "sharetribe": "/startup-logos/sharetribe.png",
+  "saidot": "/startup-logos/saidot.png",
+  "sulapac": "/startup-logos/sulapac.png",
+  "reorbit": "/startup-logos/reorbit.png",
+  "flowhaven": "/startup-logos/flowhaven.png",
+  "basemark": "/startup-logos/basemark.svg",
+  "inven": "/startup-logos/inven.png",
+  "logmore": "/startup-logos/logmore.svg",
+  "jobilla": "/startup-logos/jobilla.png",
+  "noice": "/startup-logos/noice.png",
+  "futureplaygames": "/startup-logos/futureplaygames.svg",
+  "redhillgames": "/startup-logos/redhillgames.png",
+  "seppo": "/startup-logos/seppo.png",
+  "resq-club": "/startup-logos/resq-club.png",
+  "upcloud": "/startup-logos/upcloud.png",
+  "3dbear": "/startup-logos/3dbear.svg",
+  "aito": "/startup-logos/aito.png",
+  "reaktor": "/startup-logos/reaktor.png",
+  "futurice": "/startup-logos/futurice.png",
+  "freska": "/startup-logos/freska.png",
+  "osgenic": "/startup-logos/osgenic.png",
+  "alisapankki": "/startup-logos/alisapankki.png",
+  "immersal": "/startup-logos/immersal.jpg",
+  "workfellow": "/startup-logos/workfellow.svg",
+  "speechly": "/startup-logos/speechly.png",
+  "relexsolutions": "/startup-logos/relexsolutions.webp",
+  "supercell": "/startup-logos/supercell.png",
+  "yousician": "/startup-logos/yousician.png",
+  "hoxhunt": "/startup-logos/hoxhunt.png",
+  "nightingalehealth": "/startup-logos/nightingalehealth.svg",
+  "giosg": "/startup-logos/giosg.png",
+  "bobw": "/startup-logos/bobw.png",
+  "metacoregames": "/startup-logos/metacoregames.png",
+  "smallgiantgames": "/startup-logos/smallgiantgames.png",
+  "aiforia": "/startup-logos/aiforia.png",
+  "datacrunch": "/startup-logos/datacrunch.svg",
+  "uprightproject": "/startup-logos/uprightproject.png",
+  "happeo": "/startup-logos/happeo.svg",
+  "carboculture": "/startup-logos/carboculture.png",
+  "virta": "/startup-logos/virta.png",
+  "gubbe": "/startup-logos/gubbe.png",
+  "kidescience": "/startup-logos/kidescience.svg",
+  "getjenny": "/startup-logos/getjenny.png",
+  "onego": "/startup-logos/onego.png",
+  "puro": "/startup-logos/puro.svg"
+ },
+ "register": {
+  "Postintaival 7": null,
+  "Itmerenkatu 11 13": null,
+  "Siltasaarenkatu 16": null,
+  "Porkkalankatu 3": null,
+  "Mannerheimintie 164A": null,
+  "Valimotie 21": null,
+  "Porkkalankatu 24": null,
+  "Kasarminkatu 42": null,
+  "Kaikukatu 2 c": null,
+  "Pursimiehenkatu 29-31": null,
+  "Pursimiehenkatu 26 C": null,
+  "Energiakuja 3": null,
+  "Erottajankatu": null,
+  "Urho Kekkosen katu 4-6": {
+   "entry": {
+    "street": "Urho Kekkosen katu",
+    "number": "4",
+    "x": -591.24,
+    "z": 307.13,
+    "lon": 24.9330104,
+    "lat": 60.1684379,
+    "building": "way/123650310",
+    "osm": "helsinki-address-register"
+   },
+   "address": "Urho Kekkosen katu 4",
+   "register": "City of Helsinki address register"
+  },
+  "Hämeentie 157": null,
+  "Tammasaarenkatu 1": null,
+  "Ristipellontie 21": null,
+  "Konepajankuja 1": null,
+  "Tukholmankatu 8": null,
+  "Hämeentie 135": null,
+  "Tammasaarenlaituri": null
+ }
+}

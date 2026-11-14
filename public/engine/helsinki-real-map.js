@@ -297,7 +297,12 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
   });
   // Give the actual northern sky room in the title's live painting.
   engine.setEntrance(30, 230, 65, -0.06);
+  // The bird's-eye City Explorer needs the whole district in view.
+  let drawScale = 1;
   return {
+    setDrawScale(scale) {
+      drawScale = scale;
+    },
     name: "Central Helsinki · OpenStreetMap",
     buildings: districtBuildings,
     locations: mapData.locations,
@@ -307,7 +312,7 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
         const x = Math.max(b[0], Math.min(b[2], engine.camera.position.x)),
           z = Math.max(b[1], Math.min(b[3], engine.camera.position.z));
         m.visible =
-          Math.hypot(x - engine.camera.position.x, z - engine.camera.position.z) < range;
+          Math.hypot(x - engine.camera.position.x, z - engine.camera.position.z) < range * drawScale;
       }
     },
   };

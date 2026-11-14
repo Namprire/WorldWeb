@@ -1,4 +1,39 @@
-# WEBWORLD implementation
+# STARTUP CITY implementation
+
+STARTUP CITY adds a data layer and a second camera to the existing oil-painted Helsinki. The renderer, aurora, map, rider and movement below are unchanged; the delivery-game layer (missions, robots, drones, billboards, SYNC REALITY panel) was removed.
+
+```mermaid
+flowchart LR
+  Research[scripts/research-startups.ts] --> Context[Context.dev: profile, research, news, scrape]
+  Context --> Check[Address matched to OSM or Helsinki register]
+  Check --> Store[(data/startups.json)]
+  Store --> API[Express /api]
+  API --> UI[React interface + zustand store]
+  UI -->|refresh| API --> Context
+  UI -->|question| Gemini[Gemini: filters, grounded answers, suggestions]
+  UI --> Scene[src/startup/scene.ts]
+  Scene --> Engine[Oil-paint renderer and frame loop]
+```
+
+## Scene layer
+
+`public/engine/webworld.js` publishes the engine, map and a per-frame hook as `window.__webworldEngine`. `src/startup/scene.ts` builds on that:
+
+- **City Explorer** uses the engine's existing `free` camera state and poses the camera each frame from an orbit (target, distance, yaw, pitch). The projection centre is lowered so the northern sky stays in frame. Fog range, far plane and the map's draw distance widen while it is active.
+- **Transitions** blend camera position and look-at between the orbit and the rider's chase camera, then hand control to the engine's `ride` state. Reduced motion makes them instant.
+- **Building glow** is one additive mesh per startup building: walls, roof and a light beam. Colour and strength follow the company's state (category, search match, selection, funding news). It fades near the camera so it never floods a street view.
+- **Markers, arcs and routes** are HTML and a 2D canvas positioned by projecting world points each frame.
+- **Picking** marches the pointer ray through a grid of building footprints. **Routing** is A* over the mapped street and path network.
+
+## Data rules
+
+The contract is `src/shared/startup-schema.ts`. Each fact is `{ value, sourceUrl, sourceName, retrievedAt, status }`. A company has a `location` only when its reported address matched a building; the interface never places a company otherwise. Search filters, mission targets and connections are all computed from these records, so they cannot show anything the records do not contain.
+
+Gemini is given only the records. Its output is constrained to a filter schema, validated suggestion pairs, or a short answer labelled as an AI summary.
+
+---
+
+# Earlier WEBWORLD notes (base engine)
 
 The root application uses the authorized Starry Nightrider client derivative for rendering, movement, camera, terrain, and character animation. Its new scene adapter and TypeScript interface connect that world to the existing WEBWORLD backend.
 

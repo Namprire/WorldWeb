@@ -24425,7 +24425,7 @@ function Wd(e) {
     let e = Z.free;
     (Ql.position.set(e.x, e.y, e.z),
       Ql.rotation.set(e.pitch * Vt, e.yaw * Vt, 0),
-      Fu(Lu(e.fov), Z.view.H / 2),
+      Fu(Lu(e.fov), (e.cy ?? 0.5) * Z.view.H),
       (r = e.bend),
       (t = e.gx ?? e.x),
       (n = e.gz ?? e.z),
@@ -24561,7 +24561,7 @@ installWebworld({
   hideLegacyMapDecorations: () => { Eu.mesh.visible = false; Ou.group.visible = false; ku.group.visible = false; },
   setMapProbe: (probe, draw) => { activeMapProbe = probe; activeMapDraw = draw; },
   setEntrance: (gx, gz, y, pitch) => { ju.pos.set(ft(gx,gz),y,wt(gx,gz)); ju.pitch=pitch; Mu.set(0,Math.sin(pitch),-Math.cos(pitch)); },
-  player: X, rider: mu, score: Q, collectibles: Eu,
+  player: X, rider: mu, score: Q, collectibles: Eu, chase: wu, input: Tu,
   sky: $l, hills: eu, post: tu, shaderNoise: ia,
   Builder: gt, kinds: Ee, ball: Pe, rod: d, tube: Nt, paintMaterial: () => io(Xl),
   Group: Te, Mesh: St, Geometry: u, Attribute: p, Material: qe, Texture: je,

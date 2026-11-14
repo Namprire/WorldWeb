@@ -1,0 +1,90 @@
+{
+ "generatedAt": "2026-11-14T16:58:35.836Z",
+ "model": "gemini-4-argon",
+ "items": [
+  {
+   "a": "seppo",
+   "b": "3dbear",
+   "kind": "similar",
+   "reason": "Both companies build interactive, AI-enhanced simulation and 3D learning environments for education and training."
+  },
+  {
+   "a": "futureplaygames",
+   "b": "redhillgames",
+   "kind": "similar",
+   "reason": "Both are Helsinki-based game development studios creating video games for global audiences."
+  },
+  {
+   "a": "varjo",
+   "b": "basemark",
+   "kind": "similar",
+   "reason": "Both companies develop mission-critical extended or augmented reality solutions for high-performance applications."
+  },
+  {
+   "a": "smartly",
+   "b": "supermetrics",
+   "kind": "opportunity",
+   "reason": "Supermetrics could pull cross-channel advertising data from Smartly into data warehouses and BI tools for marketers."
+  },
+  {
+   "a": "swappie",
+   "b": "getjenny",
+   "kind": "opportunity",
+   "reason": "Swappie could use GetJenny's AI chatbot platform to automate customer-service interactions for its e-commerce phone sales."
+  },
+  {
+   "a": "wolt",
+   "b": "logmore",
+   "kind": "opportunity",
+   "reason": "Wolt could use Logmore's temperature and humidity data loggers to monitor the condition of sensitive grocery deliveries."
+  },
+  {
+   "a": "reorbit",
+   "b": "sievo",
+   "kind": "opportunity",
+   "reason": "As a satellite manufacturer, ReOrbit could use Sievo's procurement analytics to manage supplier risk and purchasing data."
+  },
+  {
+   "a": "upcloud",
+   "b": "aiven",
+   "kind": "opportunity",
+   "reason": "Aiven's managed open-source data cloud services could run on UpCloud's scalable server infrastructure."
+  },
+  {
+   "a": "saidot",
+   "b": "inven",
+   "kind": "opportunity",
+   "reason": "Inven could use Saidot's AI governance platform to map and manage compliance risks for its proprietary AI engine."
+  },
+  {
+   "a": "jobilla",
+   "b": "supermetrics",
+   "kind": "opportunity",
+   "reason": "Since Supermetrics is hiring, it could use Jobilla's AI-driven recruitment platform to find and engage passive talent."
+  },
+  {
+   "a": "varjo",
+   "b": "immersal",
+   "kind": "opportunity",
+   "reason": "Varjo's mixed-reality headsets could integrate Immersal's Visual Positioning System for accurate device localization and 3D mapping."
+  },
+  {
+   "a": "wolt",
+   "b": "sulapac",
+   "kind": "opportunity",
+   "reason": "Wolt could partner with Sulapac to offer bio-based, biodegradable packaging to restaurants for more sustainable food deliveries."
+  },
+  {
+   "a": "freska",
+   "b": "workfellow",
+   "kind": "opportunity",
+   "reason": "Freska could use Workfellow's process intelligence platform to analyze and improve its cleaning booking workflows."
+  },
+  {
+   "a": "noice",
+   "b": "upcloud",
+   "kind": "opportunity",
+   "reason": "Noice could use UpCloud's high-performance servers and GPU clusters to power its real-time gaming livestreaming platform."
+  }
+ ]
+}

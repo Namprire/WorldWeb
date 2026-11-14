@@ -6,6 +6,7 @@ import { settings } from './config'
 import { createDirector } from './director'
 import { createLiveWeb } from './live-web'
 import { ProviderError } from './provider-errors'
+import { registerStartupRoutes } from './startups/routes'
 
 class SyncError extends Error {
   constructor(readonly failure: ProviderError, readonly news?: NewsEvent) {
@@ -79,6 +80,8 @@ app.post('/api/sync', async (request, response) => {
   }
 })
 
+registerStartupRoutes(app)
+
 app.use('/api', (_request, response) => {
   response.status(404).json({ error: 'Unknown API route.' })
 })
@@ -89,6 +92,6 @@ if (existsSync(resolve(dist, 'index.html'))) {
 }
 
 app.listen(settings.port, settings.host, () => {
-  const mode = getNews && generateScenario ? `Live Mode configured with ${settings.geminiModel}` : 'Demo Mode'
-  console.info(`[WEBWORLD] API on http://${settings.host}:${settings.port} · ${mode}`)
+  const mode = settings.contextKey ? 'Context.dev live signals enabled' : 'cached snapshot only'
+  console.info(`[STARTUP CITY] API on http://${settings.host}:${settings.port} · ${mode}`)
 })

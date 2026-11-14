@@ -8,6 +8,8 @@ export default defineConfig({
     host: '127.0.0.1',
     port: 5179,
     proxy: { '/api': 'http://127.0.0.1:8787' },
+    // The API rewrites its JSON store on refresh; that must not reload the page.
+    watch: { ignored: ['**/data/*.json', '**/output/**'] },
   },
   build: {
     rollupOptions: {
