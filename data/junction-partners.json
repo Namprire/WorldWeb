@@ -1,0 +1,245 @@
+{
+ "source": "https://2026.hackjunction.com/",
+ "retrievedAt": "2026-11-14T20:02:10+00:00",
+ "note": "Partner names, tiers, websites and logos from the Junction 2026 site. Anthropic was added from the organisers' list given to us and is not on that page.",
+ "venue": {
+  "name": "Hype Areena",
+  "city": "Espoo"
+ },
+ "partners": [
+  {
+   "name": "Junction",
+   "domain": "hackjunction.com",
+   "tier": "organiser",
+   "logo": "https://2026.hackjunction.com/logos/junction_wordmark_logo_-_white_no_background.webp"
+  },
+  {
+   "name": "Google DeepMind",
+   "domain": "deepmind.google",
+   "tier": "featured",
+   "logo": "https://2026.hackjunction.com/logos/partners/featured/google-deepmind-white.png"
+  },
+  {
+   "name": "Arduino",
+   "domain": "arduino.cc",
+   "tier": "main",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/arduino.png"
+  },
+  {
+   "name": "Verda",
+   "domain": "verda.com",
+   "tier": "main",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/verda.png"
+  },
+  {
+   "name": "Hostinger",
+   "domain": "hostinger.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/hostinger.png"
+  },
+  {
+   "name": "Valio Aimo",
+   "domain": "valioaimo.fi",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/valio-aimo.png"
+  },
+  {
+   "name": "S-Pankki",
+   "domain": "s-pankki.fi",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/s-pankki.png"
+  },
+  {
+   "name": "Aalto University",
+   "domain": "aalto.fi",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/aalto-university.png"
+  },
+  {
+   "name": "Cala",
+   "domain": "cala.ai",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/cala.png"
+  },
+  {
+   "name": "City of Espoo",
+   "domain": "espoo.fi",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/espoo.png"
+  },
+  {
+   "name": "Exa",
+   "domain": "exa.ai",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/exa.png"
+  },
+  {
+   "name": "MariaDB",
+   "domain": "mariadb.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/mariadb.png"
+  },
+  {
+   "name": "AfterQuery",
+   "domain": "afterquery.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/afterquery.png"
+  },
+  {
+   "name": "Bahn Express",
+   "domain": "bahnexpress.fi",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/bahn.png"
+  },
+  {
+   "name": "AstraZeneca",
+   "domain": "astrazeneca.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/astrazeneca.png"
+  },
+  {
+   "name": "Stoa",
+   "domain": "stoabuild.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/stoa.png"
+  },
+  {
+   "name": "Intel",
+   "domain": "intel.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/intel.png"
+  },
+  {
+   "name": "Ignite Next",
+   "domain": "ignitenext.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/ignite-next.png"
+  },
+  {
+   "name": "Context.dev",
+   "domain": "context.dev",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/context-dev.png"
+  },
+  {
+   "name": "Rokoko",
+   "domain": "rokoko.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/rokoko.png"
+  },
+  {
+   "name": "Meta",
+   "domain": "meta.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/meta.png"
+  },
+  {
+   "name": "Tieto",
+   "domain": "tieto.com",
+   "tier": "challenge",
+   "logo": "https://2026.hackjunction.com/logos/partners/major/tieto.png"
+  },
+  {
+   "name": "OpenAI",
+   "domain": "openai.com",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/openai-codex.svg"
+  },
+  {
+   "name": "NVIDIA",
+   "domain": "nvidia.com",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/nvidia.png"
+  },
+  {
+   "name": "Featherless",
+   "domain": "featherless.ai",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/featherless.png"
+  },
+  {
+   "name": "Modal",
+   "domain": "modal.com",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/modal.png"
+  },
+  {
+   "name": "Qualia",
+   "domain": "qualiastudios.dev",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/qualia.png"
+  },
+  {
+   "name": "CRACI",
+   "domain": "craci.com",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/craci.png"
+  },
+  {
+   "name": "Atech",
+   "domain": "atech.dev",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/atech.png"
+  },
+  {
+   "name": "Scailab",
+   "domain": "scailab.se",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/scailab.png"
+  },
+  {
+   "name": "IronShard",
+   "domain": "ironshard.ai",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/ironshard.png"
+  },
+  {
+   "name": "Cloudinary",
+   "domain": "cloudinary.com",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/cloudinary.png"
+  },
+  {
+   "name": "Wendy",
+   "domain": "wendy.dev",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/wendy.png"
+  },
+  {
+   "name": "Aiven",
+   "domain": "aiven.io",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/aiven.png"
+  },
+  {
+   "name": "Oxylabs",
+   "domain": "oxylabs.io",
+   "tier": "tech",
+   "logo": "https://2026.hackjunction.com/logos/partners/tech/oxylabs.png"
+  },
+  {
+   "name": "Lifeline Ventures",
+   "domain": "lifelineventures.com",
+   "tier": "supporter",
+   "logo": "https://2026.hackjunction.com/logos/partners/supporters/lifeline-ventures.png"
+  },
+  {
+   "name": "Major League Hacking",
+   "domain": "mlh.io",
+   "tier": "supporter",
+   "logo": "https://2026.hackjunction.com/logos/partners/supporters/mlh.png"
+  },
+  {
+   "name": "XR Creator Con",
+   "domain": null,
+   "tier": "supporter",
+   "logo": "https://2026.hackjunction.com/logos/partners/supporters/xrcc.svg"
+  },
+  {
+   "name": "Anthropic",
+   "domain": "anthropic.com",
+   "tier": "listed",
+   "logo": null
+  }
+ ]
+}

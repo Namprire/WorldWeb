@@ -5,7 +5,7 @@ import {
 } from '../shared/startup-schema'
 import { missionProgress, tourOrder, type ConnectionKind, type Discovery } from './logic'
 import type { CutsceneRequest } from '../shared/cutscene-schema'
-import type { CityScene, Mode, TimeSettings } from './scene'
+import type { CityScene, Graphics, Mode, TimeSettings } from './scene'
 
 export type Meta = {
   snapshotAt: string
@@ -63,12 +63,19 @@ type State = {
   /** The cutscene being played, if any. */
   cutscene: CutsceneRequest | null
   time: TimeSettings
+  graphics: Graphics
+  setGraphics(value: Graphics): void
+  labels: boolean
+  setLabels(on: boolean): void
+  shortcuts: boolean
   setTime(patch: Partial<TimeSettings>): void
 
   load(): Promise<void>
   setScene(scene: CityScene): void
   select(buildingId: string | null, startupId?: string | null, visit?: 'map' | 'street' | null): void
   setFilters(filters: SearchFilters, query?: string): void
+  showMatches(): void
+  clearRoute(): void
   toggleIndustry(id: SearchFilters['industries'][number]): void
   toggleFlag(flag: 'hiring' | 'recentlyFunded' | 'hasNews'): void
   clearSearch(): void
@@ -139,6 +146,19 @@ export const useCity = create<State>((set, get) => ({
   toast: null,
   cutscene: null,
   time: { live: true, minutes: 13 * 60, season: 'today', lapse: false },
+  graphics: (() => { try { return (localStorage.getItem('startup-city-graphics') as Graphics) || 'auto' } catch { return 'auto' } })(),
+  labels: (() => { try { return localStorage.getItem('startup-city-labels') !== 'off' } catch { return true } })(),
+  setLabels(on) {
+    try { localStorage.setItem('startup-city-labels', on ? 'on' : 'off') } catch { /* lasts for this visit */ }
+    document.body.classList.toggle('sc-no-labels', !on)
+    set({ labels: on })
+  },
+  shortcuts: false,
+  setGraphics(value) {
+    try { localStorage.setItem('startup-city-graphics', value) } catch { /* the choice lasts for this visit */ }
+    get().scene?.setGraphics(value)
+    set({ graphics: value })
+  },
   setTime(patch) { set({ time: { ...get().time, ...patch } }) },
 
   playCutscene(request) {
@@ -200,16 +220,33 @@ export const useCity = create<State>((set, get) => ({
   },
 
   setFilters(filters, query) {
+    get().scene?.setRoutes([])
     set({ filters, ...(query !== undefined ? { query } : {}), route: null })
+    get().showMatches()
   },
   toggleIndustry(id) {
     const { filters } = get()
     const industries = filters.industries.includes(id) ? filters.industries.filter((i) => i !== id) : [...filters.industries, id]
-    set({ filters: { ...filters, industries }, search: { status: 'idle' }, route: null })
+    get().setFilters({ ...filters, industries })
+    set({ search: { status: 'idle' } })
   },
   toggleFlag(flag) {
     const { filters } = get()
-    set({ filters: { ...filters, [flag]: !filters[flag] }, search: { status: 'idle' }, route: null })
+    get().setFilters({ ...filters, [flag]: !filters[flag] })
+    set({ search: { status: 'idle' } })
+  },
+  showMatches() {
+    // Choosing a filter is asking to see the results: fly out so every match is in view.
+    const { scene, startups, filters, mode, demo } = get()
+    if (!scene?.entered || !filtersActive(filters) || demo.active) return
+    const matches = startups.filter((s) => s.location && matchesFilters(s, filters))
+    if (!matches.length) return
+    if (mode === 'street') scene.enterExplorer(undefined, 1.6)
+    scene.frameBounds(matches.map((s) => s.location!))
+  },
+  clearRoute() {
+    get().scene?.setRoutes([])
+    set({ route: null })
   },
   clearSearch() {
     set({ filters: emptyFilters, query: '', search: { status: 'idle' }, route: null })

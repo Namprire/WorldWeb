@@ -224,7 +224,12 @@ export function registerStartupRoutes(app: Express) {
   })
 
   // Prepare the opening scene in the background so the first visit does not wait for it.
-  if (cutscenes.available) void cutscenes.get({ kind: 'intro' }, [...byId.values()], missionTitles).catch(() => undefined)
+  if (cutscenes.available) {
+    // Prepare the scenes that can start without a click (intro and morning briefing), so they never keep anyone waiting.
+    void cutscenes.get({ kind: 'intro' }, [...byId.values()], missionTitles)
+      .then(() => cutscenes.get({ kind: 'briefing' }, [...byId.values()], missionTitles))
+      .catch(() => undefined)
+  }
 
   app.get('/api/monitors', (_request, response) => {
     response.json({ monitors })

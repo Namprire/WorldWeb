@@ -93,6 +93,21 @@ function contextFor(request: CutsceneRequest, startups: Startup[], missionTitles
       },
     }
   }
+  if (request.kind === 'partners') {
+    const partners = startups.filter((c) => c.partner)
+    const mapped = partners.filter((c) => c.location)
+    if (!mapped.length) return null
+    return {
+      title: 'Junction 2026 partners',
+      companies: mapped,
+      brief: {
+        scene: 'A tour of the Junction 2026 partners that have offices in this part of Helsinki, for the event\'s judges and guests. Visit each mapped partner once. Then mention that the other partners are based elsewhere, naming a few of them.',
+        event: 'Junction 2026, 13 to 15 November 2026, Hype Areena, Espoo',
+        onTheMap: mapped.map((c) => ({ id: c.id, tier: c.partner!.tier, ...recordFor(c) })),
+        elsewhere: partners.filter((c) => !c.location).map((c) => ({ name: c.name, tier: c.partner!.tier, headquarters: c.headquarters ?? null })),
+      },
+    }
+  }
   if (request.kind === 'briefing') {
     // A new day: the most recent published headlines, newest first.
     const items = startups.filter((c) => c.location)

@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const CAMERA_MOVES = ['establish', 'aurora', 'flyover', 'orbit', 'close', 'rise'] as const
 export type CameraMove = (typeof CAMERA_MOVES)[number]
 
-export const cutsceneKindSchema = z.enum(['intro', 'company', 'signal', 'mission', 'briefing'])
+export const cutsceneKindSchema = z.enum(['intro', 'company', 'signal', 'mission', 'briefing', 'partners'])
 export type CutsceneKind = z.infer<typeof cutsceneKindSchema>
 
 export const cutsceneRequestSchema = z.object({

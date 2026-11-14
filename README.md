@@ -20,9 +20,19 @@ Open http://127.0.0.1:5179 and press Explore the city, or Start demo for the 90-
 
 | Where | Controls |
 | --- | --- |
-| City view (from above) | Drag to move, right-drag or Shift-drag to turn, scroll to zoom, click a lit building. W A S D, Q and E also move the camera. |
+| City view (from above) | Drag to move (it glides when flicked), scroll or pinch to zoom towards the cursor, double-click to zoom in, right-drag or two fingers to turn and tilt, click a lit building. Buttons bottom right: graphics, face north, zoom in and out. W A S D, Q and E move the camera; + and − zoom. |
 | Street level | W A S D to ride, F to walk, drag to look, Space to jump, E to visit the startup in front of you. |
 | Anywhere | Tab switches view, / jumps to search, Esc closes or skips a cutscene. |
+
+## Junction 2026 partners
+
+The partner list, tiers, websites and logos come from the Junction 2026 site (`data/junction-partners.json`); Anthropic was added from the organisers' list. Partners with a verified office inside the 3D district (Verda, Aiven, CRACI, Bahn Express and Lifeline Ventures) get an aurora-edged marker with their official logo, a taller light beam and a halo over the building. Every partner is listed at the top of the directory with its home city, the "Junction 2026 partners" filter lights them up, and Partner tour plays a narrated cutscene past their buildings. No partner is placed without a verified address.
+
+## Smooth on any device
+
+Hosting does not change frame rate: the city is drawn on the visitor's own graphics chip. The app adapts instead. The graphics button (bottom right) offers Auto, Smooth, Balanced and Detailed, which set render resolution, how far the city view draws and how many trees are shown. Auto starts from the device (phones and 4-core machines start on Smooth), lowers resolution when frames are slow, and steps down a level if that is not enough. On Linux, Chrome usually runs WebGL much faster than Firefox.
+
+The Gemini question bar is switched off for now (`SEARCH_ENABLED` in `src/startup/App.tsx`); the category and partner filters do the same job.
 
 ## Try it on your phone
 

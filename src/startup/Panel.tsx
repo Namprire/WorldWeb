@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import {
-  ArrowUpRight, BadgeCheck, Briefcase, Clapperboard, Eye, Loader2, Navigation, Network, RefreshCw, Send, Sparkles, X,
+  ArrowUpRight, BadgeCheck, Briefcase, Clapperboard, Eye, Link2, Loader2, Navigation, Network, RefreshCw, Send, Sparkles, X,
 } from 'lucide-react'
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { INDUSTRIES, isHiring, recentFunding, type FactStatus, type Startup } from '../shared/startup-schema'
@@ -105,7 +105,6 @@ export function Panel() {
   const suggestions = useCity((s) => s.suggestions)
   const refresh = useCity((s) => s.refresh)
   const freshNews = useCity((s) => s.freshNews)
-  const route = useCity((s) => s.route)
   const mode = useCity((s) => s.mode)
   const monitored = useCity((s) => s.meta?.monitored) ?? NONE
   const contextAvailable = useCity((s) => s.meta?.contextAvailable)
@@ -153,6 +152,12 @@ export function Panel() {
             </div>
           )}
           <div className="sc-panel-scroll" key={startup.id}>
+            {startup.partner && (
+              <a className="sc-partner-banner" href={startup.partner.source} target="_blank" rel="noopener noreferrer" title="Listed on the Junction 2026 site">
+                {(startup.partner.logo ?? null) && <img src={startup.partner.logo!} alt="" />}
+                <span><b>Junction 2026 {({ featured: 'featured partner', main: 'main partner', challenge: 'challenge partner', tech: 'tech partner', supporter: 'supporter', organiser: 'organiser', listed: 'partner' } as Record<string, string>)[startup.partner.tier] ?? 'partner'}</b><span>Thank you for supporting Europe's biggest hackathon.</span></span>
+              </a>
+            )}
             <header className="sc-head">
               <Logo startup={startup} size={56} />
               <div>
@@ -181,15 +186,9 @@ export function Panel() {
                 <button className="sc-text-btn" type="button" disabled={!startup.location} onClick={() => toggleConnections(startup.id)}><Network size={15} /> Explore connections</button>
                 <button className="sc-text-btn" type="button" disabled={!startup.location} onClick={() => navigateTo(startup.id)}><Navigation size={15} /> Navigate here</button>
                 <button className="sc-text-btn" type="button" disabled={!startup.location} onClick={() => playCutscene({ kind: 'company', id: startup.id })}><Clapperboard size={15} /> Watch story</button>
+                <button className="sc-text-btn" type="button" onClick={() => { const url = new URL(location.href); url.searchParams.set('company', startup.id); void navigator.clipboard?.writeText(url.toString()).then(() => notify('Link copied'), () => notify(url.toString())) }}><Link2 size={15} /> Copy link</button>
               </div>
             </div>
-            {route && 'targetId' in route && route.targetId === startup.id && (
-              <p className="sc-route-note">
-                {Math.round(route.metres)} m along mapped streets, about {Math.max(1, Math.round(route.metres / 80))} min on foot.
-                {mode === 'explorer' && <button type="button" className="sc-text-btn" onClick={() => setMode('street')}>Go to street level</button>}
-                <button type="button" className="sc-text-btn" onClick={() => navigateTo(null)}>Clear</button>
-              </p>
-            )}
 
             {startup.description
               ? <div className="sc-description"><p>{startup.description.value}</p><Source fact={startup.description} /></div>
@@ -203,6 +202,8 @@ export function Panel() {
                     ? <>{startup.location.address}{startup.location.postalCode ? `, ${startup.location.postalCode}` : ''} Helsinki<Source fact={startup.location} /></>
                     : startup.outsideDistrict && startup.reportedAddress
                       ? <>{startup.reportedAddress}, {startup.municipality}<span className="sc-muted sc-block">Confirmed in the address register. This is outside the 3D district, so it is not on the map.</span></>
+                      : startup.industry === 'partner' && startup.headquarters
+                      ? <>{startup.headquarters}<span className="sc-muted sc-block">Headquarters from the company profile. No office in this part of Helsinki.</span></>
                       : <span className="sc-missing">Not confirmed{startup.reportedAddress ? `. Reported as ${startup.reportedAddress}, which could not be matched to a building.` : ''}</span>}
                 </dd>
               </div>

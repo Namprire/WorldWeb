@@ -34,6 +34,7 @@ export const INDUSTRIES = {
   proptech: { label: 'Property & Travel', short: 'Property', color: '#2dd4bf' },
   saas: { label: 'Business Software', short: 'Software', color: '#93c5fd' },
   hub: { label: 'Startup Hub', short: 'Hub', color: '#e2e8f0' },
+  partner: { label: 'Junction 2026 partner', short: 'Partners', color: '#f5c96a' },
 } as const
 export type IndustryId = keyof typeof INDUSTRIES
 export const industryIds = Object.keys(INDUSTRIES) as [IndustryId, ...IndustryId[]]
@@ -97,6 +98,10 @@ export const startupSchema = z.object({
   /** Active or Acquired, from the company database. */
   companyStatus: z.string().nullable().optional(),
   acquirer: z.string().nullable().optional(),
+  /** Junction 2026 partner tier and official logo, from the event site. */
+  partner: z.object({ tier: z.string(), logo: z.string().nullable(), source: z.string() }).optional(),
+  /** Headquarters city reported by the company profile, for partners based elsewhere. */
+  headquarters: z.string().nullable().optional(),
   /** Where this company entered the list. */
   listedIn: z.array(z.string()).optional(),
   location: locationSchema.nullable(),
@@ -137,6 +142,8 @@ export const searchFiltersSchema = z.object({
   keywords: z.array(z.string().max(40)).max(6),
   /** Terms matched only against open job titles. */
   roleKeywords: z.array(z.string().max(40)).max(6),
+  /** Only Junction 2026 partners. */
+  partners: z.boolean().optional(),
 })
 export type SearchFilters = z.infer<typeof searchFiltersSchema>
 
@@ -170,6 +177,7 @@ export function recentNews(s: Startup, now = Date.now()) {
 
 export function matchesFilters(s: Startup, f: SearchFilters, now = Date.now()) {
   if (s.industry === 'hub') return false
+  if (f.partners && !s.partner) return false
   if (f.industries.length && !f.industries.includes(s.industry)) return false
   if (f.hiring && !isHiring(s)) return false
   if (f.recentlyFunded && !recentFunding(s, now)) return false
@@ -187,7 +195,7 @@ export function matchesFilters(s: Startup, f: SearchFilters, now = Date.now()) {
 }
 
 export function filtersActive(f: SearchFilters) {
-  return f.industries.length > 0 || f.hiring || f.recentlyFunded || f.hasNews || f.keywords.length > 0 || f.roleKeywords.length > 0
+  return Boolean(f.partners) || f.industries.length > 0 || f.hiring || f.recentlyFunded || f.hasNews || f.keywords.length > 0 || f.roleKeywords.length > 0
 }
 
 const EVENT_RULES: [EventType, RegExp][] = [

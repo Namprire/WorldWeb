@@ -351,6 +351,7 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
   // Drawn on the street-level minimap: highlighted buildings and routes in map metres.
   const overlay = { buildings: new Set(), routes: [] };
   let drawScale = 1, treeCentre = null;
+  let treeReach = 520;
   const warming = [];
   let warmIndex = 0;
   return {
@@ -358,9 +359,10 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
       if (buildings) overlay.buildings = new Set(buildings);
       if (routes) overlay.routes = routes;
     },
-    setDrawScale(scale, focus = null) {
+    setDrawScale(scale, focus = null, treeRadius = 520) {
       drawScale = scale;
       treeCentre = focus;
+      treeReach = treeRadius;
     },
     name: "Central Helsinki · OpenStreetMap",
     buildings: districtBuildings,
@@ -378,7 +380,7 @@ export function installHelsinkiMap(engine, helpers, brushAtlas) {
           cz = tree && treeCentre ? treeCentre.z : cam.z,
           x = Math.max(b[0], Math.min(b[2], cx)),
           z = Math.max(b[1], Math.min(b[3], cz));
-        m.visible = Math.hypot(x - cx, z - cz) < (tree && treeCentre ? 520 : range * drawScale);
+        m.visible = Math.hypot(x - cx, z - cz) < (tree && treeCentre ? treeReach : range * drawScale);
       }
       for (let n = 0; n < (engine.state.state === "title" ? 60 : 24) && warmIndex < groups.length; warmIndex++) {
         const m = groups[warmIndex].m;

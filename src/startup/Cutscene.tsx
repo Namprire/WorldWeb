@@ -57,7 +57,7 @@ export function CutscenePlayer() {
       try {
         const response = await fetch('/api/cutscene', {
           method: 'POST', headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(request satisfies CutsceneRequest), signal: AbortSignal.any([signal, AbortSignal.timeout(90_000)]),
+          body: JSON.stringify(request satisfies CutsceneRequest), signal: AbortSignal.any([signal, AbortSignal.timeout(25_000)]),
         })
         const data = await response.json()
         if (!response.ok) throw new Error(data.error ?? 'The cutscene could not be prepared.')
@@ -75,11 +75,15 @@ export function CutscenePlayer() {
       let filmDone: Promise<void> = Promise.resolve()
       if (script.film) {
         setFilmOn(true)
+        // The film covers the screen, so the 3D city stops drawing until it ends.
+        setTimeout(() => { if (!signal.aborted) city.setRendering(false) }, 900)
         filmDone = new Promise<void>((resolve) => {
           const started = performance.now()
           const check = () => {
             const video = videoRef.current
-            if (signal.aborted || (video && (video.ended || video.error)) || performance.now() - started > 12_000) return resolve()
+            // Done when it ends, fails, or has not started playing within 3 seconds.
+            const stalled = video && video.currentTime === 0 && performance.now() - started > 3000
+            if (signal.aborted || (video && (video.ended || video.error)) || stalled || performance.now() - started > 12_000) return resolve()
             setTimeout(check, 200)
           }
           setTimeout(check, 400)
@@ -87,7 +91,7 @@ export function CutscenePlayer() {
       }
       for (let i = 0; i < script.shots.length && !signal.aborted; i++) {
         const shot = script.shots[i]
-        if (i === 1 && script.film) { await filmDone; setFilmOn(false) }
+        if (i === 1 && script.film) { await filmDone; city.setRendering(true); setFilmOn(false) }
         const target = shot.focus ? startups.find((s) => s.id === shot.focus)?.location : null
         setIndex(i)
         if (target && i === script.shots.length - 1) useCity.getState().select(target.buildingId, shot.focus, null)
@@ -100,6 +104,7 @@ export function CutscenePlayer() {
 
     void run().finally(() => {
       audioRef.current?.pause()
+      city.setRendering(true)
       if (useCity.getState().cutscene !== request) return
       city.setCinematic(false)
       useCity.setState({ cutscene: null })
@@ -108,6 +113,7 @@ export function CutscenePlayer() {
     return () => {
       controller.abort()
       audioRef.current?.pause()
+      city.setRendering(true)
       city.setCinematic(false)
     }
   }, [request])
@@ -132,8 +138,7 @@ export function CutscenePlayer() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.24 }}>
           <AnimatePresence>
             {filmOn && scene?.film && (
-              <motion.video key="film" ref={videoRef} className="sc-film" src={scene.film.src} poster={scene.film.poster} autoPlay muted={false} playsInline
-                onLoadedMetadata={(event) => { (event.target as HTMLVideoElement).volume = 0.35 }}
+              <motion.video key="film" ref={videoRef} className="sc-film" src={scene.film.src} poster={scene.film.poster} autoPlay muted playsInline preload="auto"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} />
             )}
           </AnimatePresence>
@@ -141,8 +146,12 @@ export function CutscenePlayer() {
           <motion.i className="sc-bar bottom" initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} exit={{ scaleY: 0 }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} />
           <div className="sc-cut-top">
             <h2>{scene?.title ?? (error ? 'Cutscene unavailable' : 'Preparing the scene')}</h2>
-            <button type="button" onClick={() => useCity.setState({ cutscene: null })}>Skip <kbd>Esc</kbd></button>
+            <span className="sc-cut-progress">
+              {scene && index >= 0 && <span>{index + 1} of {scene.shots.length}</span>}
+              <button type="button" onClick={() => useCity.setState({ cutscene: null })}>Skip <kbd>Esc</kbd></button>
+            </span>
           </div>
+          {scene && index >= 0 && <i className="sc-cut-bar" style={{ width: `${((index + 1) / scene.shots.length) * 100}%` }} />}
           <div className="sc-cut-bottom">
             <AnimatePresence mode="wait">
               <motion.p key={shot?.line ?? error ?? 'loading'} className="sc-subtitle"

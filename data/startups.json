@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-14T18:10:18.095Z",
+  "generatedAt": "2026-11-14T20:03:21.192Z",
   "note": "Companies from the Helsinki Startups Map database and earlier research, completed with public information retrieved through Context.dev. Locations are matched to OpenStreetMap buildings."
  },
  "startups": [
@@ -18,8 +18,15 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "partner": {
+    "tier": "main",
+    "logo": "/startup-logos/partner-verda.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Helsinki, FI",
    "listedIn": [
-    "Helsinki Startups Map database"
+    "Helsinki Startups Map database",
+    "Junction 2026 partners"
    ],
    "location": {
     "address": "Töölönlahdenkatu 2",
@@ -196,6 +203,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -282,6 +290,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -404,6 +413,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -490,6 +500,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -654,6 +665,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -739,6 +751,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Jacksonville, US",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -831,6 +844,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -925,6 +939,7 @@
    "outsideDistrict": false,
    "companyStatus": "Acquired",
    "acquirer": "DoorDash",
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -1067,6 +1082,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1126,9 +1142,16 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-aiven.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
-    "Earlier research list"
+    "Earlier research list",
+    "Junction 2026 partners"
    ],
    "location": {
     "address": "Antinkatu 1",
@@ -1232,6 +1255,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Las Vegas, US",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1322,6 +1346,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1410,6 +1435,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1448,6 +1474,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1542,6 +1569,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1585,6 +1613,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1635,6 +1664,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1672,6 +1702,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1753,8 +1784,15 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-craci.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
    "listedIn": [
-    "Helsinki Startups Map database"
+    "Helsinki Startups Map database",
+    "Junction 2026 partners"
    ],
    "location": {
     "address": "Kampinkuja 2",
@@ -1803,6 +1841,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1877,6 +1916,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Warwick, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -1966,6 +2006,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2056,6 +2097,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2150,6 +2192,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2187,6 +2230,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2207,8 +2251,8 @@
    "careersUrl": null,
    "jobs": null,
    "news": [],
-   "newsCheckedAt": null,
-   "updatedAt": "2026-11-14T17:58:09.293Z"
+   "newsCheckedAt": "2026-11-14T19:48:46.117Z",
+   "updatedAt": "2026-11-14T19:48:46.117Z"
   },
   {
    "id": "flowai",
@@ -2224,6 +2268,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2257,8 +2302,8 @@
    "careersUrl": null,
    "jobs": null,
    "news": [],
-   "newsCheckedAt": null,
-   "updatedAt": "2026-11-14T17:58:09.293Z"
+   "newsCheckedAt": "2026-11-14T19:48:46.117Z",
+   "updatedAt": "2026-11-14T19:48:46.117Z"
   },
   {
    "id": "huuva",
@@ -2274,6 +2319,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2307,8 +2353,8 @@
    "careersUrl": null,
    "jobs": null,
    "news": [],
-   "newsCheckedAt": null,
-   "updatedAt": "2026-11-14T17:58:09.293Z"
+   "newsCheckedAt": "2026-11-14T19:48:46.117Z",
+   "updatedAt": "2026-11-14T19:48:46.117Z"
   },
   {
    "id": "hyperionrobotics",
@@ -2324,6 +2370,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2409,6 +2456,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2508,6 +2556,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2607,6 +2656,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Oulu, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2688,6 +2738,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2776,6 +2827,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Vantaa, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2844,6 +2896,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -2924,6 +2977,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "San Mateo, US",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -3030,6 +3084,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3132,6 +3187,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3212,6 +3268,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3304,6 +3361,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3378,6 +3436,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3411,8 +3470,8 @@
    "careersUrl": null,
    "jobs": null,
    "news": [],
-   "newsCheckedAt": null,
-   "updatedAt": "2026-11-14T17:58:09.294Z"
+   "newsCheckedAt": "2026-11-14T19:48:46.117Z",
+   "updatedAt": "2026-11-14T19:48:46.117Z"
   },
   {
    "id": "nordcraftboats",
@@ -3429,6 +3488,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3496,6 +3556,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -3590,6 +3651,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3673,6 +3735,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3746,6 +3809,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3766,8 +3830,8 @@
    "careersUrl": null,
    "jobs": null,
    "news": [],
-   "newsCheckedAt": null,
-   "updatedAt": "2026-11-14T17:58:09.294Z"
+   "newsCheckedAt": "2026-11-14T19:48:46.117Z",
+   "updatedAt": "2026-11-14T19:48:46.117Z"
   },
   {
    "id": "proteins1",
@@ -3783,6 +3847,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3866,6 +3931,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -3935,6 +4001,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Vantaa, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -4066,6 +4133,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -4161,6 +4229,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -4286,6 +4355,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -4399,6 +4469,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -4419,8 +4490,8 @@
    "careersUrl": null,
    "jobs": null,
    "news": [],
-   "newsCheckedAt": null,
-   "updatedAt": "2026-11-14T17:58:09.294Z"
+   "newsCheckedAt": "2026-11-14T19:48:46.117Z",
+   "updatedAt": "2026-11-14T19:48:46.117Z"
   },
   {
    "id": "soomamedical",
@@ -4437,6 +4508,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Milford, US",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -4517,6 +4589,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -4614,6 +4687,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -4689,6 +4763,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -4858,6 +4933,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -4955,6 +5031,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -4992,6 +5069,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Audubon, US",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5071,6 +5149,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5171,6 +5250,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5221,6 +5301,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5271,6 +5352,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5364,6 +5446,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5503,6 +5586,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5540,6 +5624,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5622,6 +5707,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Palo Alto, US",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5708,6 +5794,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5787,6 +5874,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5868,6 +5956,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -5938,6 +6027,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6025,6 +6115,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6108,6 +6199,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6200,6 +6292,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6297,6 +6390,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6335,6 +6429,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6418,6 +6513,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6507,6 +6603,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Oxford, GB",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6617,6 +6714,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6710,6 +6808,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6800,6 +6899,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6889,6 +6989,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Lappeenranta, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -6972,6 +7073,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7009,6 +7111,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7090,6 +7193,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7127,6 +7231,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7177,6 +7282,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7266,6 +7372,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7382,6 +7489,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7419,6 +7527,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7456,6 +7565,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7493,6 +7603,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7553,6 +7664,7 @@
    "outsideDistrict": true,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": "Espoo, FI",
    "listedIn": [
     "Helsinki Startups Map database"
    ],
@@ -7633,6 +7745,7 @@
    "outsideDistrict": false,
    "companyStatus": "Active",
    "acquirer": null,
+   "headquarters": null,
    "listedIn": [
     "Helsinki Startups Map database",
     "Earlier research list"
@@ -7712,6 +7825,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -7768,6 +7882,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -7971,6 +8086,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -8077,6 +8193,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -8180,6 +8297,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -8280,6 +8398,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -8475,6 +8594,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -8589,6 +8709,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -8734,6 +8855,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -8819,6 +8941,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -8934,6 +9057,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9024,6 +9148,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9113,6 +9238,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9208,6 +9334,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9294,11 +9421,11 @@
      "articleType": "editorial",
      "eventType": "funding",
      "mentions": [],
-     "retrievedAt": "2026-11-14T19:29:07.911Z"
+     "retrievedAt": "2026-11-14T19:40:52.769Z"
     }
    ],
-   "newsCheckedAt": "2026-11-14T19:29:07.560Z",
-   "updatedAt": "2026-11-14T19:29:07.560Z"
+   "newsCheckedAt": "2026-11-14T19:40:52.493Z",
+   "updatedAt": "2026-11-14T19:40:52.493Z"
   },
   {
    "id": "uprightproject",
@@ -9314,6 +9441,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9406,6 +9534,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9505,6 +9634,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9599,6 +9729,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9683,6 +9814,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9787,6 +9919,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9890,6 +10023,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -9971,6 +10105,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10068,6 +10203,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10163,6 +10299,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10268,6 +10405,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10366,6 +10504,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10466,6 +10605,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10570,6 +10710,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10672,6 +10813,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10748,6 +10890,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10843,6 +10986,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -10927,6 +11071,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11009,6 +11154,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11095,6 +11241,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11194,6 +11341,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11273,6 +11421,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11336,6 +11485,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11433,6 +11583,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11509,6 +11660,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11593,6 +11745,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11699,6 +11852,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11773,6 +11927,7 @@
    "outsideDistrict": true,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11816,6 +11971,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -11911,6 +12067,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -12002,6 +12159,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -12064,6 +12222,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -12186,6 +12345,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -12276,6 +12436,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -12377,6 +12538,7 @@
    "outsideDistrict": false,
    "companyStatus": null,
    "acquirer": null,
+   "headquarters": "Helsinki, FI",
    "listedIn": [
     "Earlier research list"
    ],
@@ -12443,6 +12605,1718 @@
    "news": [],
    "newsCheckedAt": "2026-11-14T17:59:00.610Z",
    "updatedAt": "2026-11-14T17:59:00.610Z"
+  },
+  {
+   "id": "hackjunction",
+   "name": "Junction",
+   "domain": "hackjunction.com",
+   "website": "https://hackjunction.com",
+   "industry": "partner",
+   "profileIndustry": "Events, Venues & Live Entertainment",
+   "logo": "/startup-logos/hackjunction.png",
+   "logoOnDark": true,
+   "city": "Espoo",
+   "reportedAddress": "Puumiehenkuja 5a",
+   "municipality": "Espoo",
+   "outsideDistrict": true,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "organiser",
+    "logo": "/startup-logos/partner-hackjunction.webp",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Espoo, FI",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Junction is Europe’s leading hackathon organizer, a non‑profit based in Helsinki that has been running world‑class 48‑hour hackathon events since 2015. It brings together developers, designers, and innovators from over 130 nationalities—more than 10,000 participants—to solve real‑world challenges supplied by partner companies. Junction hosts events in 28 cities across five continents, offering cash prizes, hardware, internships and job pipelines. Participants can join as hackers, volunteers, or partners, gaining access to a global network, mentorship, and the chance to turn prototypes into fu…",
+    "sourceUrl": "https://hackjunction.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.424Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "1-10",
+    "sourceUrl": "https://linkedin.com/company/hackjunction",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.424Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/hackjunction",
+   "careersUrl": "https://www.hackjunction.com/jobs",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.424Z"
+  },
+  {
+   "id": "deepmindgoogle",
+   "name": "Google DeepMind",
+   "domain": "deepmind.google",
+   "website": "https://deepmind.google",
+   "industry": "partner",
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "logo": "/startup-logos/deepmindgoogle.svg",
+   "city": "London",
+   "reportedAddress": "Kings Cross",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "featured",
+    "logo": "/startup-logos/partner-deepmindgoogle.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "London, GB",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Google DeepMind is a leading artificial intelligence research and development organization within Alphabet that builds next‑generation AI systems to advance science, industry, and everyday life. It creates powerful models such as Gemini (intelligent agents, multimodal creation tools), Imagen (text‑to‑image), Gemini Audio (speech and music generation), Veo (cinematic video), and Genie 3 (interactive worlds). DeepMind also pioneers scientific breakthroughs like AlphaFold for protein folding, AlphaGenome for genomic insights, and AI‑driven weather forecasting. The lab focuses on responsible AI,…",
+    "sourceUrl": "https://deepmind.google",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.443Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "501-1000",
+    "sourceUrl": "https://linkedin.com/company/googledeepmind",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.443Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/googledeepmind",
+   "careersUrl": "https://deepmind.google/careers/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.443Z"
+  },
+  {
+   "id": "arduinocc",
+   "name": "Arduino",
+   "domain": "arduino.cc",
+   "website": "https://arduino.cc",
+   "industry": "partner",
+   "profileIndustry": "Hardware & Semiconductors",
+   "logo": "/startup-logos/arduinocc.jpg",
+   "city": "Somerville",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "main",
+    "logo": "/startup-logos/partner-arduinocc.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Somerville, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Arduino is an open‑source electronics prototyping platform that offers a range of hardware boards, software tools, and cloud services for makers, educators, and professionals. It enables users to design, code, and connect interactive devices—from beginner kits to AI‑enabled edge computers—supporting learning, rapid product development, and IoT deployments. Arduino’s community, documentation, and marketplace foster creativity and innovation across hobbyist, academic, and industrial projects.",
+    "sourceUrl": "https://arduino.cc",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.437Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "51-200",
+    "sourceUrl": "https://linkedin.com/company/arduino",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.437Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/arduino",
+   "careersUrl": "https://careers.arduino.cc/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.437Z"
+  },
+  {
+   "id": "hostinger",
+   "name": "Hostinger",
+   "domain": "hostinger.com",
+   "website": "https://hostinger.com",
+   "industry": "partner",
+   "profileIndustry": "Cloud Infrastructure & DevOps",
+   "logo": "/startup-logos/hostinger.png",
+   "city": "Vilnius",
+   "reportedAddress": "Švitrigailos g, Vilnius",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-hostinger.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Vilnius, LT",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Hostinger is a web hosting and online business platform offering website hosting, VPS hosting, domain registration, and tools to build and grow websites and online stores. Its services include AI website-building tools, WordPress support, email hosting, e-commerce features, backups, and customer support.",
+    "sourceUrl": "https://hostinger.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.453Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "501-1000",
+    "sourceUrl": "https://linkedin.com/company/hostinger",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.453Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/hostinger",
+   "careersUrl": "https://www.hostinger.com/career",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.453Z"
+  },
+  {
+   "id": "valioaimo",
+   "name": "Valio Aimo",
+   "domain": "valioaimo.fi",
+   "website": "https://valioaimo.fi",
+   "industry": "partner",
+   "profileIndustry": "Food, Beverage & Grocery E-commerce",
+   "logo": "/startup-logos/valioaimo.png",
+   "city": "Helsinki",
+   "reportedAddress": "Vanha Talvitie 2",
+   "municipality": "Helsinki",
+   "outsideDistrict": true,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-valioaimo.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Helsinki, FI",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Valio Aimo is a Finnish wholesale and ordering platform that serves food‑service professionals, HoReCa operators, and food manufacturers. Through its fast‑track Pikatukku, nationwide Toimitustukku, and the VALO Tilauspalvelu ordering service, Valio Aimo provides a broad selection of high‑quality dairy and food products with reliable 24‑hour delivery across Finland. The company also offers expert support, recipe ideas, seasonal trends, and customized solutions to help customers optimise menus, production processes and business profitability. By combining Valio’s award‑winning product developme…",
+    "sourceUrl": "https://valioaimo.fi",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.441Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "201-500",
+    "sourceUrl": "https://linkedin.com/company/valio-aimo",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.441Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/valio-aimo",
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.441Z"
+  },
+  {
+   "id": "spankki",
+   "name": "S-Pankki",
+   "domain": "s-pankki.fi",
+   "website": "https://s-pankki.fi",
+   "industry": "partner",
+   "profileIndustry": "Banking & Lending",
+   "logo": "/startup-logos/spankki.png",
+   "logoOnDark": true,
+   "city": "Helsinki",
+   "reportedAddress": "Fleminginkatu 34",
+   "municipality": "Helsinki",
+   "outsideDistrict": true,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-spankki.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Helsinki, FI",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "S-Pankki is a Finnish cooperative bank that provides a full range of financial services to private customers, businesses, institutions, and private banking clients. It offers everyday banking such as current accounts, savings and term deposits, and a variety of loan products including mortgages, student, and consumer loans. The bank also issues Visa credit and debit cards, supports domestic and international payments, and provides digital solutions like mobile banking (S‑mobiili) and online banking. In addition, S‑Pankki delivers investment options through mutual funds, retirement savings, an…",
+    "sourceUrl": "https://s-pankki.fi",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.633Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "501-1000",
+    "sourceUrl": "https://linkedin.com/company/s-pankki",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.633Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/s-pankki",
+   "careersUrl": "https://www.s-pankki.fi/fi/s-pankki-yrityksena/ura/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.633Z"
+  },
+  {
+   "id": "aalto",
+   "name": "Aalto University",
+   "domain": "aalto.fi",
+   "website": "https://aalto.fi",
+   "industry": "partner",
+   "profileIndustry": "Higher Education & University Tech",
+   "logo": "/startup-logos/aalto.jpg",
+   "city": "Espoo",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-aalto.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Espoo, FI",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Aalto University is a multidisciplinary Finnish university that combines science, technology, business, art and design to create innovative solutions for a sustainable future. It offers bachelor, master and doctoral programmes in fields such as engineering, economics, chemistry, architecture, arts, and information technology, taught in Finnish, Swedish and English. The university hosts a vibrant research community, providing state‑of‑the‑art facilities, research portals and collaborative projects across academia, industry and government. Aalto also supports entrepreneurship through its Founde…",
+    "sourceUrl": "https://aalto.fi",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.628Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.628Z"
+  },
+  {
+   "id": "cala",
+   "name": "Cala",
+   "domain": "cala.ai",
+   "website": "https://cala.ai",
+   "industry": "partner",
+   "profileIndustry": "Data Infrastructure & Analytics",
+   "logo": "/startup-logos/cala.png",
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-cala.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Cala is a data‑structuring and search infrastructure platform that transforms public and regulatory information into verified, typed, and traceable facts. By pre‑processing finance, healthcare, legal, HR, and agro data into a hyper‑connected knowledge graph, Cala lets AI agents query reliable, token‑efficient answers instead of raw web text. Its single API endpoint provides access to SEC filings, market data, credit ratings, sanctions lists, corporate registries, court records, central‑bank statistics, news, and PEP rosters, all with provenance and validity metadata. Developers can connect vi…",
+    "sourceUrl": "https://cala.ai",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.682Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/cala-ai",
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.682Z"
+  },
+  {
+   "id": "espoo",
+   "name": "City of Espoo",
+   "domain": "espoo.fi",
+   "website": "https://espoo.fi",
+   "industry": "partner",
+   "profileIndustry": "Municipal & Infrastructure Services",
+   "logo": "/startup-logos/espoo.png",
+   "city": "Espoo",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-espoo.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Espoo, FI",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Espoo City is the municipal government of Espoo, Finland, serving as a hub for children, youth, and residents. It manages a wide range of public services including housing and construction, urban planning, cultural institutions, libraries, museums, and events. The city oversees transportation infrastructure, street maintenance, parking, and public transit planning, as well as sports facilities, outdoor recreation, and nature conservation. Espoo provides education services from daycare to schools and universities, supports employment through job listings and business services, and handles city…",
+    "sourceUrl": "https://espoo.fi",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.640Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.640Z"
+  },
+  {
+   "id": "exa",
+   "name": "Exa",
+   "domain": "exa.ai",
+   "website": "https://exa.ai",
+   "industry": "partner",
+   "profileIndustry": "Developer Tools & APIs",
+   "logo": "/startup-logos/exa.png",
+   "city": "San Francisco",
+   "reportedAddress": "430 Shotwell Street",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-exa.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "San Francisco, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Exa builds search and data APIs that help AI agents access and use information from the public web and private sources. Its products include search, content retrieval, agent, monitoring, and structured data extraction APIs, with options ranging from low-latency results to deeper research. Exa also offers tools and integrations for use cases such as coding, finance, sales intelligence, AI assistants, and model training.",
+    "sourceUrl": "https://exa.ai",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.642Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "51-200",
+    "sourceUrl": "https://linkedin.com/company/exa-ai",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.642Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/exa-ai",
+   "careersUrl": "https://exa.ai/careers",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.642Z"
+  },
+  {
+   "id": "mariadb",
+   "name": "MariaDB",
+   "domain": "mariadb.com",
+   "website": "https://mariadb.com",
+   "industry": "partner",
+   "profileIndustry": "Software (B2B)",
+   "logo": "/startup-logos/mariadb.svg",
+   "city": "Milpitas",
+   "reportedAddress": "1900 McCarthy Blvd",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-mariadb.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Milpitas, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "MariaDB is a global data platform company that delivers open‑source and enterprise‑grade relational database solutions. It offers MariaDB Cloud, a fully managed multicloud DBaaS with dedicated and serverless options, as well as self‑managed MariaDB Enterprise for secure, scalable on‑prem deployments. The portfolio includes the community‑favored MariaDB Server, AI‑driven autonomous agents for intelligent operations, and GridGain for in‑memory, real‑time processing. Key capabilities span high availability, HTAP analytics with MariaDB Exa, and GenAI integration via RAG. MariaDB serves diverse in…",
+    "sourceUrl": "https://mariadb.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.815Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "201-500",
+    "sourceUrl": "https://linkedin.com/company/mariadb-corporation",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.815Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/mariadb-corporation",
+   "careersUrl": "https://mariadb.com/about-us/careers/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.815Z"
+  },
+  {
+   "id": "afterquery",
+   "name": "AfterQuery",
+   "domain": "afterquery.com",
+   "website": "https://afterquery.com",
+   "industry": "partner",
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "logo": "/startup-logos/afterquery.png",
+   "city": "San Francisco",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-afterquery.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "San Francisco, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "AfterQuery is an applied research lab that captures expert reasoning and transforms real‑world professional work into high‑quality training data for frontier foundation models. By collaborating with domain experts, they curate supervised fine‑tuning pairs, chain‑of‑thought traces, reinforcement‑learning rubrics, custom API/agent environments, and human‑demonstrated computer‑use trajectories. Their datasets teach AI systems not just answers but the decision‑making, trade‑offs, and context that experts employ, enabling models to solve complex tasks more reliably. AfterQuery partners with enterp…",
+    "sourceUrl": "https://afterquery.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.836Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "51-200",
+    "sourceUrl": "https://linkedin.com/company/afterquery",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.836Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/afterquery",
+   "careersUrl": "https://www.afterquery.com/careers",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.836Z"
+  },
+  {
+   "id": "bahnexpress",
+   "name": "Bahn Express",
+   "domain": "bahnexpress.fi",
+   "website": "https://bahnexpress.fi",
+   "industry": "partner",
+   "profileIndustry": "Freight & Transportation Tech",
+   "logo": "/startup-logos/bahnexpress.png",
+   "city": "Helsinki",
+   "reportedAddress": "Kalevankatu 30",
+   "municipality": "Helsinki",
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-bahnexpress.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Helsinki, FI",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": {
+    "address": "Kalevankatu 30",
+    "postalCode": "00100",
+    "x": -587.52,
+    "z": 632.7,
+    "lon": 24.933078,
+    "lat": 60.16551,
+    "buildingId": "way/123527946",
+    "osmId": "node/311746012",
+    "sourceUrl": "https://www.bahnexpress.fi/yhteystiedot",
+    "sourceName": "Context.dev company profile, matched to OpenStreetMap",
+    "retrievedAt": "2026-11-14T20:02:48.848Z",
+    "status": "verified"
+   },
+   "description": {
+    "value": "Bahnexpress is a Finnish‑based automotive logistics company that moves cars quickly and reliably for dealers, rental firms and private sellers. Through an online portal or API, customers can order vehicle pickups, inter‑branch transfers, home deliveries, and cross‑border imports. Bahnexpress assigns vetted drivers, provides real‑time tracking, conducts on‑site inspections and test drives, and handles all paperwork and insurance. Most domestic moves arrive within a day, and 86% of transfers are completed within 24 hours. The service also supports rental‑fleet repositioning and rapid delivery o…",
+    "sourceUrl": "https://bahnexpress.fi",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.848Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "11-50",
+    "sourceUrl": "https://linkedin.com/company/bahn-express",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.848Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/bahn-express",
+   "careersUrl": "https://www.bahnexpress.fi/careers",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.848Z"
+  },
+  {
+   "id": "astrazeneca",
+   "name": "AstraZeneca",
+   "domain": "astrazeneca.com",
+   "website": "https://astrazeneca.com",
+   "industry": "partner",
+   "profileIndustry": "Pharmaceuticals & Drug Development",
+   "logo": "/startup-logos/astrazeneca.png",
+   "logoOnDark": true,
+   "city": "Cambridge",
+   "reportedAddress": "1 Francis Crick Avenue",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-astrazeneca.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Cambridge, GB",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "AstraZeneca is a global biopharmaceutical company that discovers, develops, and commercialises innovative medicines across therapeutic areas such as oncology, cardiovascular, renal, metabolism, respiratory, immunology, infectious disease, and rare diseases. Leveraging cutting‑edge science—including cell therapies, oligonucleotide therapeutics, AI, genomics, and advanced data platforms—the company aims to transform patient outcomes and address unmet medical needs. AstraZeneca operates a network of R&D centres worldwide, collaborates with partners across academia and industry, and invests in su…",
+    "sourceUrl": "https://astrazeneca.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.843Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "10001+",
+    "sourceUrl": "https://linkedin.com/company/astrazeneca",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.843Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/astrazeneca",
+   "careersUrl": "https://www.astrazeneca.com/careers/great-place-to-work.html",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.843Z"
+  },
+  {
+   "id": "stoabuild",
+   "name": "Stoa",
+   "domain": "stoabuild.com",
+   "website": "https://stoabuild.com",
+   "industry": "partner",
+   "profileIndustry": "Construction Management Software",
+   "logo": "/startup-logos/stoabuild.svg",
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-stoabuild.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Stoa is an AI‑native operating system for construction projects. It unifies all site data—documents, schedules, quality and safety records, drawings, and reports—into a single, searchable knowledge graph that powers a chat‑based interface. Users can ask project‑specific questions and receive answers with source citations, view real‑time change feeds, and monitor project health on a dashboard. Stoa integrates with existing construction software, requiring no data migration, and can be up and running within two business days. The platform supports faster decision‑making, reduces schedule time,…",
+    "sourceUrl": "https://stoabuild.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:48.888Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:48.888Z"
+  },
+  {
+   "id": "intel",
+   "name": "Intel",
+   "domain": "intel.com",
+   "website": "https://intel.com",
+   "industry": "partner",
+   "profileIndustry": "Hardware & Semiconductors",
+   "logo": "/startup-logos/intel.png",
+   "city": "Santa Clara",
+   "reportedAddress": "Robert Noyce Building",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-intel.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Santa Clara, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Intel Corporation is a global technology leader that designs, manufactures, and sells semiconductor chips and related solutions. Its product portfolio includes Intel Core, Xeon, Atom, and Arc processors, AI accelerators, networking and edge components, and quantum computing innovations. Intel also provides software tools such as oneAPI, OpenVINO, and developer resources to enable high‑performance computing, AI, graphics, and security across industries like automotive, healthcare, finance, and gaming. Through partnerships, manufacturing investments, and a focus on sustainability, Intel empower…",
+    "sourceUrl": "https://intel.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.007Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "10001+",
+    "sourceUrl": "https://linkedin.com/company/intel-corporation",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.007Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/intel-corporation",
+   "careersUrl": "https://www.intel.com/content/www/us/en/jobs/life-at-intel.html",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.007Z"
+  },
+  {
+   "id": "ignitenext",
+   "name": "Ignite Next",
+   "domain": "ignitenext.com",
+   "website": "https://ignitenext.com",
+   "industry": "partner",
+   "profileIndustry": "Management Consulting",
+   "logo": "/startup-logos/ignitenext.png",
+   "city": "Dresden",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-ignitenext.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Dresden, DE",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Ignite Next is Europe’s leading scale‑up program for early‑stage deep‑tech startups. Founded by entrepreneurs for founders, it offers a non‑dilutive, custom acceleration pathway that helps IP‑heavy innovators turn breakthrough technologies into breakout businesses. Participants receive access to 84 senior industry experts, 35 serial‑entrepreneur mentors, and dozens of proof‑of‑concept pilots, alongside networking, funding support (average €2M at entry) and guidance toward Series A. The program focuses on sectors such as advanced computing, quantum, photonics, AI, robotics, privacy‑security, a…",
+    "sourceUrl": "https://ignitenext.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.042Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "11-50",
+    "sourceUrl": "https://linkedin.com/company/ignitenext",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.042Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/ignitenext",
+   "careersUrl": "https://ignitenext.com/jobs",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.042Z"
+  },
+  {
+   "id": "contextdev",
+   "name": "Context.dev",
+   "domain": "context.dev",
+   "website": "https://context.dev",
+   "industry": "partner",
+   "profileIndustry": "Developer Tools & APIs",
+   "logo": "/startup-logos/contextdev.png",
+   "city": "Wilmington",
+   "reportedAddress": "1007 N Orange St. 4th Floor Suite #1839",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-contextdev.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Wilmington, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Context.dev is a web data API for AI agents and software products. It scrapes any URL into LLM-ready Markdown, HTML, screenshots, or structured JSON, searches the live web, crawls and maps entire sites, runs large batches, and monitors pages for changes. The same API also returns brand, company, and people data, including logos, colors, styleguides, firmographics, and industry classification, through REST, official SDKs, and MCP.",
+    "sourceUrl": "https://context.dev",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.036Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "1-10",
+    "sourceUrl": "https://linkedin.com/company/contextdev",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.036Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/contextdev",
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.036Z"
+  },
+  {
+   "id": "rokoko",
+   "name": "Rokoko",
+   "domain": "rokoko.com",
+   "website": "https://rokoko.com",
+   "industry": "partner",
+   "profileIndustry": "Hardware & Semiconductors",
+   "logo": "/startup-logos/rokoko.png",
+   "city": "Copenhagen",
+   "reportedAddress": "Sankt Gertruds Stræde 10",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-rokoko.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Copenhagen, DK",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Rokoko is a global motion‑capture solutions provider that equips creators, studios, researchers and educators with wireless hardware and AI‑driven software for full‑body, hand and facial performance capture. Their product lineup includes the Smartsuit Pro II motion‑capture suit, Smartgloves II, Face Capture kits, Coil Pro and head‑mounted cameras, all of which can be set up in minutes without external cameras. Rokoko Studio and Vision AI software enable real‑time recording, editing, retargeting and export to formats like FBX, BVH and CSV, and integrate directly with Blender, Unreal Engine, Un…",
+    "sourceUrl": "https://rokoko.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.047Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "51-200",
+    "sourceUrl": "https://linkedin.com/company/rokoko",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.047Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/rokoko",
+   "careersUrl": "https://careers.rokoko.com/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.047Z"
+  },
+  {
+   "id": "meta",
+   "name": "Meta",
+   "domain": "meta.com",
+   "website": "https://meta.com",
+   "industry": "partner",
+   "profileIndustry": "Software (B2C)",
+   "logo": "/startup-logos/meta.svg",
+   "city": "Menlo Park",
+   "reportedAddress": "1 Hacker Way",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-meta.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Menlo Park, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Meta is a global technology company that designs and sells immersive hardware and software experiences, including AI-powered smart glasses, VR headsets like Meta Quest, and partnered eyewear such as Ray‑Ban and Oakley Meta glasses. Through its Meta Store, the company offers devices, accessories, and services that blend artificial intelligence, augmented reality, and virtual reality to enhance personal productivity, entertainment, and social interaction. Meta also provides developer tools, enterprise solutions, and a suite of social platforms (Facebook, Instagram, Threads, etc.) that integrate…",
+    "sourceUrl": "https://meta.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.074Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.074Z"
+  },
+  {
+   "id": "tieto",
+   "name": "Tieto",
+   "domain": "tieto.com",
+   "website": "https://tieto.com",
+   "industry": "partner",
+   "profileIndustry": "Software (B2B)",
+   "logo": "/startup-logos/tieto.svg",
+   "city": "Espoo",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "challenge",
+    "logo": "/startup-logos/partner-tieto.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Espoo, FI",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Tieto is a Nordic software and technology company that helps organizations turn ideas into results through AI and data, software products and development, cloud services, design, and consulting. It serves customers across banking and financial services, healthcare, manufacturing, energy, telecom, the public sector, and other industries. With around 14,000 experts and operations in more than 20 countries, Tieto works with customers to simplify, digitalize, and improve their businesses and services.",
+    "sourceUrl": "https://tieto.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.187Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "10001+",
+    "sourceUrl": "https://linkedin.com/company/tieto",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.187Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/tieto",
+   "careersUrl": "https://careers.tieto.com/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.187Z"
+  },
+  {
+   "id": "openai",
+   "name": "OpenAI",
+   "domain": "openai.com",
+   "website": "https://openai.com",
+   "industry": "partner",
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "logo": "/startup-logos/openai.svg",
+   "city": "San Francisco",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-openai.svg",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "San Francisco, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "OpenAI is an artificial intelligence research and technology company developing AI systems and products, including ChatGPT and an API platform for developers and businesses. Its work spans AI research, model development, safety, and practical applications across education, healthcare, science, and other fields. OpenAI aims for its research to contribute to artificial general intelligence—systems capable of solving problems at a human level.",
+    "sourceUrl": "https://openai.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.235Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "1001-5000",
+    "sourceUrl": "https://linkedin.com/company/openai",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.235Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/openai",
+   "careersUrl": "https://openai.com/careers/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.235Z"
+  },
+  {
+   "id": "nvidia",
+   "name": "NVIDIA",
+   "domain": "nvidia.com",
+   "website": "https://nvidia.com",
+   "industry": "partner",
+   "profileIndustry": "Hardware & Semiconductors",
+   "logo": "/startup-logos/nvidia.svg",
+   "city": "Santa Clara",
+   "reportedAddress": "2701 San Tomas Expressway",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-nvidia.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Santa Clara, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "NVIDIA is a global technology leader that designs and manufactures GPUs, AI hardware, and software platforms for a wide range of markets. Their products power gaming graphics cards, professional workstations, data‑center supercomputers, embedded systems, and autonomous vehicle platforms. NVIDIA also offers cloud services, AI development tools, and a suite of software solutions—including CUDA, DGX, and NVIDIA Studio—to accelerate AI, high‑performance computing, and creative workflows. Through initiatives like GeForce NOW, NVIDIA Broadcast, and RTX Remix, they enable immersive gaming, streaming…",
+    "sourceUrl": "https://nvidia.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.241Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "10001+",
+    "sourceUrl": "https://linkedin.com/company/nvidia",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.241Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/nvidia",
+   "careersUrl": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.241Z"
+  },
+  {
+   "id": "featherless",
+   "name": "Featherless",
+   "domain": "featherless.ai",
+   "website": "https://featherless.ai",
+   "industry": "partner",
+   "profileIndustry": "Cloud Infrastructure & DevOps",
+   "logo": "/startup-logos/featherless.png",
+   "logoOnDark": true,
+   "city": "San Francisco",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-featherless.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "San Francisco, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Featherless is an AI inference platform that lets developers run open‑source large language models cost‑effectively on AMD Instinct GPUs. By offering a single API key and instant access to a catalog of over 40,000 models—including GLM‑5.3, DeepSeek, Qwen, Llama, Gemma and more—Featherless enables rapid testing, deployment, and scaling of language, reasoning, coding, and multimodal workloads. The service focuses on reducing compute expenses, providing a pricing calculator, and supporting seamless integration via its documentation, quick‑start guides, and community Discord. Users can browse mod…",
+    "sourceUrl": "https://featherless.ai",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.247Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/featheress-ai",
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.247Z"
+  },
+  {
+   "id": "modal",
+   "name": "Modal",
+   "domain": "modal.com",
+   "website": "https://modal.com",
+   "industry": "partner",
+   "profileIndustry": "Cloud Infrastructure & DevOps",
+   "logo": "/startup-logos/modal.svg",
+   "logoOnDark": true,
+   "city": "New York City",
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-modal.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "New York City, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Modal is a cloud platform that provides AI‑focused infrastructure for building, training, and serving machine‑learning models at scale. Their service offers container‑based runtimes, on‑demand GPU clusters, and multi‑cloud capacity pools that let developers run inference, fine‑tune models, run reinforcement‑learning rollouts, and execute arbitrary functions without managing servers. Modal’s products include high‑performance inference endpoints, elastic training environments, secure sandboxes for concurrent agents, and serverless functions that can be turned into scalable HTTPS APIs. By abstra…",
+    "sourceUrl": "https://modal.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.299Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/modal-labs",
+   "careersUrl": "https://modal.com/careers",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.299Z"
+  },
+  {
+   "id": "qualiastudiosdev",
+   "name": "Qualia",
+   "domain": "qualiastudios.dev",
+   "website": "https://qualiastudios.dev",
+   "industry": "partner",
+   "profileIndustry": "Manufacturing & Industrial Automation",
+   "logo": "/startup-logos/qualiastudiosdev.png",
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-qualiastudiosdev.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Qualia is a Copenhagen‑ and Stockholm‑based robotics AI company that equips factories with foundation‑model‑driven robots capable of handling unstructured, mixed‑SKU tasks that traditional automation cannot. Their end‑to‑end service teaches robots by recording operator tele‑operations, fine‑tunes a foundation model on those demos, deploys it to the robot controller with sub‑50 ms latency, and continuously improves performance through reinforcement learning on production data. Qualia offers on‑site feasibility audits, delivers the trained model and data to the customer’s hardware with no lock‑…",
+    "sourceUrl": "https://qualiastudios.dev",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.375Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "1-10",
+    "sourceUrl": "https://linkedin.com/company/qualia-studios",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.375Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/qualia-studios",
+   "careersUrl": "https://qualiastudios.dev/careers",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.375Z"
+  },
+  {
+   "id": "atechdev",
+   "name": "Atech",
+   "domain": "atech.dev",
+   "website": "https://atech.dev",
+   "industry": "partner",
+   "profileIndustry": "Hardware & Semiconductors",
+   "logo": "/startup-logos/atechdev.png",
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-atechdev.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Atech is a Denmark‑based startup that provides a rapid, no‑code hardware development platform. Users describe the device they want to create, and Atech’s AI generates a complete hardware configuration, firmware, and documentation for its modular Atech hardware kits within minutes. The company offers pre‑orderable, fully assembled modules that ship in 3–4 weeks, enabling creators, makers, and engineers to prototype and launch physical products without deep electrical or firmware expertise. Backed by an $800K pre‑seed round from investors such as Emblem, Nordic Makers, Lovable, Sequoia, and a16…",
+    "sourceUrl": "https://atech.dev",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.428Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "11-50",
+    "sourceUrl": "https://linkedin.com/company/atech-dev",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.428Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/atech-dev",
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.428Z"
+  },
+  {
+   "id": "scailabse",
+   "name": "Scailab",
+   "domain": "scailab.se",
+   "website": "https://scailab.se",
+   "industry": "partner",
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "logo": null,
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-scailabse.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "SCAILAB builds perception infrastructure for Physical AI, helping teams create synthetic training data and develop, train, and deploy autonomous systems faster. Its platform lets users configure simulated environments, actors, lighting, and sensors to generate data for applications such as robotics, logistics, mining, and inspection.",
+    "sourceUrl": "https://scailab.se",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:57.900Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/105719556",
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:57.900Z"
+  },
+  {
+   "id": "ironshard",
+   "name": "IronShard",
+   "domain": "ironshard.ai",
+   "website": "https://ironshard.ai",
+   "industry": "partner",
+   "profileIndustry": "Cloud Infrastructure & DevOps",
+   "logo": "/startup-logos/ironshard.png",
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-ironshard.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "ironshard.ai provides a governed, S3‑compatible storage layer for AI agents, enabling safe, zero‑egress access to production data. Through its Multi‑Cloud Platform (MCP), agents can connect to live mirrored copies of production buckets, branch instantly for testing, and roll back to any point in time, all while maintaining per‑agent access controls and cryptographically signed audit logs. The platform encrypts data end‑to‑end, fragments and erasure‑codes files across multiple cloud providers for resilience and compliance, and offers configurable latency or cost‑optimized read modes. Existing…",
+    "sourceUrl": "https://ironshard.ai",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.435Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.435Z"
+  },
+  {
+   "id": "cloudinary",
+   "name": "Cloudinary",
+   "domain": "cloudinary.com",
+   "website": "https://cloudinary.com",
+   "industry": "partner",
+   "profileIndustry": "Software (B2B)",
+   "logo": "/startup-logos/cloudinary.png",
+   "city": "San Jose",
+   "reportedAddress": "6201 America Center Dr",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-cloudinary.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "San Jose, US",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Cloudinary is an AI‑native media platform that provides developers, marketers, and product teams with APIs and low‑code tools to automate the entire image and video lifecycle at scale. Its services include automated optimization, transformation, and delivery of visual assets, AI‑powered digital asset management, moderation, and workflow automation. Cloudinary integrates with major e‑commerce, CMS, and cloud providers, enabling fast, responsive visual experiences across web, mobile, and immersive channels. The platform supports real‑time personalization, video transcoding, and 3D content, help…",
+    "sourceUrl": "https://cloudinary.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.530Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "201-500",
+    "sourceUrl": "https://linkedin.com/company/cloudinary",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.530Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/cloudinary",
+   "careersUrl": "https://cloudinary.com/careers",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.530Z"
+  },
+  {
+   "id": "wendydev",
+   "name": "Wendy",
+   "domain": "wendy.dev",
+   "website": "https://wendy.dev",
+   "industry": "partner",
+   "profileIndustry": "Developer Tools & APIs",
+   "logo": "/startup-logos/wendydev.png",
+   "logoOnDark": true,
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-wendydev.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Wendy (wendy.dev) is an open‑source development platform for physical AI that lets engineers build, deploy, and continuously improve AI‑enabled edge applications. Their free WendyOS runs on Linux, Apple Silicon, Jetson, Raspberry Pi and other edge devices, while Wendy Cloud provides device management, secure software signing, and data collection for model training. Developers can connect real sensors, simulate with MuJoCo, and turn network cameras into local inputs, then ship updates to fleets and capture field data via TeleCollectOne. Wendy’s toolkit supports use cases from manufacturing ins…",
+    "sourceUrl": "https://wendy.dev",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.729Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/wendylabsinc",
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.729Z"
+  },
+  {
+   "id": "oxylabs",
+   "name": "Oxylabs",
+   "domain": "oxylabs.io",
+   "website": "https://oxylabs.io",
+   "industry": "partner",
+   "profileIndustry": "Developer Tools & APIs",
+   "logo": "/startup-logos/oxylabs.svg",
+   "city": "Vilnius",
+   "reportedAddress": "Svitrigailos st. 32",
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "tech",
+    "logo": "/startup-logos/partner-oxylabs.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Vilnius, LT",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Oxylabs is a data infrastructure company that delivers high‑scale web data access and proxy solutions. It offers a suite of proxy services—including residential, mobile, ISP, and datacenter proxies—as well as a Web Unblocker and dedicated proxy management tools. Through its Fresh Web Data API, Oxylabs provides live search and structured extraction capabilities designed for AI agents, web scraping, market intelligence, SEO, and competitive analysis. The platform emphasizes scalability, reliability, and global coverage, enabling businesses to gather accurate, up‑to‑date web information at enter…",
+    "sourceUrl": "https://oxylabs.io",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.617Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "201-500",
+    "sourceUrl": "https://linkedin.com/company/oxylabs-io",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.617Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/oxylabs-io",
+   "careersUrl": "https://career.oxylabs.io/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.617Z"
+  },
+  {
+   "id": "lifelineventures",
+   "name": "Lifeline Ventures",
+   "domain": "lifelineventures.com",
+   "website": "https://lifelineventures.com",
+   "industry": "partner",
+   "profileIndustry": "Investment Management & WealthTech",
+   "logo": "/startup-logos/lifelineventures.svg",
+   "city": "Helsinki",
+   "reportedAddress": "Pursimiehenkatu 26 C",
+   "municipality": "Helsinki",
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "supporter",
+    "logo": "/startup-logos/partner-lifelineventures.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": "Helsinki, FI",
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": {
+    "address": "Pursimiehenkatu 26 C",
+    "postalCode": "00150",
+    "x": -524.72,
+    "z": 1433.62,
+    "lon": 24.934213,
+    "lat": 60.158307,
+    "buildingId": "relation/1693397",
+    "osmId": "node/4886182038",
+    "sourceUrl": "https://lifelineventures.com",
+    "sourceName": "Context.dev company profile, matched to OpenStreetMap",
+    "retrievedAt": "2026-11-14T20:02:49.723Z",
+    "status": "verified"
+   },
+   "description": {
+    "value": "Lifeline Ventures is a sector‑agnostic early‑stage investor that backs ambitious founders at the pre‑seed and seed stages. Acting as the first point of contact for entrepreneurs in both challenging and celebratory moments, the firm partners with teams from day one and supports them through growth with global C‑level experience. Lifeline Ventures provides capital, mentorship, and a network of resources, helping portfolio companies scale across industries. Their portfolio spans AI‑driven robotics, sustainable construction, AI‑native auto retail, and other innovative ventures, reflecting a commi…",
+    "sourceUrl": "https://lifelineventures.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.723Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "1-10",
+    "sourceUrl": "https://linkedin.com/company/lifeline-ventures",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.723Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/lifeline-ventures",
+   "careersUrl": "https://www.lifelineventures.com/careers/",
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.723Z"
+  },
+  {
+   "id": "mlh",
+   "name": "Major League Hacking",
+   "domain": "mlh.io",
+   "website": "https://mlh.io",
+   "industry": "partner",
+   "profileIndustry": null,
+   "logo": null,
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "supporter",
+    "logo": "/startup-logos/partner-mlh.png",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": null,
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:03:03.251Z"
+  },
+  {
+   "id": "xrcreatorcon",
+   "name": "XR Creator Con",
+   "domain": null,
+   "website": null,
+   "industry": "partner",
+   "profileIndustry": null,
+   "logo": null,
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "supporter",
+    "logo": "/startup-logos/partner-xrcreatorcon.svg",
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": null,
+   "founded": null,
+   "founders": null,
+   "employees": null,
+   "funding": null,
+   "investors": null,
+   "linkedin": null,
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:03:03.251Z"
+  },
+  {
+   "id": "anthropic",
+   "name": "Anthropic",
+   "domain": "anthropic.com",
+   "website": "https://anthropic.com",
+   "industry": "partner",
+   "profileIndustry": "Artificial Intelligence & Machine Learning",
+   "logo": "/startup-logos/anthropic.png",
+   "city": null,
+   "reportedAddress": null,
+   "municipality": null,
+   "outsideDistrict": false,
+   "companyStatus": null,
+   "acquirer": null,
+   "partner": {
+    "tier": "listed",
+    "logo": null,
+    "source": "https://2026.hackjunction.com/"
+   },
+   "headquarters": null,
+   "listedIn": [
+    "Junction 2026 partners"
+   ],
+   "location": null,
+   "description": {
+    "value": "Anthropic is a public benefit corporation and AI research company focused on developing advanced AI responsibly. It builds Claude and other AI models and products, while researching ways to make AI systems safer, more reliable, interpretable, and steerable. Its mission is to ensure advanced AI benefits humanity and to mitigate the risks it may pose.",
+    "sourceUrl": "https://anthropic.com",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.852Z",
+    "status": "verified"
+   },
+   "founded": null,
+   "founders": null,
+   "employees": {
+    "value": "501-1000",
+    "sourceUrl": "https://linkedin.com/company/anthropicresearch",
+    "sourceName": "Context.dev company profile",
+    "retrievedAt": "2026-11-14T20:02:49.852Z",
+    "status": "verified"
+   },
+   "funding": null,
+   "investors": null,
+   "linkedin": "https://linkedin.com/company/anthropicresearch",
+   "careersUrl": null,
+   "jobs": null,
+   "news": [],
+   "newsCheckedAt": null,
+   "updatedAt": "2026-11-14T20:02:49.852Z"
   }
  ]
 }

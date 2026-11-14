@@ -73,17 +73,30 @@ try {
   await page.keyboard.press("Escape");
   check("Escape closes the profile", (await state(page)).selectedId === null);
 
-  await page.fill("#sc-query", "Show me AI startups in Helsinki");
-  check("typing a question does not steer the camera or scooter", (await page.inputValue("#sc-query")) === "Show me AI startups in Helsinki");
-  await page.keyboard.press("Enter");
-  await page.waitForFunction(() => window.__startupCity.store.getState().search.status === "done");
+  check("the Gemini question bar is hidden for now", await page.locator("#sc-query").count() === 0);
+  await page.click(".sc-filters >> text=AI & Data");
   s = await state(page);
-  check("the question becomes structured filters", s.filters.industries.join() === "ai" && s.search.mode === "gemini");
+  check("a category filter narrows the map", s.filters.industries.join() === "ai");
   check("non-matching buildings dim, matches highlight", await page.locator('.sc-marker[data-state="match"]').count() >= 3 && await page.locator('.sc-marker[data-state="dim"]').count() >= 5);
   await page.click(".sc-result >> text=Route between them");
   check("a route links the results", "tour" in (await state(page)).route);
-  await page.screenshot({ path: "output/startup-city/test-search.png" });
-  await page.click('button[aria-label="Clear search"]');
+  await page.click(".sc-filters >> text=AI & Data");
+  await page.click(".sc-filters >> text=Junction 2026 partners");
+  check("the partner filter keeps only Junction partners lit", await page.locator('.sc-marker.partner[data-state="match"]').count() >= 4);
+  await page.click(".sc-filters >> text=Junction 2026 partners");
+  check("partners on the map get their own marker", await page.locator(".sc-marker.partner").count() >= 4);
+
+  // Web-map zoom: the ground under the cursor stays put
+  const anchor = () => page.evaluate(() => { const g = window.__startupCity.scene.groundAt(900, 500); return g && [g.x, g.z]; });
+  const anchorBefore = await anchor();
+  for (let i = 0; i < 4; i++) { await page.mouse.move(900, 500); await page.mouse.wheel(0, -240); await page.waitForTimeout(60); }
+  await page.waitForTimeout(1200);
+  const anchorAfter = await anchor();
+  check("scroll zooms towards the cursor", anchorBefore && anchorAfter && Math.hypot(anchorAfter[0] - anchorBefore[0], anchorAfter[1] - anchorBefore[1]) < 25);
+  const dist = await page.evaluate(() => window.__startupCity.scene.goal.dist);
+  await page.click('button[aria-label="Zoom out"]');
+  await page.waitForTimeout(700);
+  check("the zoom buttons work", (await page.evaluate(() => window.__startupCity.scene.goal.dist)) > dist * 1.3);
 
   await page.click(".sc-tools >> text=Refresh startup signals");
   await page.waitForSelector(".sc-refresh-status.error");
@@ -179,11 +192,9 @@ try {
   s = await state(page);
   check("without the API the bundled snapshot loads", s.startups >= 30 && /bundled snapshot/.test(s.loadError));
   await enter(page);
-  await page.fill("#sc-query", "Find climate-tech companies");
-  await page.keyboard.press("Enter");
-  await page.waitForFunction(() => window.__startupCity.store.getState().search.status === "done");
+  await page.click(".sc-filters >> text=Climate");
   s = await state(page);
-  check("search falls back to keyword interpretation", s.search.mode === "local" && s.filters.industries.includes("climate"));
+  check("filters work without the API", s.filters.industries.includes("climate") && await page.locator('.sc-marker[data-state="match"]').count() > 0);
   await page.context().close();
 
   // Phone layout

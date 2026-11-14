@@ -18,7 +18,7 @@ export type Bridge = {
   engine: Engine
   visuals: { setSun(x: number, y: number, z: number, elevation: number): void; getLight(): { day: number; dusk: number; dark: number } }
   district: {
-    setDrawScale(scale: number, focus?: { x: number; z: number } | null): void
+    setDrawScale(scale: number, focus?: { x: number; z: number } | null, treeRadius?: number): void
     setMinimapOverlay(overlay: { buildings?: string[]; routes?: { points: number[][]; color: string }[] }): void
   }
   geography: {
@@ -46,10 +46,20 @@ export type MarkerInput = {
   launch: boolean
   /** flash: a building whose company just had news; it pulses briefly. */
   state: 'normal' | 'match' | 'dim' | 'selected' | 'flash'
+  /** Junction 2026 partner in this building, shown with its official logo. */
+  partner?: { name: string; tier: string; logo: string | null } | null
 }
 
 export type Link = { a: string; b: string; color: string; dashed: boolean; width: number }
 export type Mode = 'explorer' | 'street'
+export type Graphics = 'auto' | 'smooth' | 'balanced' | 'detailed'
+type Tier = Exclude<Graphics, 'auto'>
+/** What each graphics level costs: resolution range, extra draw and fog distance from above, tree radius. */
+const TIERS: Record<Tier, { maxQ: number; minQ: number; draw: number; fogNear: number; fogFar: number; trees: number }> = {
+  smooth: { maxQ: 0.6, minQ: 0.4, draw: 3, fogNear: 500, fogFar: 1700, trees: 0 },
+  balanced: { maxQ: 0.8, minQ: 0.5, draw: 5.5, fogNear: 900, fogFar: 3200, trees: 320 },
+  detailed: { maxQ: 1, minQ: 0.6, draw: 9, fogNear: 1500, fogFar: 5200, trees: 520 },
+}
 export type TimeSettings = { live: boolean; minutes: number; season: 'today' | 'summer'; lapse: boolean }
 type Glow = { color: [number, number, number]; power: number; pulse: number }
 
@@ -72,6 +82,7 @@ export class CityScene {
   onNear: (buildingId: string | null) => void = () => {}
   onMode: (mode: Mode) => void = () => {}
   onPhase: (phase: Phase, previous: Phase | null) => void = () => {}
+  onTier: (tier: Tier) => void = () => {}
   /** Read every frame; the store owns the visitor's time settings. */
   timeSettings: () => TimeSettings = () => ({ live: true, minutes: 720, season: 'today', lapse: false })
   /** Current Helsinki clock in minutes, and the sun, as shown. */
@@ -85,7 +96,7 @@ export class CityScene {
   private grid = new Map<string, Building[]>()
   private cam = { ...HOME }
   private goal = { ...HOME }
-  private blend: { from: number[]; fromLook: number[]; to?: number[]; toLook?: number[]; t: number; duration: number; done?: () => void } | null = null
+  private blend: { from: number[]; fromLook: number[]; to?: number[]; toLook?: number[]; t: number; duration: number; hold?: number; done?: () => void } | null = null
   private fly: { from: typeof HOME; to: typeof HOME; t: number; duration: number } | null = null
   private keys = new Set<string>()
   private glowGroup: any
@@ -140,6 +151,9 @@ export class CityScene {
     document.body.append(this.input, this.overlay, this.markerLayer)
     this.bindInput()
     bridge.onFrame((dt, time) => this.frame(dt, time))
+    // Start at the level's resolution rather than the engine's full default.
+    this.e.state.quality = TIERS[this.tier].maxQ
+    window.dispatchEvent(new Event('resize'))
   }
 
   // Camera
@@ -156,7 +170,7 @@ export class CityScene {
     const B = this.map.bounds
     this.goal.tx = clamp(this.goal.tx, B.west, B.east)
     this.goal.tz = clamp(this.goal.tz, B.north, B.south)
-    this.goal.dist = clamp(this.goal.dist, 110, 2600)
+    this.goal.dist = clamp(this.goal.dist, 60, 2600)
     this.goal.pitch = clamp(this.goal.pitch, 0.2, 1.48)
   }
 
@@ -186,6 +200,43 @@ export class CityScene {
     e.input?.clear?.()
     this.setMode('explorer')
   }
+
+  /**
+   * The opening shot: high above the city looking north into the northern lights, a pause, then a
+   * slow tilt down and descent onto the district. Any click or key skips to the end.
+   */
+  openingFlight(done?: () => void) {
+    const e = this.e
+    this.visited = true
+    this.cam = { ...HOME }
+    this.goal = { ...HOME }
+    const from = [HOME.tx + 150, 1250, HOME.tz + 2300]
+    const fromLook = [HOME.tx - 100, 2300, HOME.tz - 5200]
+    document.body.classList.add('sc-opening')
+    let finished = false
+    const finish = () => {
+      if (finished) return
+      finished = true
+      document.body.classList.remove('sc-opening')
+      window.removeEventListener('pointerdown', skip, true)
+      window.removeEventListener('keydown', skip, true)
+      done?.()
+    }
+    const skip = () => { if (this.blend) this.blend.t = Math.max(this.blend.t, 0.97) }
+    window.addEventListener('pointerdown', skip, true)
+    window.addEventListener('keydown', skip, true)
+    this.blend = { from, fromLook, t: 0, duration: this.reduced() ? 0.01 : 11, hold: 0.28, done: finish }
+    e.state.free = { x: from[0], y: from[1], z: from[2], yaw: 0, pitch: 0, fov: EXPLORER_FOV, bend: 0 }
+    e.state.state = 'free'
+    e.player.speed = 0
+    e.input?.clear?.()
+    this.setMode('explorer')
+  }
+
+  skipOpening() { if (this.blend && this.blend.hold !== undefined) this.blend.t = Math.max(this.blend.t, 0.97) }
+
+  /** Skip the engine's painting-frame dive; the opening flight replaces it. */
+  skipDive = true
 
   /** Drop to street level beside a map position and hand control back to the rider. */
   enterStreet(near?: { x: number; z: number }) {
@@ -285,27 +336,74 @@ export class CityScene {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches
   }
 
+  /** The point on the ground (y = 0) under a screen position, using the camera as last rendered. */
+  private groundAt(clientX: number, clientY: number) {
+    const camera = this.e.camera
+    const far = this.vec.set((clientX / window.innerWidth) * 2 - 1, 1 - (clientY / window.innerHeight) * 2, 0.5).unproject(camera)
+    const ox = camera.position.x, oy = camera.position.y, oz = camera.position.z
+    const dx = far.x - ox, dy = far.y - oy, dz = far.z - oz
+    if (dy >= -1e-4) return null
+    const t = -oy / dy
+    // Points near the horizon are too far away to be useful anchors.
+    if (t * Math.hypot(dx, dy, dz) > 12000) return null
+    return { x: ox + dx * t, z: oz + dz * t }
+  }
+
+  private inertia = { vx: 0, vz: 0 }
+
+  /** Zoom by a factor while keeping the ground point under the cursor fixed, like a web map. */
+  zoomAt(factor: number, clientX = window.innerWidth / 2, clientY = window.innerHeight / 2, animate = false) {
+    if (this.mode !== 'explorer' || this.cinematic) return
+    const dist = clamp(this.goal.dist * factor, 60, 2600)
+    const f = dist / this.goal.dist
+    const anchor = this.groundAt(clientX, clientY) ?? { x: this.goal.tx, z: this.goal.tz }
+    const target = { tx: anchor.x + (this.goal.tx - anchor.x) * f, tz: anchor.z + (this.goal.tz - anchor.z) * f, dist }
+    if (animate) this.flyTo(target, 0.45)
+    else {
+      this.fly = null
+      Object.assign(this.goal, target)
+      this.clampGoal()
+    }
+  }
+
+  /** Pause 3D rendering, for example while a full-screen film covers the view. The frame loop keeps running. */
+  setRendering(on: boolean) {
+    this.e.state.blind = !on
+  }
+
+  /** Map heading in radians, for the compass. */
+  heading() { return this.cam.yaw }
+
+  /** Face north and look down at the default tilt. */
+  resetNorth() {
+    this.flyTo({ yaw: 0, pitch: HOME.pitch }, 0.6)
+  }
+
   private bindInput() {
     const el = this.input
     const pointers = new Map<number, { x: number; y: number }>()
-    let drag: { x: number; y: number; moved: number; rotate: boolean } | null = null
-    let pinch: { distance: number; angle: number } | null = null
+    let drag: { x: number; y: number; moved: number; rotate: boolean; samples: { t: number; x: number; z: number }[] } | null = null
+    let pinch: { distance: number; angle: number; midY: number } | null = null
+    let hoverQueued = false, hoverX = 0, hoverY = 0
     el.addEventListener('contextmenu', (event) => event.preventDefault())
     el.addEventListener('pointerdown', (event) => {
       if (this.cinematic) return
       el.setPointerCapture(event.pointerId)
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY })
       this.fly = null
-      if (pointers.size === 1) drag = { x: event.clientX, y: event.clientY, moved: 0, rotate: event.button === 2 || event.shiftKey || event.ctrlKey }
+      this.inertia = { vx: 0, vz: 0 }
+      if (pointers.size === 1) drag = { x: event.clientX, y: event.clientY, moved: 0, rotate: event.button === 2 || event.shiftKey || event.ctrlKey, samples: [] }
       else if (pointers.size === 2) {
         const [a, b] = [...pointers.values()]
-        pinch = { distance: Math.hypot(a.x - b.x, a.y - b.y), angle: Math.atan2(b.y - a.y, b.x - a.x) }
+        pinch = { distance: Math.hypot(a.x - b.x, a.y - b.y), angle: Math.atan2(b.y - a.y, b.x - a.x), midY: (a.y + b.y) / 2 }
         drag = null
       }
     })
     el.addEventListener('pointermove', (event) => {
       if (!pointers.has(event.pointerId)) {
-        this.hoverAt(event.clientX, event.clientY)
+        // Hover picking walks a ray through the buildings; once per frame is plenty.
+        hoverX = event.clientX; hoverY = event.clientY
+        if (!hoverQueued) { hoverQueued = true; requestAnimationFrame(() => { hoverQueued = false; this.hoverAt(hoverX, hoverY) }) }
         return
       }
       const previous = pointers.get(event.pointerId)!
@@ -313,25 +411,33 @@ export class CityScene {
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY })
       if (pinch && pointers.size === 2) {
         const [a, b] = [...pointers.values()]
-        const distance = Math.hypot(a.x - b.x, a.y - b.y), angle = Math.atan2(b.y - a.y, b.x - a.x)
-        this.goal.dist *= pinch.distance / Math.max(distance, 1)
+        const distance = Math.hypot(a.x - b.x, a.y - b.y), angle = Math.atan2(b.y - a.y, b.x - a.x), midY = (a.y + b.y) / 2
+        // Pinch zooms about the fingers, twist turns, and both fingers moving up or down tilts.
+        this.zoomAt(pinch.distance / Math.max(distance, 1), (a.x + b.x) / 2, midY)
         this.goal.yaw -= angle - pinch.angle
-        pinch = { distance, angle }
+        this.goal.pitch += (midY - pinch.midY) * 0.004
+        pinch = { distance, angle, midY }
         this.clampGoal()
       } else if (drag) {
         drag.moved += Math.abs(dx) + Math.abs(dy)
         if (drag.rotate) {
           this.goal.yaw -= dx * 0.005
           this.goal.pitch += dy * 0.004
+          this.clampGoal()
         } else {
-          // Drag the ground: one screen pixel is a fixed distance at the look-at point.
-          const metres = (2 * this.cam.dist * Math.tan((EXPLORER_FOV * Math.PI) / 360)) / window.innerHeight
-          const sin = Math.sin(this.cam.yaw), cos = Math.cos(this.cam.yaw)
-          const forward = dy / Math.max(0.35, Math.sin(this.cam.pitch))
-          this.goal.tx += (-dx * cos - forward * sin) * metres
-          this.goal.tz += (dx * sin - forward * cos) * metres
+          // Grab the ground: the point under the pointer stays under it, with no smoothing lag.
+          const from = this.groundAt(previous.x, previous.y), to = this.groundAt(event.clientX, event.clientY)
+          if (from && to) {
+            const mx = from.x - to.x, mz = from.z - to.z
+            this.cam.tx += mx; this.cam.tz += mz
+            this.goal.tx += mx; this.goal.tz += mz
+            this.clampGoal()
+            this.cam.tx = this.goal.tx; this.cam.tz = this.goal.tz
+            const now = performance.now()
+            drag.samples.push({ t: now, x: mx, z: mz })
+            while (drag.samples.length && now - drag.samples[0].t > 100) drag.samples.shift()
+          }
         }
-        this.clampGoal()
       }
     })
     const release = (event: PointerEvent) => {
@@ -340,21 +446,35 @@ export class CityScene {
       if (drag && drag.moved < 6 && event.type === 'pointerup' && !drag.rotate) {
         const hit = this.pickBuilding(event.clientX, event.clientY)
         this.onPick(hit && this.glows.has(hit.id) ? hit.id : null, hit?.name || null)
+      } else if (drag && !drag.rotate && drag.samples.length > 1 && !this.reduced()) {
+        // Keep gliding after a flick, as web maps do.
+        const span = (performance.now() - drag.samples[0].t) / 1000
+        if (span > 0 && span < 0.2) {
+          const sx = drag.samples.reduce((s, p) => s + p.x, 0), sz = drag.samples.reduce((s, p) => s + p.z, 0)
+          this.inertia = { vx: sx / Math.max(span, 0.03), vz: sz / Math.max(span, 0.03) }
+        }
       }
       drag = null
     }
     el.addEventListener('pointerup', release)
     el.addEventListener('pointercancel', release)
+    el.addEventListener('dblclick', (event) => {
+      if (this.cinematic) return
+      this.zoomAt(event.shiftKey ? 2 : 0.5, event.clientX, event.clientY, true)
+    })
     el.addEventListener('wheel', (event) => {
       event.preventDefault()
       if (this.cinematic) return
-      this.fly = null
-      this.goal.dist *= Math.exp(clamp(event.deltaY, -240, 240) * 0.0012)
-      this.clampGoal()
+      // Mouse wheels send large steps, trackpads and pinch gestures small ones; both zoom towards the cursor.
+      const step = event.deltaMode === 1 ? event.deltaY * 33 : event.deltaY
+      this.zoomAt(Math.exp(clamp(step, -300, 300) * (event.ctrlKey ? 0.01 : 0.0015)), event.clientX, event.clientY)
     }, { passive: false })
     const typing = (event: KeyboardEvent) => event.target instanceof HTMLElement && event.target.closest('input, textarea, select, [contenteditable]')
     window.addEventListener('keydown', (event) => {
-      if (this.mode === 'explorer' && !typing(event) && !event.metaKey && !event.ctrlKey) this.keys.add(event.code)
+      if (this.mode !== 'explorer' || typing(event) || event.metaKey || event.ctrlKey) return
+      if (event.code === 'Equal' || event.code === 'NumpadAdd') this.zoomAt(0.6, undefined, undefined, true)
+      else if (event.code === 'Minus' || event.code === 'NumpadSubtract') this.zoomAt(1 / 0.6, undefined, undefined, true)
+      else this.keys.add(event.code)
     })
     window.addEventListener('keyup', (event) => this.keys.delete(event.code))
     window.addEventListener('blur', () => this.keys.clear())
@@ -374,6 +494,7 @@ export class CityScene {
 
   private frame(dt: number, time: number) {
     const e = this.e
+    if (this.skipDive && e.state.state === 'dive' && e.state.diveT < 8.34) e.state.diveT = 8.34
     const state = e.state.state
     if (state === 'ride' && !this.entered) {
       this.entered = true
@@ -395,7 +516,9 @@ export class CityScene {
       let pose = this.orbitPose()
       if (this.blend) {
         this.blend.t += dt / this.blend.duration
-        const t = ease(clamp(this.blend.t, 0, 1))
+        // An optional hold at the start keeps the opening shot on the sky before the descent.
+        const hold = this.blend.hold ?? 0
+        const t = ease(clamp((this.blend.t - hold) / (1 - hold), 0, 1))
         const to = this.blend.to ?? pose.pos, toLook = this.blend.toLook ?? pose.look
         // Lift the path so the camera clears rooftops on the way.
         const arc = Math.sin(Math.PI * t) * (this.blend.to ? 30 : 0)
@@ -416,9 +539,10 @@ export class CityScene {
       Object.assign(e.state.free, { x: pose.pos[0], y: pose.pos[1], z: pose.pos[2], fov: EXPLORER_FOV, cy: 0.5 + 0.17 * k })
     }
     // The whole district stays drawn and unfogged from above.
-    e.camera.far = 2600 + 5400 * k
-    e.shared.uFogRange.value.set(this.streetFog[0] + 1500 * k, this.streetFog[1] + 5200 * k)
-    this.bridge.district.setDrawScale(1 + 9 * k, k > 0.5 ? { x: this.cam.tx, z: this.cam.tz } : null)
+    const tier = TIERS[this.tier]
+    e.camera.far = 2600 + (tier.fogFar + 200) * k
+    e.shared.uFogRange.value.set(this.streetFog[0] + tier.fogNear * k, this.streetFog[1] + tier.fogFar * k)
+    this.bridge.district.setDrawScale(1 + tier.draw * k, k > 0.5 ? { x: this.cam.tx, z: this.cam.tz } : null, tier.trees)
     e.camera.updateMatrixWorld()
 
     for (const glow of this.glows.values()) {
@@ -431,6 +555,10 @@ export class CityScene {
       glow.uniforms.uPower.value = c.power * (1 + c.pulse * (0.5 + 0.5 * Math.sin(time * 3.2)))
       glow.uniforms.uTime.value = time
       glow.mesh.visible = c.power > 0.01
+    }
+    if (this.routeMesh) {
+      this.routeMesh.material.uniforms.uTime.value = time
+      if (this.routeWidthMode !== this.mode) this.buildRouteMesh()
     }
     const visible = this.entered && state !== 'dive'
     this.markerLayer.style.display = visible ? '' : 'none'
@@ -449,7 +577,16 @@ export class CityScene {
    */
   private frameTimes: number[] = []
   private nextResolutionChange = 0
-  private maxQuality = matchMedia('(pointer: coarse)').matches || Math.min(innerWidth, innerHeight) < 600 ? 0.7 : 1
+  /** The visitor's setting; Auto starts from the device and steps down when frames stay slow. */
+  graphics: Graphics = 'auto'
+  tier: Tier = matchMedia('(pointer: coarse)').matches || Math.min(innerWidth, innerHeight) < 600 || (navigator.hardwareConcurrency ?? 8) <= 4 ? 'smooth' : 'balanced'
+  private slowAtFloor = 0
+  setGraphics(value: Graphics) {
+    this.graphics = value
+    if (value !== 'auto') this.tier = value
+    this.e.state.quality = Math.min(this.e.state.quality, TIERS[this.tier].maxQ)
+    window.dispatchEvent(new Event('resize'))
+  }
   private adaptResolution(dt: number, state: string) {
     const e = this.e
     if (state === 'ride' || state === 'title' || dt <= 0 || dt > 1) { this.frameTimes.length = 0; return }
@@ -460,9 +597,20 @@ export class CityScene {
     const now = performance.now()
     if (now < this.nextResolutionChange) return
     let quality = e.state.quality as number
-    if (average > 1 / 38 && quality > 0.5) quality = Math.max(0.5, quality - 0.1)
-    else if (average < 1 / 57 && quality < this.maxQuality) quality = Math.min(this.maxQuality, quality + 0.05)
-    else if (quality > this.maxQuality) quality = this.maxQuality
+    const { maxQ, minQ } = TIERS[this.tier]
+    if (average > 1 / 38 && quality <= minQ + 0.01) {
+      // Already at the lowest resolution for this level: in Auto, drop a level after a few slow seconds.
+      if (this.graphics === 'auto' && this.tier !== 'smooth' && ++this.slowAtFloor >= 3) {
+        this.tier = this.tier === 'detailed' ? 'balanced' : 'smooth'
+        this.slowAtFloor = 0
+        this.onTier(this.tier)
+      }
+      return
+    }
+    this.slowAtFloor = 0
+    if (average > 1 / 38) quality = Math.max(minQ, quality - 0.1)
+    else if (average < 1 / 57 && quality < maxQ) quality = Math.min(maxQ, quality + 0.05)
+    else if (quality > maxQ) quality = maxQ
     else return
     e.state.quality = quality
     // The engine resizes its render targets on window resize.
@@ -517,6 +665,13 @@ export class CityScene {
       this.goal = { ...this.cam }
       return
     }
+    if (this.inertia.vx || this.inertia.vz) {
+      const decay = Math.exp(-4.5 * dt)
+      this.goal.tx += this.inertia.vx * dt; this.goal.tz += this.inertia.vz * dt
+      this.cam.tx += this.inertia.vx * dt; this.cam.tz += this.inertia.vz * dt
+      this.inertia.vx *= decay; this.inertia.vz *= decay
+      if (Math.hypot(this.inertia.vx, this.inertia.vz) < 2) this.inertia = { vx: 0, vz: 0 }
+    }
     const pan = this.cam.dist * 0.9 * dt
     const sin = Math.sin(this.cam.yaw), cos = Math.cos(this.cam.yaw)
     const ahead = (this.keys.has('KeyW') || this.keys.has('ArrowUp') ? 1 : 0) - (this.keys.has('KeyS') || this.keys.has('ArrowDown') ? 1 : 0)
@@ -524,7 +679,6 @@ export class CityScene {
     this.goal.tx += (-sin * ahead + cos * side) * pan
     this.goal.tz += (-cos * ahead - sin * side) * pan
     this.goal.yaw += ((this.keys.has('KeyQ') ? 1 : 0) - (this.keys.has('KeyE') ? 1 : 0)) * 1.2 * dt
-    this.goal.dist *= Math.exp(((this.keys.has('Minus') ? 1 : 0) - (this.keys.has('Equal') ? 1 : 0)) * 1.4 * dt)
     this.clampGoal()
     const rate = 1 - Math.exp(-9 * dt)
     for (const key of ['tx', 'tz', 'dist', 'yaw', 'pitch'] as const) this.cam[key] += (this.goal[key] - this.cam[key]) * rate
@@ -551,7 +705,7 @@ export class CityScene {
     e.scene.add(mesh)
   }
 
-  private glowMesh(building: Building, x: number, z: number) {
+  private glowMesh(building: Building, x: number, z: number, partner = false) {
     const e = this.e
     const positions: number[] = [], fades: number[] = []
     const top = building.h + 0.6
@@ -565,8 +719,21 @@ export class CityScene {
     }
     const flat = building.rings.flat()
     for (const triangle of building.triangles) for (const index of triangle) push(flat[index][0], top, flat[index][1], 0.8)
-    // A light beam, visible across the city and from street level.
-    const beam = 70, half = 1.6
+    // A light beam, visible across the city and from street level. Partners get a taller, wider one
+    // and a halo ring above the roof.
+    const beam = partner ? 190 : 70, half = partner ? 3.2 : 1.6
+    if (partner) {
+      const radius = Math.max(8, Math.min(30, Math.hypot(building.bounds[2] - building.bounds[0], building.bounds[3] - building.bounds[1]) * 0.42))
+      for (const [lift, width] of [[9, 1.4], [16, 0.8]]) {
+        for (let i = 0; i < 48; i++) {
+          const a0 = (i / 48) * Math.PI * 2, a1 = ((i + 1) / 48) * Math.PI * 2
+          const r = radius * (lift === 16 ? 0.7 : 1)
+          const p0 = [x + Math.cos(a0) * r, z + Math.sin(a0) * r], p1 = [x + Math.cos(a1) * r, z + Math.sin(a1) * r]
+          push(p0[0], top + lift, p0[1], 1.4); push(p1[0], top + lift, p1[1], 1.4); push(p1[0], top + lift + width, p1[1], 1.6)
+          push(p0[0], top + lift, p0[1], 1.4); push(p1[0], top + lift + width, p1[1], 1.6); push(p0[0], top + lift + width, p0[1], 1.6)
+        }
+      }
+    }
     for (const [dx, dz] of [[half, 0], [0, half]]) {
       push(x - dx, top, z - dz, 1.3); push(x + dx, top, z + dz, 1.3); push(x + dx, top + beam, z + dz, 0)
       push(x - dx, top, z - dz, 1.3); push(x + dx, top + beam, z + dz, 0); push(x - dx, top + beam, z - dz, 0)
@@ -574,18 +741,26 @@ export class CityScene {
     const geometry = new e.Geometry()
     geometry.setAttribute('position', new e.Attribute(new Float32Array(positions), 3))
     geometry.setAttribute('aFade', new e.Attribute(new Float32Array(fades), 1))
-    const uniforms = { uColor: { value: new e.Color(1, 1, 1) }, uPower: { value: 0 }, uTime: { value: 0 } }
+    const uniforms = { uColor: { value: new e.Color(1, 1, 1) }, uPower: { value: 0 }, uTime: { value: 0 }, uPartner: { value: partner ? 1 : 0 } }
     const material = new e.Material({
       uniforms,
       vertexShader: `attribute float aFade; varying float vFade; varying vec3 vWorld;
         void main(){ vFade = aFade; vec4 world = modelMatrix * vec4(position, 1.0); vWorld = world.xyz;
           gl_Position = projectionMatrix * viewMatrix * world; }`,
-      fragmentShader: `uniform vec3 uColor; uniform float uPower; uniform float uTime; varying float vFade; varying vec3 vWorld;
+      fragmentShader: `uniform vec3 uColor; uniform float uPower; uniform float uTime; uniform float uPartner; varying float vFade; varying vec3 vWorld;
         void main(){
           float scan = 0.82 + 0.18 * sin(vWorld.y * 0.9 - uTime * 2.4);
+          vec3 colour = uColor;
+          if (uPartner > 0.5) {
+            // Junction partners: aurora bands, green to violet with a gold rim, drifting upwards.
+            float band = 0.5 + 0.5 * sin(vWorld.y * 0.07 - uTime * 1.1 + vWorld.x * 0.02);
+            colour = mix(vec3(0.36, 0.95, 0.69), vec3(0.62, 0.45, 1.0), band);
+            colour = mix(colour, vec3(1.0, 0.82, 0.42), smoothstep(1.35, 1.6, vFade));
+            scan = 0.75 + 0.25 * sin(vWorld.y * 0.35 - uTime * 3.0);
+          }
           // Up close the shell thins out so it never floods a street-level view.
           float near = 0.12 + 0.88 * smoothstep(25.0, 260.0, distance(cameraPosition, vWorld));
-          gl_FragColor = vec4(uColor * uPower * vFade * scan * near, 1.0);
+          gl_FragColor = vec4(colour * uPower * min(vFade, 1.3) * scan * near, 1.0);
         }`,
       transparent: true,
       depthWrite: false,
@@ -613,7 +788,7 @@ export class CityScene {
       const building = this.buildings.get(input.buildingId)
       if (!building) continue
       if (!this.glows.has(input.buildingId)) {
-        const made = this.glowMesh(building, input.x, input.z)
+        const made = this.glowMesh(building, input.x, input.z, Boolean(input.partner))
         const start: Glow = { color: hexToRgb(input.color), power: 0, pulse: 0 }
         this.glows.set(input.buildingId, { ...made, target: { ...start }, current: start, x: input.x, z: input.z })
       }
@@ -622,7 +797,7 @@ export class CityScene {
       // Only fresh news pulses; everything else holds a steady light.
       glow.target = {
         color: hexToRgb(gold ? '#f2c14e' : input.color),
-        power: input.state === 'dim' ? 0.05 : input.state === 'selected' ? 1.4 : input.state === 'match' || input.state === 'flash' ? 1.1 : gold ? 0.7 : 0.4,
+        power: input.state === 'dim' ? 0.05 : input.state === 'selected' ? 1.4 : input.state === 'match' || input.state === 'flash' ? 1.1 : input.partner ? 1 : gold ? 0.7 : 0.4,
         pulse: input.state === 'flash' ? 0.6 : 0,
       }
       let marker = this.markers.get(input.buildingId)
@@ -643,6 +818,31 @@ export class CityScene {
       const logos = input.logos.slice(0, 3).map((logo) => logo.src
         ? `<span class="sc-logo${logo.dark ? ' dark' : ''}"><img src="${logo.src}" alt="" loading="lazy" /></span>`
         : `<span class="sc-logo sc-initials">${escapeHtml(logo.initials)}</span>`).join('')
+      el.classList.toggle('partner', Boolean(input.partner))
+      if (input.partner) {
+        const p = input.partner
+        const tier = { featured: 'Featured partner', main: 'Main partner', challenge: 'Challenge partner', tech: 'Tech partner', supporter: 'Supporter', organiser: 'Organiser', listed: 'Partner' }[p.tier] ?? 'Partner'
+        el.innerHTML = `
+        <span class="sc-partner-card">
+          <span class="sc-partner-logo">${p.logo ? `<img src="${p.logo}" alt="" />` : `<b>${escapeHtml(p.name)}</b>`}</span>
+          <span class="sc-partner-text"><b>${escapeHtml(p.name)}</b><small>Junction 2026, ${tier.toLowerCase()}${input.count > 1 ? `, +${input.count - 1} here` : ''}</small></span>
+        </span>
+        <span class="sc-stem partner"></span>`
+        // Wordmarks and square logos get the same visual area, so no partner looks bigger than another.
+        const img = el.querySelector<HTMLImageElement>('.sc-partner-logo img')
+        if (img) {
+          const fit = () => {
+            const aspect = img.naturalWidth / Math.max(1, img.naturalHeight)
+            if (!aspect) return
+            const height = clamp(Math.sqrt(1050 / aspect), 13, 30)
+            img.style.height = `${height.toFixed(1)}px`
+            img.style.width = `${Math.min(110, height * aspect).toFixed(1)}px`
+          }
+          if (img.complete) fit()
+          else img.addEventListener('load', fit, { once: true })
+        }
+        continue
+      }
       el.innerHTML = `
         <span class="sc-pin">${input.launch ? '<i class="sc-ping"></i>' : ''}${logos}${input.count > 3 ? `<span class="sc-logo sc-more">+${input.count - 3}</span>` : ''}</span>
         <span class="sc-tag"><b>${escapeHtml(input.title)}</b><small>${escapeHtml(input.subtitle)}</small></span>
@@ -674,13 +874,13 @@ export class CityScene {
       const distance = Math.hypot(camera.x - input.x, camera.y - marker.top, camera.z - input.z)
       const shown = p.front && distance < limit && p.x > -120 && p.x < window.innerWidth + 120 && p.y > -80 && p.y < window.innerHeight + 160
       if (!shown) { if (el.style.display !== 'none') el.style.display = 'none'; continue }
-      const scale = explorer ? clamp(520 / distance, 0.5, 1.05) : clamp(60 / distance, 0.55, 1)
+      const scale = explorer ? clamp((input.partner ? 700 : 520) / distance, input.partner ? 0.72 : 0.5, 1.05) : clamp(60 / distance, 0.55, 1)
       if (el.style.display === 'none') el.style.display = ''
       el.style.transform = `translate3d(${p.x.toFixed(1)}px, ${p.y.toFixed(1)}px, 0) translate(-50%, -100%) scale(${scale.toFixed(3)})`
-      const z = String(input.state === 'selected' ? 90000 : Math.max(1, 80000 - Math.round(distance / 10) * 10))
+      const z = String(input.state === 'selected' ? 90000 : input.partner ? 85000 - Math.round(distance / 10) : Math.max(1, 80000 - Math.round(distance / 10) * 10))
       if (el.style.zIndex !== z) el.style.zIndex = z
       // Names collapse when far away; logos stay.
-      const compact = input.state !== 'selected' && input.state !== 'match' && distance > (explorer ? 1250 : 180)
+      const compact = !input.partner && input.state !== 'selected' && input.state !== 'match' && distance > (explorer ? 1250 : 180)
       if (el.classList.contains('compact') !== compact) el.classList.toggle('compact', compact)
     }
   }
@@ -707,6 +907,66 @@ export class CityScene {
   setRoutes(routes: { points: number[][]; color: string }[]) {
     this.routes = routes
     this.bridge.district.setMinimapOverlay({ routes })
+    this.buildRouteMesh()
+  }
+
+  /**
+   * Routes are drawn on the street surface in 3D, so buildings hide them like they hide the street.
+   * The ribbon is wider from above than at street level; chevrons drift towards the destination.
+   */
+  private routeMesh: any = null
+  private routeWidthMode: Mode | null = null
+  private buildRouteMesh() {
+    const e = this.e
+    if (this.routeMesh) { this.glowGroup.remove(this.routeMesh); this.routeMesh.geometry.dispose(); this.routeMesh = null }
+    this.routeWidthMode = this.mode
+    if (!this.routes.length) return
+    const half = this.mode === 'explorer' ? 4.5 : 1.6
+    const positions: number[] = [], along: number[] = [], side: number[] = []
+    for (const route of this.routes) {
+      let distance = 0
+      for (let i = 1; i < route.points.length; i++) {
+        const [ax, az] = route.points[i - 1], [bx, bz] = route.points[i]
+        const length = Math.hypot(bx - ax, bz - az)
+        if (length < 0.01) continue
+        const nx = (-(bz - az) / length) * half, nz = ((bx - ax) / length) * half
+        // Extend each segment slightly so corners join without gaps.
+        const ex = ((bx - ax) / length) * half * 0.6, ez = ((bz - az) / length) * half * 0.6
+        const A = [ax - ex, az - ez], B = [bx + ex, bz + ez]
+        const quad = [[A[0] + nx, A[1] + nz, distance, 1], [B[0] + nx, B[1] + nz, distance + length, 1], [B[0] - nx, B[1] - nz, distance + length, -1],
+          [A[0] + nx, A[1] + nz, distance, 1], [B[0] - nx, B[1] - nz, distance + length, -1], [A[0] - nx, A[1] - nz, distance, -1]]
+        for (const [x, z, d, sd] of quad) { positions.push(x, 0.25, z); along.push(d); side.push(sd) }
+        distance += length
+      }
+    }
+    const geometry = new e.Geometry()
+    geometry.setAttribute('position', new e.Attribute(new Float32Array(positions), 3))
+    geometry.setAttribute('aAlong', new e.Attribute(new Float32Array(along), 1))
+    geometry.setAttribute('aSide', new e.Attribute(new Float32Array(side), 1))
+    const material = new e.Material({
+      uniforms: { uTime: { value: 0 }, uScale: { value: this.mode === 'explorer' ? 22 : 7 } },
+      vertexShader: `attribute float aAlong; attribute float aSide; varying float vAlong; varying float vSide;
+        void main(){ vAlong = aAlong; vSide = aSide; gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(position, 1.0); }`,
+      fragmentShader: `uniform float uTime, uScale; varying float vAlong; varying float vSide;
+        void main(){
+          float edge = smoothstep(1.0, 0.75, abs(vSide));
+          // Chevrons pointing along the route, moving forward.
+          float f = fract(vAlong / uScale - uTime * 0.8 - abs(vSide) * 0.35);
+          float chevron = smoothstep(0.0, 0.08, f) * smoothstep(0.42, 0.3, f);
+          vec3 base = vec3(0.13, 0.83, 0.93);
+          vec3 col = mix(base * 0.55, vec3(0.92, 1.0, 1.0), chevron);
+          gl_FragColor = vec4(col, 0.85 * edge);
+        }`,
+      transparent: true,
+      depthWrite: false,
+      polygonOffset: true,
+      polygonOffsetFactor: -4,
+      polygonOffsetUnits: -4,
+    })
+    this.routeMesh = new e.Mesh(geometry, material)
+    this.routeMesh.frustumCulled = false
+    this.routeMesh.renderOrder = 3
+    this.glowGroup.add(this.routeMesh)
   }
 
   private drawOverlay(time: number) {
@@ -719,7 +979,7 @@ export class CityScene {
     }
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0)
     ctx.clearRect(0, 0, width, height)
-    if (!this.links.length && !this.routes.length) return
+    if (!this.links.length) return
     ctx.lineCap = 'round'
     ctx.lineJoin = 'round'
     const stroke = (points: number[][], color: string, lineWidth: number, dash: number[] | null, flow: number) => {
@@ -746,20 +1006,6 @@ export class CityScene {
       ctx.strokeStyle = '#ffffff'
       ctx.lineWidth = Math.max(0.6, lineWidth * 0.28)
       ctx.stroke()
-    }
-    for (const route of this.routes) {
-      const points: number[][] = []
-      for (let i = 0; i < route.points.length; i++) {
-        const [x, z] = route.points[i]
-        const next = route.points[i + 1]
-        points.push([x, 1.2, z])
-        // Subdivide long legs so they clip cleanly at the screen edge.
-        if (next) {
-          const steps = Math.floor(Math.hypot(next[0] - x, next[1] - z) / 25)
-          for (let s = 1; s <= steps; s++) points.push([x + ((next[0] - x) * s) / (steps + 1), 1.2, z + ((next[1] - z) * s) / (steps + 1)])
-        }
-      }
-      stroke(points, route.color, 4.5, [10, 9], -time * 26)
     }
     for (const link of this.links) {
       const a = this.glows.get(link.a), b = this.glows.get(link.b)

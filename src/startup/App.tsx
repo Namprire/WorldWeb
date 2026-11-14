@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import {
-  Award, Check, ChevronLeft, ChevronRight, Clapperboard, Compass, Footprints, List, Loader2, MapPin, Network, Newspaper, Pause, Play,
+  Award, Check, Gauge, House, Keyboard, Link2, Maximize, Minus, Navigation2, Plus, Settings, Tag, Volume2, ChevronLeft, ChevronRight, Clapperboard, Compass, Footprints, List, Loader2, MapPin, Network, Newspaper, Pause, Play,
   RefreshCw, RotateCcw, Route as RouteIcon, Sparkles, Target, X,
 } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -57,6 +57,7 @@ function useSceneSync() {
         funded: shown.some((s) => recentFunding(s)),
         news: shown.some((s) => recentNews(s).length > 0),
         launch: shown.some((s) => recentNews(s).some((n) => n.eventType === 'launch')),
+        partner: (() => { const p = members.find((s) => s.partner); return p ? { name: p.name, tier: p.partner!.tier, logo: p.partner!.logo ?? p.logo } : null })(),
         state: selectedBuilding === buildingId ? 'selected' : (flash[buildingId] ?? 0) > now ? 'flash' : active ? (matching.length ? 'match' : 'dim') : 'normal',
       }
     })
@@ -87,6 +88,116 @@ function useSceneSync() {
         width: c.kind === 'industry' ? 1.4 : 2.2,
       })))
   }, [scene, startups, suggestions, connectionsOn, connectionFocus, kinds])
+}
+
+/** The Gemini question bar is switched off for now; filters, profiles and cutscenes still use Gemini. */
+const SEARCH_ENABLED = false
+
+const GRAPHICS = [
+  { id: 'auto', label: 'Auto', hint: 'Adjusts to this device' },
+  { id: 'smooth', label: 'Smooth', hint: 'Fastest, shorter view distance' },
+  { id: 'balanced', label: 'Balanced', hint: 'Most laptops' },
+  { id: 'detailed', label: 'Detailed', hint: 'Whole district, full resolution' },
+] as const
+
+function SettingsButton() {
+  const graphics = useCity((s) => s.graphics)
+  const labels = useCity((s) => s.labels)
+  const [open, setOpen] = useState(false)
+  const box = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!open) return
+    const close = (event: PointerEvent) => { if (!box.current?.contains(event.target as Node)) setOpen(false) }
+    window.addEventListener('pointerdown', close)
+    return () => window.removeEventListener('pointerdown', close)
+  }, [open])
+  return (
+    <div className="sc-graphics" ref={box}>
+      {open && (
+        <div className="sc-graphics-panel sc-glass" aria-label="Settings">
+          <h2>Settings</h2>
+          <h3>Graphics</h3>
+          <div role="radiogroup" aria-label="Graphics">
+            {GRAPHICS.map((g) => (
+              <button key={g.id} type="button" role="radio" aria-checked={graphics === g.id} onClick={() => useCity.getState().setGraphics(g.id)}>
+                <b>{g.label}</b><span className="sc-muted">{g.hint}</span>
+              </button>
+            ))}
+          </div>
+          <label className="sc-check"><input type="checkbox" role="switch" checked={labels} onChange={(event) => useCity.getState().setLabels(event.target.checked)} /><Tag size={15} /> Company names on the map</label>
+          <button type="button" className="sc-text-btn" onClick={() => document.getElementById('btn-sound')?.click()}><Volume2 size={15} /> Sound on or off</button>
+          <button type="button" className="sc-text-btn" onClick={() => { if (document.fullscreenElement) void document.exitFullscreen(); else void document.documentElement.requestFullscreen?.() }}><Maximize size={15} /> Full screen</button>
+          <button type="button" className="sc-text-btn" onClick={() => { setOpen(false); useCity.setState({ shortcuts: true }) }}><Keyboard size={15} /> Keyboard shortcuts</button>
+        </div>
+      )}
+      <button type="button" className="sc-glass" aria-label="Settings" aria-expanded={open} title="Settings" onClick={() => setOpen(!open)}><Settings size={18} /></button>
+    </div>
+  )
+}
+
+const SHORTCUTS: [string, string][] = [
+  ['Drag', 'Move the map'], ['Scroll or pinch', 'Zoom towards the cursor'], ['Double-click', 'Zoom in there'], ['Right-drag', 'Turn and tilt'],
+  ['+ / −', 'Zoom'], ['W A S D', 'Move the map, or ride at street level'], ['Q / E', 'Turn the map'], ['Tab', 'Switch city view and street level'],
+  ['E', 'Visit the startup in front of you'], ['F', 'Walk or ride'], ['Esc', 'Close, clear the route, or skip a cutscene'], ['?', 'This list'],
+]
+
+function Shortcuts() {
+  const open = useCity((s) => s.shortcuts)
+  if (!open) return null
+  return (
+    <div className="sc-modal-backdrop" onPointerDown={() => useCity.setState({ shortcuts: false })}>
+      <section className="sc-modal sc-glass" role="dialog" aria-label="Keyboard shortcuts" onPointerDown={(event) => event.stopPropagation()}>
+        <header><h2>Keyboard and mouse</h2><button type="button" className="sc-icon" aria-label="Close" onClick={() => useCity.setState({ shortcuts: false })}><X size={16} /></button></header>
+        <dl>{SHORTCUTS.map(([key, what]) => <div key={key}><dt><kbd>{key}</kbd></dt><dd>{what}</dd></div>)}</dl>
+      </section>
+    </div>
+  )
+}
+
+function RouteBar() {
+  const route = useCity((s) => s.route)
+  const startups = useCity((s) => s.startups)
+  const mode = useCity((s) => s.mode)
+  const scene = useCity((s) => s.scene)
+  if (!route) return null
+  const { clearRoute, setMode } = useCity.getState()
+  const km = route.metres >= 1000 ? `${(route.metres / 1000).toFixed(1)} km` : `${Math.round(route.metres / 10) * 10} m`
+  const minutes = Math.max(1, Math.round(route.metres / 80))
+  const target = 'targetId' in route ? startups.find((s) => s.id === route.targetId) : null
+  return (
+    <div className="sc-route-bar sc-glass" role="status">
+      <RouteIcon size={18} />
+      <p><b>{target ? `Route to ${target.name}` : `Route past ${'tour' in route ? route.tour.length : 0} companies`}</b><span className="sc-muted">{km}, about {minutes} min on foot</span></p>
+      {target && mode === 'explorer' && <button type="button" className="sc-text-btn" onClick={() => setMode('street')}>Street level</button>}
+      {mode === 'street' && <button type="button" className="sc-text-btn" onClick={() => { scene?.enterExplorer(undefined, 1.4) }}>Overview</button>}
+      <button type="button" className="sc-text-btn" onClick={clearRoute}><X size={15} /> Clear</button>
+    </div>
+  )
+}
+
+function MapControls() {
+  const scene = useCity((s) => s.scene)
+  const mode = useCity((s) => s.mode)
+  const [heading, setHeading] = useState(0)
+  useEffect(() => {
+    if (!scene || mode !== 'explorer') return
+    const timer = setInterval(() => setHeading(scene.heading()), 120)
+    return () => clearInterval(timer)
+  }, [scene, mode])
+  if (!scene || mode !== 'explorer') return null
+  return (
+    <div className="sc-map-controls" role="group" aria-label="Map controls">
+      <SettingsButton />
+      <button type="button" className="sc-glass" aria-label="Recenter" title="Show the whole district" onClick={() => scene.flyHome()}><House size={18} /></button>
+      <button type="button" className="sc-glass" aria-label="Face north" title="Face north" onClick={() => scene.resetNorth()}>
+        <Navigation2 size={18} style={{ transform: `rotate(${(-heading * 180) / Math.PI}deg)` }} />
+      </button>
+      <div className="sc-zoom sc-glass">
+        <button type="button" aria-label="Zoom in" title="Zoom in" onClick={() => scene.zoomAt(0.6, undefined, undefined, true)}><Plus size={18} /></button>
+        <button type="button" aria-label="Zoom out" title="Zoom out" onClick={() => scene.zoomAt(1 / 0.6, undefined, undefined, true)}><Minus size={18} /></button>
+      </div>
+    </div>
+  )
 }
 
 function SearchBar() {
@@ -128,9 +239,10 @@ function SearchResult() {
           <span className="sc-muted"> {search.mode === 'gemini' ? `Read by ${search.model}.` : 'Gemini was unavailable, so keywords were used.'} Only sourced records are matched.</span>
         )}
       </p>
+      <button type="button" className="sc-text-btn" onClick={() => useCity.getState().clearSearch()}><X size={15} /> Clear filters</button>
       {onMap > 1 && (
         <button type="button" className="sc-text-btn" onClick={tourResults}>
-          <RouteIcon size={15} /> {route && 'tour' in route ? `Route, ${(route.metres / 1000).toFixed(1)} km` : 'Route between them'}
+          <RouteIcon size={15} /> {route && 'tour' in route ? 'Route shown' : 'Route between them'}
         </button>
       )}
     </div>
@@ -141,9 +253,11 @@ function Filters() {
   const filters = useCity((s) => s.filters)
   const startups = useCity((s) => s.startups)
   const { toggleIndustry, toggleFlag } = useCity.getState()
-  const used = industryIds.filter((id) => id !== 'hub' && startups.some((s) => s.industry === id && s.location))
+  const used = industryIds.filter((id) => id !== 'hub' && id !== 'partner' && startups.some((s) => s.industry === id && s.location))
   return (
     <div className="sc-filters" role="group" aria-label="Filters">
+      <button type="button" className="sc-partner-filter" aria-pressed={Boolean(filters.partners)} onClick={() => useCity.getState().setFilters({ ...filters, partners: !filters.partners })}><i />Junction 2026 partners</button>
+      <span className="sc-sep" aria-hidden="true" />
       {used.map((id) => (
         <button key={id} type="button" title={INDUSTRIES[id].label} aria-pressed={filters.industries.includes(id)} style={{ ['--c' as string]: INDUSTRIES[id].color }} onClick={() => toggleIndustry(id as IndustryId)}>
           <i />{INDUSTRIES[id].short}
@@ -256,6 +370,9 @@ function Missions() {
   )
 }
 
+const TIER_ORDER = ['organiser', 'featured', 'main', 'challenge', 'tech', 'supporter', 'listed']
+const TIER_LABEL: Record<string, string> = { organiser: 'Organiser', featured: 'Featured partner', main: 'Main partner', challenge: 'Challenge partner', tech: 'Tech partner', supporter: 'Supporter', listed: 'Partner' }
+
 function Directory() {
   const startups = useCity((s) => s.startups)
   const filters = useCity((s) => s.filters)
@@ -273,12 +390,31 @@ function Directory() {
       </button>
     </li>
   )
-  const placed = list.filter((s) => s.location)
-  const outside = list.filter((s) => !s.location && s.outsideDistrict)
-  const unknown = list.filter((s) => !s.location && !s.outsideDistrict)
+  const partners = startups.filter((s) => s.partner && (!active || matchesFilters(s, filters)))
+    .sort((a, b) => TIER_ORDER.indexOf(a.partner!.tier) - TIER_ORDER.indexOf(b.partner!.tier) || Number(Boolean(b.location)) - Number(Boolean(a.location)))
+  const companies = list.filter((s) => s.industry !== 'partner')
+  const placed = companies.filter((s) => s.location)
+  const outside = companies.filter((s) => !s.location && s.outsideDistrict)
+  const unknown = companies.filter((s) => !s.location && !s.outsideDistrict)
   return (
     <div className="sc-drawer-body">
       {active && <p className="sc-muted">Showing companies that match your search.</p>}
+      {partners.length > 0 && <section className="sc-partner-section">
+        <h3 className="sc-subhead">Junction 2026 partners ({partners.length})</h3>
+        <p className="sc-muted">{partners.filter((s) => s.location).length} have offices in this part of Helsinki and glow on the map. The rest are listed with their home city.</p>
+        <button type="button" className="sc-text-btn" onClick={() => useCity.getState().playCutscene({ kind: 'partners' })}><Clapperboard size={14} /> Partner tour</button>
+        <ul className="sc-directory">
+          {partners.map((s) => (
+            <li key={s.id}>
+              <button type="button" onClick={() => { const store = useCity.getState(); store.select(s.location?.buildingId ?? null, s.id, s.location ? 'map' : null); if (s.location && store.mode === 'explorer') store.scene?.focusBuilding(s.location.buildingId) }}>
+                <span className="sc-logo-box dark sc-partner-thumb" style={{ width: 32, height: 32 }}>{s.partner!.logo || s.logo ? <img src={s.partner!.logo ?? s.logo!} alt="" /> : <b>{initials(s.name)}</b>}</span>
+                <span><b>{s.name}</b><span className="sc-muted">{TIER_LABEL[s.partner!.tier] ?? 'Partner'}, {s.location ? s.location.address : s.outsideDistrict && s.reportedAddress ? `${s.reportedAddress}, ${s.municipality}` : s.headquarters ?? 'location not published'}</span></span>
+                {s.location && <span className="sc-event partner">On the map</span>}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </section>}
       <h3 className="sc-subhead">On the map ({placed.length})</h3>
       <ul className="sc-directory">{placed.map(row)}</ul>
       {outside.length > 0 && <>
@@ -363,16 +499,11 @@ const DEMO_STEPS: { title: string; text: () => string; run: () => void | Promise
     },
   },
   {
-    title: 'Ask in plain language',
-    text: () => 'Type a question. Gemini turns it into filters for the map.',
-    run: async () => {
-      const question = 'Show me AI startups in Helsinki'
-      for (let i = 1; i <= question.length; i++) {
-        if (!useCity.getState().demo.active) return
-        useCity.setState({ query: question.slice(0, i) })
-        await wait(38)
-      }
-      await useCity.getState().ask(question)
+    title: 'Filter the city',
+    text: () => 'Pick a category, here AI and data, and only those companies stay lit.',
+    run: () => {
+      const store = useCity.getState()
+      store.setFilters({ industries: ['ai'], hiring: false, recentlyFunded: false, hasNews: false, keywords: [], roleKeywords: [] }, '')
     },
   },
   {
@@ -462,6 +593,7 @@ async function startDemo() {
     document.getElementById('enter')?.click()
     for (let i = 0; i < 200 && useCity.getState().mode !== 'explorer'; i++) await wait(100)
   } else if (useCity.getState().mode !== 'explorer') store.scene.enterExplorer()
+  store.scene.skipOpening()
   useCity.setState({ demo: { active: true, step: 0, paused: false } })
 }
 
@@ -560,6 +692,8 @@ export function App() {
         if (typing) { (event.target as HTMLElement).blur(); event.stopImmediatePropagation(); return }
         if (state.selectedId) { state.select(null); event.stopImmediatePropagation() }
         else if (state.panel) { useCity.setState({ panel: null }); event.stopImmediatePropagation() }
+        else if (state.shortcuts) { useCity.setState({ shortcuts: false }); event.stopImmediatePropagation() }
+        else if (state.route) { state.clearRoute(); event.stopImmediatePropagation() }
         else if (state.demo.active) { useCity.setState({ demo: { active: false, step: 0, paused: false } }); event.stopImmediatePropagation() }
         return
       }
@@ -570,9 +704,9 @@ export function App() {
       } else if (event.code === 'Tab') {
         event.preventDefault()
         state.setMode(state.mode === 'explorer' ? 'street' : 'explorer')
-      } else if (event.code === 'Slash') {
+      } else if (event.key === '?') {
         event.preventDefault()
-        document.getElementById('sc-query')?.focus()
+        useCity.setState({ shortcuts: !state.shortcuts })
       }
     }
     window.addEventListener('keydown', onKey, true)
@@ -599,7 +733,7 @@ export function App() {
   }, [mode, route && 'targetId' in route ? route.targetId : null, scene])
 
   return (
-    <div id="sc-root" ref={rootRef} data-mode={mode} data-panel-open={selectedId ? 'true' : 'false'}>
+    <div id="sc-root" ref={rootRef} data-mode={mode} data-panel-open={selectedId ? 'true' : 'false'} data-labels={useCity((s) => s.labels) ? 'on' : 'off'}>
       <header className="sc-top">
         <div className="sc-brand">
           <p className="sc-wordmark">Startup City <span>Helsinki</span></p>
@@ -607,7 +741,7 @@ export function App() {
             {dataMode === 'live' ? `Live data, read ${relativeDate(meta?.lastLiveAt ?? null)}` : `Saved data from ${formatDate(meta?.snapshotAt)}`}
           </p>
         </div>
-        <SearchBar />
+        {SEARCH_ENABLED ? <SearchBar /> : <span />}
         <nav className="sc-tools" aria-label="City tools">
           <div className="sc-segmented sc-glass" role="radiogroup" aria-label="Camera mode">
             <button type="button" role="radio" aria-checked={mode === 'explorer'} onClick={() => setMode('explorer')} title="Bird's-eye view (Tab)"><Compass size={16} /> City</button>
@@ -640,7 +774,7 @@ export function App() {
         <div className="sc-tabs-nav sc-glass" role="tablist">
           <button type="button" role="tab" aria-selected={panel === 'feed'} onClick={() => togglePanel('feed')}><Newspaper size={16} /><span>Live from Helsinki</span><span className="sc-muted">{newsCount}</span></button>
           <button type="button" role="tab" aria-selected={panel === 'missions'} onClick={() => togglePanel('missions')}><Target size={16} /><span>Missions</span><span className="sc-muted">{missionsDone} of 3</span></button>
-          <button type="button" role="tab" aria-selected={panel === 'directory'} onClick={() => togglePanel('directory')}><List size={16} /><span>Directory</span><span className="sc-muted">{startups.filter((s) => s.industry !== 'hub').length}</span></button>
+          <button type="button" role="tab" aria-selected={panel === 'directory'} onClick={() => togglePanel('directory')}><List size={16} /><span>Directory</span><span className="sc-muted">{startups.filter((s) => s.industry !== 'hub' && s.industry !== 'partner').length}</span></button>
         </div>
         <AnimatePresence mode="wait">
           {panel && (
@@ -658,6 +792,9 @@ export function App() {
       <Panel />
       <ConnectionLegend />
       <Clock />
+      <MapControls />
+      <RouteBar />
+      <Shortcuts />
 
       <div className="sc-bottom">
         {mode === 'street' && nearCompanies.length > 0 && !selectedId && (

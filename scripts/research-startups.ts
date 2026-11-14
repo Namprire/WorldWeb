@@ -205,7 +205,8 @@ async function locate(street: string | null | undefined): Promise<Place | null> 
 // candidate list
 
 type SheetRow = Record<string, string | number | null>
-type Candidate = { name: string; domain: string | null; industry?: IndustryId; sheet?: SheetRow; listedIn: string[] }
+type Partner = { name: string; domain: string | null; tier: string; logo: string | null }
+type Candidate = { name: string; domain: string | null; industry?: IndustryId; sheet?: SheetRow; listedIn: string[]; partner?: Partner }
 const sheet: { companies: SheetRow[]; fundingRounds: SheetRow[] } = JSON.parse(readFileSync(sheetFile, 'utf8'))
 const candidates: Candidate[] = []
 for (const row of sheet.companies) {
@@ -217,6 +218,13 @@ for (const [domain, industry, givenName] of EARLIER_LIST) {
   const existing = candidates.find((c) => c.domain === domain || (givenName && plain(c.name) === plain(givenName)))
   if (existing) { existing.industry ??= industry; existing.listedIn.push('Earlier research list'); continue }
   candidates.push({ name: givenName ?? '', domain, industry, listedIn: ['Earlier research list'] })
+}
+// Junction 2026 partners, from the event site. Partners already on the list are marked; others are added.
+const junction: { source: string; partners: Partner[] } = JSON.parse(readFileSync(resolve(root, 'data/junction-partners.json'), 'utf8'))
+for (const partner of junction.partners) {
+  const existing = candidates.find((c) => (partner.domain && c.domain === partner.domain) || plain(c.name) === plain(partner.name))
+  if (existing) { existing.partner = partner; existing.listedIn.push('Junction 2026 partners'); continue }
+  candidates.push({ name: partner.name, domain: partner.domain, industry: 'partner', partner, listedIn: ['Junction 2026 partners'] })
 }
 console.log(`candidates: ${fromSheet} from the database, ${candidates.length - fromSheet} more from the earlier list`)
 
@@ -237,14 +245,14 @@ for (const c of candidates) {
   const usable = profile && !('error' in profile) ? profile as Profile : null
   const name = c.name || usable?.name?.split(/\s[|\u2013\u2014-]\s/)[0].trim() || c.domain || ''
   if (usable && c.domain && !sameBrand(name, c.domain) && name !== 'Maria 01') {
-    if (!c.sheet) { console.log(`skip ${c.domain}: profile resolves to another brand (${usable.name})`); continue }
+    if (!c.sheet && !c.partner) { console.log(`skip ${c.domain}: profile resolves to another brand (${usable.name})`); continue }
     profile = undefined
   }
   const trusted = profile && !('error' in profile) ? profile as Profile : null
   // The earlier list only knew domains, so a company can reach this point under two names.
   const key = plain(name).slice(0, 8)
   if (!c.sheet && rows.some((r) => r.sheet && (plain(r.name).startsWith(key) || key.startsWith(plain(r.name).slice(0, 8))))) continue
-  if (!c.sheet) {
+  if (!c.sheet && !c.partner) {
     // Earlier-list companies must report a Helsinki address themselves.
     if (!trusted || trusted.country !== 'FI' || !/helsinki|helsingfors/i.test(trusted.city ?? '')) continue
   }
@@ -270,7 +278,18 @@ await pool(rows, 4, async (row) => {
     } catch { /* The marker falls back to initials. */ }
   }
   const sheetHasFacts = row.sheet && (row.sheet.Founders || row.sheet['Latest round'] || row.sheet['All investors'])
-  if (row.domain && !cache.facts[row.domain] && row.domain !== 'maria.io' && !sheetHasFacts) {
+  // Official Junction logos are made for dark backgrounds, which suits the partner markers.
+  if (row.partner?.logo && !cache.logos[`partner-${id}`]) {
+    try {
+      const response = await fetch(row.partner.logo, { signal: AbortSignal.timeout(20_000) })
+      const extension = row.partner.logo.split('.').pop()
+      if (response.ok && extension && ['png', 'svg', 'webp', 'jpg'].includes(extension)) {
+        writeFileSync(resolve(logoDir, `partner-${id}.${extension}`), Buffer.from(await response.arrayBuffer()))
+        cache.logos[`partner-${id}`] = `/startup-logos/partner-${id}.${extension}`
+      }
+    } catch { /* the company logo is used instead */ }
+  }
+  if (row.domain && !cache.facts[row.domain] && row.domain !== 'maria.io' && !sheetHasFacts && row.industry !== 'partner') {
     try {
       cache.facts[row.domain] = { ...(await context.facts(row.name, row.domain)), retrievedAt: new Date().toISOString() }
     } catch (error) {
@@ -338,6 +357,8 @@ let startups: Startup[] = rows.map((row) => {
     companyStatus: (s?.Status as string | null) ?? null,
     acquirer: (s?.Acquirer as string | null) ?? null,
     listedIn: row.listedIn,
+    ...(row.partner ? { partner: { tier: row.partner.tier, logo: cache.logos[`partner-${idOf(row)}`] ?? null, source: junction.source } } : {}),
+    headquarters: profile?.city ? [profile.city, profile.country].filter(Boolean).join(', ') : null,
     location: place?.building ? {
       address: place.address,
       postalCode: s?.['Postal code'] ? String(s['Postal code']).padStart(5, '0') : profile?.postalCode ?? null,
@@ -362,7 +383,8 @@ let startups: Startup[] = rows.map((row) => {
 })
 
 const names = startups.map(({ id, name }) => ({ id, name }))
-const pending = startups.filter((s) => s.industry !== 'hub' && s.domain && (refresh || !s.newsCheckedAt))
+// Large partners (Meta, NVIDIA...) are not Helsinki startups: their news would drown the local feed.
+const pending = startups.filter((s) => s.industry !== 'hub' && s.industry !== 'partner' && s.domain && (refresh || !s.newsCheckedAt))
 console.log(`reading news and careers pages for ${pending.length} companies`)
 await pool(pending, 4, async (startup) => {
   const { startup: next, errors } = await refreshSignals(context, startup, names)
